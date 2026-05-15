@@ -32,6 +32,8 @@
     "docs:api": "pnpm --filter @harness-kernel/site docs:api",
     "docs:check": "pnpm --filter @harness-kernel/site docs:check",
     "docs:smoke": "pnpm --filter @harness-kernel/site docs:smoke",
+    "release:check": "node scripts/check-release-version.mjs",
+    "publish:dry-run": "pnpm --filter './packages/*' publish -r --dry-run --access public --no-git-checks",
     "verify": "pnpm typecheck && pnpm test && pnpm docs:build"
   },
   "devDependencies": {

@@ -37,7 +37,7 @@ After `1.0.0`, use normal SemVer:
 ## Tags
 
 A tag is an immutable Git pointer for a release commit. Release tags use the
-version name:
+version name with a `v` prefix:
 
 ```sh
 git tag v0.1.0
@@ -45,6 +45,7 @@ git push origin v0.1.0
 ```
 
 The tag should point at the exact commit whose package versions were published.
+The npm publish workflow runs when a `v*.*.*` tag is pushed.
 
 ## GitHub Releases
 
@@ -63,8 +64,26 @@ Before publishing:
 ```sh
 pnpm verify
 pnpm docs:smoke
-pnpm test:consumer:packed
+pnpm release:check 0.1.0
+pnpm publish:dry-run
 ```
 
-Then publish packages from the release commit. Package versions and the Git tag
-should match.
+Publishing goes to the npm registry. `pnpm` is the workspace package manager and
+the CLI used to publish all packages recursively; it is not a separate package
+registry.
+
+The GitHub Actions workflow publishes from tags using:
+
+```sh
+pnpm --filter './packages/*' publish -r --access public --no-git-checks --tag latest
+```
+
+Repository setup required before the first release:
+
+- create or claim the `@harness-kernel` scope on npm;
+- add a GitHub repository secret named `NPM_TOKEN` with publish access;
+- keep every public package version equal to the tag version;
+- push the release tag only after the release commit is on `main`.
+
+After the packages are visible on npm, create the GitHub Release for the same
+tag with highlights, migration notes, and verification results.

@@ -37,7 +37,8 @@
   "files": [
     "dist",
     "templates",
-    "README.md"
+    "README.md",
+    "NOTICE"
   ],
   "scripts": {
     "build": "tsup",
