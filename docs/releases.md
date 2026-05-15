@@ -76,9 +76,10 @@ pnpm release:check 0.1.0-beta.0
 pnpm publish:dry-run
 ```
 
-Publishing goes to the npm registry. `pnpm` is the workspace package manager and
-the CLI used to publish all packages recursively; it is not a separate package
-registry.
+Publishing goes to the npm registry. `pnpm` is the workspace package manager; it
+is not a separate package registry. The release workflow publishes with the
+official npm CLI so it can use npm Trusted Publishing through GitHub Actions
+OIDC.
 
 The GitHub Actions workflow publishes from tags and resolves the npm dist-tag
 from the version:
@@ -97,9 +98,26 @@ pnpm create @harness-kernel@beta
 Repository setup required before the first release:
 
 - create or claim the `@harness-kernel` scope on npm;
-- add a GitHub repository secret named `NPM_TOKEN` with publish access;
+- create the GitHub environment named `npm-publish`, with required reviewers if
+  you want manual approval before a package release;
+- configure npm Trusted Publishing for every public package, using:
+  - Organization or user: `Ducks-Software-AI-Infrastructure`
+  - Repository: `harness-kernel`
+  - Workflow filename: `npm-publish.yml`
+  - Environment name: `npm-publish`
 - keep every public package version equal to the tag version;
 - push the release tag only after the release commit is on `main`.
+
+Do not add an `NPM_TOKEN` secret for the normal release path. Trusted Publishing
+uses short-lived OIDC credentials from GitHub Actions instead of a long-lived npm
+token.
+
+Important first-publish constraint: npm Trusted Publishing is configured from an
+existing package's npm settings, and the `npm trust` CLI also requires the
+package to already exist on the registry. If these package names have never been
+published, create the initial package records once with a maintainer account
+using normal npm 2FA, then configure Trusted Publishing and use the GitHub
+workflow for future releases.
 
 After the packages are visible on npm, create the GitHub Release for the same
 tag with highlights, migration notes, and verification results.

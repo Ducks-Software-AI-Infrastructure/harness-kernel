@@ -25,7 +25,7 @@
     "access": "public"
   },
   "bin": {
-    "create-harness-kernel": "./dist/cli/index.js"
+    "create-harness-kernel": "dist/cli/index.js"
   },
   "exports": {
     ".": {

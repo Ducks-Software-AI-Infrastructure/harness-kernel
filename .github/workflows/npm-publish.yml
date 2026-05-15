@@ -5,23 +5,18 @@ on:
     tags:
       - "v*.*.*"
   workflow_dispatch:
-    inputs:
-      dry_run:
-        description: "Run package publish in dry-run mode."
-        required: true
-        type: boolean
-        default: true
 
 permissions:
   contents: read
-  id-token: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
-  publish:
-    name: Publish npm packages
+  dry-run:
+    name: Dry-run npm package publish
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,7 +32,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
@@ -46,32 +40,61 @@ jobs:
       - name: Verify workspace
         run: pnpm verify
 
-      - name: Check release version
-        if: startsWith(github.ref, 'refs/tags/v')
-        run: node scripts/check-release-version.mjs "${GITHUB_REF_NAME#v}"
-
       - name: Resolve dry-run npm dist-tag
-        if: github.event_name == 'workflow_dispatch'
         run: |
           version="$(node -p "require('./packages/core/package.json').version")"
           tag="$(node scripts/npm-dist-tag.mjs "$version")"
           echo "NPM_DIST_TAG=$tag" >> "$GITHUB_ENV"
           echo "Dry-run npm dist-tag: $tag"
 
+      - name: Dry-run publish
+        run: node scripts/publish-packages.mjs --dry-run --tag "$NPM_DIST_TAG"
+
+  publish:
+    name: Publish npm packages
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.27.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install npm with trusted publishing support
+        run: |
+          npm install --global "npm@^11.5.1"
+          npm --version
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify workspace
+        run: pnpm verify
+
+      - name: Check release version
+        run: node scripts/check-release-version.mjs "${GITHUB_REF_NAME#v}"
+
       - name: Resolve npm dist-tag
         id: npm-tag
-        if: startsWith(github.ref, 'refs/tags/v')
         run: |
           tag="$(node scripts/npm-dist-tag.mjs "${GITHUB_REF_NAME#v}")"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "Publishing with npm dist-tag: $tag"
 
-      - name: Dry-run publish
-        if: github.event_name == 'workflow_dispatch'
-        run: pnpm --filter './packages/*' publish -r --dry-run --access public --no-git-checks --tag "$NPM_DIST_TAG"
-
       - name: Publish packages
-        if: startsWith(github.ref, 'refs/tags/v')
-        run: pnpm --filter './packages/*' publish -r --access public --no-git-checks --tag "${{ steps.npm-tag.outputs.tag }}"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: node scripts/publish-packages.mjs --tag "${{ steps.npm-tag.outputs.tag }}"
