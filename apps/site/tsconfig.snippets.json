@@ -1,11 +1,28 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": "../..",
     "noEmit": true,
     "declaration": false,
     "declarationMap": false,
     "sourceMap": false,
-    "types": ["node"]
+    "types": ["node"],
+    "paths": {
+      "@harness-kernel/core": ["packages/core/src/index.ts"],
+      "@harness-kernel/core/agent": ["packages/core/src/exports/agent.ts"],
+      "@harness-kernel/core/agent/*": ["packages/core/src/exports/agent/*"],
+      "@harness-kernel/core/runner": ["packages/core/src/exports/runner.ts"],
+      "@harness-kernel/core/runner/*": ["packages/core/src/exports/runner/*"],
+      "@harness-kernel/core/schema": ["packages/core/src/schema/index.ts"],
+      "@harness-kernel/provider-ai-sdk": ["packages/provider-ai-sdk/src/index.ts"],
+      "@harness-kernel/provider-openai": ["packages/provider-openai/src/index.ts"],
+      "@harness-kernel/storage-file": ["packages/storage-file/src/index.ts"],
+      "@harness-kernel/sandbox-local": ["packages/sandbox-local/src/index.ts"],
+      "@harness-kernel/tools-node": ["packages/tools-node/src/index.ts"],
+      "@harness-kernel/tools-node/*": ["packages/tools-node/src/*"],
+      "@harness-kernel/logging-file": ["packages/logging-file/src/index.ts"],
+      "@harness-kernel/create": ["packages/create/src/index.ts"]
+    }
   },
   "include": ["src/snippets/**/*.ts"]
 }
