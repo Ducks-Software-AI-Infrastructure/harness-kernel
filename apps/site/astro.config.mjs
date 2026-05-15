@@ -2,13 +2,24 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const siteUrl = "https://ducks-software-ai-infrastructure.github.io";
+const socialPreviewUrl = `${siteUrl}/harness-kernel/social-preview.png`;
 
 export default defineConfig({
-  site: "https://ducks-software-ai-infrastructure.github.io",
+  site: siteUrl,
   base: isGitHubPages ? "/harness-kernel" : "/",
   integrations: [
     starlight({
       title: "Harness Kernel",
+      favicon: "/favicon.png",
+      head: [
+        { tag: "meta", attrs: { property: "og:image", content: socialPreviewUrl } },
+        { tag: "meta", attrs: { property: "og:image:width", content: "1200" } },
+        { tag: "meta", attrs: { property: "og:image:height", content: "630" } },
+        { tag: "meta", attrs: { property: "og:image:alt", content: "Harness Kernel logo on a black background" } },
+        { tag: "meta", attrs: { name: "twitter:image", content: socialPreviewUrl } },
+        { tag: "meta", attrs: { name: "twitter:image:alt", content: "Harness Kernel logo on a black background" } },
+      ],
       logo: {
         src: "./src/assets/harness-kernel-logo.png",
         alt: "Harness Kernel",

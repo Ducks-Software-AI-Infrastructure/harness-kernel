@@ -7,6 +7,7 @@ import logo from "../assets/harness-kernel-logo.png";
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const withBase = (path: string) => `${basePath}${path.replace(/^\/+/, "")}`;
 const githubUrl = "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel";
+const socialPreviewUrl = "https://ducks-software-ai-infrastructure.github.io/harness-kernel/social-preview.png";
 
 const agentCode = `
 import { defineAgent } from "@harness-kernel/core/agent";
@@ -124,7 +125,17 @@ const boundaryRows = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Harness Kernel is a small TypeScript kernel for app-owned AI agent runtimes." />
-    <link rel="icon" type="image/png" href={logo.src} />
+    <meta property="og:title" content="Harness Kernel" />
+    <meta property="og:description" content="A small kernel for serious agent runtimes." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={socialPreviewUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Harness Kernel logo on a black background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={socialPreviewUrl} />
+    <meta name="twitter:image:alt" content="Harness Kernel logo on a black background" />
+    <link rel="icon" type="image/png" href={withBase("/favicon.png")} />
     <title>Harness Kernel</title>
   </head>
   <body>
