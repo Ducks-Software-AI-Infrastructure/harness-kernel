@@ -1,7 +1,46 @@
-# Harness Kernel
+<div align="center">
+  <img
+    src="assets/harness-kernel-logo-black.png"
+    alt="Harness Kernel logo"
+    width="360"
+  />
+  <h1>Harness Kernel</h1>
+  <p>
+    <strong>A small kernel for serious agent runtimes.</strong>
+  </p>
+  <p>
+    Build app-owned AI agents with explicit boundaries between behavior and
+    runtime infrastructure.
+  </p>
+  <p>
+    <a href="https://ducks-software-ai-infrastructure.github.io/harness-kernel/">Docs</a>
+    ·
+    <a href="https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/api/">API Reference</a>
+    ·
+    <a href="#packages">Packages</a>
+    ·
+    <a href="docs/releases.md">Releases</a>
+  </p>
+  <p>
+    <a href="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/ci.yml">
+      <img alt="CI" src="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/ci.yml/badge.svg" />
+    </a>
+    <a href="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/pages.yml">
+      <img alt="Docs" src="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/pages.yml/badge.svg" />
+    </a>
+    <a href="https://www.npmjs.com/package/@harness-kernel/core">
+      <img alt="npm beta" src="https://img.shields.io/npm/v/%40harness-kernel%2Fcore/beta?label=npm%20beta&color=111111" />
+    </a>
+    <a href="LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/Ducks-Software-AI-Infrastructure/harness-kernel?color=111111" />
+    </a>
+    <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.x-111111?logo=typescript" />
+    <img alt="Core runtime dependencies" src="https://img.shields.io/badge/core%20runtime%20deps-zero-111111" />
+  </p>
+</div>
 
-[![CI](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/ci.yml/badge.svg)](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/ci.yml)
-[![Docs](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/pages.yml/badge.svg)](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/pages.yml)
+**Tags:** `ai-agents` · `agent-runtime` · `typescript` · `runtime-kernel` ·
+`model-providers` · `tool-approval` · `sandboxing` · `agent-framework`
 
 Harness Kernel is a TypeScript runtime kernel for building embeddable AI agent
 harnesses. It gives applications a small core for sessions, modes, tools,
@@ -16,6 +55,23 @@ explicitly.
 There is no hidden factory that wires providers, storage, sandbox, or tools for
 you. The scaffold package only writes starter files; runtime composition stays
 in your app.
+
+## Install
+
+Use the beta dist-tag while the first public package set is being validated:
+
+```bash
+pnpm add @harness-kernel/core@beta
+```
+
+Add only the runtime integrations your host actually owns:
+
+```bash
+pnpm add @harness-kernel/provider-openai@beta
+pnpm add @harness-kernel/storage-file@beta
+pnpm add @harness-kernel/sandbox-local@beta
+pnpm add @harness-kernel/tools-node@beta
+```
 
 ## Why It Exists
 
@@ -32,14 +88,14 @@ in your app.
 
 | Package | Purpose |
 | --- | --- |
-| `@harness-kernel/core` | Zero-dependency runtime contracts, sessions, schema, events, logging contracts, model provider registry, memory/noop storage, and noop sandbox. |
-| `@harness-kernel/provider-ai-sdk` | Generic model provider wrapper for the Vercel AI SDK. |
-| `@harness-kernel/provider-openai` | OpenAI model provider built on `provider-ai-sdk`. |
-| `@harness-kernel/storage-file` | File-backed run storage for transcripts, events, snapshots, metrics, and cursors. |
-| `@harness-kernel/sandbox-local` | Local shell sandbox implementation. |
-| `@harness-kernel/tools-node` | Node/local tools such as shell and file tools for modes. |
-| `@harness-kernel/logging-file` | JSONL operational log sink. |
-| `@harness-kernel/create` | Scaffold/devtool for new projects. Not a runtime dependency. |
+| [`@harness-kernel/core`](https://www.npmjs.com/package/@harness-kernel/core) | Zero-dependency runtime contracts, sessions, schema, events, logging contracts, model provider registry, memory/noop storage, and noop sandbox. |
+| [`@harness-kernel/provider-ai-sdk`](https://www.npmjs.com/package/@harness-kernel/provider-ai-sdk) | Generic model provider wrapper for the Vercel AI SDK. |
+| [`@harness-kernel/provider-openai`](https://www.npmjs.com/package/@harness-kernel/provider-openai) | OpenAI model provider built on `provider-ai-sdk`. |
+| [`@harness-kernel/storage-file`](https://www.npmjs.com/package/@harness-kernel/storage-file) | File-backed run storage for transcripts, events, snapshots, metrics, and cursors. |
+| [`@harness-kernel/sandbox-local`](https://www.npmjs.com/package/@harness-kernel/sandbox-local) | Local shell sandbox implementation. |
+| [`@harness-kernel/tools-node`](https://www.npmjs.com/package/@harness-kernel/tools-node) | Node/local tools such as shell and file tools for modes. |
+| [`@harness-kernel/logging-file`](https://www.npmjs.com/package/@harness-kernel/logging-file) | JSONL operational log sink. |
+| [`@harness-kernel/create`](https://www.npmjs.com/package/@harness-kernel/create) | Scaffold/devtool for new projects. Not a runtime dependency. |
 
 ## Basic Core Usage
 
