@@ -1,0 +1,24 @@
+{
+  "name": "@harness-kernel/example-cli-harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/smoke.test.ts"
+  },
+  "dependencies": {
+    "@harness-kernel/core": "workspace:*",
+    "@harness-kernel/provider-openai": "workspace:*",
+    "@harness-kernel/sandbox-local": "workspace:*",
+    "@harness-kernel/storage-file": "workspace:*",
+    "@harness-kernel/tools-node": "workspace:*",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.2"
+  }
+}

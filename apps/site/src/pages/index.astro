@@ -1,0 +1,700 @@
+---
+import CodePane from "../components/CodePane.astro";
+import PackageGrid from "../components/PackageGrid.astro";
+import TerminalLabel from "../components/TerminalLabel.astro";
+import logo from "../assets/harness-kernel-logo.png";
+
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const withBase = (path: string) => `${basePath}${path.replace(/^\/+/, "")}`;
+const githubUrl = "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel";
+
+const agentCode = `
+import { defineAgent } from "@harness-kernel/core/agent";
+import { HarnessContextProvider } from "@harness-kernel/core/agent/context";
+import { HarnessEvent } from "@harness-kernel/core/agent/event";
+import { HarnessHook } from "@harness-kernel/core/agent/hook";
+import { HarnessMode } from "@harness-kernel/core/agent/mode";
+import { HarnessRole, NativeRoles, RoleTargets } from "@harness-kernel/core/agent/role";
+import type { AgentActionSession, AgentReadSession } from "@harness-kernel/core/agent/session";
+import { HarnessTool } from "@harness-kernel/core/agent/tool";
+import { s, type InferInput } from "@harness-kernel/core/schema";
+import { BashTool } from "@harness-kernel/tools-node";
+
+type DevState = { checkpoints: string[]; lastModeEnter?: string };
+
+const checkpointSchema = s.object({
+  label: s.string().min(1),
+});
+
+type CheckpointInput = InferInput<typeof checkpointSchema>;
+
+class CheckpointCreatedEvent extends HarnessEvent<{ label: string }> {
+  static type = "checkpoint.created";
+}
+
+class ReviewerRole extends HarnessRole {
+  label = "Reviewer";
+  name = "reviewer";
+  target = RoleTargets.Messages;
+  nativeRole = NativeRoles.User;
+  description = "A review-focused message role.";
+}
+
+class ProjectContext extends HarnessContextProvider {
+  label = "Project Context";
+
+  render(session: AgentReadSession<DevState>) {
+    const state = session.state.get();
+    return [
+      "Mode: " + session.mode.current().type,
+      "Checkpoints: " + (state.checkpoints.join(", ") || "none"),
+    ].join("\\n");
+  }
+}
+
+class CreateCheckpointTool extends HarnessTool<CheckpointInput> {
+  name = "create_checkpoint";
+  description = "Save a review checkpoint in agent state.";
+  schema = checkpointSchema;
+  risk = "write" as const;
+  requiresApproval = true;
+
+  async execute(input: CheckpointInput, session: AgentActionSession<DevState>) {
+    const next = [...session.state.get().checkpoints, input.label];
+    session.state.update({ checkpoints: next });
+    await session.events.emit(CheckpointCreatedEvent, { label: input.label });
+    return { content: "Checkpoint saved: " + input.label };
+  }
+}
+
+class DevMode extends HarnessMode {
+  label = "Dev";
+  model = "openai/gpt-5.1";
+  prompt = "Use tools carefully and create checkpoints before risky changes.";
+  providers = [new ProjectContext()];
+  tools = [new BashTool(), new CreateCheckpointTool()];
+  maxTurns = 8;
+  toolApproval = "ask" as const;
+
+  async onEnter(session: AgentActionSession<DevState>) {
+    session.state.update({ lastModeEnter: new Date().toISOString() });
+  }
+}
+
+class CheckpointHook extends HarnessHook.for(CheckpointCreatedEvent) {
+  onActive(session: AgentActionSession<DevState>, event: CheckpointCreatedEvent) {
+    session.log.info("checkpoint.created", { label: event.payload.label });
+  }
+}
+
+const devMode = new DevMode();
+
+export const agent = defineAgent({
+  key: "dev-agent",
+  label: "Dev Agent",
+  sharedState: { initial: () => ({ checkpoints: [] }) },
+  declaredEvents: [CheckpointCreatedEvent],
+  initialMode: devMode,
+  modes: [devMode],
+  roles: [new ReviewerRole()],
+  hooks: [new CheckpointHook()],
+});`;
+
+const runtimeCode = `
+import { createHarnessSessionStore } from "@harness-kernel/core/runner";
+import { OpenAIProvider } from "@harness-kernel/provider-openai";
+
+const store = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [new OpenAIProvider()],
+  defaultModel: "openai/gpt-5.1",
+});`;
+
+const boundaryRows = [
+  ["Agent behavior", "modes, tools, hooks, roles, context providers, events"],
+  ["Runtime ownership", "model providers, storage, sandbox, approvals, logs, sessions"],
+  ["Coupling control", "agent packages depend on kernel contracts, not host infrastructure"],
+  ["Kernel contract", "explicit public subpaths and namespaced model refs"],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Harness Kernel is a small TypeScript kernel for app-owned AI agent runtimes." />
+    <link rel="icon" type="image/png" href={logo.src} />
+    <title>Harness Kernel</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href={withBase("/")} aria-label="Harness Kernel home">
+        <img class="wordmark-logo" src={logo.src} width={logo.width} height={logo.height} alt="" aria-hidden="true" />
+        <span>Harness Kernel</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href={withBase("/docs/")}>Docs</a>
+        <a href={withBase("/docs/guides/core-only-agent/")}>Guides</a>
+        <a href={withBase("/docs/api/")}>API</a>
+        <a href={githubUrl}>GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <TerminalLabel label="kernel boundary" status="explicit" />
+          <h1 id="hero-title">A small kernel for serious agent runtimes.</h1>
+          <p>
+            Build app-owned AI agents with explicit boundaries between behavior and runtime
+            infrastructure, so agent behavior stays portable instead of coupled to one host.
+          </p>
+          <div class="cta-row" aria-label="Primary actions">
+            <a class="button primary" href={withBase("/docs/getting-started/")}>Get Started</a>
+            <a class="button" href={withBase("/docs/")}>Read the Docs</a>
+            <a class="button" href={withBase("/docs/api/")}>API Reference</a>
+            <a class="button" href={githubUrl}>GitHub</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <figure class="brand-poster" aria-label="Harness Kernel logo">
+            <img src={logo.src} width={logo.width} height={logo.height} alt="Harness Kernel" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="code-split" aria-label="Agent and runtime code split">
+        <CodePane label="agent behavior" caption="complete mode package" code={agentCode} />
+        <CodePane label="runtime host" caption="provider-owned execution" code={runtimeCode} />
+      </section>
+
+      <section class="band boundary" aria-labelledby="boundary-title">
+        <div class="section-heading">
+          <TerminalLabel label="the boundary" status="stable" />
+          <h2 id="boundary-title">Tools live in modes. Providers live in the runtime.</h2>
+          <p>
+            Harness Kernel keeps the agent package focused on behavior while the host application owns
+            every operational dependency. The boundary is the coupling control: behavior depends on
+            kernel contracts, and infrastructure depends on the host.
+          </p>
+          <a class="inline-doc-link" href={withBase("/docs/concepts/kernel-map/")}>Open the boundary map</a>
+        </div>
+        <div class="boundary-table" role="list">
+          {boundaryRows.map(([label, body]) => (
+            <article role="listitem">
+              <h3>{label}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="band two-up" aria-labelledby="core-title">
+        <div>
+          <TerminalLabel label="kernel core" status="zero deps" />
+          <h2 id="core-title">@harness-kernel/core is the stable center.</h2>
+        </div>
+        <p>
+          Core contains contracts, sessions, schema, events, logging interfaces, model provider routing,
+          memory storage, and a noop sandbox. It does not hide a default provider, default storage layer,
+          or default sandbox.
+        </p>
+      </section>
+
+      <section class="band pillars" aria-label="Agent and runtime responsibilities">
+        <article>
+          <h2>Agent Space</h2>
+          <p>
+            Package behavior with `defineAgent`, `HarnessMode`, mode-owned `HarnessTool` instances,
+            agent-owned hooks, roles, context providers, custom events, and shared state.
+          </p>
+          <a href={withBase("/docs/agent/define-agent/")}>Define behavior</a>
+        </article>
+        <article>
+          <h2>Runtime Host</h2>
+          <p>
+            Compose `createHarnessSessionStore` with model providers, `defaultModel`, storage, sandbox,
+            approvals, logging, services, streaming, and session lifecycle policy.
+          </p>
+          <a href={withBase("/docs/runtime/session-store/")}>Host the agent</a>
+        </article>
+      </section>
+
+      <section class="band" aria-labelledby="modules-title">
+        <div class="section-heading">
+          <TerminalLabel label="runtime modules" status="optional" />
+          <h2 id="modules-title">Install only the modules your host needs.</h2>
+          <p>
+            There is no hidden runtime. The host chooses every provider, storage backend, sandbox, log
+            sink, and tool package explicitly.
+          </p>
+        </div>
+        <PackageGrid />
+      </section>
+
+      <section class="band host-grid" aria-labelledby="hosts-title">
+        <div class="section-heading compact">
+          <TerminalLabel label="built for real hosts" status="portable" />
+          <h2 id="hosts-title">The same agent can run where your app already lives.</h2>
+        </div>
+        <div class="host-list">
+          <span>CLI</span>
+          <span>backend service</span>
+          <span>web app session</span>
+          <span>desktop app</span>
+        </div>
+      </section>
+
+      <section class="band start" aria-labelledby="start-title">
+        <div>
+          <TerminalLabel label="start small" status="copyable" />
+          <h2 id="start-title">Start with core contracts, then add host modules.</h2>
+        </div>
+        <div class="terminal-command" aria-label="Scaffold commands">
+          <span>$ pnpm create @harness-kernel</span>
+          <span>$ pnpm docs:build</span>
+        </div>
+        <div class="cta-row">
+          <a class="button primary" href={withBase("/docs/guides/core-only-agent/")}>Core-only guide</a>
+          <a class="button" href={withBase("/docs/guides/openai-agent/")}>OpenAI guide</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Harness Kernel</span>
+      <span>No hidden runtime. No default provider. No framework lock-in.</span>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    color-scheme: dark;
+    background: #0b0b0a;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    color: #f5f5f0;
+    background:
+      linear-gradient(rgba(245, 245, 240, 0.025) 1px, transparent 1px),
+      #0b0b0a;
+    background-size: 100% 34px;
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .site-header,
+  main,
+  footer {
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 72px;
+    padding-block: 1rem;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: #f5f5f0;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .wordmark-logo {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  nav a,
+  .button {
+    border: 1px solid rgba(245, 245, 240, 0.17);
+    border-radius: 6px;
+    padding: 0.62rem 0.78rem;
+    color: #e6e6dd;
+    background: rgba(255, 255, 255, 0.03);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  .button:hover {
+    border-color: rgba(143, 227, 136, 0.55);
+    color: #ffffff;
+  }
+
+  .button.primary {
+    color: #061006;
+    border-color: #8fe388;
+    background: #8fe388;
+  }
+
+  .inline-doc-link {
+    display: inline-flex;
+    margin-top: 0.5rem;
+    color: #8fe388;
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+    text-decoration: none;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+    gap: clamp(1rem, 4vw, 3rem);
+    align-items: start;
+    min-height: min(720px, calc(100vh - 96px));
+    padding: 1.25rem 0 2.5rem;
+  }
+
+  .hero-copy {
+    min-width: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    overflow-wrap: anywhere;
+  }
+
+  h1 {
+    max-width: 13ch;
+    margin: 1rem 0;
+    color: #f5f5f0;
+    font-size: 5.2rem;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .hero-copy p {
+    max-width: 40rem;
+    margin: 0 0 1.5rem;
+    color: #c5c5bb;
+    font-size: 1.16rem;
+    line-height: 1.65;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .hero-visual {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    min-width: 0;
+    justify-items: center;
+  }
+
+  .brand-poster {
+    width: min(100%, 430px);
+    margin: 0;
+    margin-inline: auto;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .brand-poster img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  .code-split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-block: 0 5rem;
+  }
+
+  .band {
+    padding-block: 4.8rem;
+    border-top: 1px solid rgba(245, 245, 240, 0.12);
+  }
+
+  .section-heading {
+    max-width: 760px;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading.compact {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin: 0.9rem 0 0.8rem;
+    color: #f5f5f0;
+    font-size: 3rem;
+    line-height: 1.05;
+    letter-spacing: 0;
+  }
+
+  h3 {
+    color: #f5f5f0;
+    letter-spacing: 0;
+  }
+
+  .band p {
+    color: #bebeb4;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .boundary-table {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .boundary-table article,
+  .pillars article {
+    min-width: 0;
+    border: 1px solid rgba(245, 245, 240, 0.14);
+    border-radius: 8px;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .boundary-table h3 {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+  }
+
+  .boundary-table p,
+  .pillars p {
+    margin: 0;
+  }
+
+  .two-up {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .two-up p {
+    margin: 0;
+    font-size: 1.08rem;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .pillars h2 {
+    margin-top: 0;
+    font-size: 2.35rem;
+  }
+
+  .pillars a {
+    display: inline-flex;
+    margin-top: 1.2rem;
+    color: #8fe388;
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+    text-decoration: none;
+  }
+
+  .host-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .host-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .host-list span {
+    border: 1px solid rgba(245, 245, 240, 0.14);
+    border-radius: 8px;
+    padding: 1.2rem;
+    color: #f5f5f0;
+    background: rgba(255, 255, 255, 0.03);
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+  }
+
+  .start {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .terminal-command {
+    display: grid;
+    gap: 0.65rem;
+    min-width: 0;
+    border: 1px solid rgba(143, 227, 136, 0.35);
+    border-radius: 8px;
+    padding: 1rem;
+    color: #8fe388;
+    background: #10100f;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    overflow-x: auto;
+  }
+
+  .start .cta-row {
+    grid-column: 1 / -1;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid rgba(245, 245, 240, 0.12);
+    padding-block: 1.6rem;
+    color: #a7a79e;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+  }
+
+  @media (max-width: 1100px) {
+    h1 {
+      font-size: 4.4rem;
+    }
+
+    h2 {
+      font-size: 2.65rem;
+    }
+
+    .boundary-table {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero,
+    .two-up,
+    .host-grid,
+    .start {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      min-height: 0;
+      padding-top: 1rem;
+    }
+
+    h1 {
+      max-width: 13ch;
+      font-size: 3.7rem;
+    }
+
+    h2,
+    .pillars h2 {
+      font-size: 2.35rem;
+    }
+
+    .code-split,
+    .pillars,
+    .boundary-table {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .site-header,
+    main,
+    footer {
+      width: min(100% - 1rem, 1180px);
+    }
+
+    .site-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    nav {
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    nav a,
+    .button {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+
+    .hero {
+      padding-top: 0.5rem;
+    }
+
+    .hero-copy p {
+      font-size: 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2,
+    .pillars h2 {
+      font-size: 2rem;
+    }
+
+    .band {
+      padding-block: 3.2rem;
+    }
+
+    .host-list {
+      grid-template-columns: 1fr;
+    }
+
+    footer {
+      flex-direction: column;
+    }
+  }
+</style>

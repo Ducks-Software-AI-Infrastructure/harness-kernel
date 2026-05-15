@@ -1,0 +1,33 @@
+{
+  "name": "@harness-kernel/site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "pnpm docs:api && node scripts/clean-astro-cache.mjs && astro build",
+    "preview": "astro preview",
+    "typecheck": "pnpm docs:check",
+    "docs:api": "typedoc --options typedoc.json && node scripts/postprocess-api-docs.mjs",
+    "docs:check": "pnpm docs:api && node scripts/clean-astro-cache.mjs && astro check && tsc --noEmit --project tsconfig.snippets.json",
+    "docs:smoke": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@harness-kernel/core": "workspace:*",
+    "@harness-kernel/logging-file": "workspace:*",
+    "@harness-kernel/provider-ai-sdk": "workspace:*",
+    "@harness-kernel/provider-openai": "workspace:*",
+    "@harness-kernel/sandbox-local": "workspace:*",
+    "@harness-kernel/storage-file": "workspace:*",
+    "@harness-kernel/tools-node": "workspace:*"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/starlight": "^0.37.7",
+    "@playwright/test": "^1.60.0",
+    "astro": "^5.18.1",
+    "playwright": "^1.60.0",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.11.0"
+  }
+}

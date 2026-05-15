@@ -1,0 +1,112 @@
+---
+const agentItems = ["modes", "tools", "hooks", "roles", "context", "events"];
+const runtimeItems = ["providers", "storage", "sandbox", "approvals", "logging", "sessions"];
+---
+
+<div class="kernel-map" aria-label="Agent behavior and runtime host boundary map">
+  <section class="map-zone">
+    <p class="zone-label">agent space</p>
+    <div class="chips">
+      {agentItems.map((item) => <span>{item}</span>)}
+    </div>
+  </section>
+  <div class="kernel-core">
+    <span class="line" aria-hidden="true"></span>
+    <strong>@harness-kernel/core</strong>
+    <span class="line" aria-hidden="true"></span>
+  </div>
+  <section class="map-zone runtime">
+    <p class="zone-label">runtime host</p>
+    <div class="chips">
+      {runtimeItems.map((item) => <span>{item}</span>)}
+    </div>
+  </section>
+</div>
+
+<style>
+  .kernel-map {
+    display: grid;
+    gap: 0.9rem;
+    min-width: 0;
+    border: 1px solid rgba(245, 245, 240, 0.16);
+    border-radius: 8px;
+    padding: 1rem;
+    background:
+      linear-gradient(rgba(245, 245, 240, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 245, 240, 0.035) 1px, transparent 1px),
+      #0e0e0d;
+    background-size: 28px 28px;
+  }
+
+  .map-zone {
+    border: 1px solid rgba(245, 245, 240, 0.17);
+    border-radius: 8px;
+    padding: 0.9rem;
+    background: rgba(0, 0, 0, 0.26);
+  }
+
+  .zone-label {
+    margin: 0 0 0.85rem;
+    color: #dcdcd3;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+
+  .chips {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .chips span {
+    min-width: 0;
+    border: 1px solid rgba(245, 245, 240, 0.13);
+    border-radius: 6px;
+    padding: 0.52rem 0.45rem;
+    color: #f5f5f0;
+    background: rgba(255, 255, 255, 0.035);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .kernel-core {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0.75rem;
+    color: #8fe388;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+
+  .line {
+    height: 1px;
+    background: rgba(143, 227, 136, 0.45);
+  }
+
+  .runtime {
+    background: rgba(245, 245, 240, 0.025);
+  }
+
+  @media (max-width: 560px) {
+    .kernel-map {
+      padding: 0.75rem;
+    }
+
+    .chips {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kernel-core {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .line {
+      width: 1px;
+      height: 1.25rem;
+    }
+  }
+</style>

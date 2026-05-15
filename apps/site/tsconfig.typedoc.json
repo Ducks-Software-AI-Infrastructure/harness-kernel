@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "types": ["node"]
+  },
+  "include": [
+    "../../packages/**/*.ts"
+  ],
+  "exclude": [
+    "../../packages/**/*.test.ts",
+    "../../packages/create/templates/**"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "@harness-kernel/provider-openai",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "OpenAI model provider for Harness Kernel.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel.git"
+  },
+  "homepage": "https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/packages/provider-openai/",
+  "bugs": {
+    "url": "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "typescript",
+    "harness-kernel",
+    "openai",
+    "model-provider"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/provider-openai.test.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^3.0.63",
+    "@harness-kernel/core": "0.1.0",
+    "@harness-kernel/provider-ai-sdk": "0.1.0"
+  },
+  "devDependencies": {
+    "zod": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

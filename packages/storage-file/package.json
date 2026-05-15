@@ -1,0 +1,47 @@
+{
+  "name": "@harness-kernel/storage-file",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "File-backed run storage for Harness Kernel.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel.git"
+  },
+  "homepage": "https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/packages/storage-file/",
+  "bugs": {
+    "url": "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "typescript",
+    "harness-kernel",
+    "storage",
+    "filesystem"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/storage-file.test.ts"
+  },
+  "dependencies": {
+    "@harness-kernel/core": "0.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

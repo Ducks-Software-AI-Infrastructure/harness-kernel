@@ -1,0 +1,113 @@
+{
+  "name": "@harness-kernel/core",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Pure runtime contracts and session kernel for Harness Kernel.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel.git"
+  },
+  "homepage": "https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/packages/core/",
+  "bugs": {
+    "url": "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "typescript",
+    "harness-kernel",
+    "runtime",
+    "kernel",
+    "agent-runtime"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./agent": {
+      "types": "./dist/agent.d.ts",
+      "import": "./dist/agent.js"
+    },
+    "./agent/mode": {
+      "types": "./dist/agent/mode.d.ts",
+      "import": "./dist/agent/mode.js"
+    },
+    "./agent/tool": {
+      "types": "./dist/agent/tool.d.ts",
+      "import": "./dist/agent/tool.js"
+    },
+    "./agent/context": {
+      "types": "./dist/agent/context.d.ts",
+      "import": "./dist/agent/context.js"
+    },
+    "./agent/hook": {
+      "types": "./dist/agent/hook.d.ts",
+      "import": "./dist/agent/hook.js"
+    },
+    "./agent/role": {
+      "types": "./dist/agent/role.d.ts",
+      "import": "./dist/agent/role.js"
+    },
+    "./agent/event": {
+      "types": "./dist/agent/event.d.ts",
+      "import": "./dist/agent/event.js"
+    },
+    "./agent/session": {
+      "types": "./dist/agent/session.d.ts",
+      "import": "./dist/agent/session.js"
+    },
+    "./runner": {
+      "types": "./dist/runner.d.ts",
+      "import": "./dist/runner.js"
+    },
+    "./runner/model-provider": {
+      "types": "./dist/runner/model-provider.d.ts",
+      "import": "./dist/runner/model-provider.js"
+    },
+    "./runner/logging": {
+      "types": "./dist/runner/logging.d.ts",
+      "import": "./dist/runner/logging.js"
+    },
+    "./runner/approval": {
+      "types": "./dist/runner/approval.d.ts",
+      "import": "./dist/runner/approval.js"
+    },
+    "./runner/event": {
+      "types": "./dist/runner/event.d.ts",
+      "import": "./dist/runner/event.js"
+    },
+    "./runner/sandbox": {
+      "types": "./dist/runner/sandbox.d.ts",
+      "import": "./dist/runner/sandbox.js"
+    },
+    "./runner/storage": {
+      "types": "./dist/runner/storage.d.ts",
+      "import": "./dist/runner/storage.js"
+    },
+    "./schema": {
+      "types": "./dist/schema.d.ts",
+      "import": "./dist/schema.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/schema/schema.test.ts && tsx src/runtime/events-schema.test.ts && tsx src/engine/provider-registry.test.ts && tsx src/session/model-resolution.test.ts && tsx src/boundaries.test.ts"
+  },
+  "devDependencies": {
+    "zod": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

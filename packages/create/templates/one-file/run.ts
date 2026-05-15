@@ -1,0 +1,110 @@
+import { resolve } from "node:path";
+import { stdin as input, stdout as output } from "node:process";
+import { createInterface } from "node:readline/promises";
+import agent from "./agent.js";
+import { createHarnessSessionStore } from "@harness-kernel/core/runner";
+import type { ToolApprovalHandle, ToolApprovalMode } from "@harness-kernel/core/runner/approval";
+import { ConsoleLogSink } from "@harness-kernel/core/runner/logging";
+import { OpenAIProvider } from "@harness-kernel/provider-openai";
+import { LocalSandbox } from "@harness-kernel/sandbox-local";
+import { FileRunStorage } from "@harness-kernel/storage-file";
+
+type ParsedArgs = {
+  message: string;
+  toolApproval?: ToolApprovalMode;
+};
+
+function usage(): never {
+  throw new Error("Usage: npx tsx run.ts [--auto-approve|--ask-tools|--deny-tools] [message]");
+}
+
+function parseArgs(args: string[]): ParsedArgs {
+  let toolApproval: ParsedArgs["toolApproval"];
+  const rest: string[] = [];
+  for (const arg of args) {
+    if (arg === "--auto-approve") toolApproval = "auto";
+    else if (arg === "--ask-tools") toolApproval = "ask";
+    else if (arg === "--deny-tools") toolApproval = "deny";
+    else if (arg === "--help" || arg === "-h") usage();
+    else rest.push(arg);
+  }
+  return {
+    message: rest.join(" ").trim() || "Hello",
+    toolApproval,
+  };
+}
+
+async function askApproval(approval: ToolApprovalHandle): Promise<boolean> {
+  const rl = createInterface({ input, output });
+  try {
+    const answer = await rl.question(`Approve tool ${approval.name}? [y/N] `);
+    return answer.trim().toLowerCase() === "y" || answer.trim().toLowerCase() === "yes";
+  } finally {
+    rl.close();
+  }
+}
+
+function logLevel(): "silent" | "error" | "warn" | "info" | "debug" {
+  if (!process.env.HARNESS_KERNEL_LOG_LEVEL && logModelDeltas() !== "none") return "info";
+  const value = process.env.HARNESS_KERNEL_LOG_LEVEL ?? "warn";
+  return value === "silent" || value === "error" || value === "warn" || value === "info" || value === "debug"
+    ? value
+    : "warn";
+}
+
+function logModelDeltas(): "none" | "summary" | "full" {
+  const value = process.env.HARNESS_KERNEL_LOG_DELTAS;
+  if (value === "true" || value === "full") return "full";
+  if (value === "summary") return "summary";
+  return "none";
+}
+
+async function main(): Promise<void> {
+  const parsed = parseArgs(process.argv.slice(2));
+  const model = process.env.HARNESS_KERNEL_MODEL ?? "openai/gpt-5.1";
+  const outputDir = process.env.HARNESS_KERNEL_OUTPUT_DIR ?? ".harness-kernel/runs";
+  const store = await createHarnessSessionStore({
+    agent: { definition: agent },
+    providers: [new OpenAIProvider()],
+    defaultModel: model,
+    workDir: resolve(process.cwd(), process.env.HARNESS_KERNEL_WORKDIR ?? "."),
+    storage: new FileRunStorage({ outputDir }),
+    sandbox: new LocalSandbox(),
+    toolApproval: parsed.toolApproval ?? "tool-default",
+    logging: {
+      level: logLevel(),
+      modelDeltas: logModelDeltas(),
+      sinks: [new ConsoleLogSink({ format: process.env.HARNESS_KERNEL_LOG_FORMAT === "json" ? "json" : "pretty" })],
+    },
+  });
+
+  try {
+    const session = await store.getOrCreate();
+    const stream = session.stream(parsed.message);
+    for await (const event of stream) {
+      if (event.type === "assistant.delta") {
+        process.stdout.write(event.text);
+      } else if (event.type === "tool.started") {
+        process.stderr.write(`\n[tool:start] ${event.name}\n`);
+      } else if (event.type === "tool.ended") {
+        process.stderr.write(`[tool:end] ${event.name}\n`);
+      } else if (event.type === "tool.approval.requested") {
+        if (await askApproval(event.approval)) await event.approval.approve();
+        else await event.approval.deny();
+      } else if (event.type === "error") {
+        process.stderr.write(`[error] ${event.error.message}\n`);
+      }
+    }
+
+    const result = await stream.result;
+    process.stdout.write("\n");
+    process.stderr.write(`[run] output: ${result.outputDir ?? "storage disabled"}\n`);
+  } finally {
+    await store.close();
+  }
+}
+
+main().catch((error) => {
+  process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+  process.exitCode = 1;
+});

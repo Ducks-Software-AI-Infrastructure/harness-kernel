@@ -1,0 +1,43 @@
+{
+  "name": "harness-kernel-monorepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.27.0",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel.git"
+  },
+  "homepage": "https://ducks-software-ai-infrastructure.github.io/harness-kernel/",
+  "bugs": {
+    "url": "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "runtime",
+    "typescript",
+    "monorepo",
+    "harness-kernel"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test && pnpm build && pnpm test:exports && pnpm test:consumer:packed",
+    "test:consumer": "pnpm build && pnpm test:consumer:packed",
+    "test:consumer:packed": "node scripts/consumer-pack.test.mjs",
+    "test:exports": "node scripts/package-exports.test.mjs",
+    "docs:dev": "pnpm --filter @harness-kernel/site dev",
+    "docs:build": "pnpm --filter @harness-kernel/site build",
+    "docs:api": "pnpm --filter @harness-kernel/site docs:api",
+    "docs:check": "pnpm --filter @harness-kernel/site docs:check",
+    "docs:smoke": "pnpm --filter @harness-kernel/site docs:smoke",
+    "verify": "pnpm typecheck && pnpm test && pnpm docs:build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.2"
+  }
+}

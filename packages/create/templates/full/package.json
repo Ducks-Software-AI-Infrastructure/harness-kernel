@@ -1,0 +1,23 @@
+{
+  "name": "__PACKAGE__",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "tsx src/run.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@harness-kernel/core": "latest",
+    "@harness-kernel/provider-openai": "latest",
+    "@harness-kernel/sandbox-local": "latest",
+    "@harness-kernel/storage-file": "latest",
+    "@harness-kernel/tools-node": "latest",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.2"
+  }
+}

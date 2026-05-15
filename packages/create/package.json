@@ -1,0 +1,59 @@
+{
+  "name": "@harness-kernel/create",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Scaffold new Harness Kernel projects.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel.git"
+  },
+  "homepage": "https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/packages/create/",
+  "bugs": {
+    "url": "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "typescript",
+    "harness-kernel",
+    "scaffold",
+    "cli",
+    "starter"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "create-harness-kernel": "./dist/cli/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/create.test.ts && pnpm run typecheck:templates",
+    "typecheck:templates": "tsc --noEmit --project tsconfig.templates.json"
+  },
+  "devDependencies": {
+    "@harness-kernel/core": "0.1.0",
+    "@harness-kernel/provider-openai": "0.1.0",
+    "@harness-kernel/sandbox-local": "0.1.0",
+    "@harness-kernel/storage-file": "0.1.0",
+    "@harness-kernel/tools-node": "0.1.0",
+    "dotenv": "^16.4.7"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

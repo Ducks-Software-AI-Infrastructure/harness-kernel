@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/provider-ai-sdk" },
+    { "path": "./packages/provider-openai" },
+    { "path": "./packages/storage-file" },
+    { "path": "./packages/sandbox-local" },
+    { "path": "./packages/tools-node" },
+    { "path": "./packages/logging-file" },
+    { "path": "./packages/create" }
+  ]
+}
