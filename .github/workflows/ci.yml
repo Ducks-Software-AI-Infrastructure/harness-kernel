@@ -116,5 +116,8 @@ jobs:
       - name: Build docs
         run: pnpm docs:build
 
+      - name: Install Playwright browsers
+        run: pnpm --filter @harness-kernel/site exec playwright install --with-deps chromium
+
       - name: Smoke docs
         run: pnpm docs:smoke
