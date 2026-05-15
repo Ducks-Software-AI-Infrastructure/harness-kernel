@@ -9,8 +9,8 @@ pnpm install
 pnpm verify
 ```
 
-`pnpm verify` runs package type checks, package tests, packed-consumer checks,
-and the docs build.
+`pnpm verify` runs lint, package type checks, package tests,
+packed-consumer checks, and the docs build.
 
 ## Pull Requests
 

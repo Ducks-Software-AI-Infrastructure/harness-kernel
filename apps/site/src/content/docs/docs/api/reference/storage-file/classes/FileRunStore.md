@@ -10,7 +10,7 @@ description: "Generated API reference for FileRunStore."
 
 # Class: FileRunStore
 
-Defined in: [packages/storage-file/src/index.ts:52](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L52)
+Defined in: [packages/storage-file/src/index.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L43)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [packages/storage-file/src/index.ts:52](https://github.com/Ducks-Sof
 new FileRunStore(outputDir, runId): FileRunStore;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L55)
+Defined in: [packages/storage-file/src/index.ts:46](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L46)
 
 #### Parameters
 
@@ -45,9 +45,9 @@ Defined in: [packages/storage-file/src/index.ts:55](https://github.com/Ducks-Sof
 
 | Property | Modifier | Type | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-outputdir"></a> `outputDir` | `readonly` | `string` | - | [`HarnessRunStore`](../../core/classes/HarnessRunStore.md).[`outputDir`](../../core/classes/HarnessRunStore.md#property-outputdir) | [packages/storage-file/src/index.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L56) |
-| <a id="property-rundir"></a> `runDir` | `readonly` | `string` | [`HarnessRunStore`](../../core/classes/HarnessRunStore.md).[`runDir`](../../core/classes/HarnessRunStore.md#property-rundir) | - | [packages/storage-file/src/index.ts:53](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L53) |
-| <a id="property-runid"></a> `runId` | `readonly` | `string` | - | [`HarnessRunStore`](../../core/classes/HarnessRunStore.md).[`runId`](../../core/classes/HarnessRunStore.md#property-runid) | [packages/storage-file/src/index.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L57) |
+| <a id="property-outputdir"></a> `outputDir` | `readonly` | `string` | - | [`HarnessRunStore`](../../core/classes/HarnessRunStore.md).[`outputDir`](../../core/classes/HarnessRunStore.md#property-outputdir) | [packages/storage-file/src/index.ts:47](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L47) |
+| <a id="property-rundir"></a> `runDir` | `readonly` | `string` | [`HarnessRunStore`](../../core/classes/HarnessRunStore.md).[`runDir`](../../core/classes/HarnessRunStore.md#property-rundir) | - | [packages/storage-file/src/index.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L44) |
+| <a id="property-runid"></a> `runId` | `readonly` | `string` | - | [`HarnessRunStore`](../../core/classes/HarnessRunStore.md).[`runId`](../../core/classes/HarnessRunStore.md#property-runid) | [packages/storage-file/src/index.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L48) |
 
 ## Methods
 
@@ -75,7 +75,7 @@ Defined in: [packages/core/src/runtime/storage.ts:51](https://github.com/Ducks-S
 deleteSnapshot(id): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:111](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L111)
+Defined in: [packages/storage-file/src/index.ts:102](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L102)
 
 #### Parameters
 
@@ -99,7 +99,7 @@ Defined in: [packages/storage-file/src/index.ts:111](https://github.com/Ducks-So
 init(): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L63)
+Defined in: [packages/storage-file/src/index.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L54)
 
 #### Returns
 
@@ -117,7 +117,7 @@ Defined in: [packages/storage-file/src/index.ts:63](https://github.com/Ducks-Sof
 loadContextSnapshots(): ContextSnapshot[];
 ```
 
-Defined in: [packages/storage-file/src/index.ts:127](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L127)
+Defined in: [packages/storage-file/src/index.ts:118](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L118)
 
 #### Returns
 
@@ -137,7 +137,7 @@ loadCursors():
   | undefined;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:119](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L119)
+Defined in: [packages/storage-file/src/index.ts:110](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L110)
 
 #### Returns
 
@@ -156,7 +156,7 @@ Defined in: [packages/storage-file/src/index.ts:119](https://github.com/Ducks-So
 loadEvents(): HarnessEventRecord<unknown>[];
 ```
 
-Defined in: [packages/storage-file/src/index.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L75)
+Defined in: [packages/storage-file/src/index.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L66)
 
 #### Returns
 
@@ -174,7 +174,7 @@ Defined in: [packages/storage-file/src/index.ts:75](https://github.com/Ducks-Sof
 loadSnapshots(): HarnessSnapshot[];
 ```
 
-Defined in: [packages/storage-file/src/index.ts:101](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L101)
+Defined in: [packages/storage-file/src/index.ts:92](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L92)
 
 #### Returns
 
@@ -192,7 +192,7 @@ Defined in: [packages/storage-file/src/index.ts:101](https://github.com/Ducks-So
 loadTranscript(): AgentMessage[];
 ```
 
-Defined in: [packages/storage-file/src/index.ts:89](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L89)
+Defined in: [packages/storage-file/src/index.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L80)
 
 #### Returns
 
@@ -210,7 +210,7 @@ Defined in: [packages/storage-file/src/index.ts:89](https://github.com/Ducks-Sof
 recordEvent(event): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L71)
+Defined in: [packages/storage-file/src/index.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L62)
 
 #### Parameters
 
@@ -234,7 +234,7 @@ Defined in: [packages/storage-file/src/index.ts:71](https://github.com/Ducks-Sof
 saveContextSnapshot(snapshot): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:123](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L123)
+Defined in: [packages/storage-file/src/index.ts:114](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L114)
 
 #### Parameters
 
@@ -258,7 +258,7 @@ Defined in: [packages/storage-file/src/index.ts:123](https://github.com/Ducks-So
 saveCursors(cursors): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:115](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L115)
+Defined in: [packages/storage-file/src/index.ts:106](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L106)
 
 #### Parameters
 
@@ -282,7 +282,7 @@ Defined in: [packages/storage-file/src/index.ts:115](https://github.com/Ducks-So
 saveMetrics(metrics): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:93](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L93)
+Defined in: [packages/storage-file/src/index.ts:84](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L84)
 
 #### Parameters
 
@@ -306,7 +306,7 @@ Defined in: [packages/storage-file/src/index.ts:93](https://github.com/Ducks-Sof
 saveSnapshot(snapshot): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:97](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L97)
+Defined in: [packages/storage-file/src/index.ts:88](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L88)
 
 #### Parameters
 
@@ -330,7 +330,7 @@ Defined in: [packages/storage-file/src/index.ts:97](https://github.com/Ducks-Sof
 saveTranscript(messages): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:85](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L85)
+Defined in: [packages/storage-file/src/index.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L76)
 
 #### Parameters
 

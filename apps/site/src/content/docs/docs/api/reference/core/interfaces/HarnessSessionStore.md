@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessSessionStore."
 
 # Interface: HarnessSessionStore
 
-Defined in: [packages/core/src/session/types.ts:209](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L209)
+Defined in: [packages/core/src/session/types.ts:208](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L208)
 
 ## Methods
 
@@ -20,7 +20,7 @@ Defined in: [packages/core/src/session/types.ts:209](https://github.com/Ducks-So
 approveTool(sessionId, approvalId): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:220](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L220)
+Defined in: [packages/core/src/session/types.ts:219](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L219)
 
 #### Parameters
 
@@ -41,7 +41,7 @@ Defined in: [packages/core/src/session/types.ts:220](https://github.com/Ducks-So
 clear(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:214](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L214)
+Defined in: [packages/core/src/session/types.ts:213](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L213)
 
 #### Returns
 
@@ -55,7 +55,7 @@ Defined in: [packages/core/src/session/types.ts:214](https://github.com/Ducks-So
 close(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:225](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L225)
+Defined in: [packages/core/src/session/types.ts:224](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L224)
 
 #### Returns
 
@@ -69,7 +69,7 @@ Defined in: [packages/core/src/session/types.ts:225](https://github.com/Ducks-So
 delete(sessionId): Promise<boolean>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:213](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L213)
+Defined in: [packages/core/src/session/types.ts:212](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L212)
 
 #### Parameters
 
@@ -92,7 +92,7 @@ denyTool(
 reason?): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:221](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L221)
+Defined in: [packages/core/src/session/types.ts:220](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L220)
 
 #### Parameters
 
@@ -114,7 +114,7 @@ Defined in: [packages/core/src/session/types.ts:221](https://github.com/Ducks-So
 get(sessionId): HarnessSession | undefined;
 ```
 
-Defined in: [packages/core/src/session/types.ts:211](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L211)
+Defined in: [packages/core/src/session/types.ts:210](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L210)
 
 #### Parameters
 
@@ -134,7 +134,7 @@ Defined in: [packages/core/src/session/types.ts:211](https://github.com/Ducks-So
 getAgentManifest(sessionId): HarnessAgentManifest | undefined;
 ```
 
-Defined in: [packages/core/src/session/types.ts:222](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L222)
+Defined in: [packages/core/src/session/types.ts:221](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L221)
 
 #### Parameters
 
@@ -154,7 +154,7 @@ Defined in: [packages/core/src/session/types.ts:222](https://github.com/Ducks-So
 getOrCreate(sessionId?, overrides?): Promise<HarnessSession>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:210](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L210)
+Defined in: [packages/core/src/session/types.ts:209](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L209)
 
 #### Parameters
 
@@ -175,7 +175,7 @@ Defined in: [packages/core/src/session/types.ts:210](https://github.com/Ducks-So
 getPendingApprovals(sessionId?): ToolApprovalHandle[];
 ```
 
-Defined in: [packages/core/src/session/types.ts:219](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L219)
+Defined in: [packages/core/src/session/types.ts:218](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L218)
 
 #### Parameters
 
@@ -195,7 +195,7 @@ Defined in: [packages/core/src/session/types.ts:219](https://github.com/Ducks-So
 list(): HarnessSessionStatus[];
 ```
 
-Defined in: [packages/core/src/session/types.ts:212](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L212)
+Defined in: [packages/core/src/session/types.ts:211](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L211)
 
 #### Returns
 
@@ -209,7 +209,7 @@ Defined in: [packages/core/src/session/types.ts:212](https://github.com/Ducks-So
 on(listener): () => void;
 ```
 
-Defined in: [packages/core/src/session/types.ts:224](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L224)
+Defined in: [packages/core/src/session/types.ts:223](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L223)
 
 #### Parameters
 
@@ -232,7 +232,7 @@ send(
 options?): Promise<SendResult>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:216](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L216)
+Defined in: [packages/core/src/session/types.ts:215](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L215)
 
 #### Parameters
 
@@ -257,7 +257,7 @@ stream(
 options?): Promise<HarnessRunStream>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:217](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L217)
+Defined in: [packages/core/src/session/types.ts:216](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L216)
 
 #### Parameters
 

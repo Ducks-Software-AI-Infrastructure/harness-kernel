@@ -1,4 +1,4 @@
-import { constructTypeOf, snakeFromType } from "./naming.js";
+import { constructTypeOf } from "./naming.js";
 
 export interface HarnessRoleSummary {
   type: string;

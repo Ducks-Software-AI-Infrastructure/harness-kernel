@@ -14,10 +14,10 @@ description: "Generated API reference for HarnessAgentInput."
 type HarnessAgentInput = object;
 ```
 
-Defined in: [packages/core/src/session/types.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L28)
+Defined in: [packages/core/src/session/types.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L27)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-definition"></a> `definition` | [`AgentDefinition`](../interfaces/AgentDefinition.md) | [packages/core/src/session/types.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L28) |
+| <a id="property-definition"></a> `definition` | [`AgentDefinition`](../interfaces/AgentDefinition.md) | [packages/core/src/session/types.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L27) |

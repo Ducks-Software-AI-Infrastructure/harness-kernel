@@ -9,7 +9,7 @@ import type {
   ContextSnapshot,
 } from "./context.js";
 import type { HarnessEvent, HarnessEventClass, HarnessEventEmitOptions, HarnessEventQuery, HarnessEventRecord } from "./events.js";
-import type { AgentMessage, AgentMessageRole, TranscriptQuery, TranscriptSeekTarget, TranscriptCursor } from "./messages.js";
+import type { AgentMessage, TranscriptQuery, TranscriptSeekTarget, TranscriptCursor } from "./messages.js";
 import type { HarnessModeSelector, HarnessModeSummary } from "./modes.js";
 import type { HarnessSnapshotCreator } from "./snapshots.js";
 import type { AgentSharedState } from "./shared-state.js";

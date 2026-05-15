@@ -10,10 +10,10 @@ description: "Generated API reference for FileRunStorageOptions."
 
 # Interface: FileRunStorageOptions
 
-Defined in: [packages/storage-file/src/index.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L33)
+Defined in: [packages/storage-file/src/index.ts:24](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L24)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/storage-file/src/index.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L34) |
+| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/storage-file/src/index.ts:25](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L25) |

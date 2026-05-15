@@ -10,7 +10,7 @@ description: "Generated API reference for StreamOptions."
 
 # Interface: StreamOptions
 
-Defined in: [packages/core/src/session/types.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L61)
+Defined in: [packages/core/src/session/types.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L60)
 
 ## Extends
 
@@ -20,6 +20,6 @@ Defined in: [packages/core/src/session/types.ts:61](https://github.com/Ducks-Sof
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-after"></a> `after?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [`SendOptions`](SendOptions.md).[`after`](SendOptions.md#property-after) | [packages/core/src/session/types.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L58) |
-| <a id="property-model"></a> `model?` | `string` | [`SendOptions`](SendOptions.md).[`model`](SendOptions.md#property-model) | [packages/core/src/session/types.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L57) |
-| <a id="property-signal"></a> `signal?` | `AbortSignal` | [`SendOptions`](SendOptions.md).[`signal`](SendOptions.md#property-signal) | [packages/core/src/session/types.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L56) |
+| <a id="property-after"></a> `after?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [`SendOptions`](SendOptions.md).[`after`](SendOptions.md#property-after) | [packages/core/src/session/types.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L57) |
+| <a id="property-model"></a> `model?` | `string` | [`SendOptions`](SendOptions.md).[`model`](SendOptions.md#property-model) | [packages/core/src/session/types.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L56) |
+| <a id="property-signal"></a> `signal?` | `AbortSignal` | [`SendOptions`](SendOptions.md).[`signal`](SendOptions.md#property-signal) | [packages/core/src/session/types.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L55) |

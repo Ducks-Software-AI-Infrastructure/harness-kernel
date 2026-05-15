@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessRunStream."
 
 # Interface: HarnessRunStream
 
-Defined in: [packages/core/src/session/types.ts:118](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L118)
+Defined in: [packages/core/src/session/types.ts:117](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L117)
 
 ## Extends
 
@@ -20,8 +20,8 @@ Defined in: [packages/core/src/session/types.ts:118](https://github.com/Ducks-So
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `string` | [packages/core/src/session/types.ts:119](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L119) |
-| <a id="property-result"></a> `result` | `readonly` | `Promise`\<[`SendResult`](SendResult.md)\> | [packages/core/src/session/types.ts:120](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L120) |
+| <a id="property-id"></a> `id` | `readonly` | `string` | [packages/core/src/session/types.ts:118](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L118) |
+| <a id="property-result"></a> `result` | `readonly` | `Promise`\<[`SendResult`](SendResult.md)\> | [packages/core/src/session/types.ts:119](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L119) |
 
 ## Methods
 
@@ -51,7 +51,7 @@ AsyncIterable.[asyncIterator]
 cancel(reason?): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:121](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L121)
+Defined in: [packages/core/src/session/types.ts:120](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L120)
 
 #### Parameters
 

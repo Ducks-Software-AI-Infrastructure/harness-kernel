@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "build": "pnpm -r build",
+    "lint": "eslint . --max-warnings=0",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test && pnpm build && pnpm test:exports && pnpm test:consumer:packed",
     "test:consumer": "pnpm build && pnpm test:consumer:packed",
@@ -34,12 +35,16 @@
     "docs:smoke": "pnpm --filter @harness-kernel/site docs:smoke",
     "release:check": "node scripts/check-release-version.mjs",
     "publish:dry-run": "VERSION=$(node -p \"require('./packages/core/package.json').version\") && TAG=$(node scripts/npm-dist-tag.mjs \"$VERSION\") && pnpm --filter './packages/*' publish -r --dry-run --access public --no-git-checks --tag \"$TAG\"",
-    "verify": "pnpm typecheck && pnpm test && pnpm docs:build"
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm docs:build"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^22.10.0",
+    "eslint": "^10.4.0",
+    "globals": "^17.6.0",
     "tsup": "^8.3.5",
     "tsx": "^4.21.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.59.3"
   }
 }

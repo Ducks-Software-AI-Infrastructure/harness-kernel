@@ -31,4 +31,4 @@ type HarnessSessionStoreEvent =
 };
 ```
 
-Defined in: [packages/core/src/session/types.ts:201](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L201)
+Defined in: [packages/core/src/session/types.ts:200](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L200)

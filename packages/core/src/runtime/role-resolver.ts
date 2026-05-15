@@ -81,7 +81,7 @@ export class RoleResolver {
     if (isRoleClass(selector)) {
       try {
         return new (selector as new () => HarnessRoleDefinition)();
-      } catch (error) {
+      } catch {
         throw new Error(`Role '${getConstructType(selector)}' must be registered as an instance or have a zero-argument constructor.`);
       }
     }

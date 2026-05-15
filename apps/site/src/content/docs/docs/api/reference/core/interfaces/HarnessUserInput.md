@@ -10,13 +10,13 @@ description: "Generated API reference for HarnessUserInput."
 
 # Interface: HarnessUserInput
 
-Defined in: [packages/core/src/session/types.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L48)
+Defined in: [packages/core/src/session/types.ts:47](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L47)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-content"></a> `content` | `string` | [packages/core/src/session/types.ts:50](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L50) |
-| <a id="property-id"></a> `id?` | `string` | [packages/core/src/session/types.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L49) |
-| <a id="property-metadata"></a> `metadata?` | `Record`\<`string`, `unknown`\> | [packages/core/src/session/types.ts:51](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L51) |
-| <a id="property-role"></a> `role?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/session/types.ts:52](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L52) |
+| <a id="property-content"></a> `content` | `string` | [packages/core/src/session/types.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L49) |
+| <a id="property-id"></a> `id?` | `string` | [packages/core/src/session/types.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L48) |
+| <a id="property-metadata"></a> `metadata?` | `Record`\<`string`, `unknown`\> | [packages/core/src/session/types.ts:50](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L50) |
+| <a id="property-role"></a> `role?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/session/types.ts:51](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L51) |

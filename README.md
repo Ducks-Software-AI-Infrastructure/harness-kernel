@@ -1,5 +1,8 @@
 # Harness Kernel
 
+[![CI](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/ci.yml/badge.svg)](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/ci.yml)
+[![Docs](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/pages.yml/badge.svg)](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/pages.yml)
+
 Harness Kernel is a TypeScript runtime kernel for building embeddable AI agent
 harnesses. It gives applications a small core for sessions, modes, tools,
 events, approvals, schema, logging contracts, storage contracts, sandbox
@@ -148,6 +151,7 @@ The GitHub Pages workflow builds the same site from `main` and serves it from
 
 ```bash
 pnpm install
+pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
@@ -159,7 +163,7 @@ and runs a packed external-consumer smoke test. Use `pnpm test:consumer` to
 pack every public package with `npm pack`, install the tarballs in a temporary
 project, import all public subpaths, and run a minimal session example.
 
-`pnpm verify` runs package type checks, package tests, and the docs build.
+`pnpm verify` runs lint, package type checks, package tests, and the docs build.
 
 ## Contributing And Releases
 

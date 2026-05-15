@@ -1,6 +1,6 @@
 import type { AgentActionSession } from "./sessions.js";
 import type { JsonObject } from "./json.js";
-import { constructTypeOf, snakeFromType } from "./naming.js";
+import { constructTypeOf } from "./naming.js";
 
 export type ToolApprovalMode = "auto" | "ask" | "deny" | "tool-default";
 export type ToolApprovalDecision = "approved" | "denied";

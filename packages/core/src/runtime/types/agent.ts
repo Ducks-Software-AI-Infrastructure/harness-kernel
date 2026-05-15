@@ -10,7 +10,7 @@ import type { JsonObject } from "./json.js";
 import type { HarnessMode, HarnessModeSelector } from "./modes.js";
 import type { HarnessRoleDefinition, HarnessRoleSelector } from "./roles.js";
 import type { AgentRuntimeLogger } from "./sessions.js";
-import type { AgentSharedState, AgentSharedStateDefinition } from "./shared-state.js";
+import type { AgentSharedStateDefinition } from "./shared-state.js";
 import type { ToolApprovalDecision, ToolApprovalMode, ToolApprovalRequest } from "./tools.js";
 
 export interface AgentDefinition {

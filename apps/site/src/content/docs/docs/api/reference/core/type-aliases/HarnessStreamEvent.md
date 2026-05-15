@@ -75,4 +75,4 @@ type HarnessStreamEvent =
 };
 ```
 
-Defined in: [packages/core/src/session/types.ts:103](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L103)
+Defined in: [packages/core/src/session/types.ts:102](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L102)

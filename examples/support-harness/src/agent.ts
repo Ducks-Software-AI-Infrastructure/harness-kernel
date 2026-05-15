@@ -11,8 +11,6 @@ const supportStateSchema = s.object({
   escalations: s.array(s.string()).default([]),
 });
 
-type SupportState = InferOutput<typeof supportStateSchema>;
-
 const escalationSchema = s.object({
   ticketId: s.string().min(1),
   reason: s.string().min(1),

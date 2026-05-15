@@ -20,7 +20,6 @@ import type {
   ToolApprovalMode,
   ToolPermission,
   ToolRisk,
-  TranscriptQuery,
 } from "../runtime/types.js";
 import type { HarnessSandbox } from "../runtime/sandbox.js";
 import type { HarnessRunStorage } from "../runtime/storage.js";

@@ -10,22 +10,22 @@ description: "Generated API reference for HarnessAppConfig."
 
 # Interface: HarnessAppConfig
 
-Defined in: [packages/core/src/session/types.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L32)
+Defined in: [packages/core/src/session/types.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L31)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-agent"></a> `agent` | [`HarnessAgentInput`](../type-aliases/HarnessAgentInput.md) | [packages/core/src/session/types.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L33) |
-| <a id="property-defaultmodel"></a> `defaultModel` | `string` | [packages/core/src/session/types.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L35) |
-| <a id="property-initialmode"></a> `initialMode?` | \| `string` \| [`HarnessModeSelector`](../type-aliases/HarnessModeSelector.md) | [packages/core/src/session/types.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L39) |
-| <a id="property-logging"></a> `logging?` | [`HarnessLoggingConfig`](../runner/logging/interfaces/HarnessLoggingConfig.md) | [packages/core/src/session/types.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L43) |
-| <a id="property-maxturns"></a> `maxTurns?` | `number` | [packages/core/src/session/types.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L41) |
-| <a id="property-providers"></a> `providers` | [`HarnessModelProvider`](HarnessModelProvider.md)[] | [packages/core/src/session/types.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L34) |
-| <a id="property-sandbox"></a> `sandbox?` | [`HarnessSandbox`](../classes/HarnessSandbox.md) | [packages/core/src/session/types.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L38) |
-| <a id="property-services"></a> `services?` | `Record`\<`string`, `unknown`\> | [packages/core/src/session/types.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L42) |
-| <a id="property-sessionttlms"></a> `sessionTtlMs?` | `number` | [packages/core/src/session/types.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L44) |
-| <a id="property-storage"></a> `storage?` | [`HarnessRunStorage`](../classes/HarnessRunStorage.md) | [packages/core/src/session/types.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L37) |
-| <a id="property-toolapproval"></a> `toolApproval?` | [`ToolApprovalMode`](../type-aliases/ToolApprovalMode.md) | [packages/core/src/session/types.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L40) |
-| <a id="property-toolapprovaltimeoutms"></a> `toolApprovalTimeoutMs?` | `number` | [packages/core/src/session/types.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L45) |
-| <a id="property-workdir"></a> `workDir?` | `string` | [packages/core/src/session/types.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L36) |
+| <a id="property-agent"></a> `agent` | [`HarnessAgentInput`](../type-aliases/HarnessAgentInput.md) | [packages/core/src/session/types.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L32) |
+| <a id="property-defaultmodel"></a> `defaultModel` | `string` | [packages/core/src/session/types.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L34) |
+| <a id="property-initialmode"></a> `initialMode?` | \| `string` \| [`HarnessModeSelector`](../type-aliases/HarnessModeSelector.md) | [packages/core/src/session/types.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L38) |
+| <a id="property-logging"></a> `logging?` | [`HarnessLoggingConfig`](../runner/logging/interfaces/HarnessLoggingConfig.md) | [packages/core/src/session/types.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L42) |
+| <a id="property-maxturns"></a> `maxTurns?` | `number` | [packages/core/src/session/types.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L40) |
+| <a id="property-providers"></a> `providers` | [`HarnessModelProvider`](HarnessModelProvider.md)[] | [packages/core/src/session/types.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L33) |
+| <a id="property-sandbox"></a> `sandbox?` | [`HarnessSandbox`](../classes/HarnessSandbox.md) | [packages/core/src/session/types.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L37) |
+| <a id="property-services"></a> `services?` | `Record`\<`string`, `unknown`\> | [packages/core/src/session/types.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L41) |
+| <a id="property-sessionttlms"></a> `sessionTtlMs?` | `number` | [packages/core/src/session/types.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L43) |
+| <a id="property-storage"></a> `storage?` | [`HarnessRunStorage`](../classes/HarnessRunStorage.md) | [packages/core/src/session/types.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L36) |
+| <a id="property-toolapproval"></a> `toolApproval?` | [`ToolApprovalMode`](../type-aliases/ToolApprovalMode.md) | [packages/core/src/session/types.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L39) |
+| <a id="property-toolapprovaltimeoutms"></a> `toolApprovalTimeoutMs?` | `number` | [packages/core/src/session/types.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L44) |
+| <a id="property-workdir"></a> `workDir?` | `string` | [packages/core/src/session/types.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L35) |

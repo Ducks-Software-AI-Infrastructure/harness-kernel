@@ -5,14 +5,11 @@ import {
   HarnessRunStore,
   type AgentMessage,
   type ContextSnapshot,
-  type EventCursor,
   type HarnessEventRecord,
   type HarnessSnapshot,
   type OpenRunStoreInput,
   type RunCursorState,
   type RunMetrics,
-  type TranscriptBranch,
-  type TranscriptCursor,
 } from "@harness-kernel/core";
 
 function writeJson(path: string, value: unknown): void {
@@ -22,12 +19,6 @@ function writeJson(path: string, value: unknown): void {
 function readJson<T>(path: string): T | undefined {
   if (!existsSync(path)) return undefined;
   return JSON.parse(readFileSync(path, "utf8")) as T;
-}
-
-interface FileRunCursorState {
-  transcriptCursor: TranscriptCursor;
-  eventCursor: EventCursor;
-  branches?: TranscriptBranch[];
 }
 
 export interface FileRunStorageOptions {
