@@ -52,12 +52,14 @@ git tag v0.1.0-beta.0
 git push origin v0.1.0-beta.0
 ```
 
-The tag should point at the exact commit whose package versions were published.
-The npm publish workflow runs when a `v*.*.*` tag is pushed.
+The tag should point at the exact commit whose package versions will be
+published. Pushing a tag does not publish packages by itself; the npm publish
+workflow runs when a GitHub Release is published for a `v*.*.*` tag.
 
 ## GitHub Releases
 
-A GitHub Release is the human-facing page attached to a tag. It should include:
+A GitHub Release is the human-facing page attached to a tag. Publishing the
+Release is the action that starts the npm publish workflow. It should include:
 
 - highlights;
 - breaking changes;
@@ -81,8 +83,8 @@ is not a separate package registry. The release workflow publishes with the
 official npm CLI so it can use npm Trusted Publishing through GitHub Actions
 OIDC.
 
-The GitHub Actions workflow publishes from tags and resolves the npm dist-tag
-from the version:
+The GitHub Actions workflow publishes from GitHub Releases and resolves the npm
+dist-tag from the release tag version:
 
 - stable versions, such as `0.1.0`, publish with npm dist-tag `latest`;
 - prerelease versions, such as `0.1.0-beta.0`, publish with npm dist-tag
@@ -106,7 +108,8 @@ Repository setup required before the first release:
   - Workflow filename: `npm-publish.yml`
   - Environment name: `npm-publish`
 - keep every public package version equal to the tag version;
-- push the release tag only after the release commit is on `main`.
+- publish the GitHub Release only after the release tag points to the intended
+  commit on `main`.
 
 Do not add an `NPM_TOKEN` secret for the normal release path. Trusted Publishing
 uses short-lived OIDC credentials from GitHub Actions instead of a long-lived npm
@@ -119,5 +122,5 @@ published, create the initial package records once with a maintainer account
 using normal npm 2FA, then configure Trusted Publishing and use the GitHub
 workflow for future releases.
 
-After the packages are visible on npm, create the GitHub Release for the same
-tag with highlights, migration notes, and verification results.
+After the publish workflow succeeds and the packages are visible on npm, update
+the GitHub Release if needed with final npm links or verification notes.
