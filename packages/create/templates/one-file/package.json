@@ -8,10 +8,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@harness-kernel/core": "latest",
-    "@harness-kernel/provider-openai": "latest",
-    "@harness-kernel/sandbox-local": "latest",
-    "@harness-kernel/storage-file": "latest"
+    "@harness-kernel/core": "__HARNESS_VERSION__",
+    "@harness-kernel/provider-openai": "__HARNESS_VERSION__",
+    "@harness-kernel/sandbox-local": "__HARNESS_VERSION__",
+    "@harness-kernel/storage-file": "__HARNESS_VERSION__"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

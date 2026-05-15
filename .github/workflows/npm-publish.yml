@@ -50,12 +50,28 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         run: node scripts/check-release-version.mjs "${GITHUB_REF_NAME#v}"
 
+      - name: Resolve dry-run npm dist-tag
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          version="$(node -p "require('./packages/core/package.json').version")"
+          tag="$(node scripts/npm-dist-tag.mjs "$version")"
+          echo "NPM_DIST_TAG=$tag" >> "$GITHUB_ENV"
+          echo "Dry-run npm dist-tag: $tag"
+
+      - name: Resolve npm dist-tag
+        id: npm-tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          tag="$(node scripts/npm-dist-tag.mjs "${GITHUB_REF_NAME#v}")"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "Publishing with npm dist-tag: $tag"
+
       - name: Dry-run publish
         if: github.event_name == 'workflow_dispatch'
-        run: pnpm --filter './packages/*' publish -r --dry-run --access public --no-git-checks
+        run: pnpm --filter './packages/*' publish -r --dry-run --access public --no-git-checks --tag "$NPM_DIST_TAG"
 
       - name: Publish packages
         if: startsWith(github.ref, 'refs/tags/v')
-        run: pnpm --filter './packages/*' publish -r --access public --no-git-checks --tag latest
+        run: pnpm --filter './packages/*' publish -r --access public --no-git-checks --tag "${{ steps.npm-tag.outputs.tag }}"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

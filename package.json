@@ -33,7 +33,7 @@
     "docs:check": "pnpm --filter @harness-kernel/site docs:check",
     "docs:smoke": "pnpm --filter @harness-kernel/site docs:smoke",
     "release:check": "node scripts/check-release-version.mjs",
-    "publish:dry-run": "pnpm --filter './packages/*' publish -r --dry-run --access public --no-git-checks",
+    "publish:dry-run": "VERSION=$(node -p \"require('./packages/core/package.json').version\") && TAG=$(node scripts/npm-dist-tag.mjs \"$VERSION\") && pnpm --filter './packages/*' publish -r --dry-run --access public --no-git-checks --tag \"$TAG\"",
     "verify": "pnpm typecheck && pnpm test && pnpm docs:build"
   },
   "devDependencies": {

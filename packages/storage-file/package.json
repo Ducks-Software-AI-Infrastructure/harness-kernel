@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/storage-file",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.0",
   "type": "module",
   "description": "File-backed run storage for Harness Kernel.",
   "license": "Apache-2.0",
@@ -40,7 +40,7 @@
     "test": "tsx src/storage-file.test.ts"
   },
   "dependencies": {
-    "@harness-kernel/core": "0.1.0"
+    "@harness-kernel/core": "0.1.0-beta.0"
   },
   "engines": {
     "node": ">=18"

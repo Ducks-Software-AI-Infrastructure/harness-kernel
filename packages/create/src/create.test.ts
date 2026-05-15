@@ -32,6 +32,10 @@ function readTemplatePackage(kind: "full" | "one-file"): { dependencies: Record<
   };
 }
 
+function expectedHarnessDependencyRange(version: string): string {
+  return version.match(/^\d+\.\d+\.\d+-(alpha|beta|rc)(?:[.-]\d+)?(?:\.[0-9A-Za-z-]+)*$/u)?.[1] ?? "latest";
+}
+
 const fullPackage = readTemplatePackage("full");
 const oneFilePackage = readTemplatePackage("one-file");
 
@@ -55,6 +59,7 @@ for (const dependency of [
 }
 
 const packageRoot = resolve(templatesRoot, "..");
+const createPackage = JSON.parse(readFileSync(join(packageRoot, "package.json"), "utf8")) as { version: string };
 const workspaceRoot = resolve(packageRoot, "..", "..");
 const tsxBin = join(workspaceRoot, "node_modules", ".bin", "tsx");
 const cliSource = join(packageRoot, "src", "cli", "index.ts");
@@ -68,9 +73,14 @@ try {
   assert.equal(result.status, 0, result.stderr || result.stdout);
   const generatedPackage = JSON.parse(readFileSync(join(tempDir, "interactive-agent", "package.json"), "utf8")) as {
     name: string;
+    dependencies: Record<string, string>;
   };
   const generatedAgent = readFileSync(join(tempDir, "interactive-agent", "agent.ts"), "utf8");
   assert.equal(generatedPackage.name, "interactive-agent");
+  assert.equal(
+    generatedPackage.dependencies["@harness-kernel/core"],
+    expectedHarnessDependencyRange(createPackage.version),
+  );
   assert.equal(generatedAgent.includes('key: "interactive-agent"'), true);
 } finally {
   rmSync(tempDir, { recursive: true, force: true });

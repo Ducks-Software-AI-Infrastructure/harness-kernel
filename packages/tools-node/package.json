@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/tools-node",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.0",
   "type": "module",
   "description": "Node-oriented tools for Harness Kernel modes.",
   "license": "Apache-2.0",
@@ -49,7 +49,7 @@
     "test": "tsx src/tools-node.test.ts"
   },
   "dependencies": {
-    "@harness-kernel/core": "0.1.0"
+    "@harness-kernel/core": "0.1.0-beta.0"
   },
   "engines": {
     "node": ">=18"

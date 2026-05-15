@@ -44,6 +44,13 @@ function replacePlaceholders(path: string, replacements: Record<string, string>)
   writeFileSync(path, content, "utf8");
 }
 
+function harnessDependencyRange(packageRoot: string): string {
+  const packageJson = JSON.parse(readFileSync(join(packageRoot, "package.json"), "utf8")) as { version?: string };
+  const version = String(packageJson.version ?? "");
+  const prerelease = version.match(/^\d+\.\d+\.\d+-(alpha|beta|rc)(?:[.-]\d+)?(?:\.[0-9A-Za-z-]+)*$/u);
+  return prerelease?.[1] ?? "latest";
+}
+
 function scaffold(kind: TemplateKind, name: string): void {
   const packageRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
   const templateDir = join(packageRoot, "templates", kind);
@@ -56,6 +63,7 @@ function scaffold(kind: TemplateKind, name: string): void {
     __PACKAGE__: name,
     __AGENT_ID__: keyFromName(name),
     __AGENT_LABEL__: titleFromName(name),
+    __HARNESS_VERSION__: harnessDependencyRange(packageRoot),
   });
   console.log(`Created ${kind} Harness Kernel project at ${target}`);
 }

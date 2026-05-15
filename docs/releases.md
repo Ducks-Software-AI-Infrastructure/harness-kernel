@@ -22,11 +22,19 @@ chore/release-0.1.1
 The public packages currently use a fixed workspace version: all
 `@harness-kernel/*` packages move together.
 
+The first public npm release is a prerelease:
+
+```text
+0.1.0-beta.0
+```
+
 While the project is `0.x`, use:
 
 - patch bumps, such as `0.1.1`, for fixes and docs-only release polish;
 - minor bumps, such as `0.2.0`, for new public API or breaking public API
   changes.
+- prerelease bumps, such as `0.1.0-beta.1`, while validating the first public
+  package set before a stable release.
 
 After `1.0.0`, use normal SemVer:
 
@@ -40,8 +48,8 @@ A tag is an immutable Git pointer for a release commit. Release tags use the
 version name with a `v` prefix:
 
 ```sh
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.0-beta.0
+git push origin v0.1.0-beta.0
 ```
 
 The tag should point at the exact commit whose package versions were published.
@@ -64,7 +72,7 @@ Before publishing:
 ```sh
 pnpm verify
 pnpm docs:smoke
-pnpm release:check 0.1.0
+pnpm release:check 0.1.0-beta.0
 pnpm publish:dry-run
 ```
 
@@ -72,10 +80,18 @@ Publishing goes to the npm registry. `pnpm` is the workspace package manager and
 the CLI used to publish all packages recursively; it is not a separate package
 registry.
 
-The GitHub Actions workflow publishes from tags using:
+The GitHub Actions workflow publishes from tags and resolves the npm dist-tag
+from the version:
+
+- stable versions, such as `0.1.0`, publish with npm dist-tag `latest`;
+- prerelease versions, such as `0.1.0-beta.0`, publish with npm dist-tag
+  `beta`.
+
+Users can install the beta with:
 
 ```sh
-pnpm --filter './packages/*' publish -r --access public --no-git-checks --tag latest
+pnpm add @harness-kernel/core@beta
+pnpm create @harness-kernel@beta
 ```
 
 Repository setup required before the first release:
