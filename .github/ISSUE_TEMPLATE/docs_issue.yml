@@ -1,0 +1,56 @@
+name: Documentation issue
+description: Report unclear, missing, stale, or broken documentation.
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: I checked the latest public docs.
+          required: true
+        - label: I searched existing issues first.
+          required: true
+  - type: dropdown
+    id: location
+    attributes:
+      label: Documentation area
+      multiple: true
+      options:
+        - Landing page
+        - Getting started
+        - Concepts
+        - Agent docs
+        - Runtime docs
+        - Schema docs
+        - Guides
+        - API reference
+        - Package README
+        - Root README
+        - Contributing or security docs
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL or file
+      placeholder: "https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/..."
+    validations:
+      required: false
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing?
+      description: Be specific about the confusing, outdated, or missing content.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested improvement
+      description: Describe the change you would expect to see.
+    validations:
+      required: false
+

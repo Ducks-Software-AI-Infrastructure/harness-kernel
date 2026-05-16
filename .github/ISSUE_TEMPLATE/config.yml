@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/security/policy
+    about: Please report security vulnerabilities privately through the security policy.
+  - name: Documentation site
+    url: https://ducks-software-ai-infrastructure.github.io/harness-kernel/
+    about: Check the public docs before opening a usage or API issue.
+

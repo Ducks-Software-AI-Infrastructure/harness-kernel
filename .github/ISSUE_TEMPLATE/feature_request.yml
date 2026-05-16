@@ -1,0 +1,81 @@
+name: Feature or design proposal
+description: Propose a new feature, package, API, integration, or behavior change.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Larger API, package, runtime, sandbox, storage, model provider, or tool behavior changes should start as an issue before a pull request.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: I searched existing issues first.
+          required: true
+        - label: I understand public API changes may need design discussion before implementation.
+          required: true
+  - type: dropdown
+    id: boundary
+    attributes:
+      label: Primary boundary
+      description: Where does this proposal belong?
+      multiple: true
+      options:
+        - Agent-owned behavior
+        - Runtime-owned infrastructure
+        - Core contracts
+        - Model provider
+        - Storage
+        - Sandbox
+        - Tools
+        - Logging
+        - Schema
+        - Create/scaffold
+        - Documentation
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve for users or host applications?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the feature or behavior you want.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: API sketch
+      description: If this changes public API, show the intended imports and minimal usage.
+      render: ts
+    validations:
+      required: false
+  - type: dropdown
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+      options:
+        - No public API change expected
+        - Adds public API
+        - Changes public API
+        - May be breaking
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workaround or alternative design did you consider?
+    validations:
+      required: false
+

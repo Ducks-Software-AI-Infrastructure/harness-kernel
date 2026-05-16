@@ -1,0 +1,50 @@
+name: Question
+description: Ask a usage, integration, or design question.
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: I checked the public docs first.
+          required: true
+        - label: I searched existing issues first.
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options:
+        - Getting started
+        - Agent definition
+        - Modes, tools, roles, hooks, or context
+        - Runtime sessions
+        - Model providers
+        - Storage
+        - Sandbox
+        - Approvals
+        - Logging
+        - Schema
+        - Packaging or release
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Ask the question directly and include enough context to answer.
+    validations:
+      required: true
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you tried?
+      description: Include code or commands if relevant.
+      render: ts
+    validations:
+      required: false
+
