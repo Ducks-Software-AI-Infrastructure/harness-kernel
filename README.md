@@ -19,7 +19,7 @@
     ·
     <a href="#packages">Packages</a>
     ·
-    <a href="docs/releases.md">Releases</a>
+    <a href="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/releases">Releases</a>
   </p>
   <p>
     <a href="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/ci.yml">
@@ -226,7 +226,7 @@ project, import all public subpaths, and run a minimal session example.
 - Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Code of conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
 - Security policy: [`SECURITY.md`](SECURITY.md)
-- Release process: [`docs/releases.md`](docs/releases.md)
+- Releases: <https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/releases>
 
 ## License
 
