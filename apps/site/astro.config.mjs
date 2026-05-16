@@ -4,6 +4,7 @@ import starlight from "@astrojs/starlight";
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
 const siteUrl = "https://ducks-software-ai-infrastructure.github.io";
 const socialPreviewUrl = `${siteUrl}/harness-kernel/social-preview.png`;
+const googleSiteVerification = "nWPAyWS7AYl0YQCDdQikaCYyd0p9N9V6inDJ2fHBfFw";
 
 export default defineConfig({
   site: siteUrl,
@@ -13,6 +14,7 @@ export default defineConfig({
       title: "Harness Kernel",
       favicon: "/favicon.png",
       head: [
+        { tag: "meta", attrs: { name: "google-site-verification", content: googleSiteVerification } },
         { tag: "meta", attrs: { property: "og:image", content: socialPreviewUrl } },
         { tag: "meta", attrs: { property: "og:image:width", content: "1200" } },
         { tag: "meta", attrs: { property: "og:image:height", content: "630" } },

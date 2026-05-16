@@ -8,6 +8,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
 const withBase = (path: string) => `${basePath}${path.replace(/^\/+/, "")}`;
 const githubUrl = "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel";
 const socialPreviewUrl = "https://ducks-software-ai-infrastructure.github.io/harness-kernel/social-preview.png";
+const googleSiteVerification = "nWPAyWS7AYl0YQCDdQikaCYyd0p9N9V6inDJ2fHBfFw";
 
 const agentCode = `
 import { defineAgent } from "@harness-kernel/core/agent";
@@ -125,6 +126,7 @@ const boundaryRows = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Harness Kernel is a small TypeScript kernel for app-owned AI agent runtimes." />
+    <meta name="google-site-verification" content={googleSiteVerification} />
     <meta property="og:title" content="Harness Kernel" />
     <meta property="og:description" content="A small kernel for serious agent runtimes." />
     <meta property="og:type" content="website" />
