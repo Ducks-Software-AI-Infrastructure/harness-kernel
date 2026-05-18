@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/core",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0",
   "type": "module",
   "description": "Pure runtime contracts and session kernel for Harness Kernel.",
   "license": "Apache-2.0",
@@ -103,7 +103,7 @@
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",
-    "test": "tsx src/schema/schema.test.ts && tsx src/runtime/events-schema.test.ts && tsx src/engine/provider-registry.test.ts && tsx src/session/model-resolution.test.ts && tsx src/boundaries.test.ts"
+    "test": "tsx src/schema/schema.test.ts && tsx src/runtime/events-schema.test.ts && tsx src/engine/provider-registry.test.ts && tsx src/session/model-resolution.test.ts && tsx src/session/tool-approval.test.ts && tsx src/boundaries.test.ts"
   },
   "devDependencies": {
     "zod": "^4.4.3"

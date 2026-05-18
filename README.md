@@ -28,7 +28,7 @@
       <img alt="Docs" src="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/actions/workflows/pages.yml/badge.svg" />
     </a>
     <a href="https://www.npmjs.com/package/@harness-kernel/core">
-      <img alt="npm beta" src="https://img.shields.io/npm/v/%40harness-kernel%2Fcore/beta?label=npm%20beta&color=111111" />
+      <img alt="npm" src="https://img.shields.io/npm/v/%40harness-kernel%2Fcore?label=npm&color=111111" />
     </a>
     <a href="LICENSE">
       <img alt="License" src="https://img.shields.io/github/license/Ducks-Software-AI-Infrastructure/harness-kernel?color=111111" />
@@ -70,19 +70,19 @@ the infrastructure around it.
 
 ## Install
 
-Use the beta dist-tag while the first public package set is being validated:
+Install the stable package set:
 
 ```bash
-pnpm add @harness-kernel/core@beta
-pnpm add @harness-kernel/provider-openai@beta
+pnpm add @harness-kernel/core
+pnpm add @harness-kernel/provider-openai
 ```
 
 Add optional runtime modules only when the host needs them:
 
 ```bash
-pnpm add @harness-kernel/storage-file@beta
-pnpm add @harness-kernel/sandbox-local@beta
-pnpm add @harness-kernel/tools-node@beta
+pnpm add @harness-kernel/storage-file
+pnpm add @harness-kernel/sandbox-local
+pnpm add @harness-kernel/tools-node
 ```
 
 ## Core Snippets
@@ -288,6 +288,8 @@ pnpm test
 pnpm build
 pnpm verify
 ```
+
+Development and docs builds require Node.js 22.12 or newer.
 
 The documentation site lives in `apps/site` and is published at
 <https://ducks-software-ai-infrastructure.github.io/harness-kernel/>.
