@@ -29,14 +29,14 @@ function mergeConfig(base: HarnessAppConfig, overrides?: Partial<HarnessAppConfi
   };
 }
 
-function statusToSummary(status: HarnessSessionStatus): HarnessSessionSummary {
+function statusToSummary(status: HarnessSessionStatus, latestRunId?: string): HarnessSessionSummary {
   return {
     sessionId: status.sessionId,
     agentKey: status.agentKey,
     createdAt: status.createdAt,
     lastActiveAt: status.lastActiveAt,
     mode: status.mode,
-    latestRunId: status.runId,
+    latestRunId,
   };
 }
 
@@ -83,6 +83,7 @@ function paginateActive(items: HarnessSessionSummary[], query?: SessionListQuery
 export class HarnessSessionStoreImpl implements HarnessSessionStore {
   private readonly sessions = new Map<string, HarnessSession>();
   private readonly unsubscriptions = new Map<string, () => void>();
+  private readonly latestRunIds = new Map<string, string>();
   private readonly listeners = new Set<HarnessSessionStoreListener>();
   private readonly storage;
   private closed = false;
@@ -105,6 +106,8 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
     const stored = await this.storage.getSession(id);
     const session = await createHarnessSession(config, { sessionId: id, restoredSession: stored });
     const status = session.getStatus();
+    if (stored?.latestRunId) this.latestRunIds.set(id, stored.latestRunId);
+    else this.latestRunIds.delete(id);
 
     if (!stored) {
       await this.storage.createSession({
@@ -118,6 +121,8 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
 
     this.sessions.set(id, session);
     this.unsubscriptions.set(id, session.on((event) => {
+      if (event.type === "run.started") this.latestRunIds.set(id, event.runId);
+      if (event.type === "run.completed") this.latestRunIds.set(id, event.result.runId);
       if (event.type === "session.status") {
         void this.storage.touchSession({
           sessionId: id,
@@ -137,11 +142,11 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
 
   async list(query?: SessionListQuery): Promise<SessionListResult> {
     if (query?.active) {
-      return paginateActive([...this.sessions.values()].map((session) => statusToSummary(session.getStatus())), query);
+      return paginateActive([...this.sessions.values()].map((session) => statusToSummary(session.getStatus(), this.latestRunIds.get(session.id))), query);
     }
 
     const result = await this.storage.listSessions(query);
-    const active = new Map([...this.sessions.values()].map((session) => [session.id, statusToSummary(session.getStatus())]));
+    const active = new Map([...this.sessions.values()].map((session) => [session.id, statusToSummary(session.getStatus(), this.latestRunIds.get(session.id))]));
     return {
       items: result.items.map((item) => active.get(item.sessionId) ?? item),
       nextCursor: result.nextCursor,
@@ -162,6 +167,7 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
     const session = this.sessions.get(sessionId);
     if (!session) return false;
     this.sessions.delete(sessionId);
+    this.latestRunIds.delete(sessionId);
     this.unsubscriptions.get(sessionId)?.();
     this.unsubscriptions.delete(sessionId);
     await session.close();
@@ -170,6 +176,7 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
 
   async delete(sessionId: string): Promise<boolean> {
     await this.close(sessionId);
+    this.latestRunIds.delete(sessionId);
     const deleted = await this.storage.deleteSession(sessionId);
     if (deleted) this.notify({ type: "session.deleted", sessionId });
     return deleted;
