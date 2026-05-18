@@ -41,6 +41,9 @@ const store = await createHarnessSessionStore({
 
 const session = await store.getOrCreate("session-a");
 assert.equal(store.get("session-a"), session);
+const emptyActiveList = await store.list({ active: true });
+assert.deepEqual(emptyActiveList.items.map((item) => item.sessionId), ["session-a"]);
+assert.equal(emptyActiveList.items[0]?.latestRunId, undefined);
 
 const first = await session.send("hello");
 assert.equal(first.answer, "answer:hello");
@@ -50,14 +53,17 @@ assert.ok(session.getContextSnapshot());
 
 const activeList = await store.list({ active: true });
 assert.deepEqual(activeList.items.map((item) => item.sessionId), ["session-a"]);
+assert.equal(activeList.items[0]?.latestRunId, first.runId);
 
 assert.equal(await store.close("session-a"), true);
 assert.equal(store.get("session-a"), undefined);
 
 const persistedList = await store.list();
 assert.deepEqual(persistedList.items.map((item) => item.sessionId), ["session-a"]);
+assert.equal(persistedList.items[0]?.latestRunId, first.runId);
 
 const reopened = await store.getOrCreate("session-a");
+assert.equal((await store.list({ active: true })).items[0]?.latestRunId, first.runId);
 assert.equal(reopened.transcript.get().some((message) => message.role === "user" && message.content === "hello"), true);
 assert.equal(reopened.getEvents().some((event) => event.type === "run:end"), true);
 assert.equal(reopened.snapshots.list().length > 0, true);
