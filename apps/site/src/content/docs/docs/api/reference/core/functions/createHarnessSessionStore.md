@@ -14,7 +14,7 @@ description: "Generated API reference for CreateHarnessSessionStore."
 function createHarnessSessionStore(config): Promise<HarnessSessionStore>;
 ```
 
-Defined in: [packages/core/src/session/store.ts:228](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/store.ts#L228)
+Defined in: [packages/core/src/session/store.ts:235](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/store.ts#L235)
 
 ## Parameters
 
