@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/storage-postgres",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "Postgres-backed session storage for Harness Kernel.",
   "license": "Apache-2.0",
@@ -41,7 +41,7 @@
     "test": "tsx src/storage-postgres.test.ts"
   },
   "dependencies": {
-    "@harness-kernel/core": "0.2.0"
+    "@harness-kernel/core": "0.2.1"
   },
   "engines": {
     "node": ">=18"
