@@ -1,7 +1,7 @@
 # Security Policy
 
-Harness Kernel is pre-1.0. Please report security issues privately when
-possible.
+Harness Kernel is on the `0.x` release line. Please report security issues
+privately when possible.
 
 ## Reporting
 
