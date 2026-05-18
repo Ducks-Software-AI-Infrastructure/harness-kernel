@@ -114,16 +114,15 @@ import { createHarnessSessionStore } from "@harness-kernel/core/runner";
 import { ConsoleLogSink } from "@harness-kernel/core/runner/logging";
 import { OpenAIProvider } from "@harness-kernel/provider-openai";
 import { LocalSandbox } from "@harness-kernel/sandbox-local";
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 import { agent } from "./agent.js";
 
 const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new OpenAIProvider()],
   defaultModel: "openai/gpt-5.1",
-  storage: new FileRunStorage({ outputDir: ".harness-kernel/runs" }),
-  sandbox: new LocalSandbox(),
-  toolApproval: "ask",
+  storage: new FileSessionStorage(),
+  sandbox: new LocalSandbox({ workDir: "." }),
   logging: {
     sinks: [new ConsoleLogSink({ level: "info" })],
   },
@@ -146,7 +145,7 @@ pnpm add @harness-kernel/core @harness-kernel/provider-openai
 pnpm add @harness-kernel/storage-file @harness-kernel/sandbox-local
 ```
 
-Only install optional packages your host needs. A core-only runtime can use `MemoryRunStorage`, `NoopSandbox`, and a custom `HarnessModelProvider`; see [Core-only Agent](../guides/core-only-agent/).
+Only install optional packages your host needs. A core-only runtime can use `MemorySessionStorage`, `NoopSandbox`, and a custom `HarnessModelProvider`; see [Core-only Agent](../guides/core-only-agent/).
 
 ## Where To Go Next
 

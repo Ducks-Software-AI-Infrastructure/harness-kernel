@@ -14,7 +14,7 @@ import type {
   ModelProviderRunInput,
   ModelProviderRunResult,
 } from "@harness-kernel/core/runner/model-provider";
-import { MemoryRunStorage } from "@harness-kernel/core/runner/storage";
+import { MemorySessionStorage } from "@harness-kernel/core/runner/storage";
 import { NoopSandbox } from "@harness-kernel/core/runner/sandbox";
 
 class ChatMode extends HarnessMode {
@@ -43,7 +43,7 @@ const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new EchoProvider()],
   defaultModel: "echo/basic",
-  storage: new MemoryRunStorage(),
+  storage: new MemorySessionStorage(),
   sandbox: new NoopSandbox(),
 });
 

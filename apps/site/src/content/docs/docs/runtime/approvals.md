@@ -3,7 +3,7 @@ title: Approvals
 description: Runtime-owned approval policy for mode-owned tools.
 ---
 
-Approval policy belongs to the runtime host. Tool metadata can request approval, but the host decides whether a request is automatically approved, denied, or surfaced to a user.
+Approval policy belongs to modes and tools. Tool metadata can request approval, and the host resolves pending approval handles when a request is surfaced to a user.
 
 ## Tool Metadata
 
@@ -15,6 +15,7 @@ class WriteReportTool extends HarnessTool<WriteReportInput> {
   risk = "write" as const;
   permissions = [{ kind: "filesystem" as const, access: "write" as const, path: "." }];
   requiresApproval = true;
+  approvalTimeoutMs = 60_000;
 
   async execute(args, session) {
     return { content: "Wrote report.md" };
@@ -22,17 +23,15 @@ class WriteReportTool extends HarnessTool<WriteReportInput> {
 }
 ```
 
-The tool belongs to a mode. `requiresApproval` is a behavior hint.
+The tool belongs to a mode. `requiresApproval` is a behavior hint, and `approvalTimeoutMs` controls how long a pending request can wait.
 
-## Runtime Policy
+## Mode Policy
 
 ```ts
-const store = await createHarnessSessionStore({
-  agent: { definition: agent },
-  providers: [new OpenAIProvider()],
-  defaultModel: "openai/gpt-5.1",
-  toolApproval: "ask",
-});
+class ReviewMode extends HarnessMode {
+  toolApproval = "ask" as const;
+  tools = [new WriteReportTool()];
+}
 ```
 
 Policies are `auto`, `ask`, `deny`, and `tool-default`.

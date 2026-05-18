@@ -5,7 +5,7 @@ description: Public subpaths and optional package responsibilities.
 
 Harness Kernel packages expose public subpaths for the responsibility boundary. Import from those subpaths instead of reaching into package internals.
 
-Package boundaries are also coupling boundaries. Agent packages should depend on `@harness-kernel/core/agent/*` and schema contracts for behavior. Host applications should depend on runner contracts and optional infrastructure packages when they choose concrete providers, storage, sandboxing, logging, or services.
+Package boundaries are also coupling boundaries. Agent packages should depend on `@harness-kernel/core/agent/*` and schema contracts for behavior. Host applications should depend on runner contracts and optional infrastructure packages when they choose concrete providers, storage, sandboxing, logging, or resources.
 
 ## Core Public Subpaths
 
@@ -34,7 +34,8 @@ Optional packages are explicit host choices:
 
 - `@harness-kernel/provider-openai` registers the `openai` model provider namespace.
 - `@harness-kernel/provider-ai-sdk` bridges Vercel AI SDK language models into `HarnessModelProvider`.
-- `@harness-kernel/storage-file` provides `FileRunStorage`.
+- `@harness-kernel/storage-file` provides `FileSessionStorage`.
+- `@harness-kernel/storage-postgres` provides `PostgresSessionStorage`.
 - `@harness-kernel/sandbox-local` provides `LocalSandbox`.
 - `@harness-kernel/tools-node` provides mode-owned Node tools.
 - `@harness-kernel/logging-file` provides `JsonlFileLogSink`.
@@ -47,7 +48,7 @@ Prefer the narrow public subpath that matches the owner:
 ```ts
 import { HarnessTool } from "@harness-kernel/core/agent/tool";
 import { createHarnessSessionStore } from "@harness-kernel/core/runner";
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 ```
 
 This keeps examples honest about whether code belongs to agent space or runtime host space.
@@ -57,7 +58,7 @@ This keeps examples honest about whether code belongs to agent space or runtime 
 Move code back across the boundary when you see these smells:
 
 - An agent package imports `@harness-kernel/provider-openai`, `@harness-kernel/storage-file`, `@harness-kernel/sandbox-local`, or logging sinks.
-- A reusable mode needs a production API key, filesystem path, approval UI, or deployment-specific service to load.
+- A reusable mode needs a production API key, filesystem path, approval UI, or deployment-specific resource to load.
 - A runtime host hard-codes prompts, mode tools, custom events, or hooks that should travel with the agent definition.
 - A guide cannot say whether a dependency exists for behavior or for hosting.
 

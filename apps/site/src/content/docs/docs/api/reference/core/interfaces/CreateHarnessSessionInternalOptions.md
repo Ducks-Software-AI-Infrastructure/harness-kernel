@@ -10,10 +10,11 @@ description: "Generated API reference for CreateHarnessSessionInternalOptions."
 
 # Interface: CreateHarnessSessionInternalOptions
 
-Defined in: [packages/core/src/session/session.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L78)
+Defined in: [packages/core/src/session/session.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L67)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-sessionid"></a> `sessionId?` | `string` | [packages/core/src/session/session.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L79) |
+| <a id="property-restoredsession"></a> `restoredSession?` | [`HarnessSessionSummary`](HarnessSessionSummary.md) | [packages/core/src/session/session.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L69) |
+| <a id="property-sessionid"></a> `sessionId?` | `string` | [packages/core/src/session/session.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L68) |

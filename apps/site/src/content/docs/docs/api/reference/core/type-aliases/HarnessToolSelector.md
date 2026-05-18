@@ -14,7 +14,7 @@ description: "Generated API reference for HarnessToolSelector."
 type HarnessToolSelector<TTool> = TTool | HarnessToolClass<TTool>;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L68)
+Defined in: [packages/core/src/runtime/types/tools.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L69)
 
 ## Type Parameters
 

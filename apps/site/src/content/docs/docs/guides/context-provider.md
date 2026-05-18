@@ -30,6 +30,6 @@ class NotesMode extends HarnessMode {
 }
 ```
 
-Boundary note: the provider is behavior. The data it reads may come from shared state or runtime services.
+Boundary note: the provider is behavior. The data it reads may come from shared state or runtime resources.
 
 API: [Context Providers](../../agent/context-providers/).

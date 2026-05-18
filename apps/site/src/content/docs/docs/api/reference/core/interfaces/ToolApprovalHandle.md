@@ -10,23 +10,23 @@ description: "Generated API reference for ToolApprovalHandle."
 
 # Interface: ToolApprovalHandle
 
-Defined in: [packages/core/src/session/types.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L79)
+Defined in: [packages/core/src/session/types.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L72)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-args"></a> `args` | `unknown` | [packages/core/src/session/types.ts:85](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L85) |
-| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/session/types.ts:89](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L89) |
-| <a id="property-expiresat"></a> `expiresAt?` | `string` | [packages/core/src/session/types.ts:90](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L90) |
-| <a id="property-id"></a> `id` | `string` | [packages/core/src/session/types.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L80) |
-| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/session/types.ts:86](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L86) |
-| <a id="property-name"></a> `name` | `string` | [packages/core/src/session/types.ts:84](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L84) |
-| <a id="property-permissions"></a> `permissions?` | [`ToolPermission`](ToolPermission.md)[] | [packages/core/src/session/types.ts:88](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L88) |
-| <a id="property-risk"></a> `risk?` | [`ToolRisk`](../type-aliases/ToolRisk.md) | [packages/core/src/session/types.ts:87](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L87) |
-| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/session/types.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L82) |
-| <a id="property-sessionid"></a> `sessionId` | `string` | [packages/core/src/session/types.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L81) |
-| <a id="property-toolcallid"></a> `toolCallId` | `string` | [packages/core/src/session/types.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L83) |
+| <a id="property-args"></a> `args` | `unknown` | [packages/core/src/session/types.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L78) |
+| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/session/types.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L82) |
+| <a id="property-expiresat"></a> `expiresAt?` | `string` | [packages/core/src/session/types.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L83) |
+| <a id="property-id"></a> `id` | `string` | [packages/core/src/session/types.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L73) |
+| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/session/types.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L79) |
+| <a id="property-name"></a> `name` | `string` | [packages/core/src/session/types.ts:77](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L77) |
+| <a id="property-permissions"></a> `permissions?` | [`ToolPermission`](ToolPermission.md)[] | [packages/core/src/session/types.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L81) |
+| <a id="property-risk"></a> `risk?` | [`ToolRisk`](../type-aliases/ToolRisk.md) | [packages/core/src/session/types.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L80) |
+| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/session/types.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L75) |
+| <a id="property-sessionid"></a> `sessionId` | `string` | [packages/core/src/session/types.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L74) |
+| <a id="property-toolcallid"></a> `toolCallId` | `string` | [packages/core/src/session/types.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L76) |
 
 ## Methods
 
@@ -36,7 +36,7 @@ Defined in: [packages/core/src/session/types.ts:79](https://github.com/Ducks-Sof
 approve(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:91](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L91)
+Defined in: [packages/core/src/session/types.ts:84](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L84)
 
 #### Returns
 
@@ -50,7 +50,7 @@ Defined in: [packages/core/src/session/types.ts:91](https://github.com/Ducks-Sof
 deny(reason?): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:92](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L92)
+Defined in: [packages/core/src/session/types.ts:85](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L85)
 
 #### Parameters
 

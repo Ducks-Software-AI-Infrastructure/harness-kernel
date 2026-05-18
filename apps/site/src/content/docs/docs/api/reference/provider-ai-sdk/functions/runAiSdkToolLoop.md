@@ -12,8 +12,8 @@ description: "Generated API reference for RunAiSdkToolLoop."
 
 ```ts
 function runAiSdkToolLoop(
-   input, 
-   model, 
+   input,
+   model,
 providerId): Promise<ModelProviderRunResult>;
 ```
 

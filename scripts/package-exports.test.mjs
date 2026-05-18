@@ -16,6 +16,7 @@ const packages = {
   "provider-openai": "packages/provider-openai",
   "sandbox-local": "packages/sandbox-local",
   "storage-file": "packages/storage-file",
+  "storage-postgres": "packages/storage-postgres",
   "tools-node": "packages/tools-node",
 };
 
@@ -43,6 +44,7 @@ const specs = [
   "@harness-kernel/provider-openai",
   "@harness-kernel/sandbox-local",
   "@harness-kernel/storage-file",
+  "@harness-kernel/storage-postgres",
   "@harness-kernel/tools-node",
   "@harness-kernel/tools-node/bash",
   "@harness-kernel/tools-node/files",

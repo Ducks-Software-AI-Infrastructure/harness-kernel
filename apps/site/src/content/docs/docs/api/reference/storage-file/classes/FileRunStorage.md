@@ -10,7 +10,7 @@ description: "Generated API reference for FileRunStorage."
 
 # Class: FileRunStorage
 
-Defined in: [packages/storage-file/src/index.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L28)
+Defined in: [packages/storage-file/src/index.ts:104](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L104)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [packages/storage-file/src/index.ts:28](https://github.com/Ducks-Sof
 new FileRunStorage(options?): FileRunStorage;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L33)
+Defined in: [packages/storage-file/src/index.ts:109](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L109)
 
 #### Parameters
 
@@ -44,9 +44,9 @@ Defined in: [packages/storage-file/src/index.ts:33](https://github.com/Ducks-Sof
 
 | Property | Modifier | Type | Default value | Overrides | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `"file"` | `"file"` | [`HarnessRunStorage`](../../core/classes/HarnessRunStorage.md).[`id`](../../core/classes/HarnessRunStorage.md#property-id) | [packages/storage-file/src/index.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L29) |
-| <a id="property-label"></a> `label` | `public` | `string` | `"File"` | [`HarnessRunStorage`](../../core/classes/HarnessRunStorage.md).[`label`](../../core/classes/HarnessRunStorage.md#property-label) | [packages/storage-file/src/index.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L30) |
-| <a id="property-outputdir"></a> `outputDir` | `readonly` | `string` | `undefined` | - | [packages/storage-file/src/index.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L31) |
+| <a id="property-id"></a> `id` | `readonly` | `"file"` | `"file"` | [`HarnessRunStorage`](../../core/classes/HarnessRunStorage.md).[`id`](../../core/classes/HarnessRunStorage.md#property-id) | [packages/storage-file/src/index.ts:105](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L105) |
+| <a id="property-label"></a> `label` | `public` | `string` | `"File"` | [`HarnessRunStorage`](../../core/classes/HarnessRunStorage.md).[`label`](../../core/classes/HarnessRunStorage.md#property-label) | [packages/storage-file/src/index.ts:106](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L106) |
+| <a id="property-outputdir"></a> `outputDir` | `readonly` | `string` | `undefined` | - | [packages/storage-file/src/index.ts:107](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L107) |
 
 ## Methods
 
@@ -56,7 +56,7 @@ Defined in: [packages/storage-file/src/index.ts:33](https://github.com/Ducks-Sof
 openRun(input): HarnessRunStore;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L38)
+Defined in: [packages/storage-file/src/index.ts:114](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L114)
 
 #### Parameters
 

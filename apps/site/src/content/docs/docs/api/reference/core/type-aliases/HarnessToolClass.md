@@ -14,7 +14,7 @@ description: "Generated API reference for HarnessToolClass."
 type HarnessToolClass<TTool> = (...args) => TTool;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L67)
+Defined in: [packages/core/src/runtime/types/tools.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L68)
 
 ## Type Parameters
 

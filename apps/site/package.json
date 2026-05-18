@@ -22,6 +22,7 @@
     "@harness-kernel/provider-openai": "workspace:*",
     "@harness-kernel/sandbox-local": "workspace:*",
     "@harness-kernel/storage-file": "workspace:*",
+    "@harness-kernel/storage-postgres": "workspace:*",
     "@harness-kernel/tools-node": "workspace:*"
   },
   "devDependencies": {

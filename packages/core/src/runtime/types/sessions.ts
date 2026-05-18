@@ -103,14 +103,14 @@ export interface AgentContextSession extends AgentContextReader {
 
 export interface AgentReadSession<
   TState extends AgentSharedState = AgentSharedState,
-  TServices extends Record<string, unknown> = Record<string, unknown>,
+  TResources extends Record<string, unknown> = Record<string, unknown>,
 > {
   runId: string;
   turnId?: string;
   agentKey: string;
   workDir: string;
   outputDir?: string;
-  services: TServices;
+  resources: TResources;
   state: AgentStateReader<TState>;
   history: AgentHistorySession;
   events: AgentEventReader;
@@ -121,8 +121,8 @@ export interface AgentReadSession<
 
 export interface AgentActionSession<
   TState extends AgentSharedState = AgentSharedState,
-  TServices extends Record<string, unknown> = Record<string, unknown>,
-> extends AgentReadSession<TState, TServices> {
+  TResources extends Record<string, unknown> = Record<string, unknown>,
+> extends AgentReadSession<TState, TResources> {
   sandbox: HarnessSandboxSession;
   state: AgentStateSession<TState>;
   events: AgentEventSession;

@@ -13,6 +13,7 @@ import { createCoreTools } from "@harness-kernel/tools-node";
 class CliMode extends HarnessMode {
   prompt = "Use local tools only when they are needed.";
   tools = createCoreTools();
+  toolApproval = "ask" as const;
 }
 
 const store = await createHarnessSessionStore({
@@ -24,7 +25,6 @@ const store = await createHarnessSessionStore({
     env: "minimal",
     defaultTimeoutMs: 30_000,
   }),
-  toolApproval: "ask",
 });
 ```
 

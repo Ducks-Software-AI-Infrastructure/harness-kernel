@@ -44,6 +44,7 @@ new HarnessTool<TInput, TData>(): HarnessTool<TInput, TData>;
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
+| <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `public` | `number` | [packages/core/src/runtime/types/tools.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L55) |
 | <a id="property-description"></a> `description` | `abstract` | `string` | [packages/core/src/runtime/types/tools.ts:50](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L50) |
 | <a id="property-label"></a> `label?` | `public` | `string` | [packages/core/src/runtime/types/tools.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L48) |
 | <a id="property-name"></a> `name` | `abstract` | `string` | [packages/core/src/runtime/types/tools.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L49) |
@@ -62,7 +63,7 @@ new HarnessTool<TInput, TData>(): HarnessTool<TInput, TData>;
 get inputSchema(): unknown;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L60)
+Defined in: [packages/core/src/runtime/types/tools.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L61)
 
 ##### Returns
 
@@ -78,7 +79,7 @@ Defined in: [packages/core/src/runtime/types/tools.ts:60](https://github.com/Duc
 get type(): string;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L56)
+Defined in: [packages/core/src/runtime/types/tools.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L57)
 
 ##### Returns
 
@@ -89,12 +90,12 @@ Defined in: [packages/core/src/runtime/types/tools.ts:56](https://github.com/Duc
 ### execute()
 
 ```ts
-abstract execute(args, session): 
+abstract execute(args, session):
   | AgentToolResult<TData>
 | Promise<AgentToolResult<TData>>;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L64)
+Defined in: [packages/core/src/runtime/types/tools.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L65)
 
 #### Parameters
 

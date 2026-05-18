@@ -11,7 +11,7 @@ description: "Generated API reference for HarnessStreamEvent."
 # Type Alias: HarnessStreamEvent
 
 ```ts
-type HarnessStreamEvent = 
+type HarnessStreamEvent =
   | {
   mode: string;
   runId: string;
@@ -75,4 +75,4 @@ type HarnessStreamEvent =
 };
 ```
 
-Defined in: [packages/core/src/session/types.ts:102](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L102)
+Defined in: [packages/core/src/session/types.ts:95](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L95)

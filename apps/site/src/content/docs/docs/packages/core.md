@@ -10,7 +10,7 @@ Use it for:
 - `defineAgent`, `HarnessMode`, `HarnessTool`, `HarnessHook`, `HarnessRole`, `HarnessContextProvider`, and `HarnessEvent`;
 - `createHarnessSessionStore` and `createHarnessSession`;
 - model provider contracts and registry helpers;
-- storage and sandbox contracts plus `MemoryRunStorage`, `NoopRunStorage`, and `NoopSandbox`;
+- storage and sandbox contracts plus `MemorySessionStorage`, legacy run storage helpers, and `NoopSandbox`;
 - logging contracts plus `ConsoleLogSink` and `MemoryLogSink`;
 - official schema primitives from `@harness-kernel/core/schema`.
 

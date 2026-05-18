@@ -59,7 +59,7 @@ Defined in: [packages/core/src/runtime/types/context.ts:124](https://github.com/
 ### render()
 
 ```ts
-abstract render(session, options?): 
+abstract render(session, options?):
   | ContextProviderOutput
 | Promise<ContextProviderOutput>;
 ```

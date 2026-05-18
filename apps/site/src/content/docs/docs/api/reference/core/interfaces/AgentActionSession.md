@@ -8,20 +8,20 @@ description: "Generated API reference for AgentActionSession."
 
 ***
 
-# Interface: AgentActionSession\<TState, TServices\>
+# Interface: AgentActionSession\<TState, TResources\>
 
 Defined in: [packages/core/src/runtime/types/sessions.ts:122](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L122)
 
 ## Extends
 
-- [`AgentReadSession`](AgentReadSession.md)\<`TState`, `TServices`\>
+- [`AgentReadSession`](AgentReadSession.md)\<`TState`, `TResources`\>
 
 ## Type Parameters
 
 | Type Parameter | Default type |
 | ------ | ------ |
 | `TState` *extends* [`AgentSharedState`](../type-aliases/AgentSharedState.md) | [`AgentSharedState`](../type-aliases/AgentSharedState.md) |
-| `TServices` *extends* `Record`\<`string`, `unknown`\> | `Record`\<`string`, `unknown`\> |
+| `TResources` *extends* `Record`\<`string`, `unknown`\> | `Record`\<`string`, `unknown`\> |
 
 ## Properties
 
@@ -35,9 +35,9 @@ Defined in: [packages/core/src/runtime/types/sessions.ts:122](https://github.com
 | <a id="property-messages"></a> `messages` | [`AgentMessageSession`](AgentMessageSession.md) | - | - | [packages/core/src/runtime/types/sessions.ts:132](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L132) |
 | <a id="property-mode"></a> `mode` | [`AgentModeSession`](AgentModeSession.md) | [`AgentReadSession`](AgentReadSession.md).[`mode`](AgentReadSession.md#property-mode) | - | [packages/core/src/runtime/types/sessions.ts:129](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L129) |
 | <a id="property-outputdir"></a> `outputDir?` | `string` | - | [`AgentReadSession`](AgentReadSession.md).[`outputDir`](AgentReadSession.md#property-outputdir) | [packages/core/src/runtime/types/sessions.ts:112](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L112) |
+| <a id="property-resources"></a> `resources` | `TResources` | - | [`AgentReadSession`](AgentReadSession.md).[`resources`](AgentReadSession.md#property-resources) | [packages/core/src/runtime/types/sessions.ts:113](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L113) |
 | <a id="property-runid"></a> `runId` | `string` | - | [`AgentReadSession`](AgentReadSession.md).[`runId`](AgentReadSession.md#property-runid) | [packages/core/src/runtime/types/sessions.ts:108](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L108) |
 | <a id="property-sandbox"></a> `sandbox` | [`HarnessSandboxSession`](../classes/HarnessSandboxSession.md) | - | - | [packages/core/src/runtime/types/sessions.ts:126](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L126) |
-| <a id="property-services"></a> `services` | `TServices` | - | [`AgentReadSession`](AgentReadSession.md).[`services`](AgentReadSession.md#property-services) | [packages/core/src/runtime/types/sessions.ts:113](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L113) |
 | <a id="property-snapshots"></a> `snapshots` | [`HarnessSnapshotCreator`](HarnessSnapshotCreator.md) | - | - | [packages/core/src/runtime/types/sessions.ts:133](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L133) |
 | <a id="property-state"></a> `state` | [`AgentStateSession`](AgentStateSession.md)\<`TState`\> | [`AgentReadSession`](AgentReadSession.md).[`state`](AgentReadSession.md#property-state) | - | [packages/core/src/runtime/types/sessions.ts:127](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L127) |
 | <a id="property-toolcall"></a> `toolCall?` | `object` | - | - | [packages/core/src/runtime/types/sessions.ts:134](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/sessions.ts#L134) |

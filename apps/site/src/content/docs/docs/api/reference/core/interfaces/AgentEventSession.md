@@ -22,8 +22,8 @@ Defined in: [packages/core/src/runtime/types/sessions.ts:36](https://github.com/
 
 ```ts
 emit<TPayload, TEvent>(
-   eventClass, 
-   payload, 
+   eventClass,
+   payload,
 options?): Promise<TEvent>;
 ```
 

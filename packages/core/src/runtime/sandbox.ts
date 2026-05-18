@@ -4,7 +4,7 @@ export interface HarnessSandboxOpenInput {
   agentKey: string;
   workDir: string;
   outputDir?: string;
-  services: Record<string, unknown>;
+  resources: Record<string, unknown>;
 }
 
 export interface SandboxExecInput {

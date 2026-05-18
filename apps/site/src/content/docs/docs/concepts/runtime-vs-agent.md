@@ -13,7 +13,7 @@ The point of the split is coupling control. Agent packages should couple to kern
 | Modes declare prompts, tools, context, and optional model preference. | The host registers available model providers and a required `defaultModel`. |
 | Tools are mode-owned behavior. | Approval policy and pending approval resolution are runtime-owned. |
 | Hooks are agent behavior. | Session event listeners and streams are runtime observation. |
-| Roles and custom events travel with the agent. | Storage, sandboxing, logs, services, and session lifecycle stay with the app. |
+| Roles and custom events travel with the agent. | Storage, sandboxing, logs, resources, and session lifecycle stay with the app. |
 
 ## Agent Behavior
 
@@ -54,7 +54,7 @@ const store = await createHarnessSessionStore({
 });
 ```
 
-The runtime host owns the provider list and the fallback model. It may also attach storage, sandbox, logging, services, approval policy, session TTL, and approval timeout.
+The runtime host owns the provider list and the fallback model. It may also attach storage, sandbox, logging, and resources. Approval policy and turn limits live on modes and tools.
 
 ## Coupling Rule
 
@@ -68,7 +68,7 @@ That rule keeps an agent testable without production infrastructure and lets a h
 - Hooks are agent-owned behavior.
 - Streams, `session.on()`, and `session.onEvent()` are runtime observation.
 - `providers` and `defaultModel` are host-owned.
-- Agents should not import host-only provider, storage, sandbox, logging, or service packages.
+- Agents should not import host-only provider, storage, sandbox, logging, or resource packages.
 - `@harness-kernel/create` is only a scaffold/devtool package.
 
 When a design question is unclear, ask whether the concern changes behavior or changes hosting. Behavior goes into agent space; hosting goes into the runtime host.

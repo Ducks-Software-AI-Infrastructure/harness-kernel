@@ -13,8 +13,11 @@ export type {
   HarnessSessionStoreListener,
   HarnessStreamEvent,
   HarnessUserInput,
+  HarnessSessionSummary,
   SendOptions,
   SendResult,
+  SessionListQuery,
+  SessionListResult,
   StreamOptions,
   WaitForEventOptions,
 } from "../session/types.js";

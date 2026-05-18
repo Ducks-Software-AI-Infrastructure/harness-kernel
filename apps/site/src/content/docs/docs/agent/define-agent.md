@@ -30,7 +30,7 @@ export const agent = defineAgent({
 | --- | --- | --- |
 | `key` | Agent | Stable identity used in manifests, storage records, and status. |
 | `label` | Agent | Human-readable label. |
-| `initialMode` | Agent | Mode selector used when a session starts unless the host overrides `initialMode`. |
+| `initialMode` | Agent | Mode selector used when a session starts. |
 | `modes` | Agent | All modes available for `session.switchMode()` and agent behavior. |
 | `roles` | Agent | Custom role definitions and built-in role overrides. |
 | `hooks` | Agent | Agent-owned reactions to events. |
@@ -51,7 +51,7 @@ export const agent = defineAgent({
 });
 ```
 
-Shared state is part of behavior because tools, hooks, context providers, and modes can read it. External databases and service clients still belong to the runtime host and should be passed through `services`.
+Shared state is part of behavior because tools, hooks, context providers, and modes can read it. External databases and service clients still belong to the runtime host and should be passed through `resources`.
 
 ## Runtime Boundary
 

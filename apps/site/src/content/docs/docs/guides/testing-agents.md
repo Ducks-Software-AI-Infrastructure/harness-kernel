@@ -8,18 +8,19 @@ Objective: test behavior without network calls or local shell execution.
 ```ts
 import assert from "node:assert/strict";
 import { createHarnessSessionStore } from "@harness-kernel/core/runner";
-import { MemoryRunStorage } from "@harness-kernel/core/runner/storage";
+import { MemorySessionStorage } from "@harness-kernel/core/runner/storage";
 import { NoopSandbox } from "@harness-kernel/core/runner/sandbox";
 import { agent } from "../src/agent.js";
 import { EchoProvider } from "./support/echo-provider.js";
+
+for (const mode of agent.modes) mode.toolApproval = "deny";
 
 const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new EchoProvider()],
   defaultModel: "echo/basic",
-  storage: new MemoryRunStorage(),
+  storage: new MemorySessionStorage(),
   sandbox: new NoopSandbox(),
-  toolApproval: "deny",
 });
 
 try {

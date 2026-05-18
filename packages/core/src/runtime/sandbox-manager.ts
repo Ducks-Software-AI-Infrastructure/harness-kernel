@@ -11,7 +11,7 @@ export class SandboxManager {
       sessionId: string;
       agentKey: string;
       workDir: string;
-      services: Record<string, unknown>;
+      resources: Record<string, unknown>;
       getRunId(): string;
       getOutputDir(): string | undefined;
       logOpened(fields: { sandboxId: string; workDir: string }): void;
@@ -45,7 +45,7 @@ export class SandboxManager {
       agentKey: this.input.agentKey,
       workDir: this.input.workDir,
       outputDir: this.input.getOutputDir(),
-      services: this.input.services,
+      resources: this.input.resources,
     });
     this.session = this.wrap(opened);
     this.input.logOpened({ sandboxId: opened.id, workDir: opened.workDir });

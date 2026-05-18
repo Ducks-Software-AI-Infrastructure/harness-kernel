@@ -10,18 +10,18 @@ description: "Generated API reference for SendResult."
 
 # Interface: SendResult
 
-Defined in: [packages/core/src/session/types.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L67)
+Defined in: [packages/core/src/session/types.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L60)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-agentkey"></a> `agentKey` | `string` | [packages/core/src/session/types.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L71) |
-| <a id="property-answer"></a> `answer` | `string` | [packages/core/src/session/types.ts:70](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L70) |
-| <a id="property-events"></a> `events` | [`HarnessEventRecord`](HarnessEventRecord.md)\<`unknown`\>[] | [packages/core/src/session/types.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L76) |
-| <a id="property-metrics"></a> `metrics` | [`RunMetrics`](RunMetrics.md) | [packages/core/src/session/types.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L74) |
-| <a id="property-mode"></a> `mode` | `string` | [packages/core/src/session/types.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L72) |
-| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/session/types.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L73) |
-| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/session/types.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L69) |
-| <a id="property-sessionid"></a> `sessionId` | `string` | [packages/core/src/session/types.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L68) |
-| <a id="property-transcript"></a> `transcript` | [`AgentMessage`](AgentMessage.md)[] | [packages/core/src/session/types.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L75) |
+| <a id="property-agentkey"></a> `agentKey` | `string` | [packages/core/src/session/types.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L64) |
+| <a id="property-answer"></a> `answer` | `string` | [packages/core/src/session/types.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L63) |
+| <a id="property-events"></a> `events` | [`HarnessEventRecord`](HarnessEventRecord.md)\<`unknown`\>[] | [packages/core/src/session/types.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L69) |
+| <a id="property-metrics"></a> `metrics` | [`RunMetrics`](RunMetrics.md) | [packages/core/src/session/types.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L67) |
+| <a id="property-mode"></a> `mode` | `string` | [packages/core/src/session/types.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L65) |
+| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/session/types.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L66) |
+| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/session/types.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L62) |
+| <a id="property-sessionid"></a> `sessionId` | `string` | [packages/core/src/session/types.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L61) |
+| <a id="property-transcript"></a> `transcript` | [`AgentMessage`](AgentMessage.md)[] | [packages/core/src/session/types.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L68) |

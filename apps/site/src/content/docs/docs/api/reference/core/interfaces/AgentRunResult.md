@@ -10,16 +10,16 @@ description: "Generated API reference for AgentRunResult."
 
 # Interface: AgentRunResult
 
-Defined in: [packages/core/src/runtime/types/agent.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L78)
+Defined in: [packages/core/src/runtime/types/agent.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L76)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-agentkey"></a> `agentKey` | `string` | [packages/core/src/runtime/types/agent.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L80) |
-| <a id="property-events"></a> `events` | [`HarnessEventRecord`](HarnessEventRecord.md)\<`unknown`\>[] | [packages/core/src/runtime/types/agent.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L83) |
-| <a id="property-finalanswer"></a> `finalAnswer` | `string` | [packages/core/src/runtime/types/agent.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L81) |
-| <a id="property-metrics"></a> `metrics` | [`RunMetrics`](RunMetrics.md) | [packages/core/src/runtime/types/agent.ts:84](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L84) |
-| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/runtime/types/agent.ts:85](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L85) |
-| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/runtime/types/agent.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L79) |
-| <a id="property-transcript"></a> `transcript` | [`AgentMessage`](AgentMessage.md)[] | [packages/core/src/runtime/types/agent.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L82) |
+| <a id="property-agentkey"></a> `agentKey` | `string` | [packages/core/src/runtime/types/agent.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L78) |
+| <a id="property-events"></a> `events` | [`HarnessEventRecord`](HarnessEventRecord.md)\<`unknown`\>[] | [packages/core/src/runtime/types/agent.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L81) |
+| <a id="property-finalanswer"></a> `finalAnswer` | `string` | [packages/core/src/runtime/types/agent.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L79) |
+| <a id="property-metrics"></a> `metrics` | [`RunMetrics`](RunMetrics.md) | [packages/core/src/runtime/types/agent.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L82) |
+| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/runtime/types/agent.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L83) |
+| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/runtime/types/agent.ts:77](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L77) |
+| <a id="property-transcript"></a> `transcript` | [`AgentMessage`](AgentMessage.md)[] | [packages/core/src/runtime/types/agent.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L80) |

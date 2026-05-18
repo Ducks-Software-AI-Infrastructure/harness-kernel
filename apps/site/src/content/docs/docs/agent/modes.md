@@ -29,7 +29,7 @@ class SupportMode extends HarnessMode {
 }
 ```
 
-Use `getPrompt()` or a prompt function when the prompt depends on session state or services:
+Use `getPrompt()` or a prompt function when the prompt depends on session state or resources:
 
 ```ts
 class ProjectMode extends HarnessMode {

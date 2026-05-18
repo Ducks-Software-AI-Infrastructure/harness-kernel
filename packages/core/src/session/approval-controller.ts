@@ -10,7 +10,7 @@ export class ApprovalController {
     private readonly input: {
       sessionId: string;
       getRunId(): string;
-      timeoutMs: number;
+      defaultTimeoutMs: number;
       notifyRequested(handle: ToolApprovalHandle): void;
     },
   ) {}
@@ -31,17 +31,20 @@ export class ApprovalController {
 
   request(request: ToolApprovalRequest): Promise<ToolApprovalDecision> {
     return new Promise((resolve) => {
+      const timeoutMs = request.approvalTimeoutMs ?? this.input.defaultTimeoutMs;
       const handle = createToolApprovalHandle({
         sessionId: this.input.sessionId,
         runId: this.input.getRunId(),
         request,
-        timeoutMs: this.input.timeoutMs,
+        timeoutMs,
         approve: async (id) => this.resolve(id, true),
         deny: async (id, reason) => this.resolve(id, false, reason),
       });
-      const timeout = setTimeout(() => {
-        this.resolve(handle.id, false);
-      }, this.input.timeoutMs);
+      const timeout = timeoutMs > 0
+        ? setTimeout(() => {
+          this.resolve(handle.id, false);
+        }, timeoutMs)
+        : undefined;
 
       this.pendingApprovals.set(handle.id, {
         handle,

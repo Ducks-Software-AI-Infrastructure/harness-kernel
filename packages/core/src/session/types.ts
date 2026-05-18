@@ -17,31 +17,24 @@ import type {
   HarnessModeSelector,
   HarnessRoleSelector,
   RunMetrics,
-  ToolApprovalMode,
   ToolPermission,
   ToolRisk,
 } from "../runtime/types.js";
 import type { HarnessSandbox } from "../runtime/sandbox.js";
-import type { HarnessRunStorage } from "../runtime/storage.js";
+import type { HarnessSessionStorage, HarnessSessionSummary, SessionListQuery, SessionListResult } from "../runtime/storage.js";
 
 export type HarnessAgentInput = { definition: AgentDefinition };
 
-export type HarnessStorageConfig = HarnessRunStorage;
+export type HarnessStorageConfig = HarnessSessionStorage;
 
 export interface HarnessAppConfig {
   agent: HarnessAgentInput;
   providers: HarnessModelProvider[];
   defaultModel: string;
-  workDir?: string;
   storage?: HarnessStorageConfig;
   sandbox?: HarnessSandbox;
-  initialMode?: HarnessModeSelector | string;
-  toolApproval?: ToolApprovalMode;
-  maxTurns?: number;
-  services?: Record<string, unknown>;
+  resources?: Record<string, unknown>;
   logging?: HarnessLoggingConfig;
-  sessionTtlMs?: number;
-  toolApprovalTimeoutMs?: number;
 }
 
 export interface HarnessUserInput {
@@ -208,9 +201,11 @@ export type HarnessSessionStoreListener = (event: HarnessSessionStoreEvent) => v
 export interface HarnessSessionStore {
   getOrCreate(sessionId?: string, overrides?: Partial<HarnessAppConfig>): Promise<HarnessSession>;
   get(sessionId: string): HarnessSession | undefined;
-  list(): HarnessSessionStatus[];
+  list(query?: SessionListQuery): Promise<SessionListResult>;
+  close(sessionId: string): Promise<boolean>;
   delete(sessionId: string): Promise<boolean>;
-  clear(): Promise<void>;
+  clearActive(): Promise<void>;
+  closeAll(): Promise<void>;
 
   send(sessionId: string | undefined, input: string | HarnessUserInput, options?: SendOptions): Promise<SendResult>;
   stream(sessionId: string | undefined, input: string | HarnessUserInput, options?: StreamOptions): Promise<HarnessRunStream>;
@@ -223,3 +218,9 @@ export interface HarnessSessionStore {
   on(listener: HarnessSessionStoreListener): () => void;
   close(): Promise<void>;
 }
+
+export type {
+  HarnessSessionSummary,
+  SessionListQuery,
+  SessionListResult,
+};

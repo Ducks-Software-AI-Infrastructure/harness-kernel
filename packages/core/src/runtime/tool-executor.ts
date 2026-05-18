@@ -176,7 +176,15 @@ export class ToolExecutor {
     }
 
     const approved = await this.approveTool(
-      { id, name: input.tool.name, args: parsedArgs.data, modeId: this.input.getCurrentMode(), risk: input.tool.risk, permissions: input.tool.permissions },
+      {
+        id,
+        name: input.tool.name,
+        args: parsedArgs.data,
+        modeId: this.input.getCurrentMode(),
+        risk: input.tool.risk,
+        permissions: input.tool.permissions,
+        approvalTimeoutMs: input.tool.approvalTimeoutMs,
+      },
       input.tool,
       parsedArgs.data,
       callerEventOptions,

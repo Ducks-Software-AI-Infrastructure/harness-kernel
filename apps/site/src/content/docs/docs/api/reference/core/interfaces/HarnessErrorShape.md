@@ -10,13 +10,13 @@ description: "Generated API reference for HarnessErrorShape."
 
 # Interface: HarnessErrorShape
 
-Defined in: [packages/core/src/session/types.ts:95](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L95)
+Defined in: [packages/core/src/session/types.ts:88](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L88)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-cause"></a> `cause?` | `unknown` | [packages/core/src/session/types.ts:99](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L99) |
-| <a id="property-message"></a> `message` | `string` | [packages/core/src/session/types.ts:97](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L97) |
-| <a id="property-name"></a> `name?` | `string` | [packages/core/src/session/types.ts:96](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L96) |
-| <a id="property-stack"></a> `stack?` | `string` | [packages/core/src/session/types.ts:98](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L98) |
+| <a id="property-cause"></a> `cause?` | `unknown` | [packages/core/src/session/types.ts:92](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L92) |
+| <a id="property-message"></a> `message` | `string` | [packages/core/src/session/types.ts:90](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L90) |
+| <a id="property-name"></a> `name?` | `string` | [packages/core/src/session/types.ts:89](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L89) |
+| <a id="property-stack"></a> `stack?` | `string` | [packages/core/src/session/types.ts:91](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L91) |

@@ -44,8 +44,8 @@ Defined in: [packages/core/src/runtime/types/sessions.ts:89](https://github.com/
 
 ```ts
 emit<TFields>(
-   logClass, 
-   fields, 
+   logClass,
+   fields,
    context?): void;
 ```
 

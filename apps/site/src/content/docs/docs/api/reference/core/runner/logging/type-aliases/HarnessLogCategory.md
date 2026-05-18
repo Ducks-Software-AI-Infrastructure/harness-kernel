@@ -11,7 +11,7 @@ description: "Generated API reference for HarnessLogCategory."
 # Type Alias: HarnessLogCategory
 
 ```ts
-type HarnessLogCategory = 
+type HarnessLogCategory =
   | "session"
   | "run"
   | "turn"

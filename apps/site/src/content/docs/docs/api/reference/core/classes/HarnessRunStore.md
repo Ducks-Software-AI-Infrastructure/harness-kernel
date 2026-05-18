@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessRunStore."
 
 # Abstract Class: HarnessRunStore
 
-Defined in: [packages/core/src/runtime/storage.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L32)
+Defined in: [packages/core/src/runtime/storage.ts:159](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L159)
 
 ## Extended by
 
@@ -34,9 +34,9 @@ new HarnessRunStore(): HarnessRunStore;
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-outputdir"></a> `outputDir?` | `readonly` | `string` | [packages/core/src/runtime/storage.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L34) |
-| <a id="property-rundir"></a> `runDir?` | `readonly` | `string` | [packages/core/src/runtime/storage.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L35) |
-| <a id="property-runid"></a> `runId` | `abstract` | `string` | [packages/core/src/runtime/storage.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L33) |
+| <a id="property-outputdir"></a> `outputDir?` | `readonly` | `string` | [packages/core/src/runtime/storage.ts:161](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L161) |
+| <a id="property-rundir"></a> `runDir?` | `readonly` | `string` | [packages/core/src/runtime/storage.ts:162](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L162) |
+| <a id="property-runid"></a> `runId` | `abstract` | `string` | [packages/core/src/runtime/storage.ts:160](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L160) |
 
 ## Methods
 
@@ -46,7 +46,7 @@ new HarnessRunStore(): HarnessRunStore;
 optional close(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:51](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L51)
+Defined in: [packages/core/src/runtime/storage.ts:178](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L178)
 
 #### Returns
 
@@ -60,7 +60,7 @@ Defined in: [packages/core/src/runtime/storage.ts:51](https://github.com/Ducks-S
 abstract deleteSnapshot(id): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L45)
+Defined in: [packages/core/src/runtime/storage.ts:172](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L172)
 
 #### Parameters
 
@@ -80,7 +80,7 @@ Defined in: [packages/core/src/runtime/storage.ts:45](https://github.com/Ducks-S
 abstract init(): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L37)
+Defined in: [packages/core/src/runtime/storage.ts:164](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L164)
 
 #### Returns
 
@@ -91,12 +91,12 @@ Defined in: [packages/core/src/runtime/storage.ts:37](https://github.com/Ducks-S
 ### loadContextSnapshots()
 
 ```ts
-abstract loadContextSnapshots(): 
+abstract loadContextSnapshots():
   | ContextSnapshot[]
 | Promise<ContextSnapshot[]>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L49)
+Defined in: [packages/core/src/runtime/storage.ts:176](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L176)
 
 #### Returns
 
@@ -108,13 +108,13 @@ Defined in: [packages/core/src/runtime/storage.ts:49](https://github.com/Ducks-S
 ### loadCursors()
 
 ```ts
-abstract loadCursors(): 
+abstract loadCursors():
   | RunCursorState
   | Promise<RunCursorState | undefined>
   | undefined;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:47](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L47)
+Defined in: [packages/core/src/runtime/storage.ts:174](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L174)
 
 #### Returns
 
@@ -127,12 +127,12 @@ Defined in: [packages/core/src/runtime/storage.ts:47](https://github.com/Ducks-S
 ### loadEvents()
 
 ```ts
-abstract loadEvents(): 
+abstract loadEvents():
   | HarnessEventRecord<unknown>[]
 | Promise<HarnessEventRecord<unknown>[]>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L39)
+Defined in: [packages/core/src/runtime/storage.ts:166](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L166)
 
 #### Returns
 
@@ -144,12 +144,12 @@ Defined in: [packages/core/src/runtime/storage.ts:39](https://github.com/Ducks-S
 ### loadSnapshots()
 
 ```ts
-abstract loadSnapshots(): 
+abstract loadSnapshots():
   | HarnessSnapshot[]
 | Promise<HarnessSnapshot[]>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L44)
+Defined in: [packages/core/src/runtime/storage.ts:171](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L171)
 
 #### Returns
 
@@ -161,12 +161,12 @@ Defined in: [packages/core/src/runtime/storage.ts:44](https://github.com/Ducks-S
 ### loadTranscript()
 
 ```ts
-abstract loadTranscript(): 
+abstract loadTranscript():
   | AgentMessage[]
 | Promise<AgentMessage[]>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L41)
+Defined in: [packages/core/src/runtime/storage.ts:168](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L168)
 
 #### Returns
 
@@ -181,7 +181,7 @@ Defined in: [packages/core/src/runtime/storage.ts:41](https://github.com/Ducks-S
 abstract recordEvent(event): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L38)
+Defined in: [packages/core/src/runtime/storage.ts:165](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L165)
 
 #### Parameters
 
@@ -201,7 +201,7 @@ Defined in: [packages/core/src/runtime/storage.ts:38](https://github.com/Ducks-S
 abstract saveContextSnapshot(snapshot): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L48)
+Defined in: [packages/core/src/runtime/storage.ts:175](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L175)
 
 #### Parameters
 
@@ -221,7 +221,7 @@ Defined in: [packages/core/src/runtime/storage.ts:48](https://github.com/Ducks-S
 abstract saveCursors(cursors): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:46](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L46)
+Defined in: [packages/core/src/runtime/storage.ts:173](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L173)
 
 #### Parameters
 
@@ -241,7 +241,7 @@ Defined in: [packages/core/src/runtime/storage.ts:46](https://github.com/Ducks-S
 abstract saveMetrics(metrics): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L42)
+Defined in: [packages/core/src/runtime/storage.ts:169](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L169)
 
 #### Parameters
 
@@ -261,7 +261,7 @@ Defined in: [packages/core/src/runtime/storage.ts:42](https://github.com/Ducks-S
 abstract saveSnapshot(snapshot): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L43)
+Defined in: [packages/core/src/runtime/storage.ts:170](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L170)
 
 #### Parameters
 
@@ -281,7 +281,7 @@ Defined in: [packages/core/src/runtime/storage.ts:43](https://github.com/Ducks-S
 abstract saveTranscript(messages): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L40)
+Defined in: [packages/core/src/runtime/storage.ts:167](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L167)
 
 #### Parameters
 

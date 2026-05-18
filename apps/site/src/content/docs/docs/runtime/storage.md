@@ -1,9 +1,9 @@
 ---
 title: Storage
-description: Persist run transcripts, events, snapshots, metrics, cursors, and context snapshots.
+description: Persist sessions, run history, transcripts, events, snapshots, cursors, and context snapshots.
 ---
 
-Storage is runtime-owned infrastructure. It decides where run records live and how long they are retained. Agent packages should not assume a particular storage backend.
+Storage is runtime-owned infrastructure. It decides where session records and run history live. Agent packages should not assume a particular storage backend.
 
 ## Core Storage
 
@@ -11,34 +11,36 @@ Storage is runtime-owned infrastructure. It decides where run records live and h
 
 ```ts
 import {
-  MemoryRunStorage,
-  NoopRunStorage,
-  type HarnessRunStorage,
+  MemorySessionStorage,
+  type HarnessSessionStorage,
+  type HarnessSessionSummary,
+  type SessionListResult,
+  type SessionListQuery,
   type HarnessRunStore,
 } from "@harness-kernel/core/runner/storage";
 ```
 
-`NoopRunStorage` is useful when the host does not want persistence. `MemoryRunStorage` is useful for tests and in-process hosts.
+`MemorySessionStorage` is useful for tests and in-process hosts. It implements the same session-centric contract as durable backends, but data is lost when the process exits.
 
 ## File Storage
 
-Use `FileRunStorage` when the host wants run artifacts on disk:
+Use `FileSessionStorage` when the host wants sessions and run state on disk:
 
 ```ts
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 
 const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new OpenAIProvider()],
   defaultModel: "openai/gpt-5.1",
-  storage: new FileRunStorage({ outputDir: ".harness-kernel/runs" }),
+  storage: new FileSessionStorage(),
 });
 ```
 
-Each run can write events, transcript, metrics, snapshots, cursors, and context snapshots.
+Each session stores a catalog entry and each run stores events, transcript, snapshots, cursors, and context snapshots. Metrics are emitted through logging/telemetry and are not required for restore.
 
 ## Custom Storage
 
-Implement `HarnessRunStorage` to open a `HarnessRunStore` for each run. A run store implements `init`, `recordEvent`, `loadEvents`, `saveTranscript`, `loadTranscript`, `saveMetrics`, snapshot methods, cursor methods, context snapshot methods, and optional `close`.
+Implement `HarnessSessionStorage` to create, list, touch, and delete sessions, create/list runs, and open a `HarnessRunStore` for persisted run state.
 
 Use custom storage when your host needs a database, blob store, tenant-aware pathing, or retention policy.

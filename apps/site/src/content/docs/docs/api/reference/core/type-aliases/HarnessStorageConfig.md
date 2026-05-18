@@ -11,7 +11,7 @@ description: "Generated API reference for HarnessStorageConfig."
 # Type Alias: HarnessStorageConfig
 
 ```ts
-type HarnessStorageConfig = HarnessRunStorage;
+type HarnessStorageConfig = HarnessSessionStorage;
 ```
 
-Defined in: [packages/core/src/session/types.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L29)
+Defined in: [packages/core/src/session/types.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L28)

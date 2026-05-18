@@ -105,7 +105,7 @@ Defined in: [packages/core/src/schema/index.ts:96](https://github.com/Ducks-Soft
 ### optional()
 
 ```ts
-optional(): OptionalSchema<InferInput<TItem>[] | undefined, 
+optional(): OptionalSchema<InferInput<TItem>[] | undefined,
   | InferOutput<TItem>[]
 | undefined>;
 ```
@@ -114,7 +114,7 @@ Defined in: [packages/core/src/schema/index.ts:88](https://github.com/Ducks-Soft
 
 #### Returns
 
-[`OptionalSchema`](OptionalSchema.md)\<[`InferInput`](../type-aliases/InferInput.md)\<`TItem`\>[] \| `undefined`, 
+[`OptionalSchema`](OptionalSchema.md)\<[`InferInput`](../type-aliases/InferInput.md)\<`TItem`\>[] \| `undefined`,
   \| [`InferOutput`](../type-aliases/InferOutput.md)\<`TItem`\>[]
   \| `undefined`\>
 

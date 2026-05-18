@@ -1,14 +1,14 @@
 ---
 title: "@harness-kernel/storage-file"
-description: File-backed run storage for transcripts, events, snapshots, metrics, and cursors.
+description: File-backed session storage for transcripts, events, snapshots, and cursors.
 ---
 
-`@harness-kernel/storage-file` provides `FileRunStorage`.
+`@harness-kernel/storage-file` provides `FileSessionStorage` for persistent session-centric storage. `FileRunStorage` remains available for legacy run-centric hosts.
 
 ```ts
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 
-const storage = new FileRunStorage({ outputDir: ".harness-kernel/runs" });
+const storage = new FileSessionStorage();
 ```
 
 The runtime host attaches it to the session store:
@@ -22,6 +22,8 @@ const store = await createHarnessSessionStore({
 });
 ```
 
-Each run directory can contain `events.jsonl`, `transcript.json`, `metrics.json`, cursor files, snapshots, and context snapshots.
+Each session run directory can contain `events.jsonl`, `transcript.json`, cursor files, snapshots, and context snapshots. The legacy `FileRunStorage` can also write `metrics.json`.
 
-This package is optional. Use `MemoryRunStorage` from core for tests and `NoopRunStorage` when the host does not want persistence.
+The default layout is `.harness-kernel/sessions/index.json` plus `.harness-kernel/sessions/<sessionId>/runs/<runId>/...`.
+
+This package is optional. Use `MemorySessionStorage` from core for tests.

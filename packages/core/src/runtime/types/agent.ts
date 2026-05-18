@@ -1,6 +1,6 @@
 import type { HarnessModelProvider } from "../../engine/types.js";
 import type { HarnessSandbox } from "../sandbox.js";
-import type { HarnessRunStorage } from "../storage.js";
+import type { HarnessRunStorage, HarnessSessionStorage } from "../storage.js";
 import type { HarnessAgentManifest } from "./manifest.js";
 import type { AgentMessage } from "./messages.js";
 import type { RunMetrics } from "./metrics.js";
@@ -11,7 +11,7 @@ import type { HarnessMode, HarnessModeSelector } from "./modes.js";
 import type { HarnessRoleDefinition, HarnessRoleSelector } from "./roles.js";
 import type { AgentRuntimeLogger } from "./sessions.js";
 import type { AgentSharedStateDefinition } from "./shared-state.js";
-import type { ToolApprovalDecision, ToolApprovalMode, ToolApprovalRequest } from "./tools.js";
+import type { ToolApprovalDecision, ToolApprovalRequest } from "./tools.js";
 
 export interface AgentDefinition {
   key?: string;
@@ -66,11 +66,9 @@ export interface AgentSessionRunnerOptions {
   roles?: HarnessRoleDefinition[];
   workDir?: string;
   outputDir?: string;
-  storage?: HarnessRunStorage;
-  initialMode?: HarnessModeSelector;
-  toolApproval?: ToolApprovalMode;
-  maxTurns?: number;
-  services?: JsonObject;
+  storage?: HarnessSessionStorage | HarnessRunStorage;
+  initialRunId?: string;
+  resources?: JsonObject;
   approveTool?(request: ToolApprovalRequest): boolean | ToolApprovalDecision | Promise<boolean | ToolApprovalDecision>;
   logger?: AgentRuntimeLogger;
 }

@@ -14,7 +14,7 @@ description: "Generated API reference for AgentToolDefinition."
 type AgentToolDefinition<TInput, TData> = HarnessTool<TInput, TData>;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L69)
+Defined in: [packages/core/src/runtime/types/tools.ts:70](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L70)
 
 ## Type Parameters
 

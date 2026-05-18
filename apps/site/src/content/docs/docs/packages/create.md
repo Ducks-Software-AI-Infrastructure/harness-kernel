@@ -19,7 +19,7 @@ The scaffold writes starter files with explicit dependencies and runtime composi
 - sandbox;
 - approval policy;
 - logging;
-- services;
+- resources;
 - session lifecycle.
 
 Use generated projects as examples, then keep imports pointed at real public package subpaths.

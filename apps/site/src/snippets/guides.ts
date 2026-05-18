@@ -15,11 +15,11 @@ import type {
   ModelProviderRunResult,
 } from "@harness-kernel/core/runner/model-provider";
 import { NoopSandbox } from "@harness-kernel/core/runner/sandbox";
-import { MemoryRunStorage } from "@harness-kernel/core/runner/storage";
+import { MemorySessionStorage } from "@harness-kernel/core/runner/storage";
 import { s, type InferInput } from "@harness-kernel/core/schema";
 import { OpenAIProvider } from "@harness-kernel/provider-openai";
 import { LocalSandbox } from "@harness-kernel/sandbox-local";
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 import { createCoreTools } from "@harness-kernel/tools-node";
 
 class ChatMode extends HarnessMode {
@@ -49,7 +49,7 @@ export async function coreOnlyGuide(): Promise<void> {
     agent: { definition: agent },
     providers: [new EchoProvider()],
     defaultModel: "echo/basic",
-    storage: new MemoryRunStorage(),
+    storage: new MemorySessionStorage(),
     sandbox: new NoopSandbox(),
   });
 
@@ -158,9 +158,8 @@ export async function openAIGuide(): Promise<void> {
     agent: { definition: agent },
     providers: [new OpenAIProvider()],
     defaultModel: "openai/gpt-5.1-mini",
-    storage: new FileRunStorage({ outputDir: ".harness-kernel/runs" }),
-    sandbox: new LocalSandbox(),
-    toolApproval: "ask",
+    storage: new FileSessionStorage(),
+    sandbox: new LocalSandbox({ workDir: "." }),
   });
 
   await store.close();

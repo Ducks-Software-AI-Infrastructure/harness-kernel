@@ -11,7 +11,7 @@ description: "Generated API reference for SafeParseResult."
 # Type Alias: SafeParseResult\<T\>
 
 ```ts
-type SafeParseResult<T> = 
+type SafeParseResult<T> =
   | {
   data: T;
   success: true;

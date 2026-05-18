@@ -17,6 +17,7 @@ const packageDirs = [
   "packages/provider-openai",
   "packages/sandbox-local",
   "packages/storage-file",
+  "packages/storage-postgres",
   "packages/tools-node",
   "packages/create",
 ];
@@ -44,6 +45,7 @@ const publicImports = [
   "@harness-kernel/provider-openai",
   "@harness-kernel/sandbox-local",
   "@harness-kernel/storage-file",
+  "@harness-kernel/storage-postgres",
   "@harness-kernel/tools-node",
   "@harness-kernel/tools-node/bash",
   "@harness-kernel/tools-node/files",
@@ -88,14 +90,15 @@ try {
     import { defineAgent } from "@harness-kernel/core/agent";
     import { HarnessMode } from "@harness-kernel/core/agent/mode";
     import { createHarnessSessionStore } from "@harness-kernel/core/runner";
-    import { MemoryRunStorage } from "@harness-kernel/core/runner/storage";
+    import { MemorySessionStorage } from "@harness-kernel/core/runner/storage";
     import { NoopSandbox } from "@harness-kernel/core/runner/sandbox";
 
     assert.equal(typeof module0.createHarnessSessionStore, "function");
     assert.equal(typeof module17.JsonlFileLogSink, "function");
     assert.equal(typeof module20.LocalSandbox, "function");
     assert.equal(typeof module21.FileRunStorage, "function");
-    assert.equal(typeof module22.BashTool, "function");
+    assert.equal(typeof module22.PostgresSessionStorage, "function");
+    assert.equal(typeof module23.BashTool, "function");
 
     class TestMode extends HarnessMode {
       prompt = "Answer with ok.";
@@ -121,7 +124,7 @@ try {
       },
       providers: [provider],
       defaultModel: "fake/model",
-      storage: new MemoryRunStorage(),
+      storage: new MemorySessionStorage(),
       sandbox: new NoopSandbox(),
     });
 

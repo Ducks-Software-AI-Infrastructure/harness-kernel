@@ -10,7 +10,7 @@ description: "Generated API reference for NoopRunStorage."
 
 # Class: NoopRunStorage
 
-Defined in: [packages/core/src/runtime/storage.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L54)
+Defined in: [packages/core/src/runtime/storage.ts:181](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L181)
 
 ## Extends
 
@@ -36,8 +36,8 @@ new NoopRunStorage(): NoopRunStorage;
 
 | Property | Modifier | Type | Default value | Overrides | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `"noop"` | `"noop"` | [`HarnessRunStorage`](HarnessRunStorage.md).[`id`](HarnessRunStorage.md#property-id) | [packages/core/src/runtime/storage.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L55) |
-| <a id="property-label"></a> `label` | `public` | `string` | `"Noop"` | [`HarnessRunStorage`](HarnessRunStorage.md).[`label`](HarnessRunStorage.md#property-label) | [packages/core/src/runtime/storage.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L56) |
+| <a id="property-id"></a> `id` | `readonly` | `"noop"` | `"noop"` | [`HarnessRunStorage`](HarnessRunStorage.md).[`id`](HarnessRunStorage.md#property-id) | [packages/core/src/runtime/storage.ts:182](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L182) |
+| <a id="property-label"></a> `label` | `public` | `string` | `"Noop"` | [`HarnessRunStorage`](HarnessRunStorage.md).[`label`](HarnessRunStorage.md#property-label) | [packages/core/src/runtime/storage.ts:183](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L183) |
 
 ## Methods
 
@@ -47,7 +47,7 @@ new NoopRunStorage(): NoopRunStorage;
 openRun(input): HarnessRunStore;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L58)
+Defined in: [packages/core/src/runtime/storage.ts:185](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L185)
 
 #### Parameters
 

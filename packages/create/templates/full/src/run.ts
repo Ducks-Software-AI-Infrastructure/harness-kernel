@@ -7,7 +7,7 @@ import type { ToolApprovalHandle, ToolApprovalMode } from "@harness-kernel/core/
 import { ConsoleLogSink } from "@harness-kernel/core/runner/logging";
 import { OpenAIProvider } from "@harness-kernel/provider-openai";
 import { LocalSandbox } from "@harness-kernel/sandbox-local";
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 import agent from "./agent.js";
 
 loadEnv();
@@ -65,15 +65,14 @@ function logModelDeltas(): "none" | "summary" | "full" {
 async function main(): Promise<void> {
   const parsed = parseArgs(process.argv.slice(2));
   const model = process.env.HARNESS_KERNEL_MODEL ?? "openai/gpt-5.1";
-  const outputDir = process.env.HARNESS_KERNEL_OUTPUT_DIR ?? ".harness-kernel/runs";
+  const rootDir = process.env.HARNESS_KERNEL_OUTPUT_DIR ?? ".harness-kernel";
+  for (const mode of agent.modes) mode.toolApproval = parsed.toolApproval ?? "tool-default";
   const store = await createHarnessSessionStore({
     agent: { definition: agent },
     providers: [new OpenAIProvider()],
     defaultModel: model,
-    workDir: resolve(process.cwd(), process.env.HARNESS_KERNEL_WORKDIR ?? "."),
-    storage: new FileRunStorage({ outputDir }),
-    sandbox: new LocalSandbox(),
-    toolApproval: parsed.toolApproval ?? "tool-default",
+    storage: new FileSessionStorage({ rootDir }),
+    sandbox: new LocalSandbox({ workDir: resolve(process.cwd(), process.env.HARNESS_KERNEL_WORKDIR ?? ".") }),
     logging: {
       level: logLevel(),
       modelDeltas: logModelDeltas(),

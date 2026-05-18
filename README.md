@@ -45,7 +45,7 @@ model routing, and lifecycle policy.
 Harness Kernel gives TypeScript apps the small runtime boundary underneath
 app-owned agents. Your agent package owns behavior with modes, tools, hooks,
 roles, context providers, events, and shared state. Your host application owns
-model providers, storage, sandboxing, approvals, logging, services, streaming,
+model providers, storage, sandboxing, approvals, logging, resources, streaming,
 and session lifecycle.
 
 The goal is to stay between two bad options: hand-rolling a custom agent harness
@@ -65,7 +65,7 @@ the infrastructure around it.
 | --- | --- |
 | Agent behavior gets coupled to one host app | Agents depend on kernel contracts, not host infrastructure. |
 | Runtime plumbing spreads through product code | Sessions, events, tools, approvals, storage, logs, and model routing have explicit contracts. |
-| Framework defaults hide operational decisions | Providers, storage, sandboxing, approvals, logging, and services stay host-owned. |
+| Framework defaults hide operational decisions | Providers, storage, sandboxing, approvals, logging, and resources stay host-owned. |
 | Demos are hard to turn into durable product agents | The same behavior package can run in a CLI, backend service, web session, or desktop app. |
 
 Harness Kernel is a good fit when an agent needs to live inside an existing
