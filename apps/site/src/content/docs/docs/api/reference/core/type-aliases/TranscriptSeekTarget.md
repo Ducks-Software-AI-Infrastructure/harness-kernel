@@ -11,7 +11,7 @@ description: "Generated API reference for TranscriptSeekTarget."
 # Type Alias: TranscriptSeekTarget
 
 ```ts
-type TranscriptSeekTarget = 
+type TranscriptSeekTarget =
   | "latest"
   | "start"
   | {

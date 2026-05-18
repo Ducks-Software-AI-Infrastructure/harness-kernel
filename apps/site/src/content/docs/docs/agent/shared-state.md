@@ -51,4 +51,4 @@ session.replaceState({ productArea: "billing", escalations: [] });
 
 Put small behavior state in shared state: mode flags, conversation preferences, ids that tools need, or derived context.
 
-Keep host infrastructure in `services`: database clients, ticketing clients, feature flags, user identity providers, or request-scoped application dependencies. Services are injected by the runtime host and read through `session.services`.
+Keep host infrastructure in `resources`: database clients, ticketing clients, feature flags, user identity providers, or request-scoped application dependencies. Resources are injected by the runtime host and read through `session.resources`.

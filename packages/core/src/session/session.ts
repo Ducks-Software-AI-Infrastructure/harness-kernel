@@ -16,7 +16,7 @@ import type {
   ToolApprovalRequest,
 } from "../runtime/types.js";
 import { ApprovalController } from "./approval-controller.js";
-import { resolveAgent, resolveStorage, resolveWorkDir } from "./engine.js";
+import { resolveAgent, resolveStorage } from "./engine.js";
 import { SessionEventHub } from "./event-hub.js";
 import { createHarnessLogger, type HarnessLogger } from "./logging.js";
 import { SessionQueue } from "./queue.js";
@@ -40,6 +40,7 @@ import type {
   WaitForEventOptions,
   ToolApprovalHandle,
 } from "./types.js";
+import type { HarnessSessionSummary } from "../runtime/storage.js";
 
 const defaultApprovalTimeoutMs = 5 * 60 * 1000;
 
@@ -49,18 +50,6 @@ function nowIso(): string {
 
 function normalizeInput(input: string | HarnessUserInput): HarnessUserInput {
   return typeof input === "string" ? { content: input } : input;
-}
-
-function resolveInitialMode(
-  agent: AgentDefinition,
-  mode: HarnessModeSelector | string | undefined,
-): HarnessModeSelector | undefined {
-  if (mode === undefined) return undefined;
-  if (typeof mode !== "string") return mode as HarnessModeSelector;
-  if (!Array.isArray(agent.modes)) return undefined;
-  const resolved = agent.modes.find((candidate) => getConstructType(candidate) === mode);
-  if (!resolved) throw new Error(`Unknown initial mode '${mode}'.`);
-  return resolved;
 }
 
 function toErrorShape(error: unknown): HarnessErrorShape {
@@ -77,6 +66,7 @@ function toErrorShape(error: unknown): HarnessErrorShape {
 
 export interface CreateHarnessSessionInternalOptions {
   sessionId?: string;
+  restoredSession?: HarnessSessionSummary;
 }
 
 export class HarnessSessionImpl implements HarnessSession {
@@ -89,7 +79,7 @@ export class HarnessSessionImpl implements HarnessSession {
   private readonly approvals: ApprovalController;
   private readonly queue = new SessionQueue();
   private readonly status = new SessionStatusTracker();
-  private readonly createdAt = nowIso();
+  private createdAt = nowIso();
   private readonly logger: HarnessLogger;
   private lastActiveAt = this.createdAt;
   private closed = false;
@@ -102,10 +92,12 @@ export class HarnessSessionImpl implements HarnessSession {
     input: {
       sessionId?: string;
       agent: AgentDefinition;
-      workDir: string;
+      restoredSession?: HarnessSessionSummary;
     },
   ) {
     this.id = input.sessionId ?? randomId();
+    this.createdAt = input.restoredSession?.createdAt ?? this.createdAt;
+    this.lastActiveAt = input.restoredSession?.lastActiveAt ?? this.createdAt;
     this.events = new SessionEventHub({
       sessionId: this.id,
       hydrateApprovalId: (toolCallId) => this.approvals.hydrateApprovalId(toolCallId),
@@ -114,7 +106,7 @@ export class HarnessSessionImpl implements HarnessSession {
     this.approvals = new ApprovalController({
       sessionId: this.id,
       getRunId: () => this.runner.runId,
-      timeoutMs: this.config.toolApprovalTimeoutMs ?? defaultApprovalTimeoutMs,
+      defaultTimeoutMs: defaultApprovalTimeoutMs,
       notifyRequested: (approval) => this.notify({ type: "tool.approval.requested", approval }),
     });
     const storage = resolveStorage(config.storage);
@@ -124,12 +116,9 @@ export class HarnessSessionImpl implements HarnessSession {
       providers: config.providers,
       defaultModel: config.defaultModel,
       sandbox: config.sandbox,
-      workDir: input.workDir,
       storage,
-      initialMode: resolveInitialMode(input.agent, config.initialMode),
-      toolApproval: config.toolApproval,
-      maxTurns: config.maxTurns,
-      services: config.services,
+      initialRunId: input.restoredSession?.latestRunId,
+      resources: config.resources,
       approveTool: (request) => this.requestToolApproval(request),
       logger: this.logger,
     });
@@ -356,6 +345,10 @@ export class HarnessSessionImpl implements HarnessSession {
     await this.logger.close();
   }
 
+  async hydrate(): Promise<void> {
+    await this.runner.hydrate();
+  }
+
   private notify(event: HarnessStreamEvent): void {
     this.events.notify(event);
   }
@@ -411,11 +404,24 @@ export async function createHarnessSession(
   config: HarnessAppConfig,
   options: CreateHarnessSessionInternalOptions = {},
 ): Promise<HarnessSession> {
-  const workDir = resolveWorkDir(config.workDir);
   const agent = await resolveAgent(config.agent);
-  return new HarnessSessionImpl(config, {
+  const storage = resolveStorage(config.storage);
+  const sessionConfig = { ...config, storage };
+  const session = new HarnessSessionImpl(sessionConfig, {
     sessionId: options.sessionId,
     agent,
-    workDir,
+    restoredSession: options.restoredSession,
   });
+  if (!options.restoredSession) {
+    const status = session.getStatus();
+    await storage.createSession({
+      sessionId: status.sessionId,
+      agentKey: status.agentKey,
+      createdAt: status.createdAt,
+      lastActiveAt: status.lastActiveAt,
+      mode: status.mode,
+    });
+  }
+  await session.hydrate();
+  return session;
 }

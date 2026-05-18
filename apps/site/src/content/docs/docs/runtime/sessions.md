@@ -10,10 +10,10 @@ A `HarnessSession` is a runtime-owned execution context for one agent and one se
 ```ts
 const session = await store.getOrCreate("project-1");
 const sameSession = store.get("project-1");
-const statuses = store.list();
+const page = await store.list({ limit: 20 });
 ```
 
-`getOrCreate(sessionId, overrides)` can apply partial runtime config overrides for a new session. Existing sessions are returned unchanged.
+`get()` returns only an active in-memory session. `getOrCreate(sessionId, overrides)` can hydrate a persisted session or create a new one. Existing active sessions are returned unchanged.
 
 ## Send And Stream
 
@@ -73,6 +73,8 @@ Snapshot restore is only allowed while the session is idle and has no pending ap
 Always close sessions or stores in scripts and tests:
 
 ```ts
-await session.close();
+await store.close("project-1");
 await store.close();
 ```
+
+`close(sessionId)` unloads the active session without deleting persisted data. `delete(sessionId)` removes persisted session data when the backend supports deletion.

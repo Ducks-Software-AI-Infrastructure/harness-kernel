@@ -38,6 +38,7 @@ new GrepTool(): GrepTool;
 
 | Property | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
+| <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `number` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`approvalTimeoutMs`](../../../core/classes/HarnessTool.md#property-approvaltimeoutms) | [packages/core/src/runtime/types/tools.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L55) |
 | <a id="property-description"></a> `description` | `string` | `"Search text files inside workDir using plain text or an extended grep RegExp."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:207](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L207) |
 | <a id="property-label"></a> `label?` | `string` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`label`](../../../core/classes/HarnessTool.md#property-label) | [packages/core/src/runtime/types/tools.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L48) |
 | <a id="property-name"></a> `name` | `string` | `"grep"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:206](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L206) |
@@ -56,7 +57,7 @@ new GrepTool(): GrepTool;
 get inputSchema(): unknown;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L60)
+Defined in: [packages/core/src/runtime/types/tools.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L61)
 
 ##### Returns
 
@@ -76,7 +77,7 @@ Defined in: [packages/core/src/runtime/types/tools.ts:60](https://github.com/Duc
 get type(): string;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L56)
+Defined in: [packages/core/src/runtime/types/tools.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L57)
 
 ##### Returns
 

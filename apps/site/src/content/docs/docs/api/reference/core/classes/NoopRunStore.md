@@ -10,7 +10,7 @@ description: "Generated API reference for NoopRunStore."
 
 # Class: NoopRunStore
 
-Defined in: [packages/core/src/runtime/storage.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L63)
+Defined in: [packages/core/src/runtime/storage.ts:190](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L190)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [packages/core/src/runtime/storage.ts:63](https://github.com/Ducks-S
 new NoopRunStore(runId): NoopRunStore;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L67)
+Defined in: [packages/core/src/runtime/storage.ts:194](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L194)
 
 #### Parameters
 
@@ -44,9 +44,9 @@ Defined in: [packages/core/src/runtime/storage.ts:67](https://github.com/Ducks-S
 
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-outputdir"></a> `outputDir` | `readonly` | `undefined` | `undefined` | [`HarnessRunStore`](HarnessRunStore.md).[`outputDir`](HarnessRunStore.md#property-outputdir) | - | [packages/core/src/runtime/storage.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L64) |
-| <a id="property-rundir"></a> `runDir` | `readonly` | `undefined` | `undefined` | [`HarnessRunStore`](HarnessRunStore.md).[`runDir`](HarnessRunStore.md#property-rundir) | - | [packages/core/src/runtime/storage.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L65) |
-| <a id="property-runid"></a> `runId` | `readonly` | `string` | `undefined` | - | [`HarnessRunStore`](HarnessRunStore.md).[`runId`](HarnessRunStore.md#property-runid) | [packages/core/src/runtime/storage.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L67) |
+| <a id="property-outputdir"></a> `outputDir` | `readonly` | `undefined` | `undefined` | [`HarnessRunStore`](HarnessRunStore.md).[`outputDir`](HarnessRunStore.md#property-outputdir) | - | [packages/core/src/runtime/storage.ts:191](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L191) |
+| <a id="property-rundir"></a> `runDir` | `readonly` | `undefined` | `undefined` | [`HarnessRunStore`](HarnessRunStore.md).[`runDir`](HarnessRunStore.md#property-rundir) | - | [packages/core/src/runtime/storage.ts:192](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L192) |
+| <a id="property-runid"></a> `runId` | `readonly` | `string` | `undefined` | - | [`HarnessRunStore`](HarnessRunStore.md).[`runId`](HarnessRunStore.md#property-runid) | [packages/core/src/runtime/storage.ts:194](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L194) |
 
 ## Methods
 
@@ -56,7 +56,7 @@ Defined in: [packages/core/src/runtime/storage.ts:67](https://github.com/Ducks-S
 optional close(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:51](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L51)
+Defined in: [packages/core/src/runtime/storage.ts:178](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L178)
 
 #### Returns
 
@@ -74,7 +74,7 @@ Defined in: [packages/core/src/runtime/storage.ts:51](https://github.com/Ducks-S
 deleteSnapshot(_id): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L79)
+Defined in: [packages/core/src/runtime/storage.ts:206](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L206)
 
 #### Parameters
 
@@ -98,7 +98,7 @@ Defined in: [packages/core/src/runtime/storage.ts:79](https://github.com/Ducks-S
 init(): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L71)
+Defined in: [packages/core/src/runtime/storage.ts:198](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L198)
 
 #### Returns
 
@@ -116,7 +116,7 @@ Defined in: [packages/core/src/runtime/storage.ts:71](https://github.com/Ducks-S
 loadContextSnapshots(): ContextSnapshot[];
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L83)
+Defined in: [packages/core/src/runtime/storage.ts:210](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L210)
 
 #### Returns
 
@@ -134,7 +134,7 @@ Defined in: [packages/core/src/runtime/storage.ts:83](https://github.com/Ducks-S
 loadCursors(): RunCursorState | undefined;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L81)
+Defined in: [packages/core/src/runtime/storage.ts:208](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L208)
 
 #### Returns
 
@@ -152,7 +152,7 @@ Defined in: [packages/core/src/runtime/storage.ts:81](https://github.com/Ducks-S
 loadEvents(): HarnessEventRecord<unknown>[];
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L73)
+Defined in: [packages/core/src/runtime/storage.ts:200](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L200)
 
 #### Returns
 
@@ -170,7 +170,7 @@ Defined in: [packages/core/src/runtime/storage.ts:73](https://github.com/Ducks-S
 loadSnapshots(): HarnessSnapshot[];
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L78)
+Defined in: [packages/core/src/runtime/storage.ts:205](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L205)
 
 #### Returns
 
@@ -188,7 +188,7 @@ Defined in: [packages/core/src/runtime/storage.ts:78](https://github.com/Ducks-S
 loadTranscript(): AgentMessage[];
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L75)
+Defined in: [packages/core/src/runtime/storage.ts:202](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L202)
 
 #### Returns
 
@@ -206,7 +206,7 @@ Defined in: [packages/core/src/runtime/storage.ts:75](https://github.com/Ducks-S
 recordEvent(_event): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L72)
+Defined in: [packages/core/src/runtime/storage.ts:199](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L199)
 
 #### Parameters
 
@@ -230,7 +230,7 @@ Defined in: [packages/core/src/runtime/storage.ts:72](https://github.com/Ducks-S
 saveContextSnapshot(_snapshot): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L82)
+Defined in: [packages/core/src/runtime/storage.ts:209](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L209)
 
 #### Parameters
 
@@ -254,7 +254,7 @@ Defined in: [packages/core/src/runtime/storage.ts:82](https://github.com/Ducks-S
 saveCursors(_cursors): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L80)
+Defined in: [packages/core/src/runtime/storage.ts:207](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L207)
 
 #### Parameters
 
@@ -278,7 +278,7 @@ Defined in: [packages/core/src/runtime/storage.ts:80](https://github.com/Ducks-S
 saveMetrics(_metrics): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L76)
+Defined in: [packages/core/src/runtime/storage.ts:203](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L203)
 
 #### Parameters
 
@@ -302,7 +302,7 @@ Defined in: [packages/core/src/runtime/storage.ts:76](https://github.com/Ducks-S
 saveSnapshot(_snapshot): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:77](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L77)
+Defined in: [packages/core/src/runtime/storage.ts:204](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L204)
 
 #### Parameters
 
@@ -326,7 +326,7 @@ Defined in: [packages/core/src/runtime/storage.ts:77](https://github.com/Ducks-S
 saveTranscript(_messages): void;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L74)
+Defined in: [packages/core/src/runtime/storage.ts:201](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L201)
 
 #### Parameters
 

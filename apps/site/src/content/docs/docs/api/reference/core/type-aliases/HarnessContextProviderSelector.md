@@ -11,7 +11,7 @@ description: "Generated API reference for HarnessContextProviderSelector."
 # Type Alias: HarnessContextProviderSelector\<TOptions\>
 
 ```ts
-type HarnessContextProviderSelector<TOptions> = 
+type HarnessContextProviderSelector<TOptions> =
   | HarnessContextProvider<TOptions>
 | HarnessContextProviderClass<HarnessContextProvider<TOptions>>;
 ```

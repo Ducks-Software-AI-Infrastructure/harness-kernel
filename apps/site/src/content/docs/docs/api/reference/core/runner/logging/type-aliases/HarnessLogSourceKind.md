@@ -11,7 +11,7 @@ description: "Generated API reference for HarnessLogSourceKind."
 # Type Alias: HarnessLogSourceKind
 
 ```ts
-type HarnessLogSourceKind = 
+type HarnessLogSourceKind =
   | "runtime"
   | "model_provider"
   | "tool"

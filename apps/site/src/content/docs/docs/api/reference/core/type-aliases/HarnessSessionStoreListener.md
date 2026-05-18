@@ -14,7 +14,7 @@ description: "Generated API reference for HarnessSessionStoreListener."
 type HarnessSessionStoreListener = (event) => void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/types.ts:206](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L206)
+Defined in: [packages/core/src/session/types.ts:199](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L199)
 
 ## Parameters
 

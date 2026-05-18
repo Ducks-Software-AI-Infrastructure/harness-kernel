@@ -24,7 +24,7 @@ const openAIProviderConfigSchema: ObjectSchema<{
      metadata: OptionalSchema<unknown, unknown>;
      provider: OptionalSchema<unknown, string | undefined>;
    }>[]
-     | undefined, 
+     | undefined,
      | ObjectOutput<{
      id: StringSchema;
      label: OptionalSchema<unknown, string | undefined>;

@@ -59,4 +59,4 @@ Use `ContextScopes.Turn`, `ContextScopes.Run`, or `ContextScopes.Session` to con
 
 ## Boundary
 
-Context providers define behavior. Runtime services can be read through `session.services`, but the provider object itself belongs to the agent package.
+Context providers define behavior. Runtime resources can be read through `session.resources`, but the provider object itself belongs to the agent package.

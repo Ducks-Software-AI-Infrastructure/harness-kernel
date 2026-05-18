@@ -96,6 +96,12 @@ Re-exports [HarnessSessionStoreListener](../type-aliases/HarnessSessionStoreList
 
 ***
 
+### HarnessSessionSummary
+
+Re-exports [HarnessSessionSummary](../interfaces/HarnessSessionSummary.md)
+
+***
+
 ### HarnessSnapshot
 
 Re-exports [HarnessSnapshot](../interfaces/HarnessSnapshot.md)
@@ -153,6 +159,18 @@ Re-exports [SendOptions](../interfaces/SendOptions.md)
 ### SendResult
 
 Re-exports [SendResult](../interfaces/SendResult.md)
+
+***
+
+### SessionListQuery
+
+Re-exports [SessionListQuery](../interfaces/SessionListQuery.md)
+
+***
+
+### SessionListResult
+
+Re-exports [SessionListResult](../interfaces/SessionListResult.md)
 
 ***
 

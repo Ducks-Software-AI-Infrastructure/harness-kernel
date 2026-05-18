@@ -66,7 +66,7 @@ import {
 import { ContextRegistry } from "./context-registry.js";
 import { NoopSandbox } from "./sandbox.js";
 import { SandboxManager } from "./sandbox-manager.js";
-import { NoopRunStorage } from "./storage.js";
+import { MemorySessionStorage } from "./storage.js";
 import { RunStorageCoordinator, type StoredRuntimeState } from "./storage-coordinator.js";
 import { EventRecorder } from "./event-recorder.js";
 import { TranscriptManager } from "./transcript-manager.js";
@@ -314,7 +314,7 @@ export class AgentSessionRunner {
   private readonly snapshotManager: SnapshotManager;
   private readonly toolExecutor: ToolExecutor;
   private readonly modelPipeline: ModelPipeline;
-  private readonly services: Record<string, unknown>;
+  private readonly resources: Record<string, unknown>;
   private readonly roles: HarnessRoleDefinition[];
   private readonly roleResolver: RoleResolver;
   private readonly providerRegistry: HarnessModelProviderRegistry;
@@ -332,17 +332,20 @@ export class AgentSessionRunner {
   private providerStack: string[] = [];
   private hookDepth = 0;
   private turnHandoffRequested = false;
+  private restoredFromRun = false;
 
   constructor(private readonly options: AgentSessionRunnerOptions) {
     this.agent = normalizeAgent(options.agent);
     this.sessionIdValue = options.sessionId ?? randomId();
+    this.runIdValue = options.initialRunId ?? randomId();
+    this.restoredFromRun = Boolean(options.initialRunId);
     this.workDir = options.workDir ?? ".";
     this.outputDir = options.outputDir ?? ".harness-kernel/runs";
-    const storage = options.storage ?? new NoopRunStorage();
+    const storage = options.storage ?? new MemorySessionStorage();
     const sandbox = options.sandbox ?? new NoopSandbox();
     this.providerRegistry = new HarnessModelProviderRegistry(options.providers);
-    this.currentMode = options.initialMode ? this.resolveModeType(options.initialMode) : this.agent.initialMode;
-    this.services = options.services ?? {};
+    this.currentMode = this.agent.initialMode;
+    this.resources = options.resources ?? {};
     this.roles = validateRoles(options.roles) ?? this.agent.roles ?? defaultRoles();
     const initialProvider = this.resolveModelProvider(options.defaultModel).provider;
     this.roleResolver = new RoleResolver(this.roles, {
@@ -356,6 +359,8 @@ export class AgentSessionRunner {
       sessionId: this.sessionIdValue,
       agentKey: this.agent.key,
       outputDir: this.outputDir,
+      mode: () => this.currentMode,
+      openExistingRun: Boolean(options.initialRunId),
       logOpened: (fields) => this.log(RunStorageOpenedLog, fields),
       logFailed: (fields) => this.log(StorageWriteFailedLog, fields),
     });
@@ -444,7 +449,7 @@ export class AgentSessionRunner {
       sessionId: this.sessionIdValue,
       agentKey: this.agent.key,
       workDir: this.workDir,
-      services: this.services,
+      resources: this.resources,
       getRunId: () => this.runId,
       getOutputDir: () => this.storeRunDir(),
       logOpened: (fields) => this.log(SandboxOpenedLog, fields),
@@ -456,7 +461,7 @@ export class AgentSessionRunner {
     this.toolExecutor = new ToolExecutor({
       getMetrics: () => this.metrics,
       getCurrentMode: () => this.currentMode,
-      getToolApprovalMode: () => this.options.toolApproval ?? this.getModeDefinition(this.currentMode).toolApproval,
+      getToolApprovalMode: () => this.getModeDefinition(this.currentMode).toolApproval,
       approveTool: this.options.approveTool,
       ensureSandboxOpen: () => this.ensureSandboxOpen(),
       buildActionSession: (tool, source, correlationId, causationId) =>
@@ -628,11 +633,12 @@ export class AgentSessionRunner {
   }
 
   private async beginNewRun(): Promise<void> {
-    if (this.started) {
+    if (this.started || this.restoredFromRun) {
       await this.closeSandbox();
       this.runIdValue = randomId();
       await this.storageCoordinator.beginRun(this.runIdValue);
       this.started = false;
+      this.restoredFromRun = false;
     }
     this.startedAtPerf = 0;
     this.metrics = emptyMetrics();
@@ -657,7 +663,7 @@ export class AgentSessionRunner {
         external: true,
       });
 
-      const maxRunnerTurns = this.options.maxTurns ?? 5;
+      const maxRunnerTurns = this.getModeDefinition(this.currentMode).maxTurns ?? 5;
       while (this.pendingInputs.length > 0 && this.metrics.turnCount < maxRunnerTurns) {
         if (options.signal?.aborted) throw new Error("Run aborted.");
         const input = this.pendingInputs.shift()!;
@@ -680,6 +686,7 @@ export class AgentSessionRunner {
         durationMs: this.metrics.durationMs,
         messageCount: this.metrics.messageCount,
         eventCount: this.metrics.eventCount,
+        metrics: cloneJSON(this.metrics),
       });
 
       return {
@@ -702,6 +709,11 @@ export class AgentSessionRunner {
 
   async prompt(message: string, options: AgentRunnerRunOptions = {}): Promise<AgentRunResult> {
     return this.run(message, options);
+  }
+
+  async hydrate(): Promise<void> {
+    if (!this.restoredFromRun) return;
+    await this.ensureStoreInitialized();
   }
 
   async close(): Promise<void> {
@@ -1043,7 +1055,7 @@ export class AgentSessionRunner {
       agentKey: this.agent.key,
       workDir: this.workDir,
       outputDir: this.storeRunDir(),
-      services: this.services,
+      resources: this.resources,
       state: {
         get: () => cloneJSON(this.state),
       },

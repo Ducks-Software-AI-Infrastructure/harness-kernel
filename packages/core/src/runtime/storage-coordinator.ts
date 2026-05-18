@@ -8,6 +8,7 @@ import type {
   TranscriptBranch,
   TranscriptCursor,
 } from "./types.js";
+import { HarnessSessionStorage } from "./storage.js";
 import type { HarnessRunStore, HarnessRunStorage, RunCursorState } from "./storage.js";
 
 export interface StoredRuntimeState {
@@ -21,23 +22,26 @@ export interface StoredRuntimeState {
 export class RunStorageCoordinator {
   private runIdValue: string;
   private store: HarnessRunStore | undefined;
-  private storePromise: Promise<HarnessRunStore>;
+  private storePromise: Promise<HarnessRunStore> | undefined;
   private initialized = false;
   private runtimeLoaded = false;
+  private createRunOnOpen: boolean;
 
   constructor(
     private readonly input: {
-      storage: HarnessRunStorage;
+      storage: HarnessRunStorage | HarnessSessionStorage;
       runId: string;
       sessionId: string;
       agentKey: string;
       outputDir?: string;
+      mode(): string;
+      openExistingRun?: boolean;
       logOpened(fields: { storageId: string; runId: string; runDir?: string }): void;
       logFailed(fields: { operation: string; error: unknown }): void;
     },
   ) {
     this.runIdValue = input.runId;
-    this.storePromise = this.createStore(this.runIdValue);
+    this.createRunOnOpen = !input.openExistingRun;
   }
 
   get runDir(): string | undefined {
@@ -68,6 +72,7 @@ export class RunStorageCoordinator {
   }
 
   async saveMetrics(metrics: RunMetrics): Promise<void> {
+    if (this.input.storage instanceof HarnessSessionStorage) return;
     await this.write("save_metrics", (store) => store.saveMetrics(metrics));
   }
 
@@ -99,18 +104,29 @@ export class RunStorageCoordinator {
     await this.close();
     this.runIdValue = runId;
     this.store = undefined;
-    this.storePromise = this.createStore(runId);
+    this.storePromise = undefined;
     this.initialized = false;
     this.runtimeLoaded = false;
+    this.createRunOnOpen = true;
   }
 
   async close(): Promise<void> {
-    const store = this.store ?? await this.storePromise;
-    await store.close?.();
+    const store = this.store ?? (this.storePromise ? await this.storePromise : undefined);
+    await store?.close?.();
   }
 
   private async createStore(runId: string): Promise<HarnessRunStore> {
     try {
+      if (this.input.storage instanceof HarnessSessionStorage && this.createRunOnOpen) {
+        await this.input.storage.createRun({
+          runId,
+          sessionId: this.input.sessionId,
+          agentKey: this.input.agentKey,
+          outputDir: this.input.outputDir,
+          mode: this.input.mode(),
+        });
+      }
+      this.createRunOnOpen = false;
       const store = await this.input.storage.openRun({
         runId,
         sessionId: this.input.sessionId,
@@ -127,6 +143,7 @@ export class RunStorageCoordinator {
 
   private async getStore(): Promise<HarnessRunStore> {
     if (this.store) return this.store;
+    this.storePromise ??= this.createStore(this.runIdValue);
     this.store = await this.storePromise;
     return this.store;
   }

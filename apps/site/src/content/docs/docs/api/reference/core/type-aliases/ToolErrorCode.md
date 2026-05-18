@@ -11,7 +11,7 @@ description: "Generated API reference for ToolErrorCode."
 # Type Alias: ToolErrorCode
 
 ```ts
-type ToolErrorCode = 
+type ToolErrorCode =
   | "tool.args.invalid_schema"
   | "tool.approval.denied"
   | "sandbox.exec.failed"

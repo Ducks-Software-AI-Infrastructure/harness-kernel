@@ -12,6 +12,18 @@ description: "Generated API reference for @harness-kernel/core/runner/storage."
 
 ## References
 
+### CreateStoredRunInput
+
+Re-exports [CreateStoredRunInput](../../interfaces/CreateStoredRunInput.md)
+
+***
+
+### CreateStoredSessionInput
+
+Re-exports [CreateStoredSessionInput](../../interfaces/CreateStoredSessionInput.md)
+
+***
+
 ### HarnessRunStorage
 
 Re-exports [HarnessRunStorage](../../classes/HarnessRunStorage.md)
@@ -24,6 +36,18 @@ Re-exports [HarnessRunStore](../../classes/HarnessRunStore.md)
 
 ***
 
+### HarnessSessionStorage
+
+Re-exports [HarnessSessionStorage](../../classes/HarnessSessionStorage.md)
+
+***
+
+### HarnessSessionSummary
+
+Re-exports [HarnessSessionSummary](../../interfaces/HarnessSessionSummary.md)
+
+***
+
 ### MemoryRunStorage
 
 Re-exports [MemoryRunStorage](../../classes/MemoryRunStorage.md)
@@ -33,6 +57,12 @@ Re-exports [MemoryRunStorage](../../classes/MemoryRunStorage.md)
 ### MemoryRunStore
 
 Re-exports [MemoryRunStore](../../classes/MemoryRunStore.md)
+
+***
+
+### MemorySessionStorage
+
+Re-exports [MemorySessionStorage](../../classes/MemorySessionStorage.md)
 
 ***
 
@@ -57,3 +87,27 @@ Re-exports [OpenRunStoreInput](../../interfaces/OpenRunStoreInput.md)
 ### RunCursorState
 
 Re-exports [RunCursorState](../../interfaces/RunCursorState.md)
+
+***
+
+### SessionListQuery
+
+Re-exports [SessionListQuery](../../interfaces/SessionListQuery.md)
+
+***
+
+### SessionListResult
+
+Re-exports [SessionListResult](../../interfaces/SessionListResult.md)
+
+***
+
+### StoredRunSummary
+
+Re-exports [StoredRunSummary](../../interfaces/StoredRunSummary.md)
+
+***
+
+### TouchStoredSessionInput
+
+Re-exports [TouchStoredSessionInput](../../interfaces/TouchStoredSessionInput.md)

@@ -11,7 +11,7 @@ try {
     runId: "run",
     agentKey: "agent",
     workDir: root,
-    services: {},
+    resources: {},
   });
   const result = await session.exec({ command: "printf ok" });
   assert.equal(result.stdout, "ok");

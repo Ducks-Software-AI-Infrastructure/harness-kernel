@@ -1,5 +1,6 @@
 import { HarnessLog } from "./types.js";
 import type { SchemaIssue } from "../schema/index.js";
+import type { RunMetrics } from "../runtime/types.js";
 
 export class SessionCreatedLog extends HarnessLog<{ sessionId?: string }> {
   level = "info" as const;
@@ -17,10 +18,15 @@ export class RunStartedLog extends HarnessLog<{ modeId: string; model: string }>
   }
 }
 
-export class RunCompletedLog extends HarnessLog<{ durationMs: number; messageCount: number; eventCount: number }> {
+export class RunCompletedLog extends HarnessLog<{
+  durationMs: number;
+  messageCount: number;
+  eventCount: number;
+  metrics: RunMetrics;
+}> {
   level = "info" as const;
   category = "run" as const;
-  message(fields: { durationMs: number; messageCount: number; eventCount: number }): string {
+  message(fields: { durationMs: number; messageCount: number; eventCount: number; metrics: RunMetrics }): string {
     return `run.completed durationMs=${fields.durationMs} messages=${fields.messageCount} events=${fields.eventCount}`;
   }
 }

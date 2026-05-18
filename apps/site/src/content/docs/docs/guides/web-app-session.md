@@ -11,11 +11,12 @@ import { createHarnessSessionStore } from "@harness-kernel/core/runner";
 import { OpenAIProvider } from "@harness-kernel/provider-openai";
 import { agent } from "./agent.js";
 
+for (const mode of agent.modes) mode.toolApproval = "deny";
+
 const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new OpenAIProvider()],
   defaultModel: process.env.HARNESS_KERNEL_MODEL ?? "openai/gpt-5.1-mini",
-  toolApproval: "deny",
 });
 
 const server = createServer(async (req, res) => {

@@ -7,7 +7,7 @@ import { ConsoleLogSink } from "@harness-kernel/core/runner/logging";
 import { createHarnessSessionStore, type HarnessSessionStore } from "@harness-kernel/core/runner";
 import { OpenAIProvider } from "@harness-kernel/provider-openai";
 import { LocalSandbox } from "@harness-kernel/sandbox-local";
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 import { agent } from "./agent.js";
 
 interface MessageRequest {
@@ -28,14 +28,13 @@ function writeJson(res: ServerResponse, status: number, body: unknown): void {
 }
 
 export async function createWebHarnessStore(): Promise<HarnessSessionStore> {
+  for (const mode of agent.modes) mode.toolApproval = "deny";
   return createHarnessSessionStore({
     agent: { definition: agent },
     providers: [new OpenAIProvider()],
     defaultModel: process.env.HARNESS_KERNEL_MODEL ?? "openai/gpt-5.1-mini",
-    workDir: resolve(process.cwd()),
-    storage: new FileRunStorage({ outputDir: ".harness-kernel/runs" }),
-    sandbox: new LocalSandbox(),
-    toolApproval: "deny",
+    storage: new FileSessionStorage(),
+    sandbox: new LocalSandbox({ workDir: resolve(process.cwd()) }),
     logging: {
       sinks: [new ConsoleLogSink({ level: "warn" })],
     },

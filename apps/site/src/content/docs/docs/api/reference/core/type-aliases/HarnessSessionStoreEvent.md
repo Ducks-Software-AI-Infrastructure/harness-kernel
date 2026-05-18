@@ -11,7 +11,7 @@ description: "Generated API reference for HarnessSessionStoreEvent."
 # Type Alias: HarnessSessionStoreEvent
 
 ```ts
-type HarnessSessionStoreEvent = 
+type HarnessSessionStoreEvent =
   | {
   sessionId: string;
   status: HarnessSessionStatus;
@@ -31,4 +31,4 @@ type HarnessSessionStoreEvent =
 };
 ```
 
-Defined in: [packages/core/src/session/types.ts:200](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L200)
+Defined in: [packages/core/src/session/types.ts:193](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L193)

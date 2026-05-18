@@ -10,15 +10,16 @@ description: "Generated API reference for ToolApprovalRequest."
 
 # Interface: ToolApprovalRequest
 
-Defined in: [packages/core/src/runtime/types/tools.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L72)
+Defined in: [packages/core/src/runtime/types/tools.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L73)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-args"></a> `args` | `unknown` | [packages/core/src/runtime/types/tools.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L75) |
-| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/tools.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L73) |
-| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/runtime/types/tools.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L76) |
-| <a id="property-name"></a> `name` | `string` | [packages/core/src/runtime/types/tools.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L74) |
-| <a id="property-permissions"></a> `permissions?` | [`ToolPermission`](ToolPermission.md)[] | [packages/core/src/runtime/types/tools.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L78) |
-| <a id="property-risk"></a> `risk?` | [`ToolRisk`](../type-aliases/ToolRisk.md) | [packages/core/src/runtime/types/tools.ts:77](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L77) |
+| <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `number` | [packages/core/src/runtime/types/tools.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L80) |
+| <a id="property-args"></a> `args` | `unknown` | [packages/core/src/runtime/types/tools.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L76) |
+| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/tools.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L74) |
+| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/runtime/types/tools.ts:77](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L77) |
+| <a id="property-name"></a> `name` | `string` | [packages/core/src/runtime/types/tools.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L75) |
+| <a id="property-permissions"></a> `permissions?` | [`ToolPermission`](ToolPermission.md)[] | [packages/core/src/runtime/types/tools.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L79) |
+| <a id="property-risk"></a> `risk?` | [`ToolRisk`](../type-aliases/ToolRisk.md) | [packages/core/src/runtime/types/tools.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L78) |

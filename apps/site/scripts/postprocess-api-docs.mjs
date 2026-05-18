@@ -96,6 +96,10 @@ function replaceModuleLabels(content) {
   return updated;
 }
 
+function stripTrailingWhitespace(content) {
+  return content.replace(/[ \t]+$/gmu, "");
+}
+
 function rewriteLinks(content, sourceRelPath, publicRelPath, publicPathBySourcePath) {
   return content.replace(/\]\(([^)\s]+\.md(?:#[^)]+)?)\)/gu, (match, target) => {
     if (/^(?:https?:|mailto:|\/|#)/u.test(target)) return match;
@@ -166,7 +170,7 @@ for (const record of fileRecords) {
   const outPath = join(processedDir, record.publicRelPath);
 
   await mkdir(dirname(outPath), { recursive: true });
-  await writeFile(outPath, `${frontmatterFor(title)}${notice}${rewritten}`, "utf8");
+  await writeFile(outPath, stripTrailingWhitespace(`${frontmatterFor(title)}${notice}${rewritten}`), "utf8");
 }
 
 const rootIndex = await readFile(join(processedDir, "index.md"), "utf8");

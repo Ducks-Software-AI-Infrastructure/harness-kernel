@@ -35,14 +35,15 @@ class ApprovalMode extends HarnessMode {
   label = "Approval";
   prompt = "Use the approval tool.";
 
-  constructor(readonly tool: ApprovalTool) {
+  constructor(readonly tool: ApprovalTool, approval?: "ask" | "deny" | "auto" | "tool-default") {
     super();
     this.tools = [tool];
+    this.toolApproval = approval;
   }
 }
 
-function createAgent(tool: ApprovalTool) {
-  const mode = new ApprovalMode(tool);
+function createAgent(tool: ApprovalTool, approval?: "ask" | "deny" | "auto" | "tool-default") {
+  const mode = new ApprovalMode(tool, approval);
   return defineAgent<TestState>({
     key: "approval-agent",
     label: "Approval Agent",
@@ -62,10 +63,9 @@ const approvingProvider: HarnessModelProvider = {
 };
 
 const approvingSession = await createHarnessSession({
-  agent: { definition: createAgent(approvedTool) },
+  agent: { definition: createAgent(approvedTool, "ask") },
   providers: [approvingProvider],
   defaultModel: "fake/model",
-  toolApproval: "ask",
 });
 
 try {
@@ -119,10 +119,9 @@ const denyingProvider: HarnessModelProvider = {
 };
 
 const denyingSession = await createHarnessSession({
-  agent: { definition: createAgent(deniedTool) },
+  agent: { definition: createAgent(deniedTool, "deny") },
   providers: [denyingProvider],
   defaultModel: "fake/model",
-  toolApproval: "deny",
 });
 
 try {
@@ -141,4 +140,30 @@ try {
   });
 } finally {
   await denyingSession.close();
+}
+
+const timeoutTool = new ApprovalTool();
+timeoutTool.approvalTimeoutMs = 10;
+const timeoutProvider: HarnessModelProvider = {
+  namespace: "fake",
+  async run(input) {
+    const result = await input.executeTool(input.tools[0]!, { value: "timeout" }, "call-timeout");
+    return { content: result.metadata?.errorCode === "tool.approval.denied" ? "timed-out" : "unexpected" };
+  },
+};
+
+const timeoutSession = await createHarnessSession({
+  agent: { definition: createAgent(timeoutTool, "ask") },
+  providers: [timeoutProvider],
+  defaultModel: "fake/model",
+});
+
+try {
+  const startedAt = Date.now();
+  const result = await timeoutSession.send("timeout tool");
+  assert.equal(result.answer, "timed-out");
+  assert.equal(timeoutTool.calls.length, 0);
+  assert.equal(Date.now() - startedAt < 1_000, true);
+} finally {
+  await timeoutSession.close();
 }

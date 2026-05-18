@@ -5,20 +5,19 @@ import { ConsoleLogSink } from "@harness-kernel/core/runner/logging";
 import { createHarnessSessionStore } from "@harness-kernel/core/runner";
 import { OpenAIProvider } from "@harness-kernel/provider-openai";
 import { LocalSandbox } from "@harness-kernel/sandbox-local";
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 import { agent } from "./agent.js";
 
 const prompt = process.argv.slice(2).join(" ").trim() || "Summarize this project in one paragraph.";
 const model = process.env.HARNESS_KERNEL_MODEL ?? "openai/gpt-5.1";
+for (const mode of agent.modes) mode.toolApproval = "ask";
 
 const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new OpenAIProvider()],
   defaultModel: model,
-  workDir: resolve(process.cwd()),
-  storage: new FileRunStorage({ outputDir: ".harness-kernel/runs" }),
-  sandbox: new LocalSandbox(),
-  toolApproval: "ask",
+  storage: new FileSessionStorage(),
+  sandbox: new LocalSandbox({ workDir: resolve(process.cwd()) }),
   logging: {
     sinks: [new ConsoleLogSink({ level: "info" })],
   },

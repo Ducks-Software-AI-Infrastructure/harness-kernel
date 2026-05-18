@@ -1,33 +1,33 @@
 # @harness-kernel/storage-file
 
-File-backed run storage for Harness Kernel transcripts, events, snapshots,
-metrics, and cursors.
+File-backed session storage for Harness Kernel transcripts, events, snapshots,
+context snapshots, and cursors.
 
 ```sh
 pnpm add @harness-kernel/storage-file
 ```
 
-Use this package when a runtime host wants local filesystem persistence.
+Use `FileSessionStorage` when a runtime host wants local filesystem persistence
+for sessions. `FileRunStorage` remains available for legacy run-centric hosts.
 
 ## Minimal usage
 
 ```ts
-import { FileRunStorage } from "@harness-kernel/storage-file";
+import { FileSessionStorage } from "@harness-kernel/storage-file";
 
-const storage = new FileRunStorage({
-  outputDir: "/var/lib/my-harness-host/runs",
+const storage = new FileSessionStorage({
+  rootDir: "/var/lib/my-harness-host",
 });
 
-const run = storage.openRun({
-  runId: "run-001",
+await storage.init?.();
+await storage.createSession({
   sessionId: "session-001",
   agentKey: "agent",
+  mode: "ChatMode",
 });
-
-run.init();
 ```
 
-The runtime host owns the `outputDir`: create it, secure it, back it up, and
-mount it wherever run artifacts should live.
+The runtime host owns the storage directory: create it, secure it, back it up,
+and mount it wherever session artifacts should live.
 
 For more details, see the [file storage guide](../../apps/site/src/content/docs/docs/guides/file-storage.md).

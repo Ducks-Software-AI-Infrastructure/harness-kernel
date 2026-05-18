@@ -52,6 +52,7 @@ export abstract class HarnessTool<TInput = unknown, TData = unknown> {
   risk?: ToolRisk;
   permissions?: ToolPermission[];
   requiresApproval?: boolean | ToolApprovalResolver;
+  approvalTimeoutMs?: number;
 
   get type(): string {
     return constructTypeOf(this);
@@ -76,4 +77,5 @@ export interface ToolApprovalRequest {
   modeId: string;
   risk?: ToolRisk;
   permissions?: ToolPermission[];
+  approvalTimeoutMs?: number;
 }

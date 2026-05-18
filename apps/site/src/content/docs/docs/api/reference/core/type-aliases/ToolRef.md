@@ -11,7 +11,7 @@ description: "Generated API reference for ToolRef."
 # Type Alias: ToolRef
 
 ```ts
-type ToolRef = 
+type ToolRef =
   | {
   kind: "file";
   path: string;

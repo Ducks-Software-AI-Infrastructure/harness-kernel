@@ -36,6 +36,7 @@ new BashTool(): BashTool;
 
 | Property | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
+| <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `number` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`approvalTimeoutMs`](../../../core/classes/HarnessTool.md#property-approvaltimeoutms) | [packages/core/src/runtime/types/tools.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L55) |
 | <a id="property-description"></a> `description` | `string` | `"Run a shell command with cwd set to the harness workDir."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/bash.ts:13](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/bash.ts#L13) |
 | <a id="property-label"></a> `label?` | `string` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`label`](../../../core/classes/HarnessTool.md#property-label) | [packages/core/src/runtime/types/tools.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L48) |
 | <a id="property-name"></a> `name` | `string` | `"bash"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/bash.ts:12](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/bash.ts#L12) |
@@ -54,7 +55,7 @@ new BashTool(): BashTool;
 get inputSchema(): unknown;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L60)
+Defined in: [packages/core/src/runtime/types/tools.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L61)
 
 ##### Returns
 
@@ -74,7 +75,7 @@ Defined in: [packages/core/src/runtime/types/tools.ts:60](https://github.com/Duc
 get type(): string;
 ```
 
-Defined in: [packages/core/src/runtime/types/tools.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L56)
+Defined in: [packages/core/src/runtime/types/tools.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L57)
 
 ##### Returns
 

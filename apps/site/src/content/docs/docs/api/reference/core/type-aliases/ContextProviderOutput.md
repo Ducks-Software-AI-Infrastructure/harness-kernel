@@ -11,7 +11,7 @@ description: "Generated API reference for ContextProviderOutput."
 # Type Alias: ContextProviderOutput
 
 ```ts
-type ContextProviderOutput = 
+type ContextProviderOutput =
   | string
   | ContextContributionInput
   | (

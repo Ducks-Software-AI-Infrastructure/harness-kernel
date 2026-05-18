@@ -111,7 +111,7 @@ Defined in: [packages/core/src/schema/index.ts:96](https://github.com/Ducks-Soft
 ```ts
 optional(): OptionalSchema<
   | Record<string, InferInput<TValue>>
-  | undefined, 
+  | undefined,
   | Record<string, InferOutput<TValue>>
 | undefined>;
 ```
@@ -122,7 +122,7 @@ Defined in: [packages/core/src/schema/index.ts:88](https://github.com/Ducks-Soft
 
 [`OptionalSchema`](OptionalSchema.md)\<
   \| `Record`\<`string`, [`InferInput`](../type-aliases/InferInput.md)\<`TValue`\>\>
-  \| `undefined`, 
+  \| `undefined`,
   \| `Record`\<`string`, [`InferOutput`](../type-aliases/InferOutput.md)\<`TValue`\>\>
   \| `undefined`\>
 

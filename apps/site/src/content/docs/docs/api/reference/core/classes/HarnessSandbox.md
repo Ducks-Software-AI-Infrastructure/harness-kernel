@@ -41,7 +41,7 @@ new HarnessSandbox(): HarnessSandbox;
 ### open()
 
 ```ts
-abstract open(input): 
+abstract open(input):
   | HarnessSandboxSession
 | Promise<HarnessSandboxSession>;
 ```

@@ -10,7 +10,7 @@ description: "Generated API reference for SendOptions."
 
 # Interface: SendOptions
 
-Defined in: [packages/core/src/session/types.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L54)
+Defined in: [packages/core/src/session/types.ts:47](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L47)
 
 ## Extended by
 
@@ -20,6 +20,6 @@ Defined in: [packages/core/src/session/types.ts:54](https://github.com/Ducks-Sof
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-after"></a> `after?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [packages/core/src/session/types.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L57) |
-| <a id="property-model"></a> `model?` | `string` | [packages/core/src/session/types.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L56) |
-| <a id="property-signal"></a> `signal?` | `AbortSignal` | [packages/core/src/session/types.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L55) |
+| <a id="property-after"></a> `after?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [packages/core/src/session/types.ts:50](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L50) |
+| <a id="property-model"></a> `model?` | `string` | [packages/core/src/session/types.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L49) |
+| <a id="property-signal"></a> `signal?` | `AbortSignal` | [packages/core/src/session/types.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L48) |

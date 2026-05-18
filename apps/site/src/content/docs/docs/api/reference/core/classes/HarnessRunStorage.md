@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessRunStorage."
 
 # Abstract Class: HarnessRunStorage
 
-Defined in: [packages/core/src/runtime/storage.ts:25](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L25)
+Defined in: [packages/core/src/runtime/storage.ts:136](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L136)
 
 ## Extended by
 
@@ -34,20 +34,20 @@ new HarnessRunStorage(): HarnessRunStorage;
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `abstract` | `string` | [packages/core/src/runtime/storage.ts:26](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L26) |
-| <a id="property-label"></a> `label?` | `public` | `string` | [packages/core/src/runtime/storage.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L27) |
+| <a id="property-id"></a> `id` | `abstract` | `string` | [packages/core/src/runtime/storage.ts:137](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L137) |
+| <a id="property-label"></a> `label?` | `public` | `string` | [packages/core/src/runtime/storage.ts:138](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L138) |
 
 ## Methods
 
 ### openRun()
 
 ```ts
-abstract openRun(input): 
+abstract openRun(input):
   | HarnessRunStore
 | Promise<HarnessRunStore>;
 ```
 
-Defined in: [packages/core/src/runtime/storage.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L29)
+Defined in: [packages/core/src/runtime/storage.ts:140](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/storage.ts#L140)
 
 #### Parameters
 

@@ -35,8 +35,8 @@ Defined in: [packages/core/src/engine/types.ts:14](https://github.com/Ducks-Soft
 
 ```ts
 emit<TPayload, TEvent>(
-   eventClass, 
-   payload, 
+   eventClass,
+   payload,
 options?): Promise<TEvent>;
 ```
 
@@ -67,8 +67,8 @@ Defined in: [packages/core/src/engine/types.ts:27](https://github.com/Ducks-Soft
 
 ```ts
 executeTool(
-   tool, 
-   args, 
+   tool,
+   args,
 callId?): Promise<AgentToolResult<unknown>>;
 ```
 

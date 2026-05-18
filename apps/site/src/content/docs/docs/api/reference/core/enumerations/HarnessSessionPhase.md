@@ -10,20 +10,20 @@ description: "Generated API reference for HarnessSessionPhase."
 
 # Enumeration: HarnessSessionPhase
 
-Defined in: [packages/core/src/session/types.ts:126](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L126)
+Defined in: [packages/core/src/session/types.ts:119](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L119)
 
 ## Enumeration Members
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| <a id="enumeration-member-buildingcontext"></a> `BuildingContext` | `"building_context"` | [packages/core/src/session/types.ts:130](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L130) |
-| <a id="enumeration-member-closed"></a> `Closed` | `"closed"` | [packages/core/src/session/types.ts:137](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L137) |
-| <a id="enumeration-member-closingturn"></a> `ClosingTurn` | `"closing_turn"` | [packages/core/src/session/types.ts:134](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L134) |
-| <a id="enumeration-member-completed"></a> `Completed` | `"completed"` | [packages/core/src/session/types.ts:135](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L135) |
-| <a id="enumeration-member-error"></a> `Error` | `"error"` | [packages/core/src/session/types.ts:136](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L136) |
-| <a id="enumeration-member-idle"></a> `Idle` | `"idle"` | [packages/core/src/session/types.ts:127](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L127) |
-| <a id="enumeration-member-queued"></a> `Queued` | `"queued"` | [packages/core/src/session/types.ts:128](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L128) |
-| <a id="enumeration-member-runningtool"></a> `RunningTool` | `"running_tool"` | [packages/core/src/session/types.ts:132](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L132) |
-| <a id="enumeration-member-starting"></a> `Starting` | `"starting"` | [packages/core/src/session/types.ts:129](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L129) |
-| <a id="enumeration-member-waitingapproval"></a> `WaitingApproval` | `"waiting_approval"` | [packages/core/src/session/types.ts:133](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L133) |
-| <a id="enumeration-member-waitingmodel"></a> `WaitingModel` | `"waiting_model"` | [packages/core/src/session/types.ts:131](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L131) |
+| <a id="enumeration-member-buildingcontext"></a> `BuildingContext` | `"building_context"` | [packages/core/src/session/types.ts:123](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L123) |
+| <a id="enumeration-member-closed"></a> `Closed` | `"closed"` | [packages/core/src/session/types.ts:130](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L130) |
+| <a id="enumeration-member-closingturn"></a> `ClosingTurn` | `"closing_turn"` | [packages/core/src/session/types.ts:127](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L127) |
+| <a id="enumeration-member-completed"></a> `Completed` | `"completed"` | [packages/core/src/session/types.ts:128](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L128) |
+| <a id="enumeration-member-error"></a> `Error` | `"error"` | [packages/core/src/session/types.ts:129](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L129) |
+| <a id="enumeration-member-idle"></a> `Idle` | `"idle"` | [packages/core/src/session/types.ts:120](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L120) |
+| <a id="enumeration-member-queued"></a> `Queued` | `"queued"` | [packages/core/src/session/types.ts:121](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L121) |
+| <a id="enumeration-member-runningtool"></a> `RunningTool` | `"running_tool"` | [packages/core/src/session/types.ts:125](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L125) |
+| <a id="enumeration-member-starting"></a> `Starting` | `"starting"` | [packages/core/src/session/types.ts:122](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L122) |
+| <a id="enumeration-member-waitingapproval"></a> `WaitingApproval` | `"waiting_approval"` | [packages/core/src/session/types.ts:126](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L126) |
+| <a id="enumeration-member-waitingmodel"></a> `WaitingModel` | `"waiting_model"` | [packages/core/src/session/types.ts:124](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L124) |

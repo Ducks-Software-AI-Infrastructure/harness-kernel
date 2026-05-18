@@ -11,7 +11,7 @@ description: "Generated API reference for ContextProviderReference."
 # Type Alias: ContextProviderReference\<TOptions\>
 
 ```ts
-type ContextProviderReference<TOptions> = 
+type ContextProviderReference<TOptions> =
   | HarnessContextProviderSelector<TOptions>
 | ContextProviderBinding<TOptions>;
 ```

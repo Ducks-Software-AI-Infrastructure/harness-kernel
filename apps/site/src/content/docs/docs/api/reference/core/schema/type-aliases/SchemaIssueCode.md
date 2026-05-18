@@ -11,7 +11,7 @@ description: "Generated API reference for SchemaIssueCode."
 # Type Alias: SchemaIssueCode
 
 ```ts
-type SchemaIssueCode = 
+type SchemaIssueCode =
   | "invalid_type"
   | "invalid_literal"
   | "invalid_enum"

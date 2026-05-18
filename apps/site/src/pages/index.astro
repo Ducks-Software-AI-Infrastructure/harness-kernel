@@ -121,7 +121,7 @@ const painRows = [
 
 const boundaryRows = [
   ["Agent behavior", "modes, tools, hooks, roles, context providers, events, shared state"],
-  ["Runtime ownership", "model providers, storage, sandbox, approvals, logs, services, sessions"],
+  ["Runtime ownership", "model providers, storage, sandbox, approvals, logs, resources, sessions"],
   ["Coupling control", "behavior packages depend on kernel contracts, not host infrastructure"],
   ["Kernel contract", "explicit public subpaths, namespaced model refs, and optional modules"],
 ];
@@ -256,7 +256,7 @@ const boundaryRows = [
           <h2>Runtime Host</h2>
           <p>
             Compose `createHarnessSessionStore` with model providers, `defaultModel`, storage, sandbox,
-            approvals, logging, services, streaming, and session lifecycle policy.
+            approvals, logging, resources, streaming, and session lifecycle policy.
           </p>
           <a href={withBase("/docs/runtime/session-store/")}>Host the agent</a>
         </article>

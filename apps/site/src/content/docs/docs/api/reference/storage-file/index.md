@@ -14,7 +14,9 @@ description: "Generated API reference for @harness-kernel/storage-file."
 
 - [FileRunStorage](classes/FileRunStorage.md)
 - [FileRunStore](classes/FileRunStore.md)
+- [FileSessionStorage](classes/FileSessionStorage.md)
 
 ## Interfaces
 
 - [FileRunStorageOptions](interfaces/FileRunStorageOptions.md)
+- [FileSessionStorageOptions](interfaces/FileSessionStorageOptions.md)

@@ -18,7 +18,7 @@ Defined in: [packages/core/src/runtime/sandbox.ts:1](https://github.com/Ducks-So
 | ------ | ------ | ------ |
 | <a id="property-agentkey"></a> `agentKey` | `string` | [packages/core/src/runtime/sandbox.ts:4](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L4) |
 | <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/runtime/sandbox.ts:6](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L6) |
+| <a id="property-resources"></a> `resources` | `Record`\<`string`, `unknown`\> | [packages/core/src/runtime/sandbox.ts:7](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L7) |
 | <a id="property-runid"></a> `runId` | `string` | [packages/core/src/runtime/sandbox.ts:3](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L3) |
-| <a id="property-services"></a> `services` | `Record`\<`string`, `unknown`\> | [packages/core/src/runtime/sandbox.ts:7](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L7) |
 | <a id="property-sessionid"></a> `sessionId` | `string` | [packages/core/src/runtime/sandbox.ts:2](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L2) |
 | <a id="property-workdir"></a> `workDir` | `string` | [packages/core/src/runtime/sandbox.ts:5](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L5) |

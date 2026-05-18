@@ -1,16 +1,20 @@
 ---
 title: Tool Approval
-description: Request and resolve tool approvals from the runtime host.
+description: Request and resolve tool approvals from modes and tools.
 ---
 
-Objective: run with `toolApproval: "ask"` and resolve pending tool requests.
+Objective: run a mode with `toolApproval = "ask"` and resolve pending tool requests.
 
 ```ts
+class ReviewMode extends HarnessMode {
+  toolApproval = "ask" as const;
+  tools = [new WriteSummaryTool()];
+}
+
 const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new OpenAIProvider()],
   defaultModel: "openai/gpt-5.1",
-  toolApproval: "ask",
 });
 
 const stream = await store.stream("approval-guide", "Write a project summary.");
@@ -32,9 +36,10 @@ Tools opt into approval:
 class WriteSummaryTool extends HarnessTool<WriteSummaryInput> {
   risk = "write" as const;
   requiresApproval = true;
+  approvalTimeoutMs = 60_000;
 }
 ```
 
-Boundary note: the tool requests approval as behavior metadata; the runtime host decides the policy and the user flow.
+Boundary note: the tool requests approval as behavior metadata; the mode decides the policy and the host owns the user flow for resolving requests.
 
 API: [Approvals](../../runtime/approvals/).
