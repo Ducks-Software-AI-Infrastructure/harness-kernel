@@ -1,11 +1,15 @@
 ---
 title: Introduction
-description: What Harness Kernel is and how it separates agent behavior from runtime ownership.
+description: Why Harness Kernel exists and how it separates agent behavior from runtime ownership.
 ---
 
-Harness Kernel is a small TypeScript runtime kernel for building app-owned AI agents. It gives your application explicit contracts for sessions, modes, tools, events, approvals, schemas, logging, storage, sandboxing, and model provider routing.
+Agent demos are easy. Product agents are mostly harness work: sessions, transcripts, tool loops, approvals, storage, sandboxing, logs, events, streaming, model routing, and lifecycle policy.
+
+Harness Kernel is a small TypeScript runtime layer for building app-owned AI agents without rebuilding that harness from scratch. It gives your application explicit contracts for sessions, modes, tools, events, approvals, schemas, logging, storage, sandboxing, and model provider routing.
 
 The central goal is controlled coupling. Agent packages depend on stable kernel contracts for behavior, while host applications choose model providers, storage, sandboxing, logging, services, and approval surfaces. That keeps the same agent reusable across a CLI, backend service, web app session, or another host without importing host infrastructure into the agent package.
+
+The project is intentionally positioned between two common failure modes: hand-rolling a custom runtime around every agent, or adopting a framework runtime that leaks provider, storage, sandbox, and lifecycle decisions into product architecture.
 
 The core rule is responsibility separation:
 
@@ -18,7 +22,7 @@ The core rule is responsibility separation:
 
 ## What It Is For
 
-Use Harness Kernel when you want an agent that belongs to your application rather than to a hidden framework runtime. The agent package can be tested and reused as behavior. The host can make separate operational decisions about model providers, persistence, sandboxing, approval policy, and logs without coupling those decisions back into agent code.
+Use Harness Kernel when you want to build the agent your way without rebuilding the infrastructure around it. The agent package can be tested and reused as behavior. The host can make separate operational decisions about model providers, persistence, sandboxing, approval policy, services, streaming, and logs without coupling those decisions back into agent code.
 
 That makes Harness Kernel a good fit for CLIs, backend workers, web app sessions, desktop apps, and internal tools where the app already owns infrastructure.
 

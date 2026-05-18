@@ -112,11 +112,18 @@ const store = await createHarnessSessionStore({
   defaultModel: "openai/gpt-5.1",
 });`;
 
+const painRows = [
+  ["Sessions and transcripts", "keep conversations, cursors, branches, snapshots, and run state outside ad hoc app code"],
+  ["Tool loops and approvals", "run tools with explicit schemas, risk, permission checks, and user approval surfaces"],
+  ["Storage and observability", "record events, metrics, logs, tool calls, and replayable runtime facts"],
+  ["Sandbox and model routing", "choose providers, models, execution policy, and sandboxing per host"],
+];
+
 const boundaryRows = [
-  ["Agent behavior", "modes, tools, hooks, roles, context providers, events"],
-  ["Runtime ownership", "model providers, storage, sandbox, approvals, logs, sessions"],
-  ["Coupling control", "agent packages depend on kernel contracts, not host infrastructure"],
-  ["Kernel contract", "explicit public subpaths and namespaced model refs"],
+  ["Agent behavior", "modes, tools, hooks, roles, context providers, events, shared state"],
+  ["Runtime ownership", "model providers, storage, sandbox, approvals, logs, services, sessions"],
+  ["Coupling control", "behavior packages depend on kernel contracts, not host infrastructure"],
+  ["Kernel contract", "explicit public subpaths, namespaced model refs, and optional modules"],
 ];
 ---
 
@@ -125,10 +132,10 @@ const boundaryRows = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Harness Kernel is a small TypeScript kernel for app-owned AI agent runtimes." />
+    <meta name="description" content="Harness Kernel helps TypeScript apps build product agents without rebuilding the runtime harness." />
     <meta name="google-site-verification" content={googleSiteVerification} />
     <meta property="og:title" content="Harness Kernel" />
-    <meta property="og:description" content="A small kernel for serious agent runtimes." />
+    <meta property="og:description" content="Build product agents without rebuilding the harness." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={socialPreviewUrl} />
     <meta property="og:image:width" content="1200" />
@@ -157,14 +164,15 @@ const boundaryRows = [
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <TerminalLabel label="kernel boundary" status="explicit" />
-          <h1 id="hero-title">A small kernel for serious agent runtimes.</h1>
+          <TerminalLabel label="product agents" status="runtime work" />
+          <h1 id="hero-title">Build product agents without rebuilding the harness.</h1>
           <p>
-            Build app-owned AI agents with explicit boundaries between behavior and runtime
-            infrastructure, so agent behavior stays portable instead of coupled to one host.
+            AI demos usually stop at one model call. Real agents need sessions, tool loops,
+            approvals, storage, sandboxing, logs, events, streaming, and model routing. Harness
+            Kernel gives your TypeScript app that runtime layer while your product keeps control.
           </p>
           <div class="cta-row" aria-label="Primary actions">
-            <a class="button primary" href={withBase("/docs/getting-started/")}>Get Started</a>
+            <a class="button primary" href={withBase("/docs/getting-started/")}>Start with the Kernel</a>
             <a class="button" href={withBase("/docs/")}>Read the Docs</a>
             <a class="button" href={withBase("/docs/api/")}>API Reference</a>
             <a class="button" href={githubUrl}>GitHub</a>
@@ -177,19 +185,39 @@ const boundaryRows = [
         </div>
       </section>
 
+      <section class="band pain" aria-labelledby="pain-title">
+        <div class="section-heading">
+          <TerminalLabel label="the real problem" status="not model calls" />
+          <h2 id="pain-title">Every serious agent turns into a runtime project.</h2>
+          <p>
+            Once an agent belongs inside a product, the hard part is no longer the prompt. It is the
+            harness around the prompt: durable sessions, controlled tools, observable events, safe
+            execution, and host-specific policy.
+          </p>
+        </div>
+        <div class="pain-grid" role="list">
+          {painRows.map(([label, body]) => (
+            <article role="listitem">
+              <h3>{label}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section class="code-split" aria-label="Agent and runtime code split">
         <CodePane label="agent behavior" caption="complete mode package" code={agentCode} />
-        <CodePane label="runtime host" caption="provider-owned execution" code={runtimeCode} />
+        <CodePane label="runtime host" caption="host-owned execution" code={runtimeCode} />
       </section>
 
       <section class="band boundary" aria-labelledby="boundary-title">
         <div class="section-heading">
           <TerminalLabel label="the boundary" status="stable" />
-          <h2 id="boundary-title">Tools live in modes. Providers live in the runtime.</h2>
+          <h2 id="boundary-title">Build the agent your way. Keep the runtime yours.</h2>
           <p>
-            Harness Kernel keeps the agent package focused on behavior while the host application owns
-            every operational dependency. The boundary is the coupling control: behavior depends on
-            kernel contracts, and infrastructure depends on the host.
+            Harness Kernel sits between hand-rolled harness code and framework-owned runtimes. The
+            agent package stays focused on behavior, while the host application owns every operational
+            dependency and policy decision.
           </p>
           <a class="inline-doc-link" href={withBase("/docs/concepts/kernel-map/")}>Open the boundary map</a>
         </div>
@@ -206,12 +234,12 @@ const boundaryRows = [
       <section class="band two-up" aria-labelledby="core-title">
         <div>
           <TerminalLabel label="kernel core" status="zero deps" />
-          <h2 id="core-title">@harness-kernel/core is the stable center.</h2>
+          <h2 id="core-title">@harness-kernel/core is the harness contract.</h2>
         </div>
         <p>
           Core contains contracts, sessions, schema, events, logging interfaces, model provider routing,
-          memory storage, and a noop sandbox. It does not hide a default provider, default storage layer,
-          or default sandbox.
+          memory storage, and a noop sandbox. It gives the runtime shape without hiding a default
+          provider, default storage layer, default tool catalog, or default sandbox.
         </p>
       </section>
 
@@ -237,7 +265,7 @@ const boundaryRows = [
       <section class="band" aria-labelledby="modules-title">
         <div class="section-heading">
           <TerminalLabel label="runtime modules" status="optional" />
-          <h2 id="modules-title">Install only the modules your host needs.</h2>
+          <h2 id="modules-title">Add modules without accepting hidden defaults.</h2>
           <p>
             There is no hidden runtime. The host chooses every provider, storage backend, sandbox, log
             sink, and tool package explicitly.
@@ -262,7 +290,7 @@ const boundaryRows = [
       <section class="band start" aria-labelledby="start-title">
         <div>
           <TerminalLabel label="start small" status="copyable" />
-          <h2 id="start-title">Start with core contracts, then add host modules.</h2>
+          <h2 id="start-title">Start with contracts, then add the host pieces you need.</h2>
         </div>
         <div class="terminal-command" aria-label="Scaffold commands">
           <span>$ pnpm create @harness-kernel</span>
@@ -277,7 +305,7 @@ const boundaryRows = [
 
     <footer>
       <span>Harness Kernel</span>
-      <span>No hidden runtime. No default provider. No framework lock-in.</span>
+      <span>Build the agent your way. Keep the runtime yours.</span>
     </footer>
   </body>
 </html>
@@ -390,12 +418,14 @@ const boundaryRows = [
   }
 
   .hero {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
     gap: clamp(1rem, 4vw, 3rem);
     align-items: start;
     min-height: min(720px, calc(100vh - 96px));
     padding: 1.25rem 0 2.5rem;
+    overflow: hidden;
   }
 
   .hero-copy {
@@ -503,6 +533,13 @@ const boundaryRows = [
     gap: 0.75rem;
   }
 
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .pain-grid article,
   .boundary-table article,
   .pillars article {
     min-width: 0;
@@ -512,12 +549,14 @@ const boundaryRows = [
     background: rgba(255, 255, 255, 0.03);
   }
 
+  .pain-grid h3,
   .boundary-table h3 {
     margin: 0 0 0.7rem;
     font-family: var(--font-mono);
     font-size: 0.9rem;
   }
 
+  .pain-grid p,
   .boundary-table p,
   .pillars p {
     margin: 0;
@@ -623,6 +662,7 @@ const boundaryRows = [
       font-size: 2.65rem;
     }
 
+    .pain-grid,
     .boundary-table {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -641,6 +681,21 @@ const boundaryRows = [
       padding-top: 1rem;
     }
 
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: -5rem;
+      bottom: 0;
+      z-index: 0;
+      width: min(42vw, 18rem);
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
     h1 {
       max-width: 13ch;
       font-size: 3.7rem;
@@ -653,6 +708,7 @@ const boundaryRows = [
 
     .code-split,
     .pillars,
+    .pain-grid,
     .boundary-table {
       grid-template-columns: 1fr;
     }
@@ -683,14 +739,16 @@ const boundaryRows = [
 
     .hero {
       padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
     }
 
     .hero-copy p {
       font-size: 1rem;
+      line-height: 1.55;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.82rem;
     }
 
     h2,
