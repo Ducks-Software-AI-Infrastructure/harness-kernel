@@ -42,7 +42,7 @@ Agent demos are easy. Product agents are mostly harness work: sessions,
 transcripts, tool loops, approvals, storage, sandboxing, logs, events, streaming,
 model routing, and lifecycle policy.
 
-Harness Kernel gives TypeScript apps the small runtime layer underneath
+Harness Kernel gives TypeScript apps the small runtime boundary underneath
 app-owned agents. Your agent package owns behavior with modes, tools, hooks,
 roles, context providers, events, and shared state. Your host application owns
 model providers, storage, sandboxing, approvals, logging, services, streaming,
@@ -67,6 +67,16 @@ the infrastructure around it.
 | Runtime plumbing spreads through product code | Sessions, events, tools, approvals, storage, logs, and model routing have explicit contracts. |
 | Framework defaults hide operational decisions | Providers, storage, sandboxing, approvals, logging, and services stay host-owned. |
 | Demos are hard to turn into durable product agents | The same behavior package can run in a CLI, backend service, web session, or desktop app. |
+
+Harness Kernel is a good fit when an agent needs to live inside an existing
+product boundary: approvals must be explicit, transcripts and events matter,
+storage and sandboxing are app decisions, and the same behavior may need to run
+in more than one host.
+
+It is not meant to replace a full-stack agent framework when you want the
+framework to own the app runtime, default storage, default tool catalog, or
+deployment shape. The kernel gives you contracts for those seams so your product
+can own them.
 
 ## Install
 

@@ -5,7 +5,7 @@ description: Why Harness Kernel exists and how it separates agent behavior from 
 
 Agent demos are easy. Product agents are mostly harness work: sessions, transcripts, tool loops, approvals, storage, sandboxing, logs, events, streaming, model routing, and lifecycle policy.
 
-Harness Kernel is a small TypeScript runtime layer for building app-owned AI agents without rebuilding that harness from scratch. It gives your application explicit contracts for sessions, modes, tools, events, approvals, schemas, logging, storage, sandboxing, and model provider routing.
+Harness Kernel is a small TypeScript runtime boundary for building app-owned AI agents without rebuilding that harness from scratch. It gives your application explicit contracts for sessions, modes, tools, events, approvals, schemas, logging, storage, sandboxing, and model provider routing.
 
 The central goal is controlled coupling. Agent packages depend on stable kernel contracts for behavior, while host applications choose model providers, storage, sandboxing, logging, services, and approval surfaces. That keeps the same agent reusable across a CLI, backend service, web app session, or another host without importing host infrastructure into the agent package.
 
@@ -26,11 +26,20 @@ Use Harness Kernel when you want to build the agent your way without rebuilding 
 
 That makes Harness Kernel a good fit for CLIs, backend workers, web app sessions, desktop apps, and internal tools where the app already owns infrastructure.
 
+It is most useful when at least one of these is true:
+
+- You need explicit approval policy around write tools or risky actions.
+- You need transcripts, runtime events, logs, or metrics that the host can persist and inspect.
+- You want agent behavior to run in multiple hosts without importing each host into the agent package.
+- You need storage, sandboxing, model providers, or service injection to remain product-owned decisions.
+
 ## What It Is Not
 
 Harness Kernel is not a full-stack agent framework and does not ship a bundled app runtime. There is no implicit model provider, implicit storage backend, implicit sandbox, or implicit tool catalog.
 
 `@harness-kernel/create` is a scaffold and devtool package. It writes starter projects; it is not the runtime your application hosts.
+
+If your project is a simple single-host chat demo, the kernel may be more structure than you need. If you want a framework to own routing, storage, deployment, tools, and the app runtime for you, use that framework directly. Harness Kernel is for teams that want explicit runtime contracts while keeping operational ownership in their product.
 
 ## First APIs To Learn
 

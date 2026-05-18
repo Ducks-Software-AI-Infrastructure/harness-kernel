@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/create",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Scaffold new Harness Kernel projects.",
   "license": "Apache-2.0",
@@ -47,11 +47,11 @@
     "typecheck:templates": "tsc --noEmit --project tsconfig.templates.json"
   },
   "devDependencies": {
-    "@harness-kernel/core": "0.1.0",
-    "@harness-kernel/provider-openai": "0.1.0",
-    "@harness-kernel/sandbox-local": "0.1.0",
-    "@harness-kernel/storage-file": "0.1.0",
-    "@harness-kernel/tools-node": "0.1.0",
+    "@harness-kernel/core": "0.1.1",
+    "@harness-kernel/provider-openai": "0.1.1",
+    "@harness-kernel/sandbox-local": "0.1.1",
+    "@harness-kernel/storage-file": "0.1.1",
+    "@harness-kernel/tools-node": "0.1.1",
     "dotenv": "^16.4.7"
   },
   "engines": {

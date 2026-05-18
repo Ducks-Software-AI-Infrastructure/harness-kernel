@@ -7,4 +7,6 @@ Harness Kernel helps TypeScript apps build product agents without rebuilding the
 
 Use these docs to decide what belongs inside an agent package and what belongs in the application that hosts it. The agent defines modes, tools, hooks, roles, context providers, events, and shared state. The runtime host owns model providers, sessions, storage, sandboxing, approvals, logging, streaming, service injection, and lifecycle policy.
 
+The project is intentionally a runtime boundary, not a full-stack agent framework. It is strongest when your product already owns infrastructure and needs durable sessions, observable events, explicit approvals, and portable agent behavior without hidden runtime defaults.
+
 Start with [Introduction](./introduction/) or [Runtime vs Agent](./concepts/runtime-vs-agent/) if you are new to the project.
