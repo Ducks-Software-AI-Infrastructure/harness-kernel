@@ -9,6 +9,9 @@ const googleSiteVerification = "nWPAyWS7AYl0YQCDdQikaCYyd0p9N9V6inDJ2fHBfFw";
 export default defineConfig({
   site: siteUrl,
   base: isGitHubPages ? "/harness-kernel" : "/",
+  redirects: {
+    "/docs/runtime/services": "/docs/runtime/resources",
+  },
   integrations: [
     starlight({
       title: "Harness Kernel",
@@ -74,7 +77,7 @@ export default defineConfig({
             { label: "Sandbox", slug: "docs/runtime/sandbox" },
             { label: "Approvals", slug: "docs/runtime/approvals" },
             { label: "Logging", slug: "docs/runtime/logging" },
-            { label: "Resources", slug: "docs/runtime/services" },
+            { label: "Resources", slug: "docs/runtime/resources" },
             { label: "Streaming", slug: "docs/runtime/streaming" },
           ],
         },
