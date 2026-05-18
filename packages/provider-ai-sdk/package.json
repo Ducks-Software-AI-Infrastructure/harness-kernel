@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/provider-ai-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "AI SDK model provider for Harness Kernel.",
   "license": "Apache-2.0",
@@ -40,7 +40,7 @@
     "test": "tsx src/provider-ai-sdk.test.ts"
   },
   "dependencies": {
-    "@harness-kernel/core": "0.1.0",
+    "@harness-kernel/core": "0.1.1",
     "ai": "^6.0.180"
   },
   "devDependencies": {

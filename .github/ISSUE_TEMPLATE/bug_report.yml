@@ -43,7 +43,7 @@ body:
     attributes:
       label: Version
       description: Package version, commit SHA, or npm dist-tag.
-      placeholder: "0.1.0"
+      placeholder: "0.1.1"
     validations:
       required: true
   - type: textarea
@@ -95,4 +95,3 @@ body:
       description: Anything else that helps explain the issue.
     validations:
       required: false
-
