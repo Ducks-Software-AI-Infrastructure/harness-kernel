@@ -6,18 +6,17 @@
   />
   <h1>Harness Kernel</h1>
   <p>
-    <strong>A small kernel for serious agent runtimes.</strong>
+    <strong>Build product agents without rebuilding the harness.</strong>
   </p>
   <p>
-    Build app-owned AI agents with explicit boundaries between behavior and
-    runtime infrastructure.
+    A small TypeScript runtime layer for app-owned AI agents.
   </p>
   <p>
     <a href="https://ducks-software-ai-infrastructure.github.io/harness-kernel/">Docs</a>
     ·
-    <a href="https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/api/">API Reference</a>
+    <a href="https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/getting-started/">Getting Started</a>
     ·
-    <a href="#packages">Packages</a>
+    <a href="https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/api/">API Reference</a>
     ·
     <a href="https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/releases">Releases</a>
   </p>
@@ -39,22 +38,35 @@
   </p>
 </div>
 
-**Tags:** `ai-agents` · `agent-runtime` · `typescript` · `runtime-kernel` ·
-`model-providers` · `tool-approval` · `sandboxing` · `agent-framework`
+Agent demos are easy. Product agents are mostly harness work: sessions,
+transcripts, tool loops, approvals, storage, sandboxing, logs, events, streaming,
+model routing, and lifecycle policy.
 
-Harness Kernel is a TypeScript runtime kernel for building embeddable AI agent
-harnesses. It gives applications a small core for sessions, modes, tools,
-events, approvals, schema, logging contracts, storage contracts, sandbox
-contracts, and model provider routing.
+Harness Kernel gives TypeScript apps the small runtime layer underneath
+app-owned agents. Your agent package owns behavior with modes, tools, hooks,
+roles, context providers, events, and shared state. Your host application owns
+model providers, storage, sandboxing, approvals, logging, services, streaming,
+and session lifecycle.
 
-`@harness-kernel/core` has **zero external runtime dependencies**. Concrete
+The goal is to stay between two bad options: hand-rolling a custom agent harness
+for every app, or adopting a framework runtime that leaks into your product
+architecture.
+
+`@harness-kernel/core` has zero external runtime dependencies. Concrete
 integrations such as OpenAI, the Vercel AI SDK, filesystem storage, local shell
-sandboxing, and Node tools live in optional packages that applications install
-explicitly.
+sandboxing, Node tools, and file logging live in optional packages.
 
-There is no hidden factory that wires providers, storage, sandbox, or tools for
-you. The scaffold package only writes starter files; runtime composition stays
-in your app.
+## Why Harness Kernel
+
+Use Harness Kernel when you want to build the agent your way without rebuilding
+the infrastructure around it.
+
+| Problem | Kernel answer |
+| --- | --- |
+| Agent behavior gets coupled to one host app | Agents depend on kernel contracts, not host infrastructure. |
+| Runtime plumbing spreads through product code | Sessions, events, tools, approvals, storage, logs, and model routing have explicit contracts. |
+| Framework defaults hide operational decisions | Providers, storage, sandboxing, approvals, logging, and services stay host-owned. |
+| Demos are hard to turn into durable product agents | The same behavior package can run in a CLI, backend service, web session, or desktop app. |
 
 ## Install
 
@@ -62,33 +74,191 @@ Use the beta dist-tag while the first public package set is being validated:
 
 ```bash
 pnpm add @harness-kernel/core@beta
+pnpm add @harness-kernel/provider-openai@beta
 ```
 
-Add only the runtime integrations your host actually owns:
+Add optional runtime modules only when the host needs them:
 
 ```bash
-pnpm add @harness-kernel/provider-openai@beta
 pnpm add @harness-kernel/storage-file@beta
 pnpm add @harness-kernel/sandbox-local@beta
 pnpm add @harness-kernel/tools-node@beta
 ```
 
-## Why It Exists
+## Core Snippets
 
-- Build app-owned agents without adopting a full framework.
-- Keep model providers, storage, sandboxing, logging, and approvals explicit.
-- Package agent behavior with OOP primitives: modes, tools, roles, hooks,
-  context providers, and events.
-- Use a built-in schema primitive for official packages while still accepting
-  Zod/custom user schemas at the boundary.
-- Run the same agent definition in CLIs, backend services, web apps, or other
-  hosts.
+These snippets show the main boundary: build the agent behavior once, then let
+each host decide how to run it.
+
+### Runtime
+
+The runtime composes the agent with providers and host-owned execution policy.
+
+```ts
+import { createHarnessSessionStore } from "@harness-kernel/core/runner";
+import { OpenAIProvider } from "@harness-kernel/provider-openai";
+import { agent } from "./agent.js";
+
+const store = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [new OpenAIProvider()],
+  defaultModel: "openai/gpt-5.1",
+});
+
+const result = await store.send("demo", "Summarize this project.");
+console.log(result.answer);
+
+await store.close();
+```
+
+### Agent
+
+An agent packages behavior. Modes are the primary unit for prompts, tools,
+context, lifecycle, and model preference.
+
+```ts
+import { defineAgent } from "@harness-kernel/core/agent";
+import { HarnessMode } from "@harness-kernel/core/agent/mode";
+
+class ChatMode extends HarnessMode {
+  label = "Chat";
+  prompt = "Answer clearly and ask for missing requirements.";
+}
+
+const chatMode = new ChatMode();
+
+export const agent = defineAgent({
+  key: "starter-agent",
+  label: "Starter Agent",
+  initialMode: chatMode,
+  modes: [chatMode],
+});
+```
+
+### Model
+
+Model references are namespaced as `<provider>/<model>`. Resolution order is run
+override, session override, `mode.model`, then `defaultModel`.
+
+```ts
+import { HarnessMode } from "@harness-kernel/core/agent/mode";
+
+class DeepWorkMode extends HarnessMode {
+  label = "Deep Work";
+  model = "openai/gpt-5.1";
+  prompt = "Think carefully and keep the answer grounded in the provided context.";
+}
+
+const session = await store.getOrCreate("demo");
+
+session.setModel("openai/gpt-5.1-mini");
+await session.send("Use the session model.");
+
+session.clearModelOverride();
+await session.send("Use a per-run model.", { model: "openai/gpt-5.1" });
+```
+
+### Tools, Events, And Roles
+
+Tools belong to modes. Events describe meaningful runtime facts. Roles define
+message semantics beyond the built-in system/user/assistant/tool roles.
+
+```ts
+import { HarnessEvent } from "@harness-kernel/core/agent/event";
+import { HarnessMode } from "@harness-kernel/core/agent/mode";
+import { HarnessRole, NativeRoles, RoleTargets } from "@harness-kernel/core/agent/role";
+import type { AgentActionSession } from "@harness-kernel/core/agent/session";
+import { HarnessTool } from "@harness-kernel/core/agent/tool";
+import { s, type InferInput } from "@harness-kernel/core/schema";
+
+type SupportState = {
+  tickets: string[];
+};
+
+const ticketSchema = s.object({
+  title: s.string().min(1),
+});
+
+type TicketInput = InferInput<typeof ticketSchema>;
+
+class TicketOpenedEvent extends HarnessEvent<{ title: string }> {
+  static type = "ticket.opened";
+}
+
+class CustomerRole extends HarnessRole {
+  label = "Customer";
+  name = "customer";
+  target = RoleTargets.Messages;
+  nativeRole = NativeRoles.User;
+}
+
+class OpenTicketTool extends HarnessTool<TicketInput> {
+  name = "open_ticket";
+  description = "Open a support ticket in shared agent state.";
+  schema = ticketSchema;
+  risk = "write" as const;
+  requiresApproval = true;
+
+  async execute(input: TicketInput, session: AgentActionSession<SupportState>) {
+    const parsed = ticketSchema.parse(input);
+    const tickets = [...session.state.get().tickets, parsed.title];
+
+    session.state.update({ tickets });
+    await session.events.emit(TicketOpenedEvent, { title: parsed.title });
+
+    return { content: `Opened ticket: ${parsed.title}` };
+  }
+}
+
+class SupportMode extends HarnessMode {
+  label = "Support";
+  prompt = "Help the customer and open tickets when work needs tracking.";
+  tools = [new OpenTicketTool()];
+}
+
+const supportMode = new SupportMode();
+
+export const supportAgentParts = {
+  modes: [supportMode],
+  roles: [new CustomerRole()],
+  declaredEvents: [TicketOpenedEvent],
+};
+```
+
+### Hooks
+
+Hooks react to events. Use them for side effects such as logs, state updates,
+follow-up messages, snapshots, and mode transitions.
+
+```ts
+import { defineAgent } from "@harness-kernel/core/agent";
+import { HarnessHook } from "@harness-kernel/core/agent/hook";
+import type { AgentActionSession } from "@harness-kernel/core/agent/session";
+
+class TicketAuditHook extends HarnessHook.for(TicketOpenedEvent) {
+  label = "Ticket audit";
+
+  async onActive(session: AgentActionSession<SupportState>, event: TicketOpenedEvent) {
+    session.log.info("ticket.opened", { title: event.payload.title });
+    await session.snapshots.create({ label: `Ticket: ${event.payload.title}` });
+  }
+}
+
+export const agent = defineAgent({
+  key: "support-agent",
+  label: "Support Agent",
+  initialMode: supportMode,
+  sharedState: { initial: () => ({ tickets: [] }) },
+  ...supportAgentParts,
+  hooks: [new TicketAuditHook()],
+});
+```
 
 ## Packages
 
 | Package | Purpose |
 | --- | --- |
-| [`@harness-kernel/core`](https://www.npmjs.com/package/@harness-kernel/core) | Zero-dependency runtime contracts, sessions, schema, events, logging contracts, model provider registry, memory/noop storage, and noop sandbox. |
+| [`@harness-kernel/core`](https://www.npmjs.com/package/@harness-kernel/core) | Runtime contracts, sessions, schema, events, logging contracts, model provider registry, memory storage, and noop sandbox. |
 | [`@harness-kernel/provider-ai-sdk`](https://www.npmjs.com/package/@harness-kernel/provider-ai-sdk) | Generic model provider wrapper for the Vercel AI SDK. |
 | [`@harness-kernel/provider-openai`](https://www.npmjs.com/package/@harness-kernel/provider-openai) | OpenAI model provider built on `provider-ai-sdk`. |
 | [`@harness-kernel/storage-file`](https://www.npmjs.com/package/@harness-kernel/storage-file) | File-backed run storage for transcripts, events, snapshots, metrics, and cursors. |
@@ -96,60 +266,6 @@ pnpm add @harness-kernel/tools-node@beta
 | [`@harness-kernel/tools-node`](https://www.npmjs.com/package/@harness-kernel/tools-node) | Node/local tools such as shell and file tools for modes. |
 | [`@harness-kernel/logging-file`](https://www.npmjs.com/package/@harness-kernel/logging-file) | JSONL operational log sink. |
 | [`@harness-kernel/create`](https://www.npmjs.com/package/@harness-kernel/create) | Scaffold/devtool for new projects. Not a runtime dependency. |
-
-## Basic Core Usage
-
-```ts
-import { createHarnessSessionStore } from "@harness-kernel/core";
-import { OpenAIProvider } from "@harness-kernel/provider-openai";
-import { LocalSandbox } from "@harness-kernel/sandbox-local";
-import { FileRunStorage } from "@harness-kernel/storage-file";
-
-const store = await createHarnessSessionStore({
-  agent: { definition: agent },
-  providers: [new OpenAIProvider()],
-  defaultModel: "openai/gpt-5.1",
-  storage: new FileRunStorage({ outputDir: ".harness-kernel/runs" }),
-  sandbox: new LocalSandbox(),
-});
-```
-
-The app owns the infrastructure:
-
-- `providers`: model providers available to the session store.
-- `defaultModel`: required namespaced model reference such as
-  `openai/gpt-5.1`.
-- `storage`: optional run storage implementation.
-- `sandbox`: optional command/file execution environment.
-- `logging`: optional operational logging sinks and levels.
-- `toolApproval`: approval policy for tool execution.
-
-Modes can declare a model, and sessions can override it:
-
-```ts
-class DeepMode extends HarnessMode {
-  model = "openai/gpt-5.1";
-  tools = [new BashTool()];
-}
-
-session.setModel("openai/gpt-5.1-mini");
-session.clearModelOverride();
-```
-
-Model resolution order is run override, session override, `mode.model`, then
-`defaultModel`.
-
-Tools belong to modes, not to the session store:
-
-```ts
-import { HarnessMode } from "@harness-kernel/core/agent/mode";
-import { BashTool, createFileSystemTools } from "@harness-kernel/tools-node";
-
-class DevMode extends HarnessMode {
-  prompt = "You are a coding assistant.";
-  tools = [new BashTool(), ...createFileSystemTools()];
-}
-```
 
 ## Scaffold
 
@@ -159,49 +275,8 @@ pnpm create @harness-kernel one-file my-agent
 pnpm create @harness-kernel full my-agent
 ```
 
-The scaffold writes a project with explicit `@harness-kernel/*` dependencies and
-runtime composition. There is no hidden package that wires providers, storage,
-sandbox, or tools automatically.
-
-## Documentation Site
-
-The public docs site lives in `apps/site` and is built with Astro Starlight plus
-TypeDoc-generated API reference pages.
-
-Published site: <https://ducks-software-ai-infrastructure.github.io/harness-kernel/>
-
-```bash
-pnpm docs:dev
-pnpm docs:api
-pnpm docs:check
-pnpm docs:build
-pnpm docs:smoke
-```
-
-- `pnpm docs:dev` starts the local Starlight dev server.
-- `pnpm docs:api` regenerates `/docs/api/reference/` from public exports.
-- `pnpm docs:check` runs API generation, `astro check`, and snippet type checks.
-- `pnpm docs:build` builds the static site.
-- `pnpm docs:smoke` runs Playwright against `/`, `/docs/`,
-  `/docs/concepts/runtime-vs-agent/`, `/docs/concepts/kernel-map/`,
-  `/docs/api/`, and a generated API reference page.
-
-The custom landing page is served at `/`; documentation pages are served under
-`/docs/...`.
-
-The GitHub Pages workflow builds the same site from `main` and serves it from
-`/harness-kernel/`.
-
-## Runtime Guarantees
-
-- `@harness-kernel/core` has no runtime dependency on Zod, AI SDK, OpenAI, Node
-  filesystem APIs, or child processes.
-- Official tools use `@harness-kernel/core/schema`, not Zod.
-- Zod compatibility is tested as an external user schema path, not as a core
-  runtime dependency.
-- Model references are namespaced as `<provider>/<model>`.
-- `createHarnessSessionStore` requires `providers` and `defaultModel`.
-- Package exports are smoke-tested after build.
+The scaffold writes starter projects with explicit `@harness-kernel/*`
+dependencies. It does not install a hidden runtime wrapper.
 
 ## Development
 
@@ -214,12 +289,8 @@ pnpm build
 pnpm verify
 ```
 
-`pnpm test` runs package tests, builds the workspace, checks package exports,
-and runs a packed external-consumer smoke test. Use `pnpm test:consumer` to
-pack every public package with `npm pack`, install the tarballs in a temporary
-project, import all public subpaths, and run a minimal session example.
-
-`pnpm verify` runs lint, package type checks, package tests, and the docs build.
+The documentation site lives in `apps/site` and is published at
+<https://ducks-software-ai-infrastructure.github.io/harness-kernel/>.
 
 ## Contributing And Releases
 
