@@ -10,15 +10,15 @@ description: "Generated API reference for ContextEntryFilter."
 
 # Interface: ContextEntryFilter
 
-Defined in: [packages/core/src/runtime/types/context.ts:77](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L77)
+Defined in: [packages/core/src/runtime/types/context.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L78)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-consume"></a> `consume?` | [`ContextConsume`](../enumerations/ContextConsume.md) | [packages/core/src/runtime/types/context.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L80) |
-| <a id="property-id"></a> `id?` | `string` | [packages/core/src/runtime/types/context.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L78) |
-| <a id="property-on"></a> `on?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [packages/core/src/runtime/types/context.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L83) |
-| <a id="property-providerid"></a> `providerId?` | `string` | [packages/core/src/runtime/types/context.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L81) |
-| <a id="property-role"></a> `role?` | `string` | [packages/core/src/runtime/types/context.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L82) |
-| <a id="property-scope"></a> `scope?` | [`ContextScopes`](../enumerations/ContextScopes.md) | [packages/core/src/runtime/types/context.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L79) |
+| <a id="property-consume"></a> `consume?` | [`ContextConsume`](../enumerations/ContextConsume.md) | [packages/core/src/runtime/types/context.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L81) |
+| <a id="property-id"></a> `id?` | `string` | [packages/core/src/runtime/types/context.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L79) |
+| <a id="property-on"></a> `on?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [packages/core/src/runtime/types/context.ts:84](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L84) |
+| <a id="property-providerid"></a> `providerId?` | `string` | [packages/core/src/runtime/types/context.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L82) |
+| <a id="property-role"></a> `role?` | `string` | [packages/core/src/runtime/types/context.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L83) |
+| <a id="property-scope"></a> `scope?` | [`ContextScopes`](../enumerations/ContextScopes.md) | [packages/core/src/runtime/types/context.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L80) |

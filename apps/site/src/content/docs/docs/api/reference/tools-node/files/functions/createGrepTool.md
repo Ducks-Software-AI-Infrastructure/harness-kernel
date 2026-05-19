@@ -14,7 +14,7 @@ description: "Generated API reference for CreateGrepTool."
 function createGrepTool(): GrepTool;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:246](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L246)
+Defined in: [packages/tools-node/src/files.ts:238](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L238)
 
 ## Returns
 

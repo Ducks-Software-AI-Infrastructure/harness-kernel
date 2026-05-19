@@ -10,11 +10,11 @@ description: "Generated API reference for ContextConsume."
 
 # Enumeration: ContextConsume
 
-Defined in: [packages/core/src/runtime/types/context.ts:47](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L47)
+Defined in: [packages/core/src/runtime/types/context.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L48)
 
 ## Enumeration Members
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| <a id="enumeration-member-once"></a> `Once` | `"once"` | [packages/core/src/runtime/types/context.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L48) |
-| <a id="enumeration-member-whileactive"></a> `WhileActive` | `"while_active"` | [packages/core/src/runtime/types/context.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L49) |
+| <a id="enumeration-member-once"></a> `Once` | `"once"` | [packages/core/src/runtime/types/context.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L49) |
+| <a id="enumeration-member-whileactive"></a> `WhileActive` | `"while_active"` | [packages/core/src/runtime/types/context.ts:50](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L50) |

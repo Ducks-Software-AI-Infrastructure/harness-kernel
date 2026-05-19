@@ -1,3 +1,5 @@
+import type { HarnessErrorShape } from "./errors.js";
+
 export interface ToolCallMetric {
   name: string;
   count: number;
@@ -15,6 +17,6 @@ export interface RunMetrics {
   toolCallCount: number;
   finalMode?: string;
   tools: Record<string, ToolCallMetric>;
-  errors: string[];
+  errors: HarnessErrorShape[];
   usage?: unknown;
 }

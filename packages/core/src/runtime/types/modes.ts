@@ -19,6 +19,7 @@ export abstract class HarnessMode {
   tools?: AgentToolSource[];
   maxTurns?: number;
   toolApproval?: ToolApprovalMode;
+  contextFailure?: "fail" | "warn-and-skip";
 
   get type(): string {
     return constructTypeOf(this);

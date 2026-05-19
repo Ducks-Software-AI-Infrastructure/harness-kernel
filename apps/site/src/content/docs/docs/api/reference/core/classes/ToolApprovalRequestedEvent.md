@@ -10,7 +10,7 @@ description: "Generated API reference for ToolApprovalRequestedEvent."
 
 # Class: ToolApprovalRequestedEvent
 
-Defined in: [packages/core/src/runtime/events.ts:161](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L161)
+Defined in: [packages/core/src/runtime/events.ts:192](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L192)
 
 ## Extends
 
@@ -52,8 +52,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `args`: `unknown`; `id`: `string`; `modeId?`: `string`; `name`: `string`; `permissions?`: `unknown`[]; `risk?`: `string`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `args`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); `id`: [`StringSchema`](../schema/classes/StringSchema.md); `modeId`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; `name`: [`StringSchema`](../schema/classes/StringSchema.md); `permissions`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`[] \| `undefined`, `unknown`[] \| `undefined`\>; `risk`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:170](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L170) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"tool:approval_requested"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:169](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L169) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `args`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); `id`: [`StringSchema`](../schema/classes/StringSchema.md); `modeId`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; `name`: [`StringSchema`](../schema/classes/StringSchema.md); `permissions`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`[] \| `undefined`, `unknown`[] \| `undefined`\>; `risk`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:201](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L201) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"tool:approval_requested"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:200](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L200) |
 
 ## Accessors
 

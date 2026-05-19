@@ -44,6 +44,28 @@ const store = await createHarnessSessionStore({
 | `sandbox` | Runtime | `HarnessSandbox`; defaults to noop sandbox when omitted. |
 | `resources` | Runtime | Host dependencies exposed to agent sessions. |
 | `logging` | Runtime | Operational log sinks and redaction configuration. |
+| `errorPolicy` | Runtime | Sanitization, fatal-session closing, context failure behavior, and model-provider retry. |
+
+## Error Policy
+
+`errorPolicy` belongs to the runtime host:
+
+```ts
+const store = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [new OpenAIProvider()],
+  defaultModel: "openai/gpt-5.1",
+  errorPolicy: {
+    exposeInternalErrors: false,
+    includeStackInStatus: false,
+    closeSessionOnFatal: false,
+    contextFailure: "fail",
+    retry: { model: { attempts: 2, backoffMs: 500 } },
+  },
+});
+```
+
+Agents, modes, tools, and context providers can declare local semantics, but stack exposure, retry, and session lifecycle after fatal errors are host decisions.
 
 ## Store Methods
 

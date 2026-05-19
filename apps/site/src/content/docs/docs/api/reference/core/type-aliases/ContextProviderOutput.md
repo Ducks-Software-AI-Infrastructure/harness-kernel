@@ -21,4 +21,4 @@ type ContextProviderOutput =
   | undefined;
 ```
 
-Defined in: [packages/core/src/runtime/types/context.ts:86](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L86)
+Defined in: [packages/core/src/runtime/types/context.ts:87](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L87)

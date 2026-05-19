@@ -10,17 +10,17 @@ description: "Generated API reference for ContextSnapshot."
 
 # Interface: ContextSnapshot
 
-Defined in: [packages/core/src/runtime/types/context.ts:106](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L106)
+Defined in: [packages/core/src/runtime/types/context.ts:107](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L107)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-contributions"></a> `contributions` | [`ContextContribution`](ContextContribution.md)[] | [packages/core/src/runtime/types/context.ts:112](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L112) |
-| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/runtime/types/context.ts:110](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L110) |
-| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/context.ts:107](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L107) |
-| <a id="property-messages"></a> `messages` | [`AgentMessage`](AgentMessage.md)[] | [packages/core/src/runtime/types/context.ts:114](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L114) |
-| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/runtime/types/context.ts:109](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L109) |
-| <a id="property-providers"></a> `providers` | [`ContextProviderRenderResult`](ContextProviderRenderResult.md)[] | [packages/core/src/runtime/types/context.ts:111](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L111) |
-| <a id="property-systemprompt"></a> `systemPrompt` | `string` | [packages/core/src/runtime/types/context.ts:113](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L113) |
-| <a id="property-turnid"></a> `turnId?` | `string` | [packages/core/src/runtime/types/context.ts:108](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L108) |
+| <a id="property-contributions"></a> `contributions` | [`ContextContribution`](ContextContribution.md)[] | [packages/core/src/runtime/types/context.ts:113](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L113) |
+| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/runtime/types/context.ts:111](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L111) |
+| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/context.ts:108](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L108) |
+| <a id="property-messages"></a> `messages` | [`AgentMessage`](AgentMessage.md)[] | [packages/core/src/runtime/types/context.ts:115](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L115) |
+| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/runtime/types/context.ts:110](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L110) |
+| <a id="property-providers"></a> `providers` | [`ContextProviderRenderResult`](ContextProviderRenderResult.md)[] | [packages/core/src/runtime/types/context.ts:112](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L112) |
+| <a id="property-systemprompt"></a> `systemPrompt` | `string` | [packages/core/src/runtime/types/context.ts:114](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L114) |
+| <a id="property-turnid"></a> `turnId?` | `string` | [packages/core/src/runtime/types/context.ts:109](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L109) |

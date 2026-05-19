@@ -14,7 +14,7 @@ description: "Generated API reference for HarnessLogClass."
 type HarnessLogClass<TFields> = () => HarnessLog<TFields>;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L71)
+Defined in: [packages/core/src/logging/types.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L81)
 
 ## Type Parameters
 

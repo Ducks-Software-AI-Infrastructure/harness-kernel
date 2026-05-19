@@ -22,4 +22,4 @@ type HarnessLogSourceKind =
   | "custom";
 ```
 
-Defined in: [packages/core/src/logging/types.ts:17](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L17)
+Defined in: [packages/core/src/logging/types.ts:23](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L23)

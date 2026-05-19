@@ -10,12 +10,14 @@ description: "Generated API reference for ErrorEvent."
 
 # Class: ErrorEvent
 
-Defined in: [packages/core/src/runtime/events.ts:119](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L119)
+Defined in: [packages/core/src/runtime/events.ts:146](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L146)
 
 ## Extends
 
 - [`HarnessEvent`](HarnessEvent.md)\<\{
+  `code?`: [`HarnessErrorCode`](../type-aliases/HarnessErrorCode.md);
   `details?`: `unknown`;
+  `error`: [`HarnessErrorShape`](../interfaces/HarnessErrorShape.md);
   `message`: `string`;
   `recoverable?`: `boolean`;
 \}\>
@@ -34,7 +36,7 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 
 | Parameter | Type |
 | ------ | ------ |
-| `record` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `details?`: `unknown`; `message`: `string`; `recoverable?`: `boolean`; \}\> |
+| `record` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `code?`: [`HarnessErrorCode`](../type-aliases/HarnessErrorCode.md); `details?`: `unknown`; `error`: [`HarnessErrorShape`](../interfaces/HarnessErrorShape.md); `message`: `string`; `recoverable?`: `boolean`; \}\> |
 
 #### Returns
 
@@ -48,9 +50,9 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `details?`: `unknown`; `message`: `string`; `recoverable?`: `boolean`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `details`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `unknown`\>; `message`: [`StringSchema`](../schema/classes/StringSchema.md); `recoverable`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `boolean` \| `undefined`\>; \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:125](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L125) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"error"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:124](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L124) |
+| <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `code?`: [`HarnessErrorCode`](../type-aliases/HarnessErrorCode.md); `details?`: `unknown`; `error`: [`HarnessErrorShape`](../interfaces/HarnessErrorShape.md); `message`: `string`; `recoverable?`: `boolean`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `code`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; `details`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `unknown`\>; `error`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); `message`: [`StringSchema`](../schema/classes/StringSchema.md); `recoverable`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `boolean` \| `undefined`\>; \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:154](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L154) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"error"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:153](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L153) |
 
 ## Accessors
 

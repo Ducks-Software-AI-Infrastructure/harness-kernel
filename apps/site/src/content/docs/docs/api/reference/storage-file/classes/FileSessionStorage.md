@@ -10,7 +10,7 @@ description: "Generated API reference for FileSessionStorage."
 
 # Class: FileSessionStorage
 
-Defined in: [packages/storage-file/src/index.ts:210](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L210)
+Defined in: [packages/storage-file/src/index.ts:206](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L206)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [packages/storage-file/src/index.ts:210](https://github.com/Ducks-So
 new FileSessionStorage(options?): FileSessionStorage;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:215](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L215)
+Defined in: [packages/storage-file/src/index.ts:211](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L211)
 
 #### Parameters
 
@@ -44,9 +44,9 @@ Defined in: [packages/storage-file/src/index.ts:215](https://github.com/Ducks-So
 
 | Property | Modifier | Type | Default value | Overrides | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `"file-session"` | `"file-session"` | [`HarnessSessionStorage`](../../core/classes/HarnessSessionStorage.md).[`id`](../../core/classes/HarnessSessionStorage.md#property-id) | [packages/storage-file/src/index.ts:211](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L211) |
-| <a id="property-label"></a> `label` | `public` | `string` | `"File Session"` | [`HarnessSessionStorage`](../../core/classes/HarnessSessionStorage.md).[`label`](../../core/classes/HarnessSessionStorage.md#property-label) | [packages/storage-file/src/index.ts:212](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L212) |
-| <a id="property-sessionsdir"></a> `sessionsDir` | `readonly` | `string` | `undefined` | - | [packages/storage-file/src/index.ts:213](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L213) |
+| <a id="property-id"></a> `id` | `readonly` | `"file-session"` | `"file-session"` | [`HarnessSessionStorage`](../../core/classes/HarnessSessionStorage.md).[`id`](../../core/classes/HarnessSessionStorage.md#property-id) | [packages/storage-file/src/index.ts:207](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L207) |
+| <a id="property-label"></a> `label` | `public` | `string` | `"File Session"` | [`HarnessSessionStorage`](../../core/classes/HarnessSessionStorage.md).[`label`](../../core/classes/HarnessSessionStorage.md#property-label) | [packages/storage-file/src/index.ts:208](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L208) |
+| <a id="property-sessionsdir"></a> `sessionsDir` | `readonly` | `string` | `undefined` | - | [packages/storage-file/src/index.ts:209](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L209) |
 
 ## Methods
 
@@ -56,7 +56,7 @@ Defined in: [packages/storage-file/src/index.ts:215](https://github.com/Ducks-So
 createRun(input): StoredRunSummary;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:279](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L279)
+Defined in: [packages/storage-file/src/index.ts:275](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L275)
 
 #### Parameters
 
@@ -80,7 +80,7 @@ Defined in: [packages/storage-file/src/index.ts:279](https://github.com/Ducks-So
 createSession(input): HarnessSessionSummary;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:225](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L225)
+Defined in: [packages/storage-file/src/index.ts:221](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L221)
 
 #### Parameters
 
@@ -104,7 +104,7 @@ Defined in: [packages/storage-file/src/index.ts:225](https://github.com/Ducks-So
 deleteSession(sessionId): boolean;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:271](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L271)
+Defined in: [packages/storage-file/src/index.ts:267](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L267)
 
 #### Parameters
 
@@ -130,7 +130,7 @@ getLatestRun(sessionId):
   | undefined;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:308](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L308)
+Defined in: [packages/storage-file/src/index.ts:304](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L304)
 
 #### Parameters
 
@@ -157,7 +157,7 @@ getSession(sessionId):
   | undefined;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:246](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L246)
+Defined in: [packages/storage-file/src/index.ts:242](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L242)
 
 #### Parameters
 
@@ -182,7 +182,7 @@ Defined in: [packages/storage-file/src/index.ts:246](https://github.com/Ducks-So
 init(): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:220](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L220)
+Defined in: [packages/storage-file/src/index.ts:216](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L216)
 
 #### Returns
 
@@ -200,7 +200,7 @@ Defined in: [packages/storage-file/src/index.ts:220](https://github.com/Ducks-So
 listRuns(sessionId): StoredRunSummary[];
 ```
 
-Defined in: [packages/storage-file/src/index.ts:314](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L314)
+Defined in: [packages/storage-file/src/index.ts:310](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L310)
 
 #### Parameters
 
@@ -224,7 +224,7 @@ Defined in: [packages/storage-file/src/index.ts:314](https://github.com/Ducks-So
 listSessions(query?): SessionListResult;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:251](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L251)
+Defined in: [packages/storage-file/src/index.ts:247](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L247)
 
 #### Parameters
 
@@ -248,7 +248,7 @@ Defined in: [packages/storage-file/src/index.ts:251](https://github.com/Ducks-So
 openRun(input): HarnessRunStore;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:318](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L318)
+Defined in: [packages/storage-file/src/index.ts:314](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L314)
 
 #### Parameters
 
@@ -272,7 +272,7 @@ Defined in: [packages/storage-file/src/index.ts:318](https://github.com/Ducks-So
 touchSession(input): void;
 ```
 
-Defined in: [packages/storage-file/src/index.ts:256](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L256)
+Defined in: [packages/storage-file/src/index.ts:252](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L252)
 
 #### Parameters
 

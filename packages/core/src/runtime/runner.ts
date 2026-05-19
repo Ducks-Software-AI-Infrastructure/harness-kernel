@@ -28,12 +28,15 @@ import {
   TurnStartedLog,
 } from "../logging/runtime-logs.js";
 import {
+  ErrorEvent,
   MessageDeltaEvent,
   MessageEndEvent,
   MessageStartEvent,
   ModeChangedEvent,
   ModelBeforeEvent,
+  RunAbortedEvent,
   RunEndEvent,
+  RunFailedEvent,
   RunStartEvent,
   SnapshotCreatedEvent,
   SnapshotDeletedEvent,
@@ -101,6 +104,8 @@ import type {
   ContextProviderSummary,
   ContextRegistrationOptions,
   ContextSnapshot,
+  HarnessErrorContext,
+  HarnessErrorShape,
   HarnessEventClass,
   HarnessEventEmitOptions,
   HarnessEventQuery,
@@ -135,6 +140,7 @@ import {
   toolRole,
   userRole,
 } from "./types.js";
+import { annotateHarnessError, normalizeHarnessError, sanitizeHarnessError } from "./errors.js";
 
 function nowIso(): string {
   return new Date().toISOString();
@@ -362,7 +368,16 @@ export class AgentSessionRunner {
       mode: () => this.currentMode,
       openExistingRun: Boolean(options.initialRunId),
       logOpened: (fields) => this.log(RunStorageOpenedLog, fields),
-      logFailed: (fields) => this.log(StorageWriteFailedLog, fields),
+      logFailed: (fields) => {
+        const error = this.normalizeError(fields.error, {
+          code: "storage.write_failed",
+          category: "storage",
+          severity: "error",
+          recoverable: true,
+          details: { operation: fields.operation },
+        });
+        this.log(StorageWriteFailedLog, { operation: fields.operation, error, internalError: fields.error });
+      },
     });
     this.snapshotManager = new SnapshotManager({
       now: () => nowIso(),
@@ -456,13 +471,28 @@ export class AgentSessionRunner {
       logClosed: (fields) => this.log(SandboxClosedLog, fields),
       logExecStarted: (fields) => this.log(SandboxExecStartedLog, fields),
       logExecCompleted: (fields) => this.log(SandboxExecCompletedLog, fields),
-      logExecFailed: (fields) => this.log(SandboxExecFailedLog, fields),
+      logExecFailed: (fields) => {
+        const error = this.normalizeError(fields.error, {
+          code: "sandbox.exec.failed",
+          category: "sandbox",
+          severity: "error",
+          recoverable: true,
+          details: { sandboxId: fields.sandboxId, durationMs: fields.durationMs },
+        });
+        this.log(SandboxExecFailedLog, {
+          sandboxId: fields.sandboxId,
+          durationMs: fields.durationMs,
+          error,
+          internalError: fields.error,
+        });
+      },
     });
     this.toolExecutor = new ToolExecutor({
       getMetrics: () => this.metrics,
       getCurrentMode: () => this.currentMode,
       getToolApprovalMode: () => this.getModeDefinition(this.currentMode).toolApproval,
       approveTool: this.options.approveTool,
+      errorPolicy: this.options.errorPolicy,
       ensureSandboxOpen: () => this.ensureSandboxOpen(),
       buildActionSession: (tool, source, correlationId, causationId) =>
         this.buildActionSession(tool, source, correlationId, causationId),
@@ -500,9 +530,20 @@ export class AgentSessionRunner {
         this.log(logClass, fields, source, correlationId, causationId, overrides),
       throwIfTurnHandoffRequested: () => this.throwIfTurnHandoffRequested(),
       isTurnHandoffSignal: (error) => error instanceof TurnHandoffSignal,
+      errorPolicy: this.options.errorPolicy,
     });
     this.state = this.createInitialState(this.agent);
     for (const eventClass of runtimeEventClasses) eventType(eventClass);
+  }
+
+  private normalizeError(error: unknown, context: HarnessErrorContext = {}): HarnessErrorShape {
+    const normalized = normalizeHarnessError(error, context, this.options.errorPolicy);
+    annotateHarnessError(error, normalized);
+    return normalized;
+  }
+
+  private publicError(error: HarnessErrorShape): HarnessErrorShape {
+    return sanitizeHarnessError(error, this.options.errorPolicy);
   }
 
   private logSource(source?: HarnessEventSource): HarnessLogSource {
@@ -647,12 +688,12 @@ export class AgentSessionRunner {
   }
 
   async run(message: string, options: AgentRunnerRunOptions = {}): Promise<AgentRunResult> {
-    if (options.signal?.aborted) throw new Error("Run aborted.");
     await this.beginNewRun();
     this.runModelOverride = undefined;
     this.runModelOverride = this.normalizeModelOverride(options.model);
     let runStarted = false;
     try {
+      if (options.signal?.aborted) throw new Error("Run aborted.");
       await this.start();
       runStarted = true;
       this.pendingInputs.push({
@@ -699,7 +740,37 @@ export class AgentSessionRunner {
         outputDir: this.storeRunDir(),
       };
     } catch (error) {
-      this.log(RunFailedLog, { error });
+      const normalized = this.normalizeError(error, {
+        code: "run.failed",
+        category: "run",
+        severity: "fatal",
+        recoverable: false,
+        source: { kind: "runtime" },
+      });
+      const publicError = this.publicError(normalized);
+      this.finalizeMetrics();
+      this.metrics.errors.push(publicError);
+
+      await this.tryFailureWrite(() => this.storageCoordinator.saveTranscript(this.transcriptManager.allMessages));
+      await this.tryFailureWrite(() => this.emitInternal(ErrorEvent, {
+        error: publicError,
+        message: publicError.message,
+        code: publicError.code,
+        recoverable: publicError.recoverable,
+        details: publicError.details,
+      }, { skipHooks: true }));
+
+      const terminalEvent = publicError.code === "run.aborted" ? RunAbortedEvent : RunFailedEvent;
+      await this.tryFailureWrite(() => this.emitInternal(terminalEvent, {
+        error: publicError,
+        metrics: cloneJSON({ ...this.metrics, eventCount: this.eventRecorder.count + 1 }),
+        finalAnswer: this.finalAnswer || undefined,
+      }, { skipHooks: true }));
+
+      this.contextRegistry.expireScope(ContextScopes.Run);
+      this.finalizeMetrics();
+      await this.tryFailureWrite(() => this.storageCoordinator.saveMetrics(this.metrics));
+      this.log(RunFailedLog, { error: normalized, internalError: error });
       throw error;
     } finally {
       if (runStarted) await this.closeSandbox();
@@ -709,6 +780,21 @@ export class AgentSessionRunner {
 
   async prompt(message: string, options: AgentRunnerRunOptions = {}): Promise<AgentRunResult> {
     return this.run(message, options);
+  }
+
+  private finalizeMetrics(): void {
+    this.metrics.completedAt = this.metrics.completedAt ?? nowIso();
+    this.metrics.durationMs = this.startedAtPerf > 0 ? Math.round(performance.now() - this.startedAtPerf) : 0;
+    this.metrics.finalMode = this.currentMode;
+    this.metrics.eventCount = this.eventRecorder.count;
+  }
+
+  private async tryFailureWrite(write: () => Promise<unknown>): Promise<void> {
+    try {
+      await write();
+    } catch {
+      // Storage and terminal-event write failures are already logged by their layer.
+    }
   }
 
   async hydrate(): Promise<void> {
@@ -1311,7 +1397,11 @@ export class AgentSessionRunner {
     this.log(ContextBuildStartedLog, { providerCount: activeBindings.length }, { kind: "runtime" });
     const providers: ContextProviderRenderResult[] = [];
     for (const binding of activeBindings) {
-      providers.push(await this.loadContextProvider(binding));
+      try {
+        providers.push(await this.loadContextProvider(binding));
+      } catch (error) {
+        if (!this.handleContextProviderFailure(binding, error)) throw error;
+      }
     }
 
     const dynamicEntries = this.dynamicContextEntriesFor(trigger);
@@ -1367,17 +1457,44 @@ export class AgentSessionRunner {
         binding: summary,
         contributions: this.normalizeContextOutput(provider, output),
       };
-    } catch (error) {
-      this.log(
-        ContextProviderFailedLog,
-        { providerType: summary.type, error },
-        { kind: "context_provider", id: summary.type, name: summary.label },
-        this.currentTurnId,
-      );
-      throw error;
     } finally {
       this.providerStack.pop();
     }
+  }
+
+  private handleContextProviderFailure(binding: ContextProviderReference, error: unknown): boolean {
+    let summary: ContextProviderSummary = { type: "unknown" };
+    let required = true;
+    try {
+      const { provider, options } = this.providerFromReference(binding, true);
+      summary = contextProviderSummary(provider, options);
+      required = isContextProviderBinding(binding) && typeof binding.required === "boolean"
+        ? binding.required
+        : provider.required ?? true;
+    } catch {
+      // If binding resolution itself failed, keep the original error as the cause.
+    }
+
+    const modeFailure = this.getModeDefinition(this.currentMode).contextFailure;
+    const policyAllowsSkip = this.options.errorPolicy?.contextFailure === "warn-and-skip";
+    const skip = policyAllowsSkip && (required === false || modeFailure === "warn-and-skip");
+    const source: HarnessEventSource = { kind: "context_provider", id: summary.type, name: summary.label };
+    const normalized = this.normalizeError(error, {
+      code: "context.provider.failed",
+      category: "context",
+      severity: skip ? "warn" : "error",
+      recoverable: skip,
+      source,
+      details: { providerType: summary.type },
+    });
+    this.log(
+      ContextProviderFailedLog,
+      { providerType: summary.type, error: normalized, internalError: error },
+      source,
+      this.currentTurnId,
+    );
+    if (skip) this.metrics.errors.push(this.publicError(normalized));
+    return skip;
   }
 
   private normalizeContextContribution(

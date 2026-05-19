@@ -14,7 +14,7 @@ description: "Generated API reference for CreateToolErrorPayload."
 function createToolErrorPayload(input): ToolErrorPayload;
 ```
 
-Defined in: [packages/core/src/logging/tool-errors.ts:26](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L26)
+Defined in: [packages/core/src/logging/tool-errors.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L30)
 
 ## Parameters
 

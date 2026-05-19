@@ -10,17 +10,17 @@ description: "Generated API reference for NormalizedAgentDefinition."
 
 # Interface: NormalizedAgentDefinition
 
-Defined in: [packages/core/src/runtime/types/agent.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L27)
+Defined in: [packages/core/src/runtime/types/agent.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L28)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-declaredevents"></a> `declaredEvents?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md)[] | [packages/core/src/runtime/types/agent.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L35) |
-| <a id="property-hooks"></a> `hooks?` | [`HarnessHook`](../classes/HarnessHook.md)\<[`HarnessEvent`](../classes/HarnessEvent.md)\<`unknown`\>\>[] | [packages/core/src/runtime/types/agent.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L34) |
-| <a id="property-initialmode"></a> `initialMode` | `string` | [packages/core/src/runtime/types/agent.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L30) |
-| <a id="property-key"></a> `key` | `string` | [packages/core/src/runtime/types/agent.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L28) |
-| <a id="property-label"></a> `label` | `string` | [packages/core/src/runtime/types/agent.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L29) |
-| <a id="property-modes"></a> `modes` | `Record`\<`string`, [`HarnessMode`](../classes/HarnessMode.md)\> | [packages/core/src/runtime/types/agent.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L31) |
-| <a id="property-roles"></a> `roles?` | [`HarnessRole`](../classes/HarnessRole.md)[] | [packages/core/src/runtime/types/agent.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L33) |
-| <a id="property-sharedstate"></a> `sharedState?` | [`AgentSharedStateDefinition`](AgentSharedStateDefinition.md) | [packages/core/src/runtime/types/agent.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L32) |
+| <a id="property-declaredevents"></a> `declaredEvents?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md)[] | [packages/core/src/runtime/types/agent.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L36) |
+| <a id="property-hooks"></a> `hooks?` | [`HarnessHook`](../classes/HarnessHook.md)\<[`HarnessEvent`](../classes/HarnessEvent.md)\<`unknown`\>\>[] | [packages/core/src/runtime/types/agent.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L35) |
+| <a id="property-initialmode"></a> `initialMode` | `string` | [packages/core/src/runtime/types/agent.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L31) |
+| <a id="property-key"></a> `key` | `string` | [packages/core/src/runtime/types/agent.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L29) |
+| <a id="property-label"></a> `label` | `string` | [packages/core/src/runtime/types/agent.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L30) |
+| <a id="property-modes"></a> `modes` | `Record`\<`string`, [`HarnessMode`](../classes/HarnessMode.md)\> | [packages/core/src/runtime/types/agent.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L32) |
+| <a id="property-roles"></a> `roles?` | [`HarnessRole`](../classes/HarnessRole.md)[] | [packages/core/src/runtime/types/agent.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L34) |
+| <a id="property-sharedstate"></a> `sharedState?` | [`AgentSharedStateDefinition`](AgentSharedStateDefinition.md) | [packages/core/src/runtime/types/agent.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L33) |

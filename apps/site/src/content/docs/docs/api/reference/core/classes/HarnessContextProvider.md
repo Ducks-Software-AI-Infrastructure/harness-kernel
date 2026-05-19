@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessContextProvider."
 
 # Abstract Class: HarnessContextProvider\<TOptions\>
 
-Defined in: [packages/core/src/runtime/types/context.ts:117](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L117)
+Defined in: [packages/core/src/runtime/types/context.ts:118](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L118)
 
 ## Type Parameters
 
@@ -34,9 +34,10 @@ new HarnessContextProvider<TOptions>(): HarnessContextProvider<TOptions>;
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-label"></a> `label?` | `string` | [packages/core/src/runtime/types/context.ts:120](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L120) |
-| <a id="property-priority"></a> `priority?` | `number` | [packages/core/src/runtime/types/context.ts:121](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L121) |
-| <a id="property-role"></a> `role?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/runtime/types/context.ts:122](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L122) |
+| <a id="property-label"></a> `label?` | `string` | [packages/core/src/runtime/types/context.ts:121](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L121) |
+| <a id="property-priority"></a> `priority?` | `number` | [packages/core/src/runtime/types/context.ts:122](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L122) |
+| <a id="property-required"></a> `required?` | `boolean` | [packages/core/src/runtime/types/context.ts:124](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L124) |
+| <a id="property-role"></a> `role?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/runtime/types/context.ts:123](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L123) |
 
 ## Accessors
 
@@ -48,7 +49,7 @@ new HarnessContextProvider<TOptions>(): HarnessContextProvider<TOptions>;
 get type(): string;
 ```
 
-Defined in: [packages/core/src/runtime/types/context.ts:124](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L124)
+Defined in: [packages/core/src/runtime/types/context.ts:126](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L126)
 
 ##### Returns
 
@@ -64,7 +65,7 @@ abstract render(session, options?):
 | Promise<ContextProviderOutput>;
 ```
 
-Defined in: [packages/core/src/runtime/types/context.ts:132](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L132)
+Defined in: [packages/core/src/runtime/types/context.ts:134](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L134)
 
 #### Parameters
 
@@ -86,7 +87,7 @@ Defined in: [packages/core/src/runtime/types/context.ts:132](https://github.com/
 with(options): ContextProviderBinding<TOptions>;
 ```
 
-Defined in: [packages/core/src/runtime/types/context.ts:128](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L128)
+Defined in: [packages/core/src/runtime/types/context.ts:130](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L130)
 
 #### Parameters
 

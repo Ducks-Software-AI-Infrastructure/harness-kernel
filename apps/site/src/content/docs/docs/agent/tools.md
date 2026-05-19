@@ -66,6 +66,21 @@ return {
 
 Use `isError: true` when a tool failed but the model provider should receive a structured result rather than an exception.
 
+For structured tool failures, use `createToolErrorResult()`:
+
+```ts
+import { createToolErrorResult, HarnessTool } from "@harness-kernel/core/agent/tool";
+
+return createToolErrorResult({
+  code: "tool.failed",
+  message: "Customer record was not found.",
+  toolName: this.name,
+  metadata: { customerId },
+});
+```
+
+Invalid tool arguments, denied approvals, and thrown tool exceptions are recoverable by default. The runtime returns `AgentToolResult.isError` to the model and does not emit `RunFailedEvent` for those paths.
+
 ## Mode Ownership
 
 Attach tools to a mode:

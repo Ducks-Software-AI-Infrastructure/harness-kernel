@@ -75,6 +75,10 @@ async function main(): Promise<void> {
       modelDeltas: logModelDeltas(),
       sinks: [new ConsoleLogSink({ format: process.env.HARNESS_KERNEL_LOG_FORMAT === "json" ? "json" : "pretty" })],
     },
+    errorPolicy: {
+      exposeInternalErrors: process.env.NODE_ENV !== "production",
+      retry: { model: { attempts: 2, backoffMs: 500 } },
+    },
   });
 
   try {
@@ -90,8 +94,10 @@ async function main(): Promise<void> {
       } else if (event.type === "tool.approval.requested") {
         if (await askApproval(event.approval)) await event.approval.approve();
         else await event.approval.deny();
+      } else if (event.type === "run.failed" || event.type === "run.aborted") {
+        process.stderr.write(`[run:${event.error.code}] ${event.error.message}\n`);
       } else if (event.type === "error") {
-        process.stderr.write(`[error] ${event.error.message}\n`);
+        process.stderr.write(`[error:${event.error.code}] ${event.error.message}\n`);
       }
     }
 

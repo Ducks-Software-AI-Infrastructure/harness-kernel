@@ -48,7 +48,7 @@ Defined in: [packages/core/src/logging/sinks/console.ts:15](https://github.com/D
 optional close(): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L76)
+Defined in: [packages/core/src/logging/types.ts:86](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L86)
 
 #### Returns
 
@@ -66,7 +66,7 @@ Defined in: [packages/core/src/logging/types.ts:76](https://github.com/Ducks-Sof
 optional flush(): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L75)
+Defined in: [packages/core/src/logging/types.ts:85](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L85)
 
 #### Returns
 

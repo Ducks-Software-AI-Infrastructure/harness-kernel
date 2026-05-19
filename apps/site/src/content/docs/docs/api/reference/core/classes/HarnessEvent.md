@@ -23,6 +23,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:31](https://github.com/Du
 - [`ToolEndEvent`](ToolEndEvent.md)
 - [`TurnEndEvent`](TurnEndEvent.md)
 - [`RunEndEvent`](RunEndEvent.md)
+- [`RunFailedEvent`](RunFailedEvent.md)
+- [`RunAbortedEvent`](RunAbortedEvent.md)
 - [`ErrorEvent`](ErrorEvent.md)
 - [`MessageStartEvent`](MessageStartEvent.md)
 - [`MessageDeltaEvent`](MessageDeltaEvent.md)

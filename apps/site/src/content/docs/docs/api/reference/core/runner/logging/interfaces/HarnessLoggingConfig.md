@@ -10,17 +10,17 @@ description: "Generated API reference for HarnessLoggingConfig."
 
 # Interface: HarnessLoggingConfig
 
-Defined in: [packages/core/src/logging/types.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L79)
+Defined in: [packages/core/src/logging/types.ts:89](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L89)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-events"></a> `events?` | `boolean` | [packages/core/src/logging/types.ts:84](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L84) |
-| <a id="property-format"></a> `format?` | `"json"` \| `"pretty"` | [packages/core/src/logging/types.ts:82](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L82) |
-| <a id="property-level"></a> `level?` | [`HarnessLoggingLevel`](../type-aliases/HarnessLoggingLevel.md) | [packages/core/src/logging/types.ts:80](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L80) |
-| <a id="property-modeldeltas"></a> `modelDeltas?` | `boolean` \| `"none"` \| `"summary"` \| `"full"` | [packages/core/src/logging/types.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L83) |
-| <a id="property-redact"></a> `redact?` | `object` | [packages/core/src/logging/types.ts:85](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L85) |
-| `redact.keys?` | `string`[] | [packages/core/src/logging/types.ts:86](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L86) |
-| `redact.replacement?` | `string` | [packages/core/src/logging/types.ts:87](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L87) |
-| <a id="property-sinks"></a> `sinks?` | [`HarnessLogSink`](../classes/HarnessLogSink.md)[] | [packages/core/src/logging/types.ts:81](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L81) |
+| <a id="property-events"></a> `events?` | `boolean` | [packages/core/src/logging/types.ts:94](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L94) |
+| <a id="property-format"></a> `format?` | `"json"` \| `"pretty"` | [packages/core/src/logging/types.ts:92](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L92) |
+| <a id="property-level"></a> `level?` | [`HarnessLoggingLevel`](../type-aliases/HarnessLoggingLevel.md) | [packages/core/src/logging/types.ts:90](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L90) |
+| <a id="property-modeldeltas"></a> `modelDeltas?` | `boolean` \| `"none"` \| `"summary"` \| `"full"` | [packages/core/src/logging/types.ts:93](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L93) |
+| <a id="property-redact"></a> `redact?` | `object` | [packages/core/src/logging/types.ts:95](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L95) |
+| `redact.keys?` | `string`[] | [packages/core/src/logging/types.ts:96](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L96) |
+| `redact.replacement?` | `string` | [packages/core/src/logging/types.ts:97](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L97) |
+| <a id="property-sinks"></a> `sinks?` | [`HarnessLogSink`](../classes/HarnessLogSink.md)[] | [packages/core/src/logging/types.ts:91](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L91) |

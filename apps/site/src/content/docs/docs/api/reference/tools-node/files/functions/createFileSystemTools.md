@@ -14,7 +14,7 @@ description: "Generated API reference for CreateFileSystemTools."
 function createFileSystemTools(): HarnessTool<unknown, unknown>[];
 ```
 
-Defined in: [packages/tools-node/src/files.ts:250](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L250)
+Defined in: [packages/tools-node/src/files.ts:242](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L242)
 
 ## Returns
 

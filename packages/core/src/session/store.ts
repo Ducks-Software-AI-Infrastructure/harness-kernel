@@ -25,6 +25,7 @@ function mergeConfig(base: HarnessAppConfig, overrides?: Partial<HarnessAppConfi
     providers: overrides?.providers ?? base.providers,
     resources: overrides?.resources ?? base.resources,
     logging: overrides?.logging ?? base.logging,
+    errorPolicy: overrides?.errorPolicy ?? base.errorPolicy,
     storage: overrides?.storage ?? base.storage,
   };
 }
@@ -123,6 +124,7 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
     this.unsubscriptions.set(id, session.on((event) => {
       if (event.type === "run.started") this.latestRunIds.set(id, event.runId);
       if (event.type === "run.completed") this.latestRunIds.set(id, event.result.runId);
+      if (event.type === "run.failed" || event.type === "run.aborted") this.latestRunIds.set(id, event.runId);
       if (event.type === "session.status") {
         void this.storage.touchSession({
           sessionId: id,

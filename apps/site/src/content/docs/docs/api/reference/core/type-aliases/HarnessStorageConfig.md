@@ -14,4 +14,4 @@ description: "Generated API reference for HarnessStorageConfig."
 type HarnessStorageConfig = HarnessSessionStorage;
 ```
 
-Defined in: [packages/core/src/session/types.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L28)
+Defined in: [packages/core/src/session/types.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L30)

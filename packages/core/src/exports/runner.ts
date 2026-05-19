@@ -4,6 +4,8 @@ export { HarnessSessionPhase } from "../session/types.js";
 export type {
   HarnessAppConfig,
   HarnessRunStream,
+  HarnessErrorPolicy,
+  HarnessErrorShape,
   HarnessSession,
   HarnessSessionEventListener,
   HarnessSessionListener,
@@ -22,6 +24,11 @@ export type {
   WaitForEventOptions,
 } from "../session/types.js";
 export type {
+  HarnessErrorCategory,
+  HarnessErrorCode,
+  HarnessErrorContext,
+  HarnessErrorSeverity,
+  HarnessRetryPolicy,
   EventCursor,
   HarnessAgentManifest,
   HarnessSnapshot,
@@ -35,3 +42,7 @@ export type {
   TranscriptQuery,
   TranscriptSeekTarget,
 } from "../runtime/types.js";
+export {
+  normalizeHarnessError,
+  sanitizeHarnessError,
+} from "../runtime/errors.js";

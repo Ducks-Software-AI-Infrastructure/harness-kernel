@@ -10,12 +10,12 @@ description: "Generated API reference for ContextProviderSummary."
 
 # Interface: ContextProviderSummary
 
-Defined in: [packages/core/src/runtime/types/context.ts:25](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L25)
+Defined in: [packages/core/src/runtime/types/context.ts:26](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L26)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-label"></a> `label?` | `string` | [packages/core/src/runtime/types/context.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L27) |
-| <a id="property-options"></a> `options?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L28) |
-| <a id="property-type"></a> `type` | `string` | [packages/core/src/runtime/types/context.ts:26](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L26) |
+| <a id="property-label"></a> `label?` | `string` | [packages/core/src/runtime/types/context.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L28) |
+| <a id="property-options"></a> `options?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L29) |
+| <a id="property-type"></a> `type` | `string` | [packages/core/src/runtime/types/context.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L27) |

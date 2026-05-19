@@ -46,7 +46,7 @@ Harness Kernel gives TypeScript apps the small runtime boundary underneath
 app-owned agents. Your agent package owns behavior with modes, tools, hooks,
 roles, context providers, events, and shared state. Your host application owns
 model providers, storage, sandboxing, approvals, logging, resources, streaming,
-and session lifecycle.
+session lifecycle, and error policy.
 
 The goal is to stay between two bad options: hand-rolling a custom agent harness
 for every app, or adopting a framework runtime that leaks into your product
@@ -113,6 +113,10 @@ const store = await createHarnessSessionStore({
   agent: { definition: agent },
   providers: [new OpenAIProvider()],
   defaultModel: "openai/gpt-5.1",
+  errorPolicy: {
+    exposeInternalErrors: false,
+    retry: { model: { attempts: 2, backoffMs: 500 } },
+  },
 });
 
 const result = await store.send("demo", "Summarize this project.");

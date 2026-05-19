@@ -11,6 +11,7 @@ import type { AgentReadSession } from "@harness-kernel/core/agent/session";
 
 class NotesContext extends HarnessContextProvider<{ max?: number }> {
   label = "Notes Context";
+  required = false;
 
   render(session: AgentReadSession, options: { max?: number } = {}) {
     const stateNotes = session.state.get().notes;
@@ -31,5 +32,16 @@ class NotesMode extends HarnessMode {
 ```
 
 Boundary note: the provider is behavior. The data it reads may come from shared state or runtime resources.
+
+Hosts that want optional provider failures to be skipped can opt in:
+
+```ts
+const store = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [new EchoProvider()],
+  defaultModel: "echo/basic",
+  errorPolicy: { contextFailure: "warn-and-skip" },
+});
+```
 
 API: [Context Providers](../../agent/context-providers/).

@@ -16,7 +16,7 @@ import {
 
 const logging: HarnessLoggingConfig = {
   sinks: [new ConsoleLogSink({ level: "info" })],
-  redaction: {
+  redact: {
     keys: ["apiKey", "authorization"],
   },
 };
@@ -56,3 +56,9 @@ session.log.error(new Error("Tool failed."));
 ```
 
 The host still owns where those records go.
+
+## Error Records
+
+Runtime failure logs use the same canonical error shape as events and status, but logs keep the internal view after redaction. Public surfaces such as stream events and `lastError` are sanitized by `errorPolicy`; log sinks receive `HarnessLogRecord.error` with `code`, `category`, `severity`, `recoverable`, `name`, `message`, and `stack` when available.
+
+Events are the session timeline. Logs are operational diagnostics. A model provider failure, for example, produces an `ErrorEvent`/`RunFailedEvent` for the timeline and `ModelCallFailedLog`/`RunFailedLog` for diagnostics.

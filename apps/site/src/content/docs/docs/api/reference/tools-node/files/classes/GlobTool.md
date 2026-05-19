@@ -10,7 +10,7 @@ description: "Generated API reference for GlobTool."
 
 # Class: GlobTool
 
-Defined in: [packages/tools-node/src/files.ts:181](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L181)
+Defined in: [packages/tools-node/src/files.ts:173](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L173)
 
 ## Extends
 
@@ -39,13 +39,13 @@ new GlobTool(): GlobTool;
 | Property | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `number` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`approvalTimeoutMs`](../../../core/classes/HarnessTool.md#property-approvaltimeoutms) | [packages/core/src/runtime/types/tools.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L55) |
-| <a id="property-description"></a> `description` | `string` | `"List files under workDir matching a simple glob pattern such as '**/*.ts'."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:183](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L183) |
+| <a id="property-description"></a> `description` | `string` | `"List files under workDir matching a simple glob pattern such as '**/*.ts'."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:175](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L175) |
 | <a id="property-label"></a> `label?` | `string` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`label`](../../../core/classes/HarnessTool.md#property-label) | [packages/core/src/runtime/types/tools.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L48) |
-| <a id="property-name"></a> `name` | `string` | `"glob"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:182](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L182) |
-| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:186](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L186) |
+| <a id="property-name"></a> `name` | `string` | `"glob"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:174](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L174) |
+| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:178](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L178) |
 | <a id="property-requiresapproval"></a> `requiresApproval?` | \| `boolean` \| [`ToolApprovalResolver`](../../../core/type-aliases/ToolApprovalResolver.md) | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`requiresApproval`](../../../core/classes/HarnessTool.md#property-requiresapproval) | [packages/core/src/runtime/types/tools.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L54) |
-| <a id="property-risk"></a> `risk` | `"read"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:185](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L185) |
-| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `maxResults`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `number`\>; `pattern`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `string`\>; \}\> | `globSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:184](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L184) |
+| <a id="property-risk"></a> `risk` | `"read"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:177](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L177) |
+| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `maxResults`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `number`\>; `pattern`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `string`\>; \}\> | `globSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:176](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L176) |
 
 ## Accessors
 
@@ -97,7 +97,7 @@ execute(args, session): Promise<AgentToolResult<{
 }>>;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:188](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L188)
+Defined in: [packages/tools-node/src/files.ts:180](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L180)
 
 #### Parameters
 

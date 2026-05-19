@@ -14,7 +14,7 @@ description: "Generated API reference for CreateGlobTool."
 function createGlobTool(): GlobTool;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:242](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L242)
+Defined in: [packages/tools-node/src/files.ts:234](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L234)
 
 ## Returns
 

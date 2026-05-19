@@ -41,6 +41,18 @@ await session.waitForEvent(TurnEndEvent, { timeoutMs: 5000 });
 await run.result;
 ```
 
+Fatal and recoverable errors can be tested through their canonical codes:
+
+```ts
+await assert.rejects(session.send("fail"));
+assert.equal(session.getStatus().lastError?.code, "model.failed");
+
+const failed = session.getEvents({ event: RunFailedEvent });
+assert.equal(failed.at(-1)?.payload.error.code, "model.failed");
+```
+
+For recoverable tool failures, assert `AgentToolResult.isError` and the tool error code instead of expecting the run to fail.
+
 For package-level validation, this repo also runs an external-consumer smoke test with `npm pack`. That catches missing package exports and subpath regressions:
 
 ```bash

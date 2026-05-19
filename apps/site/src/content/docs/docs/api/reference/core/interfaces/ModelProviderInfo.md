@@ -10,13 +10,13 @@ description: "Generated API reference for ModelProviderInfo."
 
 # Interface: ModelProviderInfo
 
-Defined in: [packages/core/src/runtime/types/agent.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L38)
+Defined in: [packages/core/src/runtime/types/agent.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L39)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/agent.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L39) |
-| <a id="property-label"></a> `label?` | `string` | [packages/core/src/runtime/types/agent.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L40) |
-| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/agent.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L42) |
-| <a id="property-provider"></a> `provider?` | `string` | [packages/core/src/runtime/types/agent.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L41) |
+| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/agent.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L40) |
+| <a id="property-label"></a> `label?` | `string` | [packages/core/src/runtime/types/agent.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L41) |
+| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/agent.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L43) |
+| <a id="property-provider"></a> `provider?` | `string` | [packages/core/src/runtime/types/agent.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L42) |

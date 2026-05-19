@@ -14,7 +14,7 @@ description: "Generated API reference for AgentContextProvider."
 type AgentContextProvider<TOptions> = HarnessContextProvider<TOptions>;
 ```
 
-Defined in: [packages/core/src/runtime/types/context.ts:135](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L135)
+Defined in: [packages/core/src/runtime/types/context.ts:137](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L137)
 
 ## Type Parameters
 

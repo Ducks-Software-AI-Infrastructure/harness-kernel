@@ -14,7 +14,7 @@ description: "Generated API reference for CreateEditFileTool."
 function createEditFileTool(): EditFileTool;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:238](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L238)
+Defined in: [packages/tools-node/src/files.ts:230](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L230)
 
 ## Returns
 

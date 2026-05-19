@@ -10,14 +10,14 @@ description: "Generated API reference for AgentRunnerRunOptions."
 
 # Interface: AgentRunnerRunOptions
 
-Defined in: [packages/core/src/runtime/types/agent.ts:52](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L52)
+Defined in: [packages/core/src/runtime/types/agent.ts:53](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L53)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-model"></a> `model?` | `string` | [packages/core/src/runtime/types/agent.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L54) |
-| <a id="property-signal"></a> `signal?` | `AbortSignal` | [packages/core/src/runtime/types/agent.ts:53](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L53) |
-| <a id="property-userinputid"></a> `userInputId?` | `string` | [packages/core/src/runtime/types/agent.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L55) |
-| <a id="property-usermetadata"></a> `userMetadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/agent.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L56) |
-| <a id="property-userrole"></a> `userRole?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/runtime/types/agent.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L57) |
+| <a id="property-model"></a> `model?` | `string` | [packages/core/src/runtime/types/agent.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L55) |
+| <a id="property-signal"></a> `signal?` | `AbortSignal` | [packages/core/src/runtime/types/agent.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L54) |
+| <a id="property-userinputid"></a> `userInputId?` | `string` | [packages/core/src/runtime/types/agent.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L56) |
+| <a id="property-usermetadata"></a> `userMetadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/agent.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L57) |
+| <a id="property-userrole"></a> `userRole?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/runtime/types/agent.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L58) |

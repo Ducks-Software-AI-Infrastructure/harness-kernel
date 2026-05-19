@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessLog."
 
 # Abstract Class: HarnessLog\<TFields\>
 
-Defined in: [packages/core/src/logging/types.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L63)
+Defined in: [packages/core/src/logging/types.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L73)
 
 ## Type Parameters
 
@@ -34,8 +34,8 @@ new HarnessLog<TFields>(): HarnessLog<TFields>;
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-category"></a> `category` | `abstract` | [`HarnessLogCategory`](../type-aliases/HarnessLogCategory.md) | [packages/core/src/logging/types.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L65) |
-| <a id="property-level"></a> `level` | `abstract` | [`HarnessLogLevel`](../type-aliases/HarnessLogLevel.md) | [packages/core/src/logging/types.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L64) |
+| <a id="property-category"></a> `category` | `abstract` | [`HarnessLogCategory`](../type-aliases/HarnessLogCategory.md) | [packages/core/src/logging/types.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L75) |
+| <a id="property-level"></a> `level` | `abstract` | [`HarnessLogLevel`](../type-aliases/HarnessLogLevel.md) | [packages/core/src/logging/types.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L74) |
 
 ## Methods
 
@@ -45,7 +45,7 @@ new HarnessLog<TFields>(): HarnessLog<TFields>;
 optional levelFor(fields): HarnessLogLevel;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L67)
+Defined in: [packages/core/src/logging/types.ts:77](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L77)
 
 #### Parameters
 
@@ -65,7 +65,7 @@ Defined in: [packages/core/src/logging/types.ts:67](https://github.com/Ducks-Sof
 abstract message(fields): string;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L66)
+Defined in: [packages/core/src/logging/types.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L76)
 
 #### Parameters
 
@@ -85,7 +85,7 @@ Defined in: [packages/core/src/logging/types.ts:66](https://github.com/Ducks-Sof
 optional redact(fields): TFields;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L68)
+Defined in: [packages/core/src/logging/types.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L78)
 
 #### Parameters
 

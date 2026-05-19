@@ -1,5 +1,5 @@
 import { summarizeValue, type HarnessLogClass, type HarnessLogContext } from "../logging/index.js";
-import { createToolErrorPayload, type ToolInvalidField } from "../logging/tool-errors.js";
+import { createToolErrorPayload, createToolErrorResult, type ToolInvalidField } from "../logging/tool-errors.js";
 import { normalizeSchema, type SchemaIssue } from "../schema/index.js";
 import {
   ErrorEvent,
@@ -21,6 +21,9 @@ import type {
   AgentActionSession,
   AgentToolDefinition,
   AgentToolResult,
+  HarnessErrorCode,
+  HarnessErrorPolicy,
+  HarnessErrorShape,
   HarnessEvent,
   HarnessEventClass,
   HarnessEventEmitOptions,
@@ -32,6 +35,7 @@ import type {
   ToolCallMetric,
 } from "./types.js";
 import { randomId } from "./id.js";
+import { annotateHarnessError, normalizeHarnessError, sanitizeHarnessError } from "./errors.js";
 
 type SchemaParseResult =
   | { ok: true; data: unknown }
@@ -68,6 +72,15 @@ function ensureToolMetric(metrics: RunMetrics, name: string): ToolCallMetric {
   return metric;
 }
 
+function toolResultErrorCode(value: unknown): HarnessErrorCode {
+  return value === "tool.args.invalid_schema"
+    || value === "tool.approval.denied"
+    || value === "sandbox.exec.failed"
+    || value === "tool.failed"
+    ? value
+    : "tool.failed";
+}
+
 export class ToolExecutor {
   private depth = 0;
 
@@ -77,6 +90,7 @@ export class ToolExecutor {
       getCurrentMode(): string;
       getToolApprovalMode(): ToolApprovalMode | undefined;
       approveTool?(request: ToolApprovalRequest): boolean | ToolApprovalDecision | Promise<boolean | ToolApprovalDecision>;
+      errorPolicy?: HarnessErrorPolicy;
       ensureSandboxOpen(): Promise<void>;
       buildActionSession(
         tool: { id?: string; name: string },
@@ -151,6 +165,13 @@ export class ToolExecutor {
 
     const parsedArgs = safeParseWithSchema(input.tool.inputSchema, input.args);
     if (!parsedArgs.ok) {
+      const error = this.toolError({
+        error: parsedArgs.error,
+        code: "tool.args.invalid_schema",
+        message: "Tool arguments did not match schema.",
+        source: toolSource,
+        details: { invalidFields: parsedArgs.invalidFields },
+      });
       const result = this.structuredToolError({
         toolName: input.tool.name,
         code: "tool.args.invalid_schema",
@@ -160,7 +181,7 @@ export class ToolExecutor {
       const durationMs = Math.round(performance.now() - start);
       metric.errorCount++;
       metric.totalDurationMs += durationMs;
-      metrics.errors.push(result.content);
+      metrics.errors.push(sanitizeHarnessError(error, this.input.errorPolicy));
       this.input.log(
         ToolInvalidSchemaLog,
         { toolName: input.tool.name, issues: parsedArgs.issues },
@@ -170,6 +191,7 @@ export class ToolExecutor {
         { durationMs },
       );
       await this.input.addToolResultMessage(input.tool, result, id);
+      await this.emitToolError(error, toolEventOptions);
       await this.input.emitInternal(ToolEndEvent, { id, name: input.tool.name, durationMs, result }, callerEventOptions);
       this.input.throwIfTurnHandoffRequested();
       return result;
@@ -190,6 +212,13 @@ export class ToolExecutor {
       callerEventOptions,
     );
     if (!approved) {
+      const error = this.toolError({
+        error: new Error(`Tool '${input.tool.name}' was denied by runner policy.`),
+        code: "tool.approval.denied",
+        message: `Tool '${input.tool.name}' was denied by runner policy.`,
+        source: toolSource,
+        severity: "warn",
+      });
       const denied = this.structuredToolError({
         toolName: input.tool.name,
         code: "tool.approval.denied",
@@ -199,12 +228,15 @@ export class ToolExecutor {
       metric.errorCount++;
       const durationMs = Math.round(performance.now() - start);
       metric.totalDurationMs += durationMs;
+      metrics.errors.push(sanitizeHarnessError(error, this.input.errorPolicy));
       this.input.log(ToolFailedLog, {
         toolName: input.tool.name,
         durationMs,
+        error,
         result: summarizeValue(denied),
       }, toolSource, id, startEvent.id, { durationMs });
       await this.input.addToolResultMessage(input.tool, denied, id);
+      await this.emitToolError(error, toolEventOptions);
       await this.input.emitInternal(ToolEndEvent, { id, name: input.tool.name, durationMs, result: denied }, callerEventOptions);
       this.input.throwIfTurnHandoffRequested();
       return denied;
@@ -219,9 +251,19 @@ export class ToolExecutor {
       metric.totalDurationMs += durationMs;
       if (result.isError) metric.errorCount++;
       if (result.isError) {
+        const errorCode = toolResultErrorCode(result.metadata?.errorCode);
+        const error = this.toolError({
+          error: new Error(result.content || "Tool execution failed."),
+          code: errorCode,
+          message: result.content || "Tool execution failed.",
+          source: toolSource,
+          details: result.data,
+        });
+        metrics.errors.push(sanitizeHarnessError(error, this.input.errorPolicy));
         this.input.log(ToolFailedLog, {
           toolName: input.tool.name,
           durationMs,
+          error,
           result: summarizeValue(result),
         }, toolSource, id, startEvent.id, { durationMs });
       } else {
@@ -237,7 +279,13 @@ export class ToolExecutor {
       this.input.throwIfTurnHandoffRequested();
       return result;
     } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
+      const normalized = this.toolError({
+        error,
+        code: "tool.failed",
+        message: "Tool execution failed.",
+        source: toolSource,
+        details: { toolName: input.tool.name },
+      });
       const result = this.structuredToolError({
         toolName: input.tool.name,
         code: "tool.failed",
@@ -247,14 +295,15 @@ export class ToolExecutor {
       const durationMs = Math.round(performance.now() - start);
       metric.errorCount++;
       metric.totalDurationMs += durationMs;
-      metrics.errors.push(message);
+      metrics.errors.push(sanitizeHarnessError(normalized, this.input.errorPolicy));
       this.input.log(ToolFailedLog, {
         toolName: input.tool.name,
         durationMs,
-        error,
+        error: normalized,
+        internalError: error,
       }, toolSource, id, startEvent.id, { durationMs });
       await this.input.addToolResultMessage(input.tool, result, id);
-      await this.input.emitInternal(ErrorEvent, { message, details: error }, toolEventOptions);
+      await this.emitToolError(normalized, toolEventOptions);
       await this.input.emitInternal(ToolEndEvent, { id, name: input.tool.name, durationMs, result }, callerEventOptions);
       this.input.throwIfTurnHandoffRequested();
       return result;
@@ -270,21 +319,7 @@ export class ToolExecutor {
     invalidFields?: ToolInvalidField[];
     metadata?: Record<string, unknown>;
   }): AgentToolResult {
-    return {
-      content: input.message,
-      data: createToolErrorPayload({
-        code: input.code,
-        message: input.message,
-        toolName: input.toolName,
-        invalidFields: input.invalidFields,
-      }),
-      isError: true,
-      metadata: {
-        errorCode: input.code,
-        ...(input.invalidFields ? { invalidFields: input.invalidFields } : {}),
-        ...(input.metadata ?? {}),
-      },
-    };
+    return createToolErrorResult(input);
   }
 
   private ensureStructuredToolErrorResult(tool: AgentToolDefinition, result: AgentToolResult): AgentToolResult {
@@ -301,6 +336,38 @@ export class ToolExecutor {
         errorCode: result.metadata?.errorCode ?? "tool.failed",
       },
     };
+  }
+
+  private toolError(input: {
+    error: unknown;
+    code: HarnessErrorCode;
+    message: string;
+    source: HarnessEventSource;
+    severity?: HarnessErrorShape["severity"];
+    details?: unknown;
+  }): HarnessErrorShape {
+    const normalized = normalizeHarnessError(input.error, {
+      code: input.code,
+      category: input.code === "tool.approval.denied" ? "approval" : input.code === "sandbox.exec.failed" ? "sandbox" : "tool",
+      severity: input.severity ?? (input.code === "tool.approval.denied" ? "warn" : "error"),
+      recoverable: true,
+      source: input.source,
+      message: input.message,
+      details: input.details,
+    }, this.input.errorPolicy);
+    annotateHarnessError(input.error, normalized);
+    return normalized;
+  }
+
+  private async emitToolError(error: HarnessErrorShape, options: HarnessEventEmitOptions): Promise<void> {
+    const sanitized = sanitizeHarnessError(error, this.input.errorPolicy);
+    await this.input.emitInternal(ErrorEvent, {
+      error: sanitized,
+      message: sanitized.message,
+      code: sanitized.code,
+      recoverable: sanitized.recoverable,
+      details: sanitized.details,
+    }, options);
   }
 
   private async approveTool(

@@ -24,9 +24,9 @@ import { SessionCreatedLog, SnapshotRestoreRejectedLog } from "../logging/runtim
 import { createHarnessRunStream, type HarnessRunStreamController } from "./stream.js";
 import { HarnessSessionPhase } from "./types.js";
 import { SessionStatusTracker } from "./status.js";
+import { normalizeHarnessError, sanitizeHarnessError } from "../runtime/errors.js";
 import type {
   HarnessAppConfig,
-  HarnessErrorShape,
   HarnessSessionEventListener,
   HarnessRunStream,
   HarnessSession,
@@ -50,18 +50,6 @@ function nowIso(): string {
 
 function normalizeInput(input: string | HarnessUserInput): HarnessUserInput {
   return typeof input === "string" ? { content: input } : input;
-}
-
-function toErrorShape(error: unknown): HarnessErrorShape {
-  if (error instanceof Error) {
-    return {
-      name: error.name,
-      message: error.message,
-      stack: error.stack,
-      cause: error.cause,
-    };
-  }
-  return { message: String(error) };
 }
 
 export interface CreateHarnessSessionInternalOptions {
@@ -121,6 +109,7 @@ export class HarnessSessionImpl implements HarnessSession {
       resources: config.resources,
       approveTool: (request) => this.requestToolApproval(request),
       logger: this.logger,
+      errorPolicy: config.errorPolicy,
     });
     this.logger.emit(SessionCreatedLog, { sessionId: this.id }, { sessionId: this.id, source: { kind: "runtime" } });
     this.unsubscribeRunner = this.runner.subscribe((record) => {
@@ -203,11 +192,18 @@ export class HarnessSessionImpl implements HarnessSession {
           await this.logger.flush();
           return sendResult;
         } catch (error) {
-          const shaped = toErrorShape(error);
+          const shaped = sanitizeHarnessError(normalizeHarnessError(error, {
+            code: "run.failed",
+            category: "run",
+            severity: "fatal",
+            recoverable: false,
+            source: { kind: "runtime" },
+          }, this.config.errorPolicy), this.config.errorPolicy);
           this.status.failRun(shaped);
           this.notify({ type: "error", error: shaped });
           this.notifyStatus();
           await this.logger.flush();
+          if (this.config.errorPolicy?.closeSessionOnFatal) await this.closeAfterFatal();
           throw error;
         } finally {
           unsubscribe();
@@ -397,6 +393,18 @@ export class HarnessSessionImpl implements HarnessSession {
   private async cancelActiveRun(reason?: string): Promise<void> {
     this.activeAbort?.abort(reason);
     this.approvals.denyAll();
+  }
+
+  private async closeAfterFatal(): Promise<void> {
+    if (this.closed) return;
+    this.closed = true;
+    this.status.close();
+    this.approvals.denyAll();
+    this.unsubscribeRunner();
+    await this.runner.close();
+    this.notifyStatus();
+    this.events.clear();
+    await this.logger.close();
   }
 }
 

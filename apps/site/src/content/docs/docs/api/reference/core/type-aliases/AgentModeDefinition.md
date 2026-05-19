@@ -14,4 +14,4 @@ description: "Generated API reference for AgentModeDefinition."
 type AgentModeDefinition = HarnessMode;
 ```
 
-Defined in: [packages/core/src/runtime/types/modes.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L34)
+Defined in: [packages/core/src/runtime/types/modes.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L35)

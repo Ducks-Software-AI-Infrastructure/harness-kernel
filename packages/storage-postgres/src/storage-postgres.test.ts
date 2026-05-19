@@ -6,11 +6,13 @@ import type {
   HarnessEventRecord,
   HarnessSnapshot,
   RunCursorState,
+  RunMetrics,
 } from "@harness-kernel/core";
 
 assert.equal(typeof PostgresSessionStorage, "function");
 assert.equal(migrations[0]?.id, "0001_session_storage");
 assert.equal(postgresSessionStorageMigration.includes("create table if not exists harness_sessions"), true);
+assert.equal(postgresSessionStorageMigration.includes("metrics jsonb"), true);
 
 const url = process.env.HARNESS_KERNEL_POSTGRES_URL;
 if (url) {
@@ -50,6 +52,16 @@ if (url) {
     transcriptCursor: { id: "transcript-cursor", branchId: "main", headMessageId: "message-1", seq: 1, updatedAt: now },
     eventCursor: { id: "event-cursor", branchId: "main", headEventId: "event-1", seq: 1, updatedAt: now },
     branches: [{ id: "main", createdAt: now }],
+  };
+  const metrics: RunMetrics = {
+    startedAt: now,
+    durationMs: 0,
+    turnCount: 1,
+    messageCount: 1,
+    eventCount: 1,
+    toolCallCount: 0,
+    tools: {},
+    errors: [],
   };
   const contextSnapshot: ContextSnapshot = {
     id: "context-1",
@@ -122,6 +134,10 @@ if (url) {
     await firstRunStore.saveCursors(cursors);
     await firstRunStore.saveSnapshot(snapshot);
     await firstRunStore.saveContextSnapshot(contextSnapshot);
+    await firstRunStore.saveMetrics(metrics);
+    const metricsResult = await pool.query("select metrics from harness_runs where run_id = $1", [runOne]);
+    const savedMetrics = metricsResult.rows[0]?.metrics as RunMetrics | undefined;
+    assert.equal(savedMetrics?.turnCount, 1);
 
     await storage.createRun({
       sessionId: sessionA,

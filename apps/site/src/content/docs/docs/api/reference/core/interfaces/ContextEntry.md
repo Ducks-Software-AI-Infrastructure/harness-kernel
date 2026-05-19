@@ -10,22 +10,22 @@ description: "Generated API reference for ContextEntry."
 
 # Interface: ContextEntry
 
-Defined in: [packages/core/src/runtime/types/context.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L61)
+Defined in: [packages/core/src/runtime/types/context.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L62)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-activatedat"></a> `activatedAt?` | `string` | [packages/core/src/runtime/types/context.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L67) |
-| <a id="property-activatedbyeventid"></a> `activatedByEventId?` | `string` | [packages/core/src/runtime/types/context.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L68) |
-| <a id="property-activatedbyeventtype"></a> `activatedByEventType?` | `string` | [packages/core/src/runtime/types/context.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L69) |
-| <a id="property-consume"></a> `consume` | [`ContextConsume`](../enumerations/ContextConsume.md) | [packages/core/src/runtime/types/context.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L65) |
-| <a id="property-contribution"></a> `contribution` | [`ContextContribution`](ContextContribution.md) | [packages/core/src/runtime/types/context.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L73) |
-| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/runtime/types/context.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L66) |
-| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/context.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L62) |
-| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L74) |
-| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/runtime/types/context.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L72) |
-| <a id="property-on"></a> `on` | `string` | [packages/core/src/runtime/types/context.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L64) |
-| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/runtime/types/context.ts:70](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L70) |
-| <a id="property-scope"></a> `scope` | [`ContextScopes`](../enumerations/ContextScopes.md) | [packages/core/src/runtime/types/context.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L63) |
-| <a id="property-turnid"></a> `turnId?` | `string` | [packages/core/src/runtime/types/context.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L71) |
+| <a id="property-activatedat"></a> `activatedAt?` | `string` | [packages/core/src/runtime/types/context.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L68) |
+| <a id="property-activatedbyeventid"></a> `activatedByEventId?` | `string` | [packages/core/src/runtime/types/context.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L69) |
+| <a id="property-activatedbyeventtype"></a> `activatedByEventType?` | `string` | [packages/core/src/runtime/types/context.ts:70](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L70) |
+| <a id="property-consume"></a> `consume` | [`ContextConsume`](../enumerations/ContextConsume.md) | [packages/core/src/runtime/types/context.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L66) |
+| <a id="property-contribution"></a> `contribution` | [`ContextContribution`](ContextContribution.md) | [packages/core/src/runtime/types/context.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L74) |
+| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/runtime/types/context.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L67) |
+| <a id="property-id"></a> `id` | `string` | [packages/core/src/runtime/types/context.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L63) |
+| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L75) |
+| <a id="property-modeid"></a> `modeId` | `string` | [packages/core/src/runtime/types/context.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L73) |
+| <a id="property-on"></a> `on` | `string` | [packages/core/src/runtime/types/context.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L65) |
+| <a id="property-runid"></a> `runId` | `string` | [packages/core/src/runtime/types/context.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L71) |
+| <a id="property-scope"></a> `scope` | [`ContextScopes`](../enumerations/ContextScopes.md) | [packages/core/src/runtime/types/context.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L64) |
+| <a id="property-turnid"></a> `turnId?` | `string` | [packages/core/src/runtime/types/context.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L72) |

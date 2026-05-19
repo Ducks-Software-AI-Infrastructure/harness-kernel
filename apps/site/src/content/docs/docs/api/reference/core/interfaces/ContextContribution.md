@@ -10,16 +10,16 @@ description: "Generated API reference for ContextContribution."
 
 # Interface: ContextContribution
 
-Defined in: [packages/core/src/runtime/types/context.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L31)
+Defined in: [packages/core/src/runtime/types/context.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L32)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-authorrole"></a> `authorRole?` | `string` | [packages/core/src/runtime/types/context.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L35) |
-| <a id="property-content"></a> `content` | `unknown` | [packages/core/src/runtime/types/context.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L37) |
-| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L38) |
-| <a id="property-providerid"></a> `providerId?` | `string` | [packages/core/src/runtime/types/context.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L32) |
-| <a id="property-providerlabel"></a> `providerLabel?` | `string` | [packages/core/src/runtime/types/context.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L33) |
-| <a id="property-role"></a> `role` | `string` | [packages/core/src/runtime/types/context.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L34) |
-| <a id="property-roletype"></a> `roleType?` | `string` | [packages/core/src/runtime/types/context.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L36) |
+| <a id="property-authorrole"></a> `authorRole?` | `string` | [packages/core/src/runtime/types/context.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L36) |
+| <a id="property-content"></a> `content` | `unknown` | [packages/core/src/runtime/types/context.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L38) |
+| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L39) |
+| <a id="property-providerid"></a> `providerId?` | `string` | [packages/core/src/runtime/types/context.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L33) |
+| <a id="property-providerlabel"></a> `providerLabel?` | `string` | [packages/core/src/runtime/types/context.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L34) |
+| <a id="property-role"></a> `role` | `string` | [packages/core/src/runtime/types/context.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L35) |
+| <a id="property-roletype"></a> `roleType?` | `string` | [packages/core/src/runtime/types/context.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L37) |

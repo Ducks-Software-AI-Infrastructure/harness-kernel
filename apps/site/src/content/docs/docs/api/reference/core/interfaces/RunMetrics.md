@@ -10,20 +10,20 @@ description: "Generated API reference for RunMetrics."
 
 # Interface: RunMetrics
 
-Defined in: [packages/core/src/runtime/types/metrics.ts:8](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L8)
+Defined in: [packages/core/src/runtime/types/metrics.ts:10](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L10)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-completedat"></a> `completedAt?` | `string` | [packages/core/src/runtime/types/metrics.ts:10](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L10) |
-| <a id="property-durationms"></a> `durationMs` | `number` | [packages/core/src/runtime/types/metrics.ts:11](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L11) |
-| <a id="property-errors"></a> `errors` | `string`[] | [packages/core/src/runtime/types/metrics.ts:18](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L18) |
-| <a id="property-eventcount"></a> `eventCount` | `number` | [packages/core/src/runtime/types/metrics.ts:14](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L14) |
-| <a id="property-finalmode"></a> `finalMode?` | `string` | [packages/core/src/runtime/types/metrics.ts:16](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L16) |
-| <a id="property-messagecount"></a> `messageCount` | `number` | [packages/core/src/runtime/types/metrics.ts:13](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L13) |
-| <a id="property-startedat"></a> `startedAt` | `string` | [packages/core/src/runtime/types/metrics.ts:9](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L9) |
-| <a id="property-toolcallcount"></a> `toolCallCount` | `number` | [packages/core/src/runtime/types/metrics.ts:15](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L15) |
-| <a id="property-tools"></a> `tools` | `Record`\<`string`, [`ToolCallMetric`](ToolCallMetric.md)\> | [packages/core/src/runtime/types/metrics.ts:17](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L17) |
-| <a id="property-turncount"></a> `turnCount` | `number` | [packages/core/src/runtime/types/metrics.ts:12](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L12) |
-| <a id="property-usage"></a> `usage?` | `unknown` | [packages/core/src/runtime/types/metrics.ts:19](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L19) |
+| <a id="property-completedat"></a> `completedAt?` | `string` | [packages/core/src/runtime/types/metrics.ts:12](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L12) |
+| <a id="property-durationms"></a> `durationMs` | `number` | [packages/core/src/runtime/types/metrics.ts:13](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L13) |
+| <a id="property-errors"></a> `errors` | [`HarnessErrorShape`](HarnessErrorShape.md)[] | [packages/core/src/runtime/types/metrics.ts:20](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L20) |
+| <a id="property-eventcount"></a> `eventCount` | `number` | [packages/core/src/runtime/types/metrics.ts:16](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L16) |
+| <a id="property-finalmode"></a> `finalMode?` | `string` | [packages/core/src/runtime/types/metrics.ts:18](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L18) |
+| <a id="property-messagecount"></a> `messageCount` | `number` | [packages/core/src/runtime/types/metrics.ts:15](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L15) |
+| <a id="property-startedat"></a> `startedAt` | `string` | [packages/core/src/runtime/types/metrics.ts:11](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L11) |
+| <a id="property-toolcallcount"></a> `toolCallCount` | `number` | [packages/core/src/runtime/types/metrics.ts:17](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L17) |
+| <a id="property-tools"></a> `tools` | `Record`\<`string`, [`ToolCallMetric`](ToolCallMetric.md)\> | [packages/core/src/runtime/types/metrics.ts:19](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L19) |
+| <a id="property-turncount"></a> `turnCount` | `number` | [packages/core/src/runtime/types/metrics.ts:14](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L14) |
+| <a id="property-usage"></a> `usage?` | `unknown` | [packages/core/src/runtime/types/metrics.ts:21](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L21) |

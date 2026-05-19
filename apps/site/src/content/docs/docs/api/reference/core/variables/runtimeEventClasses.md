@@ -21,6 +21,7 @@ const runtimeEventClasses: (
   | typeof ToolEndEvent
   | typeof TurnEndEvent
   | typeof RunEndEvent
+  | typeof RunFailedEvent
   | typeof MessageStartEvent
   | typeof MessageDeltaEvent
   | typeof MessageEndEvent
@@ -29,4 +30,4 @@ const runtimeEventClasses: (
   | typeof TranscriptCursorChangedEvent)[];
 ```
 
-Defined in: [packages/core/src/runtime/events.ts:248](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L248)
+Defined in: [packages/core/src/runtime/events.ts:279](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L279)

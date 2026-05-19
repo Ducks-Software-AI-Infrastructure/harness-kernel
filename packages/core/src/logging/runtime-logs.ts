@@ -1,6 +1,6 @@
 import { HarnessLog } from "./types.js";
 import type { SchemaIssue } from "../schema/index.js";
-import type { RunMetrics } from "../runtime/types.js";
+import type { HarnessErrorShape, RunMetrics } from "../runtime/types.js";
 
 export class SessionCreatedLog extends HarnessLog<{ sessionId?: string }> {
   level = "info" as const;
@@ -31,11 +31,14 @@ export class RunCompletedLog extends HarnessLog<{
   }
 }
 
-export class RunFailedLog extends HarnessLog<{ error: unknown }> {
+export class RunFailedLog extends HarnessLog<{ error: HarnessErrorShape; internalError?: unknown }> {
   level = "error" as const;
   category = "run" as const;
-  message(): string {
-    return "run.failed";
+  levelFor(fields: { error: HarnessErrorShape; internalError?: unknown }): "warn" | "error" {
+    return fields.error.severity === "warn" ? "warn" : "error";
+  }
+  message(fields: { error: HarnessErrorShape; internalError?: unknown }): string {
+    return `run.failed code=${fields.error.code}`;
   }
 }
 
@@ -71,11 +74,14 @@ export class ContextBuildCompletedLog extends HarnessLog<{ providerCount: number
   }
 }
 
-export class ContextProviderFailedLog extends HarnessLog<{ providerType: string; error: unknown }> {
+export class ContextProviderFailedLog extends HarnessLog<{ providerType: string; error: HarnessErrorShape; internalError?: unknown }> {
   level = "error" as const;
   category = "context" as const;
-  message(fields: { providerType: string; error: unknown }): string {
-    return `context.provider.failed ${fields.providerType}`;
+  levelFor(fields: { providerType: string; error: HarnessErrorShape; internalError?: unknown }): "warn" | "error" {
+    return fields.error.severity === "warn" ? "warn" : "error";
+  }
+  message(fields: { providerType: string; error: HarnessErrorShape; internalError?: unknown }): string {
+    return `context.provider.failed ${fields.providerType} code=${fields.error.code}`;
   }
 }
 
@@ -95,11 +101,14 @@ export class ModelCallCompletedLog extends HarnessLog<{ model: string; durationM
   }
 }
 
-export class ModelCallFailedLog extends HarnessLog<{ model: string; error: unknown }> {
+export class ModelCallFailedLog extends HarnessLog<{ model: string; error: HarnessErrorShape; internalError?: unknown; attempt?: number }> {
   level = "error" as const;
   category = "model" as const;
-  message(fields: { model: string; error: unknown }): string {
-    return `model.failed model=${fields.model}`;
+  levelFor(fields: { model: string; error: HarnessErrorShape; internalError?: unknown; attempt?: number }): "warn" | "error" {
+    return fields.error.severity === "warn" ? "warn" : "error";
+  }
+  message(fields: { model: string; error: HarnessErrorShape; internalError?: unknown; attempt?: number }): string {
+    return `model.failed model=${fields.model} code=${fields.error.code}`;
   }
 }
 
@@ -143,11 +152,14 @@ export class ToolCompletedLog extends HarnessLog<{ toolName: string; durationMs:
   }
 }
 
-export class ToolFailedLog extends HarnessLog<{ toolName: string; durationMs?: number; error?: unknown; result?: unknown }> {
+export class ToolFailedLog extends HarnessLog<{ toolName: string; durationMs?: number; error?: HarnessErrorShape; internalError?: unknown; result?: unknown }> {
   level = "error" as const;
   category = "tool" as const;
-  message(fields: { toolName: string; durationMs?: number; error?: unknown; result?: unknown }): string {
-    return `tool.failed ${fields.toolName}`;
+  levelFor(fields: { toolName: string; durationMs?: number; error?: HarnessErrorShape; internalError?: unknown; result?: unknown }): "warn" | "error" {
+    return fields.error?.severity === "warn" ? "warn" : "error";
+  }
+  message(fields: { toolName: string; durationMs?: number; error?: HarnessErrorShape; internalError?: unknown; result?: unknown }): string {
+    return `tool.failed ${fields.toolName}${fields.error ? ` code=${fields.error.code}` : ""}`;
   }
 }
 
@@ -208,11 +220,11 @@ export class SandboxExecCompletedLog extends HarnessLog<{
   }
 }
 
-export class SandboxExecFailedLog extends HarnessLog<{ sandboxId: string; error?: unknown; durationMs?: number }> {
+export class SandboxExecFailedLog extends HarnessLog<{ sandboxId: string; error?: HarnessErrorShape; internalError?: unknown; durationMs?: number }> {
   level = "error" as const;
   category = "tool" as const;
-  message(fields: { sandboxId: string; error?: unknown; durationMs?: number }): string {
-    return `sandbox.exec.failed ${fields.sandboxId}`;
+  message(fields: { sandboxId: string; error?: HarnessErrorShape; internalError?: unknown; durationMs?: number }): string {
+    return `sandbox.exec.failed ${fields.sandboxId}${fields.error ? ` code=${fields.error.code}` : ""}`;
   }
 }
 
@@ -272,10 +284,10 @@ export class TranscriptCursorChangedLog extends HarnessLog<{ cursorId: string }>
   }
 }
 
-export class StorageWriteFailedLog extends HarnessLog<{ operation: string; error: unknown }> {
+export class StorageWriteFailedLog extends HarnessLog<{ operation: string; error: HarnessErrorShape; internalError?: unknown }> {
   level = "error" as const;
   category = "storage" as const;
-  message(fields: { operation: string; error: unknown }): string {
-    return `storage.write_failed ${fields.operation}`;
+  message(fields: { operation: string; error: HarnessErrorShape; internalError?: unknown }): string {
+    return `storage.write_failed ${fields.operation} code=${fields.error.code}`;
   }
 }

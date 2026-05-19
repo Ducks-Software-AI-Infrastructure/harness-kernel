@@ -29,6 +29,21 @@ const result = await stream.result;
 
 `HarnessRunStream` is an async iterable with an `id`, a `result` promise, and `cancel(reason)`.
 
+Failed and aborted runs emit terminal stream events before the compatibility `error` event:
+
+```ts
+for await (const event of stream) {
+  if (event.type === "run.failed" || event.type === "run.aborted") {
+    console.error(event.error.code, event.error.message);
+  }
+  if (event.type === "error") {
+    console.error(event.error.code);
+  }
+}
+```
+
+`run.failed` and `run.aborted` come from runtime timeline events and include final metrics. `error` exists for callers that only need the last public error shape.
+
 ## Store Stream
 
 ```ts

@@ -1,4 +1,4 @@
-import { createToolErrorPayload } from "@harness-kernel/core";
+import { createToolErrorResult } from "@harness-kernel/core";
 import { HarnessTool, s, type InferInput } from "@harness-kernel/core";
 import type { AgentActionSession, AgentToolResult } from "@harness-kernel/core";
 import { assertSafeRelativePath } from "./path.js";
@@ -67,20 +67,12 @@ function globToRegExp(pattern: string): RegExp {
 }
 
 function toolFailure(toolName: string, message: string, metadata?: Record<string, unknown>): AgentToolResult {
-  return {
-    content: message,
-    data: createToolErrorPayload({
-      code: "tool.failed",
-      message,
-      toolName,
-      metadata,
-    }),
-    isError: true,
-    metadata: {
-      errorCode: "tool.failed",
-      ...(metadata ?? {}),
-    },
-  };
+  return createToolErrorResult({
+    code: "tool.failed",
+    message,
+    toolName,
+    metadata,
+  });
 }
 
 function normalizeFindOutput(stdout: string): string[] {

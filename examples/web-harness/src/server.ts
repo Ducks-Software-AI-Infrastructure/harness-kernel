@@ -38,6 +38,9 @@ export async function createWebHarnessStore(): Promise<HarnessSessionStore> {
     logging: {
       sinks: [new ConsoleLogSink({ level: "warn" })],
     },
+    errorPolicy: {
+      retry: { model: { attempts: 2, backoffMs: 500 } },
+    },
   });
 }
 
@@ -64,7 +67,14 @@ export function createWebHarnessServer(storePromise: Promise<HarnessSessionStore
 
       writeJson(res, 404, { error: "not found" });
     } catch (error) {
-      writeJson(res, 500, { error: error instanceof Error ? error.message : String(error) });
+      const store = await storePromise.catch(() => undefined);
+      const status = store && "get" in store ? store.get("web-example")?.getStatus() : undefined;
+      writeJson(res, 500, {
+        error: {
+          code: status?.lastError?.code ?? "runtime.failed",
+          message: status?.lastError?.message ?? (error instanceof Error ? error.message : String(error)),
+        },
+      });
     }
   });
 }

@@ -14,7 +14,7 @@ description: "Generated API reference for HarnessModeClass."
 type HarnessModeClass<TMode> = (...args) => TMode;
 ```
 
-Defined in: [packages/core/src/runtime/types/modes.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L32)
+Defined in: [packages/core/src/runtime/types/modes.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L33)
 
 ## Type Parameters
 

@@ -3,6 +3,8 @@ import {
   MessageDeltaEvent,
   MessageEndEvent,
   ModeChangedEvent,
+  RunAbortedEvent,
+  RunFailedEvent,
   RunStartEvent,
   ToolApprovalResolvedEvent,
   ToolEndEvent,
@@ -15,6 +17,7 @@ import type {
   HarnessEventClass,
   HarnessEventRecord,
 } from "../runtime/types.js";
+import type { HarnessErrorShape, RunMetrics } from "../runtime/types.js";
 import type {
   HarnessSessionEventListener,
   HarnessSessionListener,
@@ -104,6 +107,20 @@ export class SessionEventHub {
         sessionId: this.options.sessionId,
         runId: record.runId,
         mode: String(payload.modeId ?? record.modeId ?? ""),
+      });
+    } else if (record.type === RunFailedEvent.type) {
+      events.push({
+        type: "run.failed",
+        runId: record.runId,
+        error: payload.error as HarnessErrorShape,
+        metrics: payload.metrics as RunMetrics,
+      });
+    } else if (record.type === RunAbortedEvent.type) {
+      events.push({
+        type: "run.aborted",
+        runId: record.runId,
+        error: payload.error as HarnessErrorShape,
+        metrics: payload.metrics as RunMetrics,
       });
     } else if (record.type === MessageDeltaEvent.type) {
       events.push({

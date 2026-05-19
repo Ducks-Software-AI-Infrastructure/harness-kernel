@@ -5,13 +5,14 @@ import {
   ModelCallStartedLog,
 } from "../logging/runtime-logs.js";
 import { getConstructLabel, getConstructType } from "./constructs.js";
-import { ContextReadyEvent, ErrorEvent, MessageEndEvent, ModelAfterEvent, ModelBeforeEvent } from "./events.js";
+import { ContextReadyEvent, MessageEndEvent, ModelAfterEvent, ModelBeforeEvent } from "./events.js";
 import type {
   AgentMessage,
   AgentReadSession,
   AgentRunnerRunOptions,
   AgentToolResult,
   AgentToolDefinition,
+  HarnessErrorPolicy,
   HarnessEvent,
   HarnessEventClass,
   HarnessEventEmitOptions,
@@ -20,7 +21,24 @@ import type {
   ContextSnapshot,
   RunMetrics,
 } from "./types.js";
-import { modelProviderId, type ResolvedModelProvider } from "../engine/types.js";
+import { modelProviderId, type ModelProviderRunResult, type ResolvedModelProvider } from "../engine/types.js";
+import { annotateHarnessError, normalizeHarnessError } from "./errors.js";
+
+function retryDelayMs(attempt: number, backoffMs: number, maxBackoffMs: number): number {
+  return Math.min(maxBackoffMs, backoffMs * 2 ** Math.max(0, attempt - 1));
+}
+
+function delay(ms: number, signal?: AbortSignal): Promise<void> {
+  if (ms <= 0) return Promise.resolve();
+  if (signal?.aborted) return Promise.reject(new Error("Run aborted."));
+  return new Promise((resolve, reject) => {
+    const timeout = setTimeout(resolve, ms);
+    signal?.addEventListener("abort", () => {
+      clearTimeout(timeout);
+      reject(new Error("Run aborted."));
+    }, { once: true });
+  });
+}
 
 export class ModelPipeline {
   constructor(
@@ -62,6 +80,7 @@ export class ModelPipeline {
       ): void;
       throwIfTurnHandoffRequested(): void;
       isTurnHandoffSignal(error: unknown): boolean;
+      errorPolicy?: HarnessErrorPolicy;
     },
   ) {}
 
@@ -78,64 +97,91 @@ export class ModelPipeline {
     const resolved = this.input.resolveModelProvider(model);
     const source = this.modelProviderSource(resolved);
 
-    try {
-      const modelStart = performance.now();
-      this.input.log(ModelCallStartedLog, { model, messageCount: messages.length }, source);
-      const result = await resolved.provider.run({
-        runId: this.input.getRunId(),
-        turnId: this.input.getTurnId(),
-        modeId: this.input.getModeId(),
-        modelRef: resolved.modelRef,
-        provider: resolved.namespace,
-        model: resolved.modelId,
-        systemPrompt,
-        messages,
-        roles: this.input.roles,
-        tools: input.tools,
-        maxTurns: input.mode.maxTurns ?? 20,
-        signal: input.options.signal,
-        prepareContext: () => this.prepareContext(input.mode, input.userMessage),
-        emit: async (eventClass, payload, options) => {
-          const event = await this.input.emit(
-            eventClass as HarnessEventClass,
-            payload,
-            this.input.withEmitDefaults(source, undefined, undefined, options),
-          ) as any;
-          this.input.throwIfTurnHandoffRequested();
-          return event;
-        },
-        executeTool: (tool, args, callId) =>
-          this.input.executeTool(tool, args, callId, source),
-      });
+    const modelStart = performance.now();
+    const retry = this.input.errorPolicy?.retry?.model;
+    const maxAttempts = Math.max(1, retry?.attempts ?? 1);
+    const backoffMs = Math.max(0, retry?.backoffMs ?? 250);
+    const maxBackoffMs = Math.max(backoffMs, retry?.maxBackoffMs ?? 5_000);
+    let result: ModelProviderRunResult | undefined;
 
-      const assistantMessage = await this.input.addAssistantMessage(result.content, {
-        usage: result.usage,
-        finishReason: result.finishReason,
-      });
-      this.input.setFinalAnswer(result.content);
-      this.input.getMetrics().usage = result.usage;
-      await this.input.emitInternal(MessageEndEvent, { message: assistantMessage });
-      await this.input.markMessageEventCursor(assistantMessage.id);
-      this.input.log(ModelCallCompletedLog, {
-        model,
-        durationMs: Math.round(performance.now() - modelStart),
-        finishReason: result.finishReason,
-      }, source);
-      await this.input.emitInternal(ModelAfterEvent, {
-        model,
-        content: result.content,
-        usage: result.usage,
-        finishReason: result.finishReason,
-      });
-      this.input.throwIfTurnHandoffRequested();
-    } catch (error) {
-      if (this.input.isTurnHandoffSignal(error)) return;
-      const message = error instanceof Error ? error.message : String(error);
-      this.input.getMetrics().errors.push(message);
-      this.input.log(ModelCallFailedLog, { model, error }, source);
-      await this.input.emitInternal(ErrorEvent, { message, details: error });
-      throw error;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      let toolExecuted = false;
+      let providerEventEmitted = false;
+      this.input.log(ModelCallStartedLog, { model, messageCount: messages.length }, source);
+      try {
+        result = await resolved.provider.run({
+          runId: this.input.getRunId(),
+          turnId: this.input.getTurnId(),
+          modeId: this.input.getModeId(),
+          modelRef: resolved.modelRef,
+          provider: resolved.namespace,
+          model: resolved.modelId,
+          systemPrompt,
+          messages,
+          roles: this.input.roles,
+          tools: input.tools,
+          maxTurns: input.mode.maxTurns ?? 20,
+          signal: input.options.signal,
+          prepareContext: () => this.prepareContext(input.mode, input.userMessage),
+          emit: async (eventClass, payload, options) => {
+            providerEventEmitted = true;
+            const event = await this.input.emit(
+              eventClass as HarnessEventClass,
+              payload,
+              this.input.withEmitDefaults(source, undefined, undefined, options),
+            ) as any;
+            this.input.throwIfTurnHandoffRequested();
+            return event;
+          },
+          executeTool: async (tool, args, callId) => {
+            toolExecuted = true;
+            return this.input.executeTool(tool, args, callId, source);
+          },
+        });
+        break;
+      } catch (error) {
+        if (this.input.isTurnHandoffSignal(error)) return;
+        const normalized = normalizeHarnessError(error, {
+          category: "model",
+          severity: "error",
+          recoverable: false,
+          source,
+        }, this.input.errorPolicy);
+        annotateHarnessError(error, normalized);
+        this.input.log(ModelCallFailedLog, { model, error: normalized, internalError: error, attempt }, source);
+
+        const canRetry = attempt < maxAttempts
+          && normalized.category === "model"
+          && !toolExecuted
+          && !providerEventEmitted
+          && input.options.signal?.aborted !== true;
+        if (!canRetry) throw error;
+        await delay(retryDelayMs(attempt, backoffMs, maxBackoffMs), input.options.signal);
+      }
     }
+
+    if (!result) throw new Error("Model provider did not return a result.");
+
+    const assistantMessage = await this.input.addAssistantMessage(result.content, {
+      usage: result.usage,
+      finishReason: result.finishReason,
+    });
+    this.input.setFinalAnswer(result.content);
+    this.input.getMetrics().usage = result.usage;
+    await this.input.emitInternal(MessageEndEvent, { message: assistantMessage });
+    await this.input.markMessageEventCursor(assistantMessage.id);
+    this.input.log(ModelCallCompletedLog, {
+      model,
+      durationMs: Math.round(performance.now() - modelStart),
+      finishReason: result.finishReason,
+    }, source);
+    await this.input.emitInternal(ModelAfterEvent, {
+      model,
+      content: result.content,
+      usage: result.usage,
+      finishReason: result.finishReason,
+    });
+    this.input.throwIfTurnHandoffRequested();
   }
 
   private modelProviderSource(resolved: ResolvedModelProvider): HarnessEventSource {

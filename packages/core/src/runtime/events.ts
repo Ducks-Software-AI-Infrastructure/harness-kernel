@@ -1,5 +1,6 @@
 import { HarnessEvent } from "./types.js";
 import { s } from "../schema/index.js";
+import type { HarnessErrorCode, HarnessErrorShape, RunMetrics } from "./types.js";
 
 export class RunStartEvent extends HarnessEvent<{
   agentKey: string;
@@ -116,14 +117,44 @@ export class RunEndEvent extends HarnessEvent<{
   });
 }
 
+export class RunFailedEvent extends HarnessEvent<{
+  error: HarnessErrorShape;
+  metrics: RunMetrics;
+  finalAnswer?: string;
+}> {
+  static override type = "run:failed";
+  static override schema = s.object({
+    error: s.unknown(),
+    metrics: s.unknown(),
+    finalAnswer: s.string().optional(),
+  });
+}
+
+export class RunAbortedEvent extends HarnessEvent<{
+  error: HarnessErrorShape;
+  metrics: RunMetrics;
+  finalAnswer?: string;
+}> {
+  static override type = "run:aborted";
+  static override schema = s.object({
+    error: s.unknown(),
+    metrics: s.unknown(),
+    finalAnswer: s.string().optional(),
+  });
+}
+
 export class ErrorEvent extends HarnessEvent<{
+  error: HarnessErrorShape;
   message: string;
+  code?: HarnessErrorCode;
   recoverable?: boolean;
   details?: unknown;
 }> {
   static override type = "error";
   static override schema = s.object({
+    error: s.unknown(),
     message: s.string(),
+    code: s.string().optional(),
     recoverable: s.boolean().optional(),
     details: s.unknown().optional(),
   });
@@ -255,6 +286,8 @@ export const runtimeEventClasses = [
   ToolEndEvent,
   TurnEndEvent,
   RunEndEvent,
+  RunFailedEvent,
+  RunAbortedEvent,
   ErrorEvent,
   MessageStartEvent,
   MessageDeltaEvent,

@@ -14,4 +14,4 @@ description: "Generated API reference for HarnessLogLevel."
 type HarnessLogLevel = "debug" | "info" | "warn" | "error";
 ```
 
-Defined in: [packages/core/src/logging/types.ts:1](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L1)
+Defined in: [packages/core/src/logging/types.ts:7](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L7)

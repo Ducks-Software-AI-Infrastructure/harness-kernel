@@ -17,6 +17,7 @@ export type {
   AgentStateReader,
   AgentStateSession,
   AgentToolResult,
+  HarnessErrorShape,
   AgentToolSession,
   ContextEntry,
   ContextEntryFilter,
@@ -40,6 +41,10 @@ export type {
   ToolErrorCode,
   ToolErrorPayload,
   ToolInvalidField,
+} from "../../logging/tool-errors.js";
+export {
+  createToolErrorPayload,
+  createToolErrorResult,
 } from "../../logging/tool-errors.js";
 export {
   ContextConsume,

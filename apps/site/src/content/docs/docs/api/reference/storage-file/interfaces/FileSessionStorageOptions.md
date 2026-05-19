@@ -10,11 +10,11 @@ description: "Generated API reference for FileSessionStorageOptions."
 
 # Interface: FileSessionStorageOptions
 
-Defined in: [packages/storage-file/src/index.ts:205](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L205)
+Defined in: [packages/storage-file/src/index.ts:201](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L201)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-rootdir"></a> `rootDir?` | `string` | [packages/storage-file/src/index.ts:206](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L206) |
-| <a id="property-sessionsdir"></a> `sessionsDir?` | `string` | [packages/storage-file/src/index.ts:207](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L207) |
+| <a id="property-rootdir"></a> `rootDir?` | `string` | [packages/storage-file/src/index.ts:202](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L202) |
+| <a id="property-sessionsdir"></a> `sessionsDir?` | `string` | [packages/storage-file/src/index.ts:203](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/storage-file/src/index.ts#L203) |

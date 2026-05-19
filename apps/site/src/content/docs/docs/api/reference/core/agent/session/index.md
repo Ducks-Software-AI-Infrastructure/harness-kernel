@@ -150,9 +150,27 @@ Re-exports [ContextScopes](../../enumerations/ContextScopes.md)
 
 ***
 
+### createToolErrorPayload
+
+Re-exports [createToolErrorPayload](../../functions/createToolErrorPayload.md)
+
+***
+
+### createToolErrorResult
+
+Re-exports [createToolErrorResult](../../functions/createToolErrorResult.md)
+
+***
+
 ### EventCursor
 
 Re-exports [EventCursor](../../interfaces/EventCursor.md)
+
+***
+
+### HarnessErrorShape
+
+Re-exports [HarnessErrorShape](../../interfaces/HarnessErrorShape.md)
 
 ***
 

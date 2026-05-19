@@ -14,4 +14,4 @@ description: "Generated API reference for HarnessLoggingLevel."
 type HarnessLoggingLevel = "silent" | HarnessLogLevel;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:2](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L2)
+Defined in: [packages/core/src/logging/types.ts:8](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L8)
