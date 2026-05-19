@@ -1,5 +1,5 @@
 import { eventType } from "../runtime/constructs.js";
-import { RunEndEvent, ToolEndEvent } from "../runtime/events.js";
+import { RunAbortedEvent, RunEndEvent, RunFailedEvent, ToolEndEvent } from "../runtime/events.js";
 import type { HarnessEventClass, HarnessEventRecord } from "../runtime/types.js";
 
 export type PendingSendTriggerResult = "none" | "handoff" | "cleared";
@@ -25,14 +25,18 @@ export class SessionQueue {
 
     if (record.type === targetType) {
       this.pendingSendTriggers.shift();
-      return record.type === RunEndEvent.type ? "cleared" : "handoff";
+      return this.isTerminalRunEvent(record.type) ? "cleared" : "handoff";
     }
 
-    if (record.type === RunEndEvent.type) {
+    if (this.isTerminalRunEvent(record.type)) {
       this.pendingSendTriggers.shift();
       return "cleared";
     }
 
     return "none";
+  }
+
+  private isTerminalRunEvent(type: string): boolean {
+    return type === RunEndEvent.type || type === RunFailedEvent.type || type === RunAbortedEvent.type;
   }
 }

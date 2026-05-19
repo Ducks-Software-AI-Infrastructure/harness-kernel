@@ -2,6 +2,7 @@ export type { JsonObject } from "./json.js";
 export * from "./events.js";
 export * from "./events-summary.js";
 export * from "./messages.js";
+export * from "./errors.js";
 export * from "./roles.js";
 export * from "./tools.js";
 export * from "./context.js";

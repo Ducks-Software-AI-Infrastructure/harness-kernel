@@ -10,15 +10,15 @@ description: "Generated API reference for ContextRegistrationOptions."
 
 # Interface: ContextRegistrationOptions
 
-Defined in: [packages/core/src/runtime/types/context.ts:52](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L52)
+Defined in: [packages/core/src/runtime/types/context.ts:53](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L53)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-consume"></a> `consume?` | [`ContextConsume`](../enumerations/ContextConsume.md) | [packages/core/src/runtime/types/context.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L55) |
-| <a id="property-id"></a> `id?` | `string` | [packages/core/src/runtime/types/context.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L56) |
-| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L58) |
-| <a id="property-on"></a> `on?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [packages/core/src/runtime/types/context.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L54) |
-| <a id="property-replace"></a> `replace?` | `boolean` | [packages/core/src/runtime/types/context.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L57) |
-| <a id="property-scope"></a> `scope?` | [`ContextScopes`](../enumerations/ContextScopes.md) | [packages/core/src/runtime/types/context.ts:53](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L53) |
+| <a id="property-consume"></a> `consume?` | [`ContextConsume`](../enumerations/ContextConsume.md) | [packages/core/src/runtime/types/context.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L56) |
+| <a id="property-id"></a> `id?` | `string` | [packages/core/src/runtime/types/context.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L57) |
+| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:59](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L59) |
+| <a id="property-on"></a> `on?` | [`HarnessEventClass`](../type-aliases/HarnessEventClass.md) | [packages/core/src/runtime/types/context.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L55) |
+| <a id="property-replace"></a> `replace?` | `boolean` | [packages/core/src/runtime/types/context.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L58) |
+| <a id="property-scope"></a> `scope?` | [`ContextScopes`](../enumerations/ContextScopes.md) | [packages/core/src/runtime/types/context.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L54) |

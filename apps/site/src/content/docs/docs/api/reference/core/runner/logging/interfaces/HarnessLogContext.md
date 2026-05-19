@@ -10,20 +10,20 @@ description: "Generated API reference for HarnessLogContext."
 
 # Interface: HarnessLogContext
 
-Defined in: [packages/core/src/logging/types.ts:96](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L96)
+Defined in: [packages/core/src/logging/types.ts:106](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L106)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-branchid"></a> `branchId?` | `string` | [packages/core/src/logging/types.ts:101](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L101) |
-| <a id="property-causationid"></a> `causationId?` | `string` | [packages/core/src/logging/types.ts:104](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L104) |
-| <a id="property-correlationid"></a> `correlationId?` | `string` | [packages/core/src/logging/types.ts:103](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L103) |
-| <a id="property-durationms"></a> `durationMs?` | `number` | [packages/core/src/logging/types.ts:107](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L107) |
-| <a id="property-modeid"></a> `modeId?` | `string` | [packages/core/src/logging/types.ts:100](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L100) |
-| <a id="property-parentspanid"></a> `parentSpanId?` | `string` | [packages/core/src/logging/types.ts:106](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L106) |
-| <a id="property-runid"></a> `runId?` | `string` | [packages/core/src/logging/types.ts:98](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L98) |
-| <a id="property-sessionid"></a> `sessionId?` | `string` | [packages/core/src/logging/types.ts:97](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L97) |
-| <a id="property-source"></a> `source?` | [`HarnessLogSource`](HarnessLogSource.md) | [packages/core/src/logging/types.ts:102](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L102) |
-| <a id="property-spanid"></a> `spanId?` | `string` | [packages/core/src/logging/types.ts:105](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L105) |
-| <a id="property-turnid"></a> `turnId?` | `string` | [packages/core/src/logging/types.ts:99](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L99) |
+| <a id="property-branchid"></a> `branchId?` | `string` | [packages/core/src/logging/types.ts:111](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L111) |
+| <a id="property-causationid"></a> `causationId?` | `string` | [packages/core/src/logging/types.ts:114](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L114) |
+| <a id="property-correlationid"></a> `correlationId?` | `string` | [packages/core/src/logging/types.ts:113](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L113) |
+| <a id="property-durationms"></a> `durationMs?` | `number` | [packages/core/src/logging/types.ts:117](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L117) |
+| <a id="property-modeid"></a> `modeId?` | `string` | [packages/core/src/logging/types.ts:110](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L110) |
+| <a id="property-parentspanid"></a> `parentSpanId?` | `string` | [packages/core/src/logging/types.ts:116](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L116) |
+| <a id="property-runid"></a> `runId?` | `string` | [packages/core/src/logging/types.ts:108](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L108) |
+| <a id="property-sessionid"></a> `sessionId?` | `string` | [packages/core/src/logging/types.ts:107](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L107) |
+| <a id="property-source"></a> `source?` | [`HarnessLogSource`](HarnessLogSource.md) | [packages/core/src/logging/types.ts:112](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L112) |
+| <a id="property-spanid"></a> `spanId?` | `string` | [packages/core/src/logging/types.ts:115](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L115) |
+| <a id="property-turnid"></a> `turnId?` | `string` | [packages/core/src/logging/types.ts:109](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L109) |

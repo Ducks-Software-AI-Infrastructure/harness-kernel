@@ -10,7 +10,7 @@ description: "Generated API reference for ToolStartEvent."
 
 # Class: ToolStartEvent
 
-Defined in: [packages/core/src/runtime/events.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L69)
+Defined in: [packages/core/src/runtime/events.ts:70](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L70)
 
 ## Extends
 
@@ -49,8 +49,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `args`: `unknown`; `id`: `string`; `name`: `string`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `args`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); `id`: [`StringSchema`](../schema/classes/StringSchema.md); `name`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L75) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"tool:start"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L74) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `args`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); `id`: [`StringSchema`](../schema/classes/StringSchema.md); `name`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L76) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"tool:start"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L75) |
 
 ## Accessors
 

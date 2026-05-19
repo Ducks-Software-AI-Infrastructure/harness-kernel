@@ -198,10 +198,6 @@ export class FileRunStore extends HarnessRunStore {
   }
 }
 
-class FileSessionRunStore extends FileRunStore {
-  saveMetrics(_metrics: RunMetrics): void {}
-}
-
 export interface FileSessionStorageOptions {
   rootDir?: string;
   sessionsDir?: string;
@@ -316,7 +312,7 @@ export class FileSessionStorage extends HarnessSessionStorage {
   }
 
   openRun(input: OpenRunStoreInput): HarnessRunStore {
-    return new FileSessionRunStore(this.runsDir(input.sessionId), input.runId);
+    return new FileRunStore(this.runsDir(input.sessionId), input.runId);
   }
 
   private get indexPath(): string {

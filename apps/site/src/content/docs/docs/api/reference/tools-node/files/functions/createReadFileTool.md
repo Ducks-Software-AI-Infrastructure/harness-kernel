@@ -14,7 +14,7 @@ description: "Generated API reference for CreateReadFileTool."
 function createReadFileTool(): ReadFileTool;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:230](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L230)
+Defined in: [packages/tools-node/src/files.ts:222](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L222)
 
 ## Returns
 

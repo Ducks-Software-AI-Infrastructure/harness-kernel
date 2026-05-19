@@ -12,6 +12,8 @@ import type {
   HarnessEventClass,
   HarnessEventQuery,
   HarnessEventRecord,
+  HarnessErrorPolicy,
+  HarnessErrorShape,
   HarnessSnapshotSession,
   HarnessTranscriptSession,
   HarnessModeSelector,
@@ -35,6 +37,7 @@ export interface HarnessAppConfig {
   sandbox?: HarnessSandbox;
   resources?: Record<string, unknown>;
   logging?: HarnessLoggingConfig;
+  errorPolicy?: HarnessErrorPolicy;
 }
 
 export interface HarnessUserInput {
@@ -85,13 +88,6 @@ export interface ToolApprovalHandle {
   deny(reason?: string): Promise<void>;
 }
 
-export interface HarnessErrorShape {
-  name?: string;
-  message: string;
-  stack?: string;
-  cause?: unknown;
-}
-
 export type HarnessStreamEvent =
   | { type: "run.started"; sessionId: string; runId: string; mode: string }
   | { type: "session.status"; status: HarnessSessionStatus }
@@ -105,6 +101,8 @@ export type HarnessStreamEvent =
   | { type: "mode.changed"; previousMode: string; mode: string }
   | { type: "event"; event: HarnessEventRecord }
   | { type: "run.completed"; result: SendResult }
+  | { type: "run.failed"; runId: string; error: HarnessErrorShape; metrics: RunMetrics }
+  | { type: "run.aborted"; runId: string; error: HarnessErrorShape; metrics: RunMetrics }
   | { type: "error"; error: HarnessErrorShape };
 
 export interface HarnessRunStream extends AsyncIterable<HarnessStreamEvent> {
@@ -220,6 +218,8 @@ export interface HarnessSessionStore {
 }
 
 export type {
+  HarnessErrorPolicy,
+  HarnessErrorShape,
   HarnessSessionSummary,
   SessionListQuery,
   SessionListResult,

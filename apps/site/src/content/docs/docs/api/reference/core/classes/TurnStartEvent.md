@@ -10,7 +10,7 @@ description: "Generated API reference for TurnStartEvent."
 
 # Class: TurnStartEvent
 
-Defined in: [packages/core/src/runtime/events.ts:19](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L19)
+Defined in: [packages/core/src/runtime/events.ts:20](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L20)
 
 ## Extends
 
@@ -48,8 +48,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `input`: `string`; `turnId`: `string`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `input`: [`StringSchema`](../schema/classes/StringSchema.md); `turnId`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:24](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L24) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"turn:start"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:23](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L23) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `input`: [`StringSchema`](../schema/classes/StringSchema.md); `turnId`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:25](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L25) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"turn:start"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:24](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L24) |
 
 ## Accessors
 

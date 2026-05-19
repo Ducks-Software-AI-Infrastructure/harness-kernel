@@ -10,29 +10,29 @@ description: "Generated API reference for HarnessSessionStatus."
 
 # Interface: HarnessSessionStatus
 
-Defined in: [packages/core/src/session/types.ts:133](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L133)
+Defined in: [packages/core/src/session/types.ts:131](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L131)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-activetool"></a> `activeTool?` | `object` | [packages/core/src/session/types.ts:145](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L145) |
-| `activeTool.id` | `string` | [packages/core/src/session/types.ts:145](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L145) |
-| `activeTool.name` | `string` | [packages/core/src/session/types.ts:145](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L145) |
-| <a id="property-agentkey"></a> `agentKey` | `string` | [packages/core/src/session/types.ts:135](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L135) |
-| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/session/types.ts:139](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L139) |
-| <a id="property-currentturnid"></a> `currentTurnId?` | `string` | [packages/core/src/session/types.ts:144](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L144) |
-| <a id="property-lastactiveat"></a> `lastActiveAt` | `string` | [packages/core/src/session/types.ts:140](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L140) |
-| <a id="property-lasterror"></a> `lastError?` | [`HarnessErrorShape`](HarnessErrorShape.md) | [packages/core/src/session/types.ts:147](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L147) |
-| <a id="property-lasteventat"></a> `lastEventAt?` | `string` | [packages/core/src/session/types.ts:146](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L146) |
-| <a id="property-metrics"></a> `metrics?` | [`RunMetrics`](RunMetrics.md) | [packages/core/src/session/types.ts:151](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L151) |
-| <a id="property-mode"></a> `mode` | `string` | [packages/core/src/session/types.ts:136](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L136) |
-| <a id="property-model"></a> `model` | `string` | [packages/core/src/session/types.ts:137](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L137) |
-| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/session/types.ts:150](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L150) |
-| <a id="property-pendingapprovalcount"></a> `pendingApprovalCount` | `number` | [packages/core/src/session/types.ts:148](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L148) |
-| <a id="property-phase"></a> `phase` | [`HarnessSessionPhase`](../enumerations/HarnessSessionPhase.md) | [packages/core/src/session/types.ts:142](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L142) |
-| <a id="property-provider"></a> `provider` | [`ModelProviderInfo`](ModelProviderInfo.md) \| `undefined` | [packages/core/src/session/types.ts:138](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L138) |
-| <a id="property-queuedinputcount"></a> `queuedInputCount` | `number` | [packages/core/src/session/types.ts:143](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L143) |
-| <a id="property-runid"></a> `runId?` | `string` | [packages/core/src/session/types.ts:149](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L149) |
-| <a id="property-running"></a> `running` | `boolean` | [packages/core/src/session/types.ts:141](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L141) |
-| <a id="property-sessionid"></a> `sessionId` | `string` | [packages/core/src/session/types.ts:134](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L134) |
+| <a id="property-activetool"></a> `activeTool?` | `object` | [packages/core/src/session/types.ts:143](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L143) |
+| `activeTool.id` | `string` | [packages/core/src/session/types.ts:143](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L143) |
+| `activeTool.name` | `string` | [packages/core/src/session/types.ts:143](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L143) |
+| <a id="property-agentkey"></a> `agentKey` | `string` | [packages/core/src/session/types.ts:133](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L133) |
+| <a id="property-createdat"></a> `createdAt` | `string` | [packages/core/src/session/types.ts:137](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L137) |
+| <a id="property-currentturnid"></a> `currentTurnId?` | `string` | [packages/core/src/session/types.ts:142](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L142) |
+| <a id="property-lastactiveat"></a> `lastActiveAt` | `string` | [packages/core/src/session/types.ts:138](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L138) |
+| <a id="property-lasterror"></a> `lastError?` | [`HarnessErrorShape`](HarnessErrorShape.md) | [packages/core/src/session/types.ts:145](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L145) |
+| <a id="property-lasteventat"></a> `lastEventAt?` | `string` | [packages/core/src/session/types.ts:144](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L144) |
+| <a id="property-metrics"></a> `metrics?` | [`RunMetrics`](RunMetrics.md) | [packages/core/src/session/types.ts:149](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L149) |
+| <a id="property-mode"></a> `mode` | `string` | [packages/core/src/session/types.ts:134](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L134) |
+| <a id="property-model"></a> `model` | `string` | [packages/core/src/session/types.ts:135](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L135) |
+| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/session/types.ts:148](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L148) |
+| <a id="property-pendingapprovalcount"></a> `pendingApprovalCount` | `number` | [packages/core/src/session/types.ts:146](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L146) |
+| <a id="property-phase"></a> `phase` | [`HarnessSessionPhase`](../enumerations/HarnessSessionPhase.md) | [packages/core/src/session/types.ts:140](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L140) |
+| <a id="property-provider"></a> `provider` | [`ModelProviderInfo`](ModelProviderInfo.md) \| `undefined` | [packages/core/src/session/types.ts:136](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L136) |
+| <a id="property-queuedinputcount"></a> `queuedInputCount` | `number` | [packages/core/src/session/types.ts:141](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L141) |
+| <a id="property-runid"></a> `runId?` | `string` | [packages/core/src/session/types.ts:147](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L147) |
+| <a id="property-running"></a> `running` | `boolean` | [packages/core/src/session/types.ts:139](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L139) |
+| <a id="property-sessionid"></a> `sessionId` | `string` | [packages/core/src/session/types.ts:132](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L132) |

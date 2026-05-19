@@ -10,12 +10,12 @@ description: "Generated API reference for ContextContributionInput."
 
 # Interface: ContextContributionInput
 
-Defined in: [packages/core/src/runtime/types/context.ts:93](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L93)
+Defined in: [packages/core/src/runtime/types/context.ts:94](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L94)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-content"></a> `content` | `unknown` | [packages/core/src/runtime/types/context.ts:95](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L95) |
-| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:96](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L96) |
-| <a id="property-role"></a> `role?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/runtime/types/context.ts:94](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L94) |
+| <a id="property-content"></a> `content` | `unknown` | [packages/core/src/runtime/types/context.ts:96](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L96) |
+| <a id="property-metadata"></a> `metadata?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/context.ts:97](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L97) |
+| <a id="property-role"></a> `role?` | [`HarnessRoleSelector`](../type-aliases/HarnessRoleSelector.md) | [packages/core/src/runtime/types/context.ts:95](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L95) |

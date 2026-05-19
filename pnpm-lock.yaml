@@ -181,19 +181,19 @@ importers:
   packages/create:
     devDependencies:
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
       '@harness-kernel/provider-openai':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../provider-openai
       '@harness-kernel/sandbox-local':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../sandbox-local
       '@harness-kernel/storage-file':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../storage-file
       '@harness-kernel/tools-node':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../tools-node
       dotenv:
         specifier: ^16.4.7
@@ -202,13 +202,13 @@ importers:
   packages/logging-file:
     dependencies:
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
 
   packages/provider-ai-sdk:
     dependencies:
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
       ai:
         specifier: ^6.0.180
@@ -224,10 +224,10 @@ importers:
         specifier: ^3.0.63
         version: 3.0.63(zod@4.4.3)
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
       '@harness-kernel/provider-ai-sdk':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../provider-ai-sdk
     devDependencies:
       zod:
@@ -237,25 +237,25 @@ importers:
   packages/sandbox-local:
     dependencies:
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
 
   packages/storage-file:
     dependencies:
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
 
   packages/storage-postgres:
     dependencies:
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
 
   packages/tools-node:
     dependencies:
       '@harness-kernel/core':
-        specifier: 0.2.1
+        specifier: 0.3.0
         version: link:../core
 
 packages:

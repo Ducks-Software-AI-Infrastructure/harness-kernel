@@ -16,7 +16,7 @@ type ContextProviderReference<TOptions> =
 | ContextProviderBinding<TOptions>;
 ```
 
-Defined in: [packages/core/src/runtime/types/context.ts:21](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L21)
+Defined in: [packages/core/src/runtime/types/context.ts:22](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L22)
 
 ## Type Parameters
 

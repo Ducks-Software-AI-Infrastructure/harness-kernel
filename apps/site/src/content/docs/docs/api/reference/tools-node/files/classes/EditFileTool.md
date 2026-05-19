@@ -10,7 +10,7 @@ description: "Generated API reference for EditFileTool."
 
 # Class: EditFileTool
 
-Defined in: [packages/tools-node/src/files.ts:143](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L143)
+Defined in: [packages/tools-node/src/files.ts:135](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L135)
 
 ## Extends
 
@@ -37,13 +37,13 @@ new EditFileTool(): EditFileTool;
 | Property | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `number` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`approvalTimeoutMs`](../../../core/classes/HarnessTool.md#property-approvaltimeoutms) | [packages/core/src/runtime/types/tools.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L55) |
-| <a id="property-description"></a> `description` | `string` | `"Replace exact text in a UTF-8 file inside the harness workDir."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:145](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L145) |
+| <a id="property-description"></a> `description` | `string` | `"Replace exact text in a UTF-8 file inside the harness workDir."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:137](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L137) |
 | <a id="property-label"></a> `label?` | `string` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`label`](../../../core/classes/HarnessTool.md#property-label) | [packages/core/src/runtime/types/tools.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L48) |
-| <a id="property-name"></a> `name` | `string` | `"edit_file"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:144](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L144) |
-| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:149](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L149) |
-| <a id="property-requiresapproval"></a> `requiresApproval` | `boolean` | `true` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`requiresApproval`](../../../core/classes/HarnessTool.md#property-requiresapproval) | - | [packages/tools-node/src/files.ts:148](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L148) |
-| <a id="property-risk"></a> `risk` | `"write"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:147](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L147) |
-| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `expectedReplacements`: [`OptionalSchema`](../../../core/schema/classes/OptionalSchema.md)\<`unknown`, `number` \| `undefined`\>; `path`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); `replace`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); `search`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); \}\> | `editFileSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:146](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L146) |
+| <a id="property-name"></a> `name` | `string` | `"edit_file"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:136](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L136) |
+| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:141](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L141) |
+| <a id="property-requiresapproval"></a> `requiresApproval` | `boolean` | `true` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`requiresApproval`](../../../core/classes/HarnessTool.md#property-requiresapproval) | - | [packages/tools-node/src/files.ts:140](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L140) |
+| <a id="property-risk"></a> `risk` | `"write"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:139](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L139) |
+| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `expectedReplacements`: [`OptionalSchema`](../../../core/schema/classes/OptionalSchema.md)\<`unknown`, `number` \| `undefined`\>; `path`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); `replace`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); `search`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); \}\> | `editFileSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:138](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L138) |
 
 ## Accessors
 
@@ -93,7 +93,7 @@ Defined in: [packages/core/src/runtime/types/tools.ts:57](https://github.com/Duc
 execute(args, session): Promise<AgentToolResult<unknown>>;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:151](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L151)
+Defined in: [packages/tools-node/src/files.ts:143](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L143)
 
 #### Parameters
 

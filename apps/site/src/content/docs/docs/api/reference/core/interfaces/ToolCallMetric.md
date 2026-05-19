@@ -10,13 +10,13 @@ description: "Generated API reference for ToolCallMetric."
 
 # Interface: ToolCallMetric
 
-Defined in: [packages/core/src/runtime/types/metrics.ts:1](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L1)
+Defined in: [packages/core/src/runtime/types/metrics.ts:3](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L3)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-count"></a> `count` | `number` | [packages/core/src/runtime/types/metrics.ts:3](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L3) |
-| <a id="property-errorcount"></a> `errorCount` | `number` | [packages/core/src/runtime/types/metrics.ts:4](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L4) |
-| <a id="property-name"></a> `name` | `string` | [packages/core/src/runtime/types/metrics.ts:2](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L2) |
-| <a id="property-totaldurationms"></a> `totalDurationMs` | `number` | [packages/core/src/runtime/types/metrics.ts:5](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L5) |
+| <a id="property-count"></a> `count` | `number` | [packages/core/src/runtime/types/metrics.ts:5](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L5) |
+| <a id="property-errorcount"></a> `errorCount` | `number` | [packages/core/src/runtime/types/metrics.ts:6](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L6) |
+| <a id="property-name"></a> `name` | `string` | [packages/core/src/runtime/types/metrics.ts:4](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L4) |
+| <a id="property-totaldurationms"></a> `totalDurationMs` | `number` | [packages/core/src/runtime/types/metrics.ts:7](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/metrics.ts#L7) |

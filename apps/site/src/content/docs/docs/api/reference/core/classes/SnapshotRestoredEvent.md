@@ -10,7 +10,7 @@ description: "Generated API reference for SnapshotRestoredEvent."
 
 # Class: SnapshotRestoredEvent
 
-Defined in: [packages/core/src/runtime/events.ts:219](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L219)
+Defined in: [packages/core/src/runtime/events.ts:250](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L250)
 
 ## Extends
 
@@ -47,8 +47,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `snapshot`: `unknown`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `snapshot`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:223](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L223) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"snapshot:restored"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:222](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L222) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `snapshot`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:254](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L254) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"snapshot:restored"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:253](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L253) |
 
 ## Accessors
 

@@ -14,7 +14,7 @@ description: "Generated API reference for CreateWriteFileTool."
 function createWriteFileTool(): WriteFileTool;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:234](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L234)
+Defined in: [packages/tools-node/src/files.ts:226](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L226)
 
 ## Returns
 

@@ -10,11 +10,11 @@ description: "Generated API reference for WaitForEventOptions."
 
 # Interface: WaitForEventOptions
 
-Defined in: [packages/core/src/session/types.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L55)
+Defined in: [packages/core/src/session/types.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L58)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-signal"></a> `signal?` | `AbortSignal` | [packages/core/src/session/types.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L56) |
-| <a id="property-timeoutms"></a> `timeoutMs?` | `number` | [packages/core/src/session/types.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L57) |
+| <a id="property-signal"></a> `signal?` | `AbortSignal` | [packages/core/src/session/types.ts:59](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L59) |
+| <a id="property-timeoutms"></a> `timeoutMs?` | `number` | [packages/core/src/session/types.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L60) |

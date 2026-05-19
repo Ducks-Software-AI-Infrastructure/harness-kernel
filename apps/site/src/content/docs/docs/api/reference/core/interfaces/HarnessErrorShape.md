@@ -10,13 +10,20 @@ description: "Generated API reference for HarnessErrorShape."
 
 # Interface: HarnessErrorShape
 
-Defined in: [packages/core/src/session/types.ts:88](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L88)
+Defined in: packages/core/src/runtime/types/errors.ts:29
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-cause"></a> `cause?` | `unknown` | [packages/core/src/session/types.ts:92](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L92) |
-| <a id="property-message"></a> `message` | `string` | [packages/core/src/session/types.ts:90](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L90) |
-| <a id="property-name"></a> `name?` | `string` | [packages/core/src/session/types.ts:89](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L89) |
-| <a id="property-stack"></a> `stack?` | `string` | [packages/core/src/session/types.ts:91](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L91) |
+| <a id="property-category"></a> `category` | [`HarnessErrorCategory`](../type-aliases/HarnessErrorCategory.md) | packages/core/src/runtime/types/errors.ts:33 |
+| <a id="property-cause"></a> `cause?` | `unknown` | packages/core/src/runtime/types/errors.ts:39 |
+| <a id="property-code"></a> `code` | [`HarnessErrorCode`](../type-aliases/HarnessErrorCode.md) | packages/core/src/runtime/types/errors.ts:30 |
+| <a id="property-details"></a> `details?` | `unknown` | packages/core/src/runtime/types/errors.ts:40 |
+| <a id="property-message"></a> `message` | `string` | packages/core/src/runtime/types/errors.ts:31 |
+| <a id="property-name"></a> `name?` | `string` | packages/core/src/runtime/types/errors.ts:37 |
+| <a id="property-publicmessage"></a> `publicMessage?` | `string` | packages/core/src/runtime/types/errors.ts:32 |
+| <a id="property-recoverable"></a> `recoverable` | `boolean` | packages/core/src/runtime/types/errors.ts:35 |
+| <a id="property-severity"></a> `severity` | [`HarnessErrorSeverity`](../type-aliases/HarnessErrorSeverity.md) | packages/core/src/runtime/types/errors.ts:34 |
+| <a id="property-source"></a> `source?` | [`HarnessEventSource`](HarnessEventSource.md) | packages/core/src/runtime/types/errors.ts:36 |
+| <a id="property-stack"></a> `stack?` | `string` | packages/core/src/runtime/types/errors.ts:38 |

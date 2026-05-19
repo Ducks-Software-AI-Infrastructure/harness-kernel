@@ -25,4 +25,4 @@ type HarnessLogCategory =
   | "agent";
 ```
 
-Defined in: [packages/core/src/logging/types.ts:4](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L4)
+Defined in: [packages/core/src/logging/types.ts:10](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L10)

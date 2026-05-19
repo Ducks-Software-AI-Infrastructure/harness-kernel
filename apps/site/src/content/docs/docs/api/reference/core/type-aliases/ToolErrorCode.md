@@ -11,11 +11,11 @@ description: "Generated API reference for ToolErrorCode."
 # Type Alias: ToolErrorCode
 
 ```ts
-type ToolErrorCode =
+type ToolErrorCode = Extract<HarnessErrorCode,
   | "tool.args.invalid_schema"
   | "tool.approval.denied"
   | "sandbox.exec.failed"
-  | "tool.failed";
+| "tool.failed">;
 ```
 
-Defined in: [packages/core/src/logging/tool-errors.ts:1](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L1)
+Defined in: [packages/core/src/logging/tool-errors.ts:4](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L4)

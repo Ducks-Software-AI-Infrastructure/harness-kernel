@@ -10,14 +10,14 @@ description: "Generated API reference for HarnessLogSource."
 
 # Interface: HarnessLogSource
 
-Defined in: [packages/core/src/logging/types.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L27)
+Defined in: [packages/core/src/logging/types.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L33)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-id"></a> `id?` | `string` | [packages/core/src/logging/types.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L29) |
-| <a id="property-kind"></a> `kind` | [`HarnessLogSourceKind`](../type-aliases/HarnessLogSourceKind.md) | [packages/core/src/logging/types.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L28) |
-| <a id="property-label"></a> `label?` | `string` | [packages/core/src/logging/types.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L32) |
-| <a id="property-name"></a> `name?` | `string` | [packages/core/src/logging/types.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L31) |
-| <a id="property-type"></a> `type?` | `string` | [packages/core/src/logging/types.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L30) |
+| <a id="property-id"></a> `id?` | `string` | [packages/core/src/logging/types.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L35) |
+| <a id="property-kind"></a> `kind` | [`HarnessLogSourceKind`](../type-aliases/HarnessLogSourceKind.md) | [packages/core/src/logging/types.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L34) |
+| <a id="property-label"></a> `label?` | `string` | [packages/core/src/logging/types.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L38) |
+| <a id="property-name"></a> `name?` | `string` | [packages/core/src/logging/types.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L37) |
+| <a id="property-type"></a> `type?` | `string` | [packages/core/src/logging/types.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L36) |

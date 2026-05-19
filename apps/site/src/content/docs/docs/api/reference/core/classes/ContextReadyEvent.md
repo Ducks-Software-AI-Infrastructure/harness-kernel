@@ -10,7 +10,7 @@ description: "Generated API reference for ContextReadyEvent."
 
 # Class: ContextReadyEvent
 
-Defined in: [packages/core/src/runtime/events.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L30)
+Defined in: [packages/core/src/runtime/events.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L31)
 
 ## Extends
 
@@ -49,8 +49,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `contributionCount`: `number`; `providerCount`: `number`; `snapshotId`: `string`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `contributionCount`: [`NumberSchema`](../schema/classes/NumberSchema.md); `providerCount`: [`NumberSchema`](../schema/classes/NumberSchema.md); `snapshotId`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L36) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"context:ready"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L35) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `contributionCount`: [`NumberSchema`](../schema/classes/NumberSchema.md); `providerCount`: [`NumberSchema`](../schema/classes/NumberSchema.md); `snapshotId`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L37) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"context:ready"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L36) |
 
 ## Accessors
 

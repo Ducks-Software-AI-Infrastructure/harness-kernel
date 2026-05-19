@@ -1,4 +1,6 @@
 import type { HarnessRedactionConfig } from "./types.js";
+import { isHarnessErrorShape } from "../runtime/errors.js";
+import type { HarnessErrorShape } from "../runtime/types/errors.js";
 
 export const defaultRedactKeys = [
   "password",
@@ -22,7 +24,26 @@ export function shouldRedactKey(key: string, keys: string[]): boolean {
   });
 }
 
-export function redactError(error: Error): { name?: string; message: string; stack?: string } {
+export function redactError(error: Error | HarnessErrorShape): {
+  code?: HarnessErrorShape["code"];
+  category?: HarnessErrorShape["category"];
+  severity?: HarnessErrorShape["severity"];
+  recoverable?: boolean;
+  name?: string;
+  message: string;
+  stack?: string;
+} {
+  if (isHarnessErrorShape(error)) {
+    return {
+      code: error.code,
+      category: error.category,
+      severity: error.severity,
+      recoverable: error.recoverable,
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+    };
+  }
   return {
     name: error.name,
     message: error.message,
@@ -38,6 +59,17 @@ export function redactValue(
   const keys = config.keys ?? defaultRedactKeys;
   const replacement = config.replacement ?? "[redacted]";
 
+  if (isHarnessErrorShape(value)) {
+    if (seen.has(value)) return "[circular]";
+    seen.add(value);
+    return {
+      ...redactError(value),
+      publicMessage: value.publicMessage,
+      source: value.source,
+      details: redactValue(value.details, config, seen),
+      cause: redactValue(value.cause, config, seen),
+    };
+  }
   if (value instanceof Error) return redactError(value);
   if (value === null || value === undefined) return value;
   if (typeof value !== "object") return value;
@@ -61,7 +93,14 @@ export function summarizeValue(value: unknown, config: HarnessRedactionConfig = 
 
   const visit = (item: unknown, key?: string): unknown => {
     if (key && shouldRedactKey(key, keys)) return replacement;
-    if (item instanceof Error) return { name: item.name, message: item.message };
+    if (item instanceof Error || isHarnessErrorShape(item)) {
+      const error = redactError(item);
+      return {
+        ...(error.code ? { code: error.code } : {}),
+        name: error.name,
+        message: error.message,
+      };
+    }
     if (item === null) return "null";
     if (item === undefined) return "undefined";
     if (typeof item === "string") return `string(${item.length})`;

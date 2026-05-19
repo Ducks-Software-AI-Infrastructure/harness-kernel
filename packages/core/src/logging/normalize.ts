@@ -6,6 +6,8 @@ import type {
   HarnessRedactionConfig,
 } from "./types.js";
 import { redactError, redactValue } from "./redaction.js";
+import { isHarnessErrorShape } from "../runtime/errors.js";
+import type { HarnessErrorShape } from "../runtime/types/errors.js";
 
 function nowIso(): string {
   return new Date().toISOString();
@@ -16,6 +18,15 @@ function plainObject(value: unknown): Record<string, unknown> | undefined {
   return value as Record<string, unknown>;
 }
 
+function logErrorFromFields(value: unknown): Error | HarnessErrorShape | undefined {
+  if (value instanceof Error || isHarnessErrorShape(value)) return value;
+  if (value && typeof value === "object" && "error" in value) {
+    const candidate = (value as { error?: unknown }).error;
+    if (candidate instanceof Error || isHarnessErrorShape(candidate)) return candidate;
+  }
+  return undefined;
+}
+
 export function normalizeHarnessLog<TFields>(
   logClass: HarnessLogClass<TFields>,
   fields: TFields,
@@ -24,11 +35,7 @@ export function normalizeHarnessLog<TFields>(
 ): HarnessLogRecord {
   const log = new logClass();
   const originalFields = log.redact ? log.redact(fields) : fields;
-  const originalError = originalFields instanceof Error
-    ? originalFields
-    : originalFields && typeof originalFields === "object" && "error" in originalFields && (originalFields as { error?: unknown }).error instanceof Error
-      ? (originalFields as { error: Error }).error
-      : undefined;
+  const originalError = logErrorFromFields(originalFields);
   const redactedFields = redactValue(originalFields, redaction) as TFields;
   const fieldsObject = plainObject(redactedFields);
   return {

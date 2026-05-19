@@ -131,6 +131,12 @@ try {
   assert.equal(result.answer, "tool.approval.denied");
   assert.deepEqual(deniedTool.calls, []);
   assert.equal(approvalEvents.length, 1);
+  assert.equal(result.metrics.errors.at(-1)?.code, "tool.approval.denied");
+  assert.equal(result.events.some((event) =>
+    event.type === "error"
+    && (event.payload as { error?: { code?: string; recoverable?: boolean } }).error?.code === "tool.approval.denied"
+    && (event.payload as { error?: { code?: string; recoverable?: boolean } }).error?.recoverable === true
+  ), true);
   assert.deepEqual(approvalEvents[0]?.payload, {
     id: "call-denied",
     name: "approval_tool",
@@ -163,6 +169,12 @@ try {
   const result = await timeoutSession.send("timeout tool");
   assert.equal(result.answer, "timed-out");
   assert.equal(timeoutTool.calls.length, 0);
+  assert.equal(result.metrics.errors.at(-1)?.code, "tool.approval.denied");
+  assert.equal(result.events.some((event) =>
+    event.type === "error"
+    && (event.payload as { error?: { code?: string; recoverable?: boolean } }).error?.code === "tool.approval.denied"
+    && (event.payload as { error?: { code?: string; recoverable?: boolean } }).error?.recoverable === true
+  ), true);
   assert.equal(Date.now() - startedAt < 1_000, true);
 } finally {
   await timeoutSession.close();

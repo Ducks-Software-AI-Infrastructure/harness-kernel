@@ -20,11 +20,18 @@ const store = await createHarnessSessionStore({
   logging: {
     sinks: [new ConsoleLogSink({ level: "info" })],
   },
+  errorPolicy: {
+    retry: { model: { attempts: 2, backoffMs: 500 } },
+  },
 });
 
 try {
   const result = await store.send("support-example", message);
   console.log(result.answer);
+} catch (error) {
+  const status = store.get("support-example")?.getStatus();
+  if (status?.lastError) console.error(`[error:${status.lastError.code}] ${status.lastError.message}`);
+  throw error;
 } finally {
   await store.close();
 }

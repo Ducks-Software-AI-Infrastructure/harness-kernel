@@ -72,7 +72,6 @@ export class RunStorageCoordinator {
   }
 
   async saveMetrics(metrics: RunMetrics): Promise<void> {
-    if (this.input.storage instanceof HarnessSessionStorage) return;
     await this.write("save_metrics", (store) => store.saveMetrics(metrics));
   }
 

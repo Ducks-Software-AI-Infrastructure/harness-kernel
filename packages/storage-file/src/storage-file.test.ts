@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, mkdtempSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { FileRunStorage, FileSessionStorage } from "./index.js";
@@ -146,7 +146,7 @@ try {
   sessionRun.saveSnapshot(snapshot);
   sessionRun.saveContextSnapshot(contextSnapshot);
   sessionRun.saveMetrics(metrics);
-  assert.equal(existsSync(join(sessionRun.runDir!, "metrics.json")), false);
+  assert.equal(existsSync(join(sessionRun.runDir!, "metrics.json")), true);
 
   sessionStorage.createRun({
     sessionId: "session-a",
@@ -196,8 +196,30 @@ try {
   for (const sessionId of ["persist-a", "persist-b", "persist-c"]) {
     const result = await firstStore.send(sessionId, `hello ${sessionId}`);
     firstRuns.set(sessionId, result.runId);
+    assert.equal(existsSync(join(root, "session-kernel-reopen", "sessions", sessionId, "runs", result.runId, "metrics.json")), true);
   }
   await firstStore.close();
+
+  const failureStorage = new FileSessionStorage({ rootDir: join(root, "session-kernel-failure") });
+  const failingStore = await createHarnessSessionStore({
+    agent: { definition: fileAgent },
+    providers: [{
+      namespace: "fake",
+      async run() {
+        throw new Error("provider failed");
+      },
+    }],
+    defaultModel: "fake/model",
+    storage: failureStorage,
+  });
+  await assert.rejects(failingStore.send("persist-failure", "fail"), /provider failed/);
+  await failingStore.close();
+  const failedRun = failureStorage.getLatestRun("persist-failure");
+  assert.ok(failedRun);
+  const failedMetricsPath = join(root, "session-kernel-failure", "sessions", "persist-failure", "runs", failedRun.runId, "metrics.json");
+  assert.equal(existsSync(failedMetricsPath), true);
+  const failedMetrics = JSON.parse(readFileSync(failedMetricsPath, "utf8")) as RunMetrics;
+  assert.equal(failedMetrics.errors.at(-1)?.code, "model.failed");
 
   const secondStore = await createFileStore();
   const pageOne = await secondStore.list({ limit: 2 });

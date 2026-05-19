@@ -10,7 +10,7 @@ description: "Generated API reference for ReadFileTool."
 
 # Class: ReadFileTool
 
-Defined in: [packages/tools-node/src/files.ts:94](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L94)
+Defined in: [packages/tools-node/src/files.ts:86](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L86)
 
 ## Extends
 
@@ -37,13 +37,13 @@ new ReadFileTool(): ReadFileTool;
 | Property | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `number` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`approvalTimeoutMs`](../../../core/classes/HarnessTool.md#property-approvaltimeoutms) | [packages/core/src/runtime/types/tools.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L55) |
-| <a id="property-description"></a> `description` | `string` | `"Read a UTF-8 text file inside the harness workDir."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:96](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L96) |
+| <a id="property-description"></a> `description` | `string` | `"Read a UTF-8 text file inside the harness workDir."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:88](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L88) |
 | <a id="property-label"></a> `label?` | `string` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`label`](../../../core/classes/HarnessTool.md#property-label) | [packages/core/src/runtime/types/tools.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L48) |
-| <a id="property-name"></a> `name` | `string` | `"read_file"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:95](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L95) |
-| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:99](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L99) |
+| <a id="property-name"></a> `name` | `string` | `"read_file"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:87](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L87) |
+| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:91](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L91) |
 | <a id="property-requiresapproval"></a> `requiresApproval?` | \| `boolean` \| [`ToolApprovalResolver`](../../../core/type-aliases/ToolApprovalResolver.md) | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`requiresApproval`](../../../core/classes/HarnessTool.md#property-requiresapproval) | [packages/core/src/runtime/types/tools.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L54) |
-| <a id="property-risk"></a> `risk` | `"read"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:98](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L98) |
-| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `maxBytes`: [`OptionalSchema`](../../../core/schema/classes/OptionalSchema.md)\<`unknown`, `number` \| `undefined`\>; `path`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); \}\> | `readFileSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:97](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L97) |
+| <a id="property-risk"></a> `risk` | `"read"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:90](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L90) |
+| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `maxBytes`: [`OptionalSchema`](../../../core/schema/classes/OptionalSchema.md)\<`unknown`, `number` \| `undefined`\>; `path`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); \}\> | `readFileSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:89](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L89) |
 
 ## Accessors
 
@@ -93,7 +93,7 @@ Defined in: [packages/core/src/runtime/types/tools.ts:57](https://github.com/Duc
 execute(args, session): Promise<AgentToolResult<unknown>>;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:101](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L101)
+Defined in: [packages/tools-node/src/files.ts:93](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L93)
 
 #### Parameters
 

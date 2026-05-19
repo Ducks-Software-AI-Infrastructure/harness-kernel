@@ -30,6 +30,18 @@ Re-exports [AgentToolSource](../../type-aliases/AgentToolSource.md)
 
 ***
 
+### createToolErrorPayload
+
+Re-exports [createToolErrorPayload](../../functions/createToolErrorPayload.md)
+
+***
+
+### createToolErrorResult
+
+Re-exports [createToolErrorResult](../../functions/createToolErrorResult.md)
+
+***
+
 ### HarnessTool
 
 Re-exports [HarnessTool](../../classes/HarnessTool.md)
@@ -57,6 +69,24 @@ Re-exports [ToolApprovalResolver](../../type-aliases/ToolApprovalResolver.md)
 ### ToolCatalogEntry
 
 Re-exports [ToolCatalogEntry](../../interfaces/ToolCatalogEntry.md)
+
+***
+
+### ToolErrorCode
+
+Re-exports [ToolErrorCode](../../type-aliases/ToolErrorCode.md)
+
+***
+
+### ToolErrorPayload
+
+Re-exports [ToolErrorPayload](../../interfaces/ToolErrorPayload.md)
+
+***
+
+### ToolInvalidField
+
+Re-exports [ToolInvalidField](../../interfaces/ToolInvalidField.md)
 
 ***
 

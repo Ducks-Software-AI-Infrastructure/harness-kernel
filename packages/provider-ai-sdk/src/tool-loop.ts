@@ -53,7 +53,8 @@ export async function runAiSdkToolLoop(
       usage = finish?.usage;
       finishReason = finish?.finishReason;
     } else if (part.type === "error") {
-      throw part.error instanceof Error ? part.error : new Error(String(part.error));
+      if (part.error instanceof Error || (typeof part.error === "object" && part.error !== null)) throw part.error;
+      throw new Error(String(part.error ?? "Model provider stream error."));
     }
   }
 

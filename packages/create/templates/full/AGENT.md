@@ -13,3 +13,5 @@ This is a generated full Harness Kernel project.
 
 Runtime model providers, session model selection, credentials, sandbox, and run
 storage belong to the runner side of this project, not the agent definition itself.
+Runtime error policy is also host-owned: configure sanitization, fatal-session
+closing, and model-provider retry in `src/run.ts`, not in `defineAgent()`.

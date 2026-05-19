@@ -10,12 +10,16 @@ description: "Generated API reference for HarnessLogError."
 
 # Interface: HarnessLogError
 
-Defined in: [packages/core/src/logging/types.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L35)
+Defined in: [packages/core/src/logging/types.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L41)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-message"></a> `message` | `string` | [packages/core/src/logging/types.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L37) |
-| <a id="property-name"></a> `name?` | `string` | [packages/core/src/logging/types.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L36) |
-| <a id="property-stack"></a> `stack?` | `string` | [packages/core/src/logging/types.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L38) |
+| <a id="property-category"></a> `category?` | [`HarnessErrorCategory`](../../../type-aliases/HarnessErrorCategory.md) | [packages/core/src/logging/types.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L43) |
+| <a id="property-code"></a> `code?` | [`HarnessErrorCode`](../../../type-aliases/HarnessErrorCode.md) | [packages/core/src/logging/types.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L42) |
+| <a id="property-message"></a> `message` | `string` | [packages/core/src/logging/types.ts:47](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L47) |
+| <a id="property-name"></a> `name?` | `string` | [packages/core/src/logging/types.ts:46](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L46) |
+| <a id="property-recoverable"></a> `recoverable?` | `boolean` | [packages/core/src/logging/types.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L45) |
+| <a id="property-severity"></a> `severity?` | [`HarnessErrorSeverity`](../../../type-aliases/HarnessErrorSeverity.md) | [packages/core/src/logging/types.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L44) |
+| <a id="property-stack"></a> `stack?` | `string` | [packages/core/src/logging/types.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L48) |

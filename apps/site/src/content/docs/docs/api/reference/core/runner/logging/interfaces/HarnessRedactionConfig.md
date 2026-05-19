@@ -10,11 +10,11 @@ description: "Generated API reference for HarnessRedactionConfig."
 
 # Interface: HarnessRedactionConfig
 
-Defined in: [packages/core/src/logging/types.ts:91](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L91)
+Defined in: [packages/core/src/logging/types.ts:101](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L101)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-keys"></a> `keys?` | `string`[] | [packages/core/src/logging/types.ts:92](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L92) |
-| <a id="property-replacement"></a> `replacement?` | `string` | [packages/core/src/logging/types.ts:93](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L93) |
+| <a id="property-keys"></a> `keys?` | `string`[] | [packages/core/src/logging/types.ts:102](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L102) |
+| <a id="property-replacement"></a> `replacement?` | `string` | [packages/core/src/logging/types.ts:103](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L103) |

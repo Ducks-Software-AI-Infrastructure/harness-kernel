@@ -10,24 +10,25 @@ description: "Generated API reference for AgentSessionRunnerOptions."
 
 # Interface: AgentSessionRunnerOptions
 
-Defined in: [packages/core/src/runtime/types/agent.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L60)
+Defined in: [packages/core/src/runtime/types/agent.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L61)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-agent"></a> `agent` | [`AgentDefinition`](AgentDefinition.md) | [packages/core/src/runtime/types/agent.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L62) |
-| <a id="property-defaultmodel"></a> `defaultModel` | `string` | [packages/core/src/runtime/types/agent.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L64) |
-| <a id="property-initialrunid"></a> `initialRunId?` | `string` | [packages/core/src/runtime/types/agent.ts:70](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L70) |
-| <a id="property-logger"></a> `logger?` | [`AgentRuntimeLogger`](AgentRuntimeLogger.md) | [packages/core/src/runtime/types/agent.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L73) |
-| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/runtime/types/agent.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L68) |
-| <a id="property-providers"></a> `providers` | [`HarnessModelProvider`](HarnessModelProvider.md)[] | [packages/core/src/runtime/types/agent.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L63) |
-| <a id="property-resources"></a> `resources?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/agent.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L71) |
-| <a id="property-roles"></a> `roles?` | [`HarnessRole`](../classes/HarnessRole.md)[] | [packages/core/src/runtime/types/agent.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L66) |
-| <a id="property-sandbox"></a> `sandbox?` | [`HarnessSandbox`](../classes/HarnessSandbox.md) | [packages/core/src/runtime/types/agent.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L65) |
-| <a id="property-sessionid"></a> `sessionId?` | `string` | [packages/core/src/runtime/types/agent.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L61) |
-| <a id="property-storage"></a> `storage?` | \| [`HarnessRunStorage`](../classes/HarnessRunStorage.md) \| [`HarnessSessionStorage`](../classes/HarnessSessionStorage.md) | [packages/core/src/runtime/types/agent.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L69) |
-| <a id="property-workdir"></a> `workDir?` | `string` | [packages/core/src/runtime/types/agent.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L67) |
+| <a id="property-agent"></a> `agent` | [`AgentDefinition`](AgentDefinition.md) | [packages/core/src/runtime/types/agent.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L63) |
+| <a id="property-defaultmodel"></a> `defaultModel` | `string` | [packages/core/src/runtime/types/agent.ts:65](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L65) |
+| <a id="property-errorpolicy"></a> `errorPolicy?` | [`HarnessErrorPolicy`](HarnessErrorPolicy.md) | [packages/core/src/runtime/types/agent.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L75) |
+| <a id="property-initialrunid"></a> `initialRunId?` | `string` | [packages/core/src/runtime/types/agent.ts:71](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L71) |
+| <a id="property-logger"></a> `logger?` | [`AgentRuntimeLogger`](AgentRuntimeLogger.md) | [packages/core/src/runtime/types/agent.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L74) |
+| <a id="property-outputdir"></a> `outputDir?` | `string` | [packages/core/src/runtime/types/agent.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L69) |
+| <a id="property-providers"></a> `providers` | [`HarnessModelProvider`](HarnessModelProvider.md)[] | [packages/core/src/runtime/types/agent.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L64) |
+| <a id="property-resources"></a> `resources?` | [`JsonObject`](../type-aliases/JsonObject.md) | [packages/core/src/runtime/types/agent.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L72) |
+| <a id="property-roles"></a> `roles?` | [`HarnessRole`](../classes/HarnessRole.md)[] | [packages/core/src/runtime/types/agent.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L67) |
+| <a id="property-sandbox"></a> `sandbox?` | [`HarnessSandbox`](../classes/HarnessSandbox.md) | [packages/core/src/runtime/types/agent.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L66) |
+| <a id="property-sessionid"></a> `sessionId?` | `string` | [packages/core/src/runtime/types/agent.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L62) |
+| <a id="property-storage"></a> `storage?` | \| [`HarnessRunStorage`](../classes/HarnessRunStorage.md) \| [`HarnessSessionStorage`](../classes/HarnessSessionStorage.md) | [packages/core/src/runtime/types/agent.ts:70](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L70) |
+| <a id="property-workdir"></a> `workDir?` | `string` | [packages/core/src/runtime/types/agent.ts:68](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L68) |
 
 ## Methods
 
@@ -40,7 +41,7 @@ optional approveTool(request):
 | Promise<boolean | ToolApprovalDecision>;
 ```
 
-Defined in: [packages/core/src/runtime/types/agent.ts:72](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L72)
+Defined in: [packages/core/src/runtime/types/agent.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/agent.ts#L73)
 
 #### Parameters
 

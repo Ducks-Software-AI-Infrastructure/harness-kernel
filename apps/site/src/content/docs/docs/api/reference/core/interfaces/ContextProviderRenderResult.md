@@ -10,13 +10,13 @@ description: "Generated API reference for ContextProviderRenderResult."
 
 # Interface: ContextProviderRenderResult
 
-Defined in: [packages/core/src/runtime/types/context.ts:99](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L99)
+Defined in: [packages/core/src/runtime/types/context.ts:100](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L100)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-binding"></a> `binding` | [`ContextProviderSummary`](ContextProviderSummary.md) | [packages/core/src/runtime/types/context.ts:102](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L102) |
-| <a id="property-contributions"></a> `contributions` | [`ContextContribution`](ContextContribution.md)[] | [packages/core/src/runtime/types/context.ts:103](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L103) |
-| <a id="property-providerid"></a> `providerId` | `string` | [packages/core/src/runtime/types/context.ts:100](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L100) |
-| <a id="property-providerlabel"></a> `providerLabel?` | `string` | [packages/core/src/runtime/types/context.ts:101](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L101) |
+| <a id="property-binding"></a> `binding` | [`ContextProviderSummary`](ContextProviderSummary.md) | [packages/core/src/runtime/types/context.ts:103](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L103) |
+| <a id="property-contributions"></a> `contributions` | [`ContextContribution`](ContextContribution.md)[] | [packages/core/src/runtime/types/context.ts:104](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L104) |
+| <a id="property-providerid"></a> `providerId` | `string` | [packages/core/src/runtime/types/context.ts:101](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L101) |
+| <a id="property-providerlabel"></a> `providerLabel?` | `string` | [packages/core/src/runtime/types/context.ts:102](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L102) |

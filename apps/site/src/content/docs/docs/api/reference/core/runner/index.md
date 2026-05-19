@@ -42,6 +42,48 @@ Re-exports [HarnessAppConfig](../interfaces/HarnessAppConfig.md)
 
 ***
 
+### HarnessErrorCategory
+
+Re-exports [HarnessErrorCategory](../type-aliases/HarnessErrorCategory.md)
+
+***
+
+### HarnessErrorCode
+
+Re-exports [HarnessErrorCode](../type-aliases/HarnessErrorCode.md)
+
+***
+
+### HarnessErrorContext
+
+Re-exports [HarnessErrorContext](../interfaces/HarnessErrorContext.md)
+
+***
+
+### HarnessErrorPolicy
+
+Re-exports [HarnessErrorPolicy](../interfaces/HarnessErrorPolicy.md)
+
+***
+
+### HarnessErrorSeverity
+
+Re-exports [HarnessErrorSeverity](../type-aliases/HarnessErrorSeverity.md)
+
+***
+
+### HarnessErrorShape
+
+Re-exports [HarnessErrorShape](../interfaces/HarnessErrorShape.md)
+
+***
+
+### HarnessRetryPolicy
+
+Re-exports [HarnessRetryPolicy](../interfaces/HarnessRetryPolicy.md)
+
+***
+
 ### HarnessRunStream
 
 Re-exports [HarnessRunStream](../interfaces/HarnessRunStream.md)
@@ -147,6 +189,18 @@ Re-exports [HarnessTranscriptSession](../interfaces/HarnessTranscriptSession.md)
 ### HarnessUserInput
 
 Re-exports [HarnessUserInput](../interfaces/HarnessUserInput.md)
+
+***
+
+### normalizeHarnessError
+
+Re-exports [normalizeHarnessError](../functions/normalizeHarnessError.md)
+
+***
+
+### sanitizeHarnessError
+
+Re-exports [sanitizeHarnessError](../functions/sanitizeHarnessError.md)
 
 ***
 

@@ -2,7 +2,9 @@ import {
   ContextReadyEvent,
   ErrorEvent,
   ModelBeforeEvent,
+  RunAbortedEvent,
   RunEndEvent,
+  RunFailedEvent,
   RunStartEvent,
   ToolApprovalRequestedEvent,
   ToolApprovalResolvedEvent,
@@ -118,9 +120,19 @@ export class SessionStatusTracker {
       this.currentTurnIdValue = undefined;
     } else if (record.type === RunEndEvent.type) {
       this.phaseValue = HarnessSessionPhase.Completed;
-    } else if (record.type === ErrorEvent.type) {
+    } else if (record.type === RunFailedEvent.type || record.type === RunAbortedEvent.type) {
       this.phaseValue = HarnessSessionPhase.Error;
-      this.lastErrorValue = { message: String(payload.message ?? "Unknown error") };
+      this.lastErrorValue = payload.error as HarnessErrorShape | undefined;
+    } else if (record.type === ErrorEvent.type) {
+      const error = payload.error as HarnessErrorShape | undefined;
+      this.lastErrorValue = error ?? {
+        code: "runtime.failed",
+        category: "runtime",
+        severity: "fatal",
+        recoverable: false,
+        message: String(payload.message ?? "Unknown error"),
+      };
+      if (!this.lastErrorValue.recoverable) this.phaseValue = HarnessSessionPhase.Error;
     }
 
     if (record.turnId) this.currentTurnIdValue = record.turnId;

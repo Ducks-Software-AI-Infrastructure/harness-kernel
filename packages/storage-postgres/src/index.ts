@@ -50,8 +50,12 @@ create table if not exists harness_runs (
   created_at timestamptz not null,
   mode text not null,
   output_dir text,
+  metrics jsonb,
   metadata jsonb
 );
+
+alter table harness_runs
+  add column if not exists metrics jsonb;
 
 create index if not exists harness_sessions_list_idx
   on harness_sessions (last_active_at desc, session_id asc);
@@ -376,8 +380,12 @@ create table if not exists ${this.runs} (
   created_at timestamptz not null,
   mode text not null,
   output_dir text,
+  metrics jsonb,
   metadata jsonb
 );
+
+alter table ${this.runs}
+  add column if not exists metrics jsonb;
 
 create index if not exists harness_sessions_list_idx
   on ${this.sessions} (last_active_at desc, session_id asc);
@@ -479,7 +487,12 @@ class PostgresRunStore extends HarnessRunStore {
     return result.rows.map((row) => jsonValue<AgentMessage>(row.message));
   }
 
-  saveMetrics(_metrics: RunMetrics): void {}
+  async saveMetrics(metrics: RunMetrics): Promise<void> {
+    await this.client.query(
+      `update ${this.runs} set metrics = $2::jsonb where run_id = $1`,
+      [this.runId, JSON.stringify(metrics)],
+    );
+  }
 
   async saveSnapshot(snapshot: HarnessSnapshot): Promise<void> {
     await this.client.query(
@@ -528,6 +541,7 @@ class PostgresRunStore extends HarnessRunStore {
   }
 
   private get transcript(): string { return table(this.schema, "harness_transcript_messages"); }
+  private get runs(): string { return table(this.schema, "harness_runs"); }
   private get events(): string { return table(this.schema, "harness_runtime_events"); }
   private get cursors(): string { return table(this.schema, "harness_transcript_cursors"); }
   private get snapshots(): string { return table(this.schema, "harness_snapshots"); }

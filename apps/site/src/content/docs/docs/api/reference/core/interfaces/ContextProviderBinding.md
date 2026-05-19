@@ -24,3 +24,4 @@ Defined in: [packages/core/src/runtime/types/context.ts:16](https://github.com/D
 | ------ | ------ | ------ |
 | <a id="property-options"></a> `options?` | `TOptions` | [packages/core/src/runtime/types/context.ts:18](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L18) |
 | <a id="property-provider"></a> `provider` | [`HarnessContextProviderSelector`](../type-aliases/HarnessContextProviderSelector.md)\<`TOptions`\> | [packages/core/src/runtime/types/context.ts:17](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L17) |
+| <a id="property-required"></a> `required?` | `boolean` | [packages/core/src/runtime/types/context.ts:19](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L19) |

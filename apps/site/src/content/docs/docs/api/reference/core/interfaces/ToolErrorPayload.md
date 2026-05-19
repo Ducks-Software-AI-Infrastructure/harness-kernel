@@ -10,16 +10,16 @@ description: "Generated API reference for ToolErrorPayload."
 
 # Interface: ToolErrorPayload
 
-Defined in: [packages/core/src/logging/tool-errors.ts:15](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L15)
+Defined in: [packages/core/src/logging/tool-errors.ts:19](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L19)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-error"></a> `error` | `object` | [packages/core/src/logging/tool-errors.ts:17](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L17) |
-| `error.code` | [`ToolErrorCode`](../type-aliases/ToolErrorCode.md) | [packages/core/src/logging/tool-errors.ts:18](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L18) |
-| `error.invalidFields?` | [`ToolInvalidField`](ToolInvalidField.md)[] | [packages/core/src/logging/tool-errors.ts:21](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L21) |
-| `error.message` | `string` | [packages/core/src/logging/tool-errors.ts:19](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L19) |
-| `error.metadata?` | `Record`\<`string`, `unknown`\> | [packages/core/src/logging/tool-errors.ts:22](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L22) |
-| `error.toolName` | `string` | [packages/core/src/logging/tool-errors.ts:20](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L20) |
-| <a id="property-ok"></a> `ok` | `false` | [packages/core/src/logging/tool-errors.ts:16](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L16) |
+| <a id="property-error"></a> `error` | `object` | [packages/core/src/logging/tool-errors.ts:21](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L21) |
+| `error.code` | [`ToolErrorCode`](../type-aliases/ToolErrorCode.md) | [packages/core/src/logging/tool-errors.ts:22](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L22) |
+| `error.invalidFields?` | [`ToolInvalidField`](ToolInvalidField.md)[] | [packages/core/src/logging/tool-errors.ts:25](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L25) |
+| `error.message` | `string` | [packages/core/src/logging/tool-errors.ts:23](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L23) |
+| `error.metadata?` | `Record`\<`string`, `unknown`\> | [packages/core/src/logging/tool-errors.ts:26](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L26) |
+| `error.toolName` | `string` | [packages/core/src/logging/tool-errors.ts:24](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L24) |
+| <a id="property-ok"></a> `ok` | `false` | [packages/core/src/logging/tool-errors.ts:20](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L20) |

@@ -96,9 +96,21 @@ Re-exports [ModelBeforeEvent](../../classes/ModelBeforeEvent.md)
 
 ***
 
+### RunAbortedEvent
+
+Re-exports [RunAbortedEvent](../../classes/RunAbortedEvent.md)
+
+***
+
 ### RunEndEvent
 
 Re-exports [RunEndEvent](../../classes/RunEndEvent.md)
+
+***
+
+### RunFailedEvent
+
+Re-exports [RunFailedEvent](../../classes/RunFailedEvent.md)
 
 ***
 

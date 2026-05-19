@@ -10,7 +10,7 @@ description: "Generated API reference for TranscriptCursorChangedEvent."
 
 # Class: TranscriptCursorChangedEvent
 
-Defined in: [packages/core/src/runtime/events.ts:237](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L237)
+Defined in: [packages/core/src/runtime/events.ts:268](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L268)
 
 ## Extends
 
@@ -48,8 +48,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `cursor`: `unknown`; `previousCursor`: `unknown`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `cursor`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); `previousCursor`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:242](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L242) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"transcript:cursor_changed"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:241](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L241) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `cursor`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); `previousCursor`: [`UnknownSchema`](../schema/classes/UnknownSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:273](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L273) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"transcript:cursor_changed"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:272](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L272) |
 
 ## Accessors
 

@@ -1,4 +1,4 @@
-import { createToolErrorPayload } from "@harness-kernel/core";
+import { createToolErrorResult } from "@harness-kernel/core";
 import type { SandboxExecResult } from "@harness-kernel/core";
 import type { AgentToolResult } from "@harness-kernel/core";
 
@@ -23,8 +23,7 @@ export function sandboxExecFailed(
   ].filter(Boolean).join("\n\n");
 
   return {
-    content,
-    data: createToolErrorPayload({
+    ...createToolErrorResult({
       code: "sandbox.exec.failed",
       message: "Sandbox command failed.",
       toolName,
@@ -34,8 +33,8 @@ export function sandboxExecFailed(
         timedOut: Boolean(result?.timedOut),
         durationMs: result?.durationMs,
       },
+      content,
     }),
-    isError: true,
     metadata: {
       errorCode: "sandbox.exec.failed",
       exitCode: result?.exitCode ?? null,

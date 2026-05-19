@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessLogSink."
 
 # Abstract Class: HarnessLogSink
 
-Defined in: [packages/core/src/logging/types.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L73)
+Defined in: [packages/core/src/logging/types.ts:83](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L83)
 
 ## Extended by
 
@@ -38,7 +38,7 @@ new HarnessLogSink(): HarnessLogSink;
 optional close(): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:76](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L76)
+Defined in: [packages/core/src/logging/types.ts:86](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L86)
 
 #### Returns
 
@@ -52,7 +52,7 @@ Defined in: [packages/core/src/logging/types.ts:76](https://github.com/Ducks-Sof
 optional flush(): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:75](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L75)
+Defined in: [packages/core/src/logging/types.ts:85](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L85)
 
 #### Returns
 
@@ -66,7 +66,7 @@ Defined in: [packages/core/src/logging/types.ts:75](https://github.com/Ducks-Sof
 abstract write(record): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/logging/types.ts:74](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L74)
+Defined in: [packages/core/src/logging/types.ts:84](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L84)
 
 #### Parameters
 

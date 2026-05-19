@@ -10,12 +10,12 @@ description: "Generated API reference for ContextScopes."
 
 # Enumeration: ContextScopes
 
-Defined in: [packages/core/src/runtime/types/context.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L41)
+Defined in: [packages/core/src/runtime/types/context.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L42)
 
 ## Enumeration Members
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| <a id="enumeration-member-run"></a> `Run` | `"run"` | [packages/core/src/runtime/types/context.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L43) |
-| <a id="enumeration-member-session"></a> `Session` | `"session"` | [packages/core/src/runtime/types/context.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L44) |
-| <a id="enumeration-member-turn"></a> `Turn` | `"turn"` | [packages/core/src/runtime/types/context.ts:42](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L42) |
+| <a id="enumeration-member-run"></a> `Run` | `"run"` | [packages/core/src/runtime/types/context.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L44) |
+| <a id="enumeration-member-session"></a> `Session` | `"session"` | [packages/core/src/runtime/types/context.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L45) |
+| <a id="enumeration-member-turn"></a> `Turn` | `"turn"` | [packages/core/src/runtime/types/context.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L43) |

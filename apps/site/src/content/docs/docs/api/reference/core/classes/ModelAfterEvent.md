@@ -10,7 +10,7 @@ description: "Generated API reference for ModelAfterEvent."
 
 # Class: ModelAfterEvent
 
-Defined in: [packages/core/src/runtime/events.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L54)
+Defined in: [packages/core/src/runtime/events.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L55)
 
 ## Extends
 
@@ -50,8 +50,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `content`: `string`; `finishReason?`: `string`; `model`: `string`; `usage?`: `unknown`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `content`: [`StringSchema`](../schema/classes/StringSchema.md); `finishReason`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; `model`: [`StringSchema`](../schema/classes/StringSchema.md); `usage`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `unknown`\>; \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L61) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"model:after"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L60) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `content`: [`StringSchema`](../schema/classes/StringSchema.md); `finishReason`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; `model`: [`StringSchema`](../schema/classes/StringSchema.md); `usage`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `unknown`\>; \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L62) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"model:after"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L61) |
 
 ## Accessors
 

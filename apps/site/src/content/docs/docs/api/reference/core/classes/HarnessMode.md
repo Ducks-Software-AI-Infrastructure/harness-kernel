@@ -28,6 +28,7 @@ new HarnessMode(): HarnessMode;
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
+| <a id="property-contextfailure"></a> `contextFailure?` | `"fail"` \| `"warn-and-skip"` | [packages/core/src/runtime/types/modes.ts:22](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L22) |
 | <a id="property-excludeproviders"></a> `excludeProviders?` | `string`[] | [packages/core/src/runtime/types/modes.ts:18](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L18) |
 | <a id="property-label"></a> `label?` | `string` | [packages/core/src/runtime/types/modes.ts:14](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L14) |
 | <a id="property-maxturns"></a> `maxTurns?` | `number` | [packages/core/src/runtime/types/modes.ts:20](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L20) |
@@ -47,7 +48,7 @@ new HarnessMode(): HarnessMode;
 get type(): string;
 ```
 
-Defined in: [packages/core/src/runtime/types/modes.ts:23](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L23)
+Defined in: [packages/core/src/runtime/types/modes.ts:24](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L24)
 
 ##### Returns
 
@@ -61,7 +62,7 @@ Defined in: [packages/core/src/runtime/types/modes.ts:23](https://github.com/Duc
 optional getPrompt(session): string | Promise<string>;
 ```
 
-Defined in: [packages/core/src/runtime/types/modes.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L27)
+Defined in: [packages/core/src/runtime/types/modes.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L28)
 
 #### Parameters
 
@@ -81,7 +82,7 @@ Defined in: [packages/core/src/runtime/types/modes.ts:27](https://github.com/Duc
 optional onEnter(session, input?): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/types/modes.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L28)
+Defined in: [packages/core/src/runtime/types/modes.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L29)
 
 #### Parameters
 
@@ -102,7 +103,7 @@ Defined in: [packages/core/src/runtime/types/modes.ts:28](https://github.com/Duc
 optional onExit(session, nextMode): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/types/modes.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L29)
+Defined in: [packages/core/src/runtime/types/modes.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/modes.ts#L30)
 
 #### Parameters
 

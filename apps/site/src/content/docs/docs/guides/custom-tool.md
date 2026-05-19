@@ -48,4 +48,18 @@ class NotesMode extends HarnessMode {
 
 Boundary note: the tool belongs to a mode. The runtime host still decides approval policy and sandbox access.
 
+To return a recoverable structured failure:
+
+```ts
+import { createToolErrorResult } from "@harness-kernel/core/agent/tool";
+
+return createToolErrorResult({
+  code: "tool.failed",
+  message: "The note already exists.",
+  toolName: this.name,
+});
+```
+
+Thrown exceptions are also converted to `AgentToolResult.isError`, but returning a structured failure gives the model a cleaner recovery signal.
+
 API: [Tools](../../agent/tools/) and [Tool Schemas](../../schema/tool-schemas/).

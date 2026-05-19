@@ -18,7 +18,7 @@ A Harness Kernel run starts when a host sends input to a session and ends when t
 
 ## Events
 
-Built-in event classes include `RunStartEvent`, `TurnStartEvent`, `ContextReadyEvent`, `ModelBeforeEvent`, `ModelAfterEvent`, `ToolStartEvent`, `ToolEndEvent`, `TurnEndEvent`, `RunEndEvent`, approval events, message events, mode changes, snapshot events, and transcript cursor events.
+Built-in event classes include `RunStartEvent`, `TurnStartEvent`, `ContextReadyEvent`, `ModelBeforeEvent`, `ModelAfterEvent`, `ToolStartEvent`, `ToolEndEvent`, `TurnEndEvent`, `RunEndEvent`, `RunFailedEvent`, `RunAbortedEvent`, approval events, message events, mode changes, snapshot events, and transcript cursor events.
 
 Agent hooks bind to event classes:
 

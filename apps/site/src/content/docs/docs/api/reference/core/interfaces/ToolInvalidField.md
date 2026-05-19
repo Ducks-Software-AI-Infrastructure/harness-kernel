@@ -10,14 +10,14 @@ description: "Generated API reference for ToolInvalidField."
 
 # Interface: ToolInvalidField
 
-Defined in: [packages/core/src/logging/tool-errors.ts:7](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L7)
+Defined in: [packages/core/src/logging/tool-errors.ts:11](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L11)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-code"></a> `code?` | `string` | [packages/core/src/logging/tool-errors.ts:9](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L9) |
-| <a id="property-expected"></a> `expected?` | `string` | [packages/core/src/logging/tool-errors.ts:10](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L10) |
-| <a id="property-message"></a> `message` | `string` | [packages/core/src/logging/tool-errors.ts:12](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L12) |
-| <a id="property-path"></a> `path` | `string` | [packages/core/src/logging/tool-errors.ts:8](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L8) |
-| <a id="property-received"></a> `received?` | `string` | [packages/core/src/logging/tool-errors.ts:11](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L11) |
+| <a id="property-code"></a> `code?` | `string` | [packages/core/src/logging/tool-errors.ts:13](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L13) |
+| <a id="property-expected"></a> `expected?` | `string` | [packages/core/src/logging/tool-errors.ts:14](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L14) |
+| <a id="property-message"></a> `message` | `string` | [packages/core/src/logging/tool-errors.ts:16](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L16) |
+| <a id="property-path"></a> `path` | `string` | [packages/core/src/logging/tool-errors.ts:12](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L12) |
+| <a id="property-received"></a> `received?` | `string` | [packages/core/src/logging/tool-errors.ts:15](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/tool-errors.ts#L15) |

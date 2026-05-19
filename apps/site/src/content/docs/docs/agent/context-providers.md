@@ -11,6 +11,7 @@ import type { AgentReadSession } from "@harness-kernel/core/agent/session";
 
 class ProjectContext extends HarnessContextProvider<{ includeWorkDir?: boolean }> {
   label = "Project Context";
+  required = false;
 
   render(session: AgentReadSession, options = {}) {
     if (!options.includeWorkDir) return null;
@@ -60,3 +61,5 @@ Use `ContextScopes.Turn`, `ContextScopes.Run`, or `ContextScopes.Session` to con
 ## Boundary
 
 Context providers define behavior. Runtime resources can be read through `session.resources`, but the provider object itself belongs to the agent package.
+
+Set `required = false` on a provider, or use a binding such as `{ provider, options, required: false }`, when missing context should not necessarily fail the run. The runtime still decides the final behavior through `errorPolicy.contextFailure`; by default provider failures are fatal.

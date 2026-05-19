@@ -71,8 +71,20 @@ type HarnessStreamEvent =
 }
   | {
   error: HarnessErrorShape;
+  metrics: RunMetrics;
+  runId: string;
+  type: "run.failed";
+}
+  | {
+  error: HarnessErrorShape;
+  metrics: RunMetrics;
+  runId: string;
+  type: "run.aborted";
+}
+  | {
+  error: HarnessErrorShape;
   type: "error";
 };
 ```
 
-Defined in: [packages/core/src/session/types.ts:95](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L95)
+Defined in: [packages/core/src/session/types.ts:91](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L91)

@@ -10,7 +10,7 @@ description: "Generated API reference for GrepTool."
 
 # Class: GrepTool
 
-Defined in: [packages/tools-node/src/files.ts:205](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L205)
+Defined in: [packages/tools-node/src/files.ts:197](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L197)
 
 ## Extends
 
@@ -39,13 +39,13 @@ new GrepTool(): GrepTool;
 | Property | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-approvaltimeoutms"></a> `approvalTimeoutMs?` | `number` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`approvalTimeoutMs`](../../../core/classes/HarnessTool.md#property-approvaltimeoutms) | [packages/core/src/runtime/types/tools.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L55) |
-| <a id="property-description"></a> `description` | `string` | `"Search text files inside workDir using plain text or an extended grep RegExp."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:207](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L207) |
+| <a id="property-description"></a> `description` | `string` | `"Search text files inside workDir using plain text or an extended grep RegExp."` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`description`](../../../core/classes/HarnessTool.md#property-description) | - | [packages/tools-node/src/files.ts:199](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L199) |
 | <a id="property-label"></a> `label?` | `string` | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`label`](../../../core/classes/HarnessTool.md#property-label) | [packages/core/src/runtime/types/tools.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L48) |
-| <a id="property-name"></a> `name` | `string` | `"grep"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:206](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L206) |
-| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:210](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L210) |
+| <a id="property-name"></a> `name` | `string` | `"grep"` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`name`](../../../core/classes/HarnessTool.md#property-name) | - | [packages/tools-node/src/files.ts:198](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L198) |
+| <a id="property-permissions"></a> `permissions` | `object`[] | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`permissions`](../../../core/classes/HarnessTool.md#property-permissions) | - | [packages/tools-node/src/files.ts:202](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L202) |
 | <a id="property-requiresapproval"></a> `requiresApproval?` | \| `boolean` \| [`ToolApprovalResolver`](../../../core/type-aliases/ToolApprovalResolver.md) | `undefined` | - | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`requiresApproval`](../../../core/classes/HarnessTool.md#property-requiresapproval) | [packages/core/src/runtime/types/tools.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/tools.ts#L54) |
-| <a id="property-risk"></a> `risk` | `"read"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:209](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L209) |
-| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `maxResults`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `number`\>; `path`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `string`\>; `pattern`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); `regex`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `boolean`\>; \}\> | `grepSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:208](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L208) |
+| <a id="property-risk"></a> `risk` | `"read"` | `undefined` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`risk`](../../../core/classes/HarnessTool.md#property-risk) | - | [packages/tools-node/src/files.ts:201](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L201) |
+| <a id="property-schema"></a> `schema` | [`ObjectSchema`](../../../core/schema/classes/ObjectSchema.md)\<\{ `maxResults`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `number`\>; `path`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `string`\>; `pattern`: [`StringSchema`](../../../core/schema/classes/StringSchema.md); `regex`: [`DefaultSchema`](../../../core/schema/classes/DefaultSchema.md)\<`unknown`, `boolean`\>; \}\> | `grepSchema` | [`HarnessTool`](../../../core/classes/HarnessTool.md).[`schema`](../../../core/classes/HarnessTool.md#property-schema) | - | [packages/tools-node/src/files.ts:200](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L200) |
 
 ## Accessors
 
@@ -97,7 +97,7 @@ execute(args, session): Promise<AgentToolResult<{
 }>>;
 ```
 
-Defined in: [packages/tools-node/src/files.ts:212](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L212)
+Defined in: [packages/tools-node/src/files.ts:204](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/tools-node/src/files.ts#L204)
 
 #### Parameters
 

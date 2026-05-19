@@ -1,4 +1,8 @@
 export { HarnessTool } from "../../runtime/types.js";
+export {
+  createToolErrorPayload,
+  createToolErrorResult,
+} from "../../logging/tool-errors.js";
 export type {
   AgentToolDefinition,
   AgentToolResult,
@@ -11,3 +15,8 @@ export type {
   ToolPermission,
   ToolRisk,
 } from "../../runtime/types.js";
+export type {
+  ToolErrorCode,
+  ToolErrorPayload,
+  ToolInvalidField,
+} from "../../logging/tool-errors.js";

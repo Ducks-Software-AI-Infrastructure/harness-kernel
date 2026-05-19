@@ -46,6 +46,23 @@ const store = await createHarnessSessionStore({
 
 `ModelProviderRunInput` includes system prompt, messages, roles, tools, max turns, model ref, provider namespace, model id, abort signal, and callbacks for events, tool execution, and context refresh.
 
+## Provider Failures
+
+Provider errors are normalized by the runtime as `model.failed`, `model.timeout`, `model.rate_limited`, or `run.aborted` when the abort signal ends the call. The host can configure conservative model-provider retry without putting retry policy in the agent:
+
+```ts
+const store = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [new EchoProvider()],
+  defaultModel: "echo/basic",
+  errorPolicy: {
+    retry: { model: { attempts: 2, backoffMs: 500, maxBackoffMs: 5000 } },
+  },
+});
+```
+
+Retry is only applied to model provider calls and is skipped after provider-emitted events or tool execution.
+
 ## Resolution
 
 The runtime resolves models in this order: run override, session override, mode `model`, then required `defaultModel`.

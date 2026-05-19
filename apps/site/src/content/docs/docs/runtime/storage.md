@@ -37,7 +37,9 @@ const store = await createHarnessSessionStore({
 });
 ```
 
-Each session stores a catalog entry and each run stores events, transcript, snapshots, cursors, and context snapshots. Metrics are emitted through logging/telemetry and are not required for restore.
+Each session stores a catalog entry and each run stores events, transcript, snapshots, cursors, and context snapshots. Metrics are saved when the backend supports `saveMetrics()` and are not required for restore.
+
+Final metrics are saved on success, failure, and abort when the storage backend is healthy. A failed run records `RunFailedEvent` or `RunAbortedEvent` in the same event stream as successful runs. If a storage write fails while recording a run failure, the storage error is logged as `storage.write_failed` without replacing the original run error.
 
 ## Custom Storage
 

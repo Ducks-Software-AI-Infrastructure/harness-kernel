@@ -6,6 +6,7 @@ import type { AgentMessage } from "./messages.js";
 import type { RunMetrics } from "./metrics.js";
 import type { HarnessEventClass, HarnessEventRecord } from "./events.js";
 import type { HarnessHook } from "./hooks.js";
+import type { HarnessErrorPolicy } from "./errors.js";
 import type { JsonObject } from "./json.js";
 import type { HarnessMode, HarnessModeSelector } from "./modes.js";
 import type { HarnessRoleDefinition, HarnessRoleSelector } from "./roles.js";
@@ -71,6 +72,7 @@ export interface AgentSessionRunnerOptions {
   resources?: JsonObject;
   approveTool?(request: ToolApprovalRequest): boolean | ToolApprovalDecision | Promise<boolean | ToolApprovalDecision>;
   logger?: AgentRuntimeLogger;
+  errorPolicy?: HarnessErrorPolicy;
 }
 
 export interface AgentRunResult {

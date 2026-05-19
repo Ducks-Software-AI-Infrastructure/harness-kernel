@@ -10,7 +10,7 @@ description: "Generated API reference for RunStartEvent."
 
 # Class: RunStartEvent
 
-Defined in: [packages/core/src/runtime/events.ts:4](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L4)
+Defined in: [packages/core/src/runtime/events.ts:5](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L5)
 
 ## Extends
 
@@ -50,8 +50,8 @@ Defined in: [packages/core/src/runtime/types/events.ts:35](https://github.com/Du
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | <a id="property-record"></a> `record` | `readonly` | [`HarnessEventRecord`](../interfaces/HarnessEventRecord.md)\<\{ `agentKey`: `string`; `modeId`: `string`; `outputDir?`: `string`; `workDir`: `string`; \}\> | `undefined` | - | [`HarnessEvent`](HarnessEvent.md).[`record`](HarnessEvent.md#property-record) | [packages/core/src/runtime/types/events.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/events.ts#L35) |
-| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `agentKey`: [`StringSchema`](../schema/classes/StringSchema.md); `modeId`: [`StringSchema`](../schema/classes/StringSchema.md); `outputDir`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; `workDir`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:11](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L11) |
-| <a id="property-type"></a> `type` | `static` | `string` | `"run:start"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:10](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L10) |
+| <a id="property-schema"></a> `schema` | `static` | [`ObjectSchema`](../schema/classes/ObjectSchema.md)\<\{ `agentKey`: [`StringSchema`](../schema/classes/StringSchema.md); `modeId`: [`StringSchema`](../schema/classes/StringSchema.md); `outputDir`: [`OptionalSchema`](../schema/classes/OptionalSchema.md)\<`unknown`, `string` \| `undefined`\>; `workDir`: [`StringSchema`](../schema/classes/StringSchema.md); \}\> | `undefined` | [`HarnessEvent`](HarnessEvent.md).[`schema`](HarnessEvent.md#property-schema) | - | [packages/core/src/runtime/events.ts:12](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L12) |
+| <a id="property-type"></a> `type` | `static` | `string` | `"run:start"` | [`HarnessEvent`](HarnessEvent.md).[`type`](HarnessEvent.md#property-type) | - | [packages/core/src/runtime/events.ts:11](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/events.ts#L11) |
 
 ## Accessors
 

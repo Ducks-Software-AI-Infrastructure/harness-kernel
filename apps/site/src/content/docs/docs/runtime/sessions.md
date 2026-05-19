@@ -45,6 +45,10 @@ session.clearModelOverride();
 
 `getStatus()` includes phase, running state, active tool, pending approval count, current model, provider info, run id, output directory, and metrics.
 
+When a run fails, `send()` and `stream.result` reject, `phase` becomes `error`, and `lastError` contains a canonical `HarnessErrorShape` with `code`, `category`, `severity`, and `recoverable`. A later `send()` starts a new run and clears `lastError` on `RunStartEvent`. Sessions remain reusable after fatal run failure unless the host sets `errorPolicy.closeSessionOnFatal`.
+
+Abort is tracked separately from unexpected failure with `code: "run.aborted"` and `severity: "warn"`.
+
 ## Modes And State
 
 ```ts

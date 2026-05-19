@@ -16,6 +16,7 @@ export type HarnessContextProviderSelector<TOptions extends JsonObject = JsonObj
 export interface ContextProviderBinding<TOptions extends JsonObject = JsonObject> {
   provider: HarnessContextProviderSelector<TOptions>;
   options?: TOptions;
+  required?: boolean;
 }
 
 export type ContextProviderReference<TOptions extends JsonObject = JsonObject> =
@@ -120,6 +121,7 @@ export abstract class HarnessContextProvider<TOptions extends JsonObject = JsonO
   label?: string;
   priority?: number;
   role?: HarnessRoleSelector;
+  required?: boolean;
 
   get type(): string {
     return constructTypeOf(this);

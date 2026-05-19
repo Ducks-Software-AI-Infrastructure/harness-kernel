@@ -10,7 +10,7 @@ description: "Generated API reference for AgentSessionRunner."
 
 # Class: AgentSessionRunner
 
-Defined in: [packages/core/src/runtime/runner.ts:302](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L302)
+Defined in: [packages/core/src/runtime/runner.ts:308](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L308)
 
 ## Constructors
 
@@ -20,7 +20,7 @@ Defined in: [packages/core/src/runtime/runner.ts:302](https://github.com/Ducks-S
 new AgentSessionRunner(options): AgentSessionRunner;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:337](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L337)
+Defined in: [packages/core/src/runtime/runner.ts:343](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L343)
 
 #### Parameters
 
@@ -36,9 +36,9 @@ Defined in: [packages/core/src/runtime/runner.ts:337](https://github.com/Ducks-S
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-agent"></a> `agent` | `readonly` | [`NormalizedAgentDefinition`](../interfaces/NormalizedAgentDefinition.md) | [packages/core/src/runtime/runner.ts:303](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L303) |
-| <a id="property-outputdir"></a> `outputDir` | `readonly` | `string` | [packages/core/src/runtime/runner.ts:305](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L305) |
-| <a id="property-workdir"></a> `workDir` | `readonly` | `string` | [packages/core/src/runtime/runner.ts:304](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L304) |
+| <a id="property-agent"></a> `agent` | `readonly` | [`NormalizedAgentDefinition`](../interfaces/NormalizedAgentDefinition.md) | [packages/core/src/runtime/runner.ts:309](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L309) |
+| <a id="property-outputdir"></a> `outputDir` | `readonly` | `string` | [packages/core/src/runtime/runner.ts:311](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L311) |
+| <a id="property-workdir"></a> `workDir` | `readonly` | `string` | [packages/core/src/runtime/runner.ts:310](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L310) |
 
 ## Accessors
 
@@ -50,7 +50,7 @@ Defined in: [packages/core/src/runtime/runner.ts:337](https://github.com/Ducks-S
 get mode(): string;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:566](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L566)
+Defined in: [packages/core/src/runtime/runner.ts:607](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L607)
 
 ##### Returns
 
@@ -66,7 +66,7 @@ Defined in: [packages/core/src/runtime/runner.ts:566](https://github.com/Ducks-S
 get runId(): string;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:570](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L570)
+Defined in: [packages/core/src/runtime/runner.ts:611](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L611)
 
 ##### Returns
 
@@ -80,7 +80,7 @@ Defined in: [packages/core/src/runtime/runner.ts:570](https://github.com/Ducks-S
 clearModelOverride(): void;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:755](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L755)
+Defined in: [packages/core/src/runtime/runner.ts:841](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L841)
 
 #### Returns
 
@@ -94,7 +94,7 @@ Defined in: [packages/core/src/runtime/runner.ts:755](https://github.com/Ducks-S
 close(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:719](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L719)
+Defined in: [packages/core/src/runtime/runner.ts:805](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L805)
 
 #### Returns
 
@@ -108,7 +108,7 @@ Defined in: [packages/core/src/runtime/runner.ts:719](https://github.com/Ducks-S
 createSnapshot(input?, eventOptions?): Promise<HarnessSnapshot>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:825](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L825)
+Defined in: [packages/core/src/runtime/runner.ts:911](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L911)
 
 #### Parameters
 
@@ -129,7 +129,7 @@ Defined in: [packages/core/src/runtime/runner.ts:825](https://github.com/Ducks-S
 deleteSnapshot(id, eventOptions?): Promise<boolean>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:844](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L844)
+Defined in: [packages/core/src/runtime/runner.ts:930](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L930)
 
 #### Parameters
 
@@ -150,7 +150,7 @@ Defined in: [packages/core/src/runtime/runner.ts:844](https://github.com/Ducks-S
 getAgentManifest(): HarnessAgentManifest;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:778](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L778)
+Defined in: [packages/core/src/runtime/runner.ts:864](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L864)
 
 #### Returns
 
@@ -164,7 +164,7 @@ Defined in: [packages/core/src/runtime/runner.ts:778](https://github.com/Ducks-S
 getAvailableModels(): object[];
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:767](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L767)
+Defined in: [packages/core/src/runtime/runner.ts:853](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L853)
 
 #### Returns
 
@@ -178,7 +178,7 @@ Defined in: [packages/core/src/runtime/runner.ts:767](https://github.com/Ducks-S
 getContextEntries(filter?): ContextEntry[];
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:852](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L852)
+Defined in: [packages/core/src/runtime/runner.ts:938](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L938)
 
 #### Parameters
 
@@ -198,7 +198,7 @@ Defined in: [packages/core/src/runtime/runner.ts:852](https://github.com/Ducks-S
 getContextSnapshot(): ContextSnapshot | undefined;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:848](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L848)
+Defined in: [packages/core/src/runtime/runner.ts:934](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L934)
 
 #### Returns
 
@@ -212,7 +212,7 @@ Defined in: [packages/core/src/runtime/runner.ts:848](https://github.com/Ducks-S
 getEvents(filter?): HarnessEventRecord<unknown>[];
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:793](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L793)
+Defined in: [packages/core/src/runtime/runner.ts:879](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L879)
 
 #### Parameters
 
@@ -232,7 +232,7 @@ Defined in: [packages/core/src/runtime/runner.ts:793](https://github.com/Ducks-S
 getMetrics(): RunMetrics;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:728](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L728)
+Defined in: [packages/core/src/runtime/runner.ts:814](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L814)
 
 #### Returns
 
@@ -246,7 +246,7 @@ Defined in: [packages/core/src/runtime/runner.ts:728](https://github.com/Ducks-S
 getModel(): string;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:747](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L747)
+Defined in: [packages/core/src/runtime/runner.ts:833](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L833)
 
 #### Returns
 
@@ -260,7 +260,7 @@ Defined in: [packages/core/src/runtime/runner.ts:747](https://github.com/Ducks-S
 getModelProviderInfo(): ModelProviderInfo;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:759](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L759)
+Defined in: [packages/core/src/runtime/runner.ts:845](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L845)
 
 #### Returns
 
@@ -274,7 +274,7 @@ Defined in: [packages/core/src/runtime/runner.ts:759](https://github.com/Ducks-S
 getRunInfo(): object;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:736](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L736)
+Defined in: [packages/core/src/runtime/runner.ts:822](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L822)
 
 #### Returns
 
@@ -324,7 +324,7 @@ workDir: string;
 getSnapshot(id): HarnessSnapshot | undefined;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:836](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L836)
+Defined in: [packages/core/src/runtime/runner.ts:922](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L922)
 
 #### Parameters
 
@@ -344,7 +344,7 @@ Defined in: [packages/core/src/runtime/runner.ts:836](https://github.com/Ducks-S
 getState(): AgentSharedState;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:809](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L809)
+Defined in: [packages/core/src/runtime/runner.ts:895](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L895)
 
 #### Returns
 
@@ -358,7 +358,7 @@ Defined in: [packages/core/src/runtime/runner.ts:809](https://github.com/Ducks-S
 getTranscript(options?): AgentMessage[];
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:724](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L724)
+Defined in: [packages/core/src/runtime/runner.ts:810](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L810)
 
 #### Parameters
 
@@ -378,7 +378,7 @@ Defined in: [packages/core/src/runtime/runner.ts:724](https://github.com/Ducks-S
 getTranscriptCursor(): TranscriptCursor;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:797](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L797)
+Defined in: [packages/core/src/runtime/runner.ts:883](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L883)
 
 #### Returns
 
@@ -392,7 +392,7 @@ Defined in: [packages/core/src/runtime/runner.ts:797](https://github.com/Ducks-S
 hydrate(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:714](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L714)
+Defined in: [packages/core/src/runtime/runner.ts:800](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L800)
 
 #### Returns
 
@@ -406,7 +406,7 @@ Defined in: [packages/core/src/runtime/runner.ts:714](https://github.com/Ducks-S
 latestTranscript(): Promise<TranscriptCursor>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:805](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L805)
+Defined in: [packages/core/src/runtime/runner.ts:891](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L891)
 
 #### Returns
 
@@ -420,7 +420,7 @@ Defined in: [packages/core/src/runtime/runner.ts:805](https://github.com/Ducks-S
 listSnapshots(): HarnessSnapshotSummary[];
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:832](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L832)
+Defined in: [packages/core/src/runtime/runner.ts:918](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L918)
 
 #### Returns
 
@@ -434,7 +434,7 @@ Defined in: [packages/core/src/runtime/runner.ts:832](https://github.com/Ducks-S
 prompt(message, options?): Promise<AgentRunResult>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:710](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L710)
+Defined in: [packages/core/src/runtime/runner.ts:781](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L781)
 
 #### Parameters
 
@@ -455,7 +455,7 @@ Defined in: [packages/core/src/runtime/runner.ts:710](https://github.com/Ducks-S
 replaceState(next): void;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:821](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L821)
+Defined in: [packages/core/src/runtime/runner.ts:907](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L907)
 
 #### Parameters
 
@@ -475,7 +475,7 @@ Defined in: [packages/core/src/runtime/runner.ts:821](https://github.com/Ducks-S
 requestTurnHandoff(): void;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:578](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L578)
+Defined in: [packages/core/src/runtime/runner.ts:619](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L619)
 
 #### Returns
 
@@ -489,7 +489,7 @@ Defined in: [packages/core/src/runtime/runner.ts:578](https://github.com/Ducks-S
 restoreSnapshot(id, eventOptions?): Promise<HarnessSnapshot>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:840](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L840)
+Defined in: [packages/core/src/runtime/runner.ts:926](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L926)
 
 #### Parameters
 
@@ -510,7 +510,7 @@ Defined in: [packages/core/src/runtime/runner.ts:840](https://github.com/Ducks-S
 run(message, options?): Promise<AgentRunResult>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:649](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L649)
+Defined in: [packages/core/src/runtime/runner.ts:690](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L690)
 
 #### Parameters
 
@@ -531,7 +531,7 @@ Defined in: [packages/core/src/runtime/runner.ts:649](https://github.com/Ducks-S
 seekTranscript(target): Promise<TranscriptCursor>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:801](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L801)
+Defined in: [packages/core/src/runtime/runner.ts:887](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L887)
 
 #### Parameters
 
@@ -551,7 +551,7 @@ Defined in: [packages/core/src/runtime/runner.ts:801](https://github.com/Ducks-S
 setModel(model): void;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:751](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L751)
+Defined in: [packages/core/src/runtime/runner.ts:837](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L837)
 
 #### Parameters
 
@@ -571,7 +571,7 @@ Defined in: [packages/core/src/runtime/runner.ts:751](https://github.com/Ducks-S
 subscribe(listener): () => void;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:574](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L574)
+Defined in: [packages/core/src/runtime/runner.ts:615](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L615)
 
 #### Parameters
 
@@ -591,7 +591,7 @@ Defined in: [packages/core/src/runtime/runner.ts:574](https://github.com/Ducks-S
 switchMode(mode, input?): Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:856](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L856)
+Defined in: [packages/core/src/runtime/runner.ts:942](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L942)
 
 #### Parameters
 
@@ -612,7 +612,7 @@ Defined in: [packages/core/src/runtime/runner.ts:856](https://github.com/Ducks-S
 updateState(patch): void;
 ```
 
-Defined in: [packages/core/src/runtime/runner.ts:813](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L813)
+Defined in: [packages/core/src/runtime/runner.ts:899](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/runner.ts#L899)
 
 #### Parameters
 

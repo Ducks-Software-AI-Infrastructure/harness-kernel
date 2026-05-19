@@ -10,16 +10,17 @@ description: "Generated API reference for HarnessAppConfig."
 
 # Interface: HarnessAppConfig
 
-Defined in: [packages/core/src/session/types.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L30)
+Defined in: [packages/core/src/session/types.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L32)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-agent"></a> `agent` | [`HarnessAgentInput`](../type-aliases/HarnessAgentInput.md) | [packages/core/src/session/types.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L31) |
-| <a id="property-defaultmodel"></a> `defaultModel` | `string` | [packages/core/src/session/types.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L33) |
-| <a id="property-logging"></a> `logging?` | [`HarnessLoggingConfig`](../runner/logging/interfaces/HarnessLoggingConfig.md) | [packages/core/src/session/types.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L37) |
-| <a id="property-providers"></a> `providers` | [`HarnessModelProvider`](HarnessModelProvider.md)[] | [packages/core/src/session/types.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L32) |
-| <a id="property-resources"></a> `resources?` | `Record`\<`string`, `unknown`\> | [packages/core/src/session/types.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L36) |
-| <a id="property-sandbox"></a> `sandbox?` | [`HarnessSandbox`](../classes/HarnessSandbox.md) | [packages/core/src/session/types.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L35) |
-| <a id="property-storage"></a> `storage?` | [`HarnessSessionStorage`](../classes/HarnessSessionStorage.md) | [packages/core/src/session/types.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L34) |
+| <a id="property-agent"></a> `agent` | [`HarnessAgentInput`](../type-aliases/HarnessAgentInput.md) | [packages/core/src/session/types.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L33) |
+| <a id="property-defaultmodel"></a> `defaultModel` | `string` | [packages/core/src/session/types.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L35) |
+| <a id="property-errorpolicy"></a> `errorPolicy?` | [`HarnessErrorPolicy`](HarnessErrorPolicy.md) | [packages/core/src/session/types.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L40) |
+| <a id="property-logging"></a> `logging?` | [`HarnessLoggingConfig`](../runner/logging/interfaces/HarnessLoggingConfig.md) | [packages/core/src/session/types.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L39) |
+| <a id="property-providers"></a> `providers` | [`HarnessModelProvider`](HarnessModelProvider.md)[] | [packages/core/src/session/types.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L34) |
+| <a id="property-resources"></a> `resources?` | `Record`\<`string`, `unknown`\> | [packages/core/src/session/types.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L38) |
+| <a id="property-sandbox"></a> `sandbox?` | [`HarnessSandbox`](../classes/HarnessSandbox.md) | [packages/core/src/session/types.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L37) |
+| <a id="property-storage"></a> `storage?` | [`HarnessSessionStorage`](../classes/HarnessSessionStorage.md) | [packages/core/src/session/types.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L36) |

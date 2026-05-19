@@ -1,3 +1,9 @@
+import type {
+  HarnessErrorCategory,
+  HarnessErrorCode,
+  HarnessErrorSeverity,
+} from "../runtime/types/errors.js";
+
 export type HarnessLogLevel = "debug" | "info" | "warn" | "error";
 export type HarnessLoggingLevel = "silent" | HarnessLogLevel;
 
@@ -33,6 +39,10 @@ export interface HarnessLogSource {
 }
 
 export interface HarnessLogError {
+  code?: HarnessErrorCode;
+  category?: HarnessErrorCategory;
+  severity?: HarnessErrorSeverity;
+  recoverable?: boolean;
   name?: string;
   message: string;
   stack?: string;
