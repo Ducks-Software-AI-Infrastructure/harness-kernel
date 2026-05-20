@@ -22,7 +22,7 @@ import type {
   ToolPermission,
   ToolRisk,
 } from "../runtime/types.js";
-import type { HarnessSandbox } from "../runtime/sandbox.js";
+import type { HarnessSandbox, SandboxCloseInput } from "../runtime/sandbox.js";
 import type { HarnessSessionStorage, HarnessSessionSummary, SessionListQuery, SessionListResult } from "../runtime/storage.js";
 
 export type HarnessAgentInput = { definition: AgentDefinition };
@@ -185,7 +185,7 @@ export interface HarnessSession {
     eventClass: HarnessEventClass<TPayload, TEvent>,
     options?: WaitForEventOptions,
   ): Promise<TEvent>;
-  close(): Promise<void>;
+  close(input?: SandboxCloseInput): Promise<void>;
 }
 
 export type HarnessSessionStoreEvent =

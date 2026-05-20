@@ -42,6 +42,24 @@ Re-exports [NoopSandboxSession](../../classes/NoopSandboxSession.md)
 
 ***
 
+### SandboxCloseInput
+
+Re-exports [SandboxCloseInput](../../interfaces/SandboxCloseInput.md)
+
+***
+
+### SandboxCloseReason
+
+Re-exports [SandboxCloseReason](../../type-aliases/SandboxCloseReason.md)
+
+***
+
+### SandboxDestroyInput
+
+Re-exports [SandboxDestroyInput](../../interfaces/SandboxDestroyInput.md)
+
+***
+
 ### SandboxExecInput
 
 Re-exports [SandboxExecInput](../../interfaces/SandboxExecInput.md)

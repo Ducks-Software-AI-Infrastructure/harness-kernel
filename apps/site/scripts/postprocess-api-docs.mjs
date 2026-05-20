@@ -29,6 +29,7 @@ const moduleRoutes = [
   ["provider-openai/src", "provider-openai", "@harness-kernel/provider-openai"],
   ["provider-ai-sdk/src", "provider-ai-sdk", "@harness-kernel/provider-ai-sdk"],
   ["storage-file/src", "storage-file", "@harness-kernel/storage-file"],
+  ["sandbox-docker/src", "sandbox-docker", "@harness-kernel/sandbox-docker"],
   ["sandbox-local/src", "sandbox-local", "@harness-kernel/sandbox-local"],
   ["tools-node/src", "tools-node", "@harness-kernel/tools-node"],
   ["tools-node/src/bash", "tools-node/bash", "@harness-kernel/tools-node/bash"],

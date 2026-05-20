@@ -10,12 +10,12 @@ description: "Generated API reference for HarnessRetryPolicy."
 
 # Interface: HarnessRetryPolicy
 
-Defined in: packages/core/src/runtime/types/errors.ts:43
+Defined in: [packages/core/src/runtime/types/errors.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L43)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-attempts"></a> `attempts?` | `number` | packages/core/src/runtime/types/errors.ts:44 |
-| <a id="property-backoffms"></a> `backoffMs?` | `number` | packages/core/src/runtime/types/errors.ts:45 |
-| <a id="property-maxbackoffms"></a> `maxBackoffMs?` | `number` | packages/core/src/runtime/types/errors.ts:46 |
+| <a id="property-attempts"></a> `attempts?` | `number` | [packages/core/src/runtime/types/errors.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L44) |
+| <a id="property-backoffms"></a> `backoffMs?` | `number` | [packages/core/src/runtime/types/errors.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L45) |
+| <a id="property-maxbackoffms"></a> `maxBackoffMs?` | `number` | [packages/core/src/runtime/types/errors.ts:46](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L46) |

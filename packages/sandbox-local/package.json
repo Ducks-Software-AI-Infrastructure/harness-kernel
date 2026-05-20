@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/sandbox-local",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "description": "Local shell sandbox for Harness Kernel.",
   "license": "Apache-2.0",
@@ -40,7 +40,7 @@
     "test": "tsx src/sandbox-local.test.ts"
   },
   "dependencies": {
-    "@harness-kernel/core": "0.3.0"
+    "@harness-kernel/core": "0.4.0"
   },
   "engines": {
     "node": ">=18"

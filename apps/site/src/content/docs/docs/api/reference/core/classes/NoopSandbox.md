@@ -10,7 +10,7 @@ description: "Generated API reference for NoopSandbox."
 
 # Class: NoopSandbox
 
-Defined in: [packages/core/src/runtime/sandbox.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L43)
+Defined in: [packages/core/src/runtime/sandbox.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L57)
 
 ## Extends
 
@@ -36,10 +36,34 @@ new NoopSandbox(): NoopSandbox;
 
 | Property | Modifier | Type | Default value | Overrides | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `"noop"` | `"noop"` | [`HarnessSandbox`](HarnessSandbox.md).[`id`](HarnessSandbox.md#property-id) | [packages/core/src/runtime/sandbox.ts:44](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L44) |
-| <a id="property-label"></a> `label` | `public` | `string` | `"Noop"` | [`HarnessSandbox`](HarnessSandbox.md).[`label`](HarnessSandbox.md#property-label) | [packages/core/src/runtime/sandbox.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L45) |
+| <a id="property-id"></a> `id` | `readonly` | `"noop"` | `"noop"` | [`HarnessSandbox`](HarnessSandbox.md).[`id`](HarnessSandbox.md#property-id) | [packages/core/src/runtime/sandbox.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L58) |
+| <a id="property-label"></a> `label` | `public` | `string` | `"Noop"` | [`HarnessSandbox`](HarnessSandbox.md).[`label`](HarnessSandbox.md#property-label) | [packages/core/src/runtime/sandbox.ts:59](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L59) |
 
 ## Methods
+
+### destroy()?
+
+```ts
+optional destroy(input): void | Promise<void>;
+```
+
+Defined in: [packages/core/src/runtime/sandbox.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L45)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input` | [`SandboxDestroyInput`](../interfaces/SandboxDestroyInput.md) |
+
+#### Returns
+
+`void` \| `Promise`\<`void`\>
+
+#### Inherited from
+
+[`HarnessSandbox`](HarnessSandbox.md).[`destroy`](HarnessSandbox.md#destroy)
+
+***
 
 ### open()
 
@@ -47,7 +71,7 @@ new NoopSandbox(): NoopSandbox;
 open(input): HarnessSandboxSession;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:47](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L47)
+Defined in: [packages/core/src/runtime/sandbox.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L61)
 
 #### Parameters
 

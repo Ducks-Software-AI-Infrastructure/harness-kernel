@@ -36,6 +36,7 @@ Optional packages are explicit host choices:
 - `@harness-kernel/provider-ai-sdk` bridges Vercel AI SDK language models into `HarnessModelProvider`.
 - `@harness-kernel/storage-file` provides `FileSessionStorage`.
 - `@harness-kernel/storage-postgres` provides `PostgresSessionStorage`.
+- `@harness-kernel/sandbox-docker` provides `DockerSandbox`.
 - `@harness-kernel/sandbox-local` provides `LocalSandbox`.
 - `@harness-kernel/tools-node` provides mode-owned Node tools.
 - `@harness-kernel/logging-file` provides `JsonlFileLogSink`.
@@ -57,7 +58,7 @@ This keeps examples honest about whether code belongs to agent space or runtime 
 
 Move code back across the boundary when you see these smells:
 
-- An agent package imports `@harness-kernel/provider-openai`, `@harness-kernel/storage-file`, `@harness-kernel/sandbox-local`, or logging sinks.
+- An agent package imports `@harness-kernel/provider-openai`, `@harness-kernel/storage-file`, `@harness-kernel/sandbox-docker`, `@harness-kernel/sandbox-local`, or logging sinks.
 - A reusable mode needs a production API key, filesystem path, approval UI, or deployment-specific resource to load.
 - A runtime host hard-codes prompts, mode tools, custom events, or hooks that should travel with the agent definition.
 - A guide cannot say whether a dependency exists for behavior or for hosting.

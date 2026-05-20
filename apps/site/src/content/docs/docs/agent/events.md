@@ -66,3 +66,9 @@ await session.events.emit(TicketEscalatedEvent, input, {
 Each `HarnessEventRecord` has an id, sequence, branch, type, event class id, timestamp, source, payload, run id, optional turn and mode ids, correlation fields, and metadata.
 
 The event class wraps that record and exposes `id`, `type`, `payload`, and `at`.
+
+## Events And Sandboxes
+
+Sandbox lifecycle is not an agent timeline event. Opening, closing, and executing commands in a sandbox are host operational concerns and are written through runtime logging.
+
+Tools that use a sandbox still produce normal tool timeline events. For example, a shell tool can emit `ToolStartEvent` and `ToolEndEvent` around the tool call, while the runtime logs the underlying sandbox command start, completion, timeout, or failure.

@@ -10,7 +10,7 @@ description: "Generated API reference for HarnessSessionImpl."
 
 # Class: HarnessSessionImpl
 
-Defined in: [packages/core/src/session/session.ts:60](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L60)
+Defined in: [packages/core/src/session/session.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L61)
 
 ## Implements
 
@@ -24,7 +24,7 @@ Defined in: [packages/core/src/session/session.ts:60](https://github.com/Ducks-S
 new HarnessSessionImpl(config, input): HarnessSessionImpl;
 ```
 
-Defined in: [packages/core/src/session/session.ts:78](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L78)
+Defined in: [packages/core/src/session/session.ts:79](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L79)
 
 #### Parameters
 
@@ -44,9 +44,9 @@ Defined in: [packages/core/src/session/session.ts:78](https://github.com/Ducks-S
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `string` | [packages/core/src/session/session.ts:61](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L61) |
-| <a id="property-snapshots"></a> `snapshots` | `readonly` | [`HarnessSnapshotSession`](../interfaces/HarnessSnapshotSession.md) | [packages/core/src/session/session.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L63) |
-| <a id="property-transcript"></a> `transcript` | `readonly` | [`HarnessTranscriptSession`](../interfaces/HarnessTranscriptSession.md) | [packages/core/src/session/session.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L62) |
+| <a id="property-id"></a> `id` | `readonly` | `string` | [packages/core/src/session/session.ts:62](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L62) |
+| <a id="property-snapshots"></a> `snapshots` | `readonly` | [`HarnessSnapshotSession`](../interfaces/HarnessSnapshotSession.md) | [packages/core/src/session/session.ts:64](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L64) |
+| <a id="property-transcript"></a> `transcript` | `readonly` | [`HarnessTranscriptSession`](../interfaces/HarnessTranscriptSession.md) | [packages/core/src/session/session.ts:63](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L63) |
 
 ## Methods
 
@@ -56,7 +56,7 @@ Defined in: [packages/core/src/session/session.ts:78](https://github.com/Ducks-S
 approveTool(approvalId): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/session.ts:306](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L306)
+Defined in: [packages/core/src/session/session.ts:307](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L307)
 
 #### Parameters
 
@@ -80,7 +80,7 @@ Defined in: [packages/core/src/session/session.ts:306](https://github.com/Ducks-
 clearModelOverride(): void;
 ```
 
-Defined in: [packages/core/src/session/session.ts:265](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L265)
+Defined in: [packages/core/src/session/session.ts:266](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L266)
 
 #### Returns
 
@@ -95,10 +95,16 @@ Defined in: [packages/core/src/session/session.ts:265](https://github.com/Ducks-
 ### close()
 
 ```ts
-close(): Promise<void>;
+close(input?): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/session.ts:332](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L332)
+Defined in: [packages/core/src/session/session.ts:333](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L333)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input` | [`SandboxCloseInput`](../interfaces/SandboxCloseInput.md) |
 
 #### Returns
 
@@ -116,7 +122,7 @@ Defined in: [packages/core/src/session/session.ts:332](https://github.com/Ducks-
 denyTool(approvalId, _reason?): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/session.ts:310](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L310)
+Defined in: [packages/core/src/session/session.ts:311](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L311)
 
 #### Parameters
 
@@ -141,7 +147,7 @@ Defined in: [packages/core/src/session/session.ts:310](https://github.com/Ducks-
 getAgentManifest(): HarnessAgentManifest;
 ```
 
-Defined in: [packages/core/src/session/session.ts:298](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L298)
+Defined in: [packages/core/src/session/session.ts:299](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L299)
 
 #### Returns
 
@@ -159,7 +165,7 @@ Defined in: [packages/core/src/session/session.ts:298](https://github.com/Ducks-
 getContextSnapshot(): ContextSnapshot | undefined;
 ```
 
-Defined in: [packages/core/src/session/session.ts:294](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L294)
+Defined in: [packages/core/src/session/session.ts:295](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L295)
 
 #### Returns
 
@@ -177,7 +183,7 @@ Defined in: [packages/core/src/session/session.ts:294](https://github.com/Ducks-
 getEvents(filter?): HarnessEventRecord<unknown>[];
 ```
 
-Defined in: [packages/core/src/session/session.ts:290](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L290)
+Defined in: [packages/core/src/session/session.ts:291](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L291)
 
 #### Parameters
 
@@ -201,7 +207,7 @@ Defined in: [packages/core/src/session/session.ts:290](https://github.com/Ducks-
 getMode(): string;
 ```
 
-Defined in: [packages/core/src/session/session.ts:251](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L251)
+Defined in: [packages/core/src/session/session.ts:252](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L252)
 
 #### Returns
 
@@ -219,7 +225,7 @@ Defined in: [packages/core/src/session/session.ts:251](https://github.com/Ducks-
 getModel(): string;
 ```
 
-Defined in: [packages/core/src/session/session.ts:255](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L255)
+Defined in: [packages/core/src/session/session.ts:256](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L256)
 
 #### Returns
 
@@ -237,7 +243,7 @@ Defined in: [packages/core/src/session/session.ts:255](https://github.com/Ducks-
 getPendingApprovals(): ToolApprovalHandle[];
 ```
 
-Defined in: [packages/core/src/session/session.ts:302](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L302)
+Defined in: [packages/core/src/session/session.ts:303](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L303)
 
 #### Returns
 
@@ -255,7 +261,7 @@ Defined in: [packages/core/src/session/session.ts:302](https://github.com/Ducks-
 getState(): AgentSharedState;
 ```
 
-Defined in: [packages/core/src/session/session.ts:276](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L276)
+Defined in: [packages/core/src/session/session.ts:277](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L277)
 
 #### Returns
 
@@ -273,7 +279,7 @@ Defined in: [packages/core/src/session/session.ts:276](https://github.com/Ducks-
 getStatus(): HarnessSessionStatus;
 ```
 
-Defined in: [packages/core/src/session/session.ts:226](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L226)
+Defined in: [packages/core/src/session/session.ts:227](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L227)
 
 #### Returns
 
@@ -291,7 +297,7 @@ Defined in: [packages/core/src/session/session.ts:226](https://github.com/Ducks-
 hydrate(): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/session.ts:344](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L344)
+Defined in: [packages/core/src/session/session.ts:345](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L345)
 
 #### Returns
 
@@ -305,7 +311,7 @@ Defined in: [packages/core/src/session/session.ts:344](https://github.com/Ducks-
 on(listener): () => void;
 ```
 
-Defined in: [packages/core/src/session/session.ts:314](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L314)
+Defined in: [packages/core/src/session/session.ts:315](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L315)
 
 #### Parameters
 
@@ -329,7 +335,7 @@ Defined in: [packages/core/src/session/session.ts:314](https://github.com/Ducks-
 onEvent<TPayload, TEvent>(eventClass, listener): () => void;
 ```
 
-Defined in: [packages/core/src/session/session.ts:318](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L318)
+Defined in: [packages/core/src/session/session.ts:319](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L319)
 
 #### Type Parameters
 
@@ -361,7 +367,7 @@ Defined in: [packages/core/src/session/session.ts:318](https://github.com/Ducks-
 replaceState(next): void;
 ```
 
-Defined in: [packages/core/src/session/session.ts:285](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L285)
+Defined in: [packages/core/src/session/session.ts:286](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L286)
 
 #### Parameters
 
@@ -385,7 +391,7 @@ Defined in: [packages/core/src/session/session.ts:285](https://github.com/Ducks-
 send(input, options?): Promise<SendResult>;
 ```
 
-Defined in: [packages/core/src/session/session.ts:139](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L139)
+Defined in: [packages/core/src/session/session.ts:140](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L140)
 
 #### Parameters
 
@@ -410,7 +416,7 @@ Defined in: [packages/core/src/session/session.ts:139](https://github.com/Ducks-
 setModel(model): void;
 ```
 
-Defined in: [packages/core/src/session/session.ts:259](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L259)
+Defined in: [packages/core/src/session/session.ts:260](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L260)
 
 #### Parameters
 
@@ -434,7 +440,7 @@ Defined in: [packages/core/src/session/session.ts:259](https://github.com/Ducks-
 stream(input, options?): HarnessRunStream;
 ```
 
-Defined in: [packages/core/src/session/session.ts:147](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L147)
+Defined in: [packages/core/src/session/session.ts:148](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L148)
 
 #### Parameters
 
@@ -459,7 +465,7 @@ Defined in: [packages/core/src/session/session.ts:147](https://github.com/Ducks-
 switchMode(mode, input?): Promise<void>;
 ```
 
-Defined in: [packages/core/src/session/session.ts:271](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L271)
+Defined in: [packages/core/src/session/session.ts:272](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L272)
 
 #### Parameters
 
@@ -484,7 +490,7 @@ Defined in: [packages/core/src/session/session.ts:271](https://github.com/Ducks-
 updateState(patch): void;
 ```
 
-Defined in: [packages/core/src/session/session.ts:280](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L280)
+Defined in: [packages/core/src/session/session.ts:281](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L281)
 
 #### Parameters
 
@@ -508,7 +514,7 @@ Defined in: [packages/core/src/session/session.ts:280](https://github.com/Ducks-
 waitForEvent<TPayload, TEvent>(eventClass, options?): Promise<TEvent>;
 ```
 
-Defined in: [packages/core/src/session/session.ts:325](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L325)
+Defined in: [packages/core/src/session/session.ts:326](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/session.ts#L326)
 
 #### Type Parameters
 

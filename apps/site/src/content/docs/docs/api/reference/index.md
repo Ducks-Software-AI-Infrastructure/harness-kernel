@@ -33,6 +33,7 @@ description: "Generated API reference for API Reference."
 - [@harness-kernel/logging-file](logging-file/index.md)
 - [@harness-kernel/provider-ai-sdk](provider-ai-sdk/index.md)
 - [@harness-kernel/provider-openai](provider-openai/index.md)
+- [@harness-kernel/sandbox-docker](sandbox-docker/index.md)
 - [@harness-kernel/sandbox-local](sandbox-local/index.md)
 - [@harness-kernel/storage-file](storage-file/index.md)
 - [@harness-kernel/tools-node](tools-node/index.md)

@@ -1,6 +1,7 @@
 import { randomId } from "../runtime/id.js";
 import { MemorySessionStorage } from "../runtime/storage.js";
 import { createHarnessSession } from "./session.js";
+import type { HarnessSandbox, SandboxCloseInput } from "../runtime/sandbox.js";
 import type {
   HarnessAppConfig,
   HarnessRunStream,
@@ -85,6 +86,7 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
   private readonly sessions = new Map<string, HarnessSession>();
   private readonly unsubscriptions = new Map<string, () => void>();
   private readonly latestRunIds = new Map<string, string>();
+  private readonly sessionSandboxes = new Map<string, HarnessSandbox | undefined>();
   private readonly listeners = new Set<HarnessSessionStoreListener>();
   private readonly storage;
   private closed = false;
@@ -106,6 +108,7 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
     const config = mergeConfig({ ...this.config, storage: this.storage }, overrides);
     const stored = await this.storage.getSession(id);
     const session = await createHarnessSession(config, { sessionId: id, restoredSession: stored });
+    this.sessionSandboxes.set(id, config.sandbox);
     const status = session.getStatus();
     if (stored?.latestRunId) this.latestRunIds.set(id, stored.latestRunId);
     else this.latestRunIds.delete(id);
@@ -168,18 +171,27 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
 
     const session = this.sessions.get(sessionId);
     if (!session) return false;
-    this.sessions.delete(sessionId);
-    this.latestRunIds.delete(sessionId);
-    this.unsubscriptions.get(sessionId)?.();
-    this.unsubscriptions.delete(sessionId);
-    await session.close();
+    await this.closeTrackedSession(sessionId, session, { reason: "close" });
     return true;
   }
 
   async delete(sessionId: string): Promise<boolean> {
-    await this.close(sessionId);
+    const session = this.sessions.get(sessionId);
+    if (session) {
+      await this.closeTrackedSession(sessionId, session, { reason: "delete" });
+    } else {
+      const stored = await this.storage.getSession(sessionId);
+      const sandbox = this.sessionSandboxes.get(sessionId) ?? this.config.sandbox;
+      if (stored || this.sessionSandboxes.has(sessionId)) {
+        await sandbox?.destroy?.({
+          sessionId,
+          agentKey: stored?.agentKey,
+        });
+      }
+    }
     this.latestRunIds.delete(sessionId);
     const deleted = await this.storage.deleteSession(sessionId);
+    this.sessionSandboxes.delete(sessionId);
     if (deleted) this.notify({ type: "session.deleted", sessionId });
     return deleted;
   }
@@ -231,6 +243,18 @@ export class HarnessSessionStoreImpl implements HarnessSessionStore {
 
   private notify(event: HarnessSessionStoreEvent): void {
     for (const listener of this.listeners) void listener(event);
+  }
+
+  private async closeTrackedSession(
+    sessionId: string,
+    session: HarnessSession,
+    input: SandboxCloseInput,
+  ): Promise<void> {
+    this.sessions.delete(sessionId);
+    this.latestRunIds.delete(sessionId);
+    this.unsubscriptions.get(sessionId)?.();
+    this.unsubscriptions.delete(sessionId);
+    await session.close(input);
   }
 }
 

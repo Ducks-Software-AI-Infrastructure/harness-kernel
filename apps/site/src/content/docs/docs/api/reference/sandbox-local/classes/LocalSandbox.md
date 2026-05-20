@@ -49,6 +49,30 @@ Defined in: [packages/sandbox-local/src/index.ts:125](https://github.com/Ducks-S
 
 ## Methods
 
+### destroy()?
+
+```ts
+optional destroy(input): void | Promise<void>;
+```
+
+Defined in: [packages/core/src/runtime/sandbox.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L45)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input` | [`SandboxDestroyInput`](../../core/interfaces/SandboxDestroyInput.md) |
+
+#### Returns
+
+`void` \| `Promise`\<`void`\>
+
+#### Inherited from
+
+[`HarnessSandbox`](../../core/classes/HarnessSandbox.md).[`destroy`](../../core/classes/HarnessSandbox.md#destroy)
+
+***
+
 ### open()
 
 ```ts

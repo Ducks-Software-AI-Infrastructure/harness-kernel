@@ -26,4 +26,4 @@ type HarnessErrorCode =
   | "runtime.failed";
 ```
 
-Defined in: packages/core/src/runtime/types/errors.ts:15
+Defined in: [packages/core/src/runtime/types/errors.ts:15](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L15)

@@ -59,10 +59,16 @@ Defined in: [packages/core/src/session/types.ts:161](https://github.com/Ducks-So
 ### close()
 
 ```ts
-close(): Promise<void>;
+close(input?): Promise<void>;
 ```
 
 Defined in: [packages/core/src/session/types.ts:188](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/session/types.ts#L188)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input?` | [`SandboxCloseInput`](SandboxCloseInput.md) |
 
 #### Returns
 

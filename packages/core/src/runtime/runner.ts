@@ -131,6 +131,7 @@ import type {
   TranscriptQuery,
   TranscriptSeekTarget,
 } from "./types.js";
+import type { SandboxCloseInput } from "./sandbox.js";
 import {
   ContextScopes,
   HarnessEvent,
@@ -634,8 +635,8 @@ export class AgentSessionRunner {
     await this.sandboxManager.ensureOpen();
   }
 
-  private async closeSandbox(): Promise<void> {
-    await this.sandboxManager.close();
+  private async closeSandbox(input: SandboxCloseInput = { reason: "close" }): Promise<void> {
+    await this.sandboxManager.close(input);
   }
 
   private async closeStore(): Promise<void> {
@@ -675,7 +676,7 @@ export class AgentSessionRunner {
 
   private async beginNewRun(): Promise<void> {
     if (this.started || this.restoredFromRun) {
-      await this.closeSandbox();
+      await this.closeSandbox({ reason: "close" });
       this.runIdValue = randomId();
       await this.storageCoordinator.beginRun(this.runIdValue);
       this.started = false;
@@ -773,7 +774,7 @@ export class AgentSessionRunner {
       this.log(RunFailedLog, { error: normalized, internalError: error });
       throw error;
     } finally {
-      if (runStarted) await this.closeSandbox();
+      if (runStarted) await this.closeSandbox({ reason: "close" });
       this.runModelOverride = undefined;
     }
   }
@@ -802,8 +803,8 @@ export class AgentSessionRunner {
     await this.ensureStoreInitialized();
   }
 
-  async close(): Promise<void> {
-    await this.closeSandbox();
+  async close(input: SandboxCloseInput = { reason: "close" }): Promise<void> {
+    await this.closeSandbox(input);
     await this.closeStore();
   }
 

@@ -92,8 +92,27 @@ Add optional runtime modules only when the host needs them:
 ```bash
 pnpm add @harness-kernel/storage-file
 pnpm add @harness-kernel/sandbox-local
+pnpm add @harness-kernel/sandbox-docker
 pnpm add @harness-kernel/tools-node
 ```
+
+## Sandboxing
+
+Runtime hosts choose the sandbox. `NoopSandbox` is in core, `LocalSandbox` runs
+commands on the host inside a work directory, and `DockerSandbox` runs commands
+through Docker Sandboxes (`sbx`).
+
+`DockerSandbox` maps each Harness `sessionId` to one deterministic `sbx` sandbox,
+shared by all tools in that session. `persistence: "workspace"` is the lightweight
+default: closing a session removes the sandbox and keeps files in the mounted
+workspace. `persistence: "sandbox"` is opt-in for longer sessions that need
+packages, caches, or files outside the workspace to survive close/reopen.
+
+In production, scope Docker sandbox names with `namePrefix` by app, environment,
+and tenant. Relative `extraWorkspaces` are resolved inside the main workspace and
+cannot escape with `..`; absolute paths are explicit trusted host configuration.
+Sandbox lifecycle and exec details are operational logs, not agent timeline
+events.
 
 ## Core Snippets
 
@@ -276,6 +295,7 @@ export const agent = defineAgent({
 | [`@harness-kernel/provider-ai-sdk`](https://www.npmjs.com/package/@harness-kernel/provider-ai-sdk) | Generic model provider wrapper for the Vercel AI SDK. |
 | [`@harness-kernel/provider-openai`](https://www.npmjs.com/package/@harness-kernel/provider-openai) | OpenAI model provider built on `provider-ai-sdk`. |
 | [`@harness-kernel/storage-file`](https://www.npmjs.com/package/@harness-kernel/storage-file) | File-backed run storage for transcripts, events, snapshots, metrics, and cursors. |
+| [`@harness-kernel/sandbox-docker`](https://www.npmjs.com/package/@harness-kernel/sandbox-docker) | Docker Sandboxes `sbx` backend for isolated command execution. |
 | [`@harness-kernel/sandbox-local`](https://www.npmjs.com/package/@harness-kernel/sandbox-local) | Local shell sandbox implementation. |
 | [`@harness-kernel/tools-node`](https://www.npmjs.com/package/@harness-kernel/tools-node) | Node/local tools such as shell and file tools for modes. |
 | [`@harness-kernel/logging-file`](https://www.npmjs.com/package/@harness-kernel/logging-file) | JSONL operational log sink. |

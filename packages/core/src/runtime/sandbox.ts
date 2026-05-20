@@ -24,11 +24,25 @@ export interface SandboxExecResult {
   timedOut?: boolean;
 }
 
+export type SandboxCloseReason = "close" | "delete";
+
+export interface SandboxCloseInput {
+  reason: SandboxCloseReason;
+}
+
+export interface SandboxDestroyInput {
+  sessionId: string;
+  agentKey?: string;
+  workDir?: string;
+}
+
 export abstract class HarnessSandbox {
   abstract readonly id: string;
   label?: string;
 
   abstract open(input: HarnessSandboxOpenInput): Promise<HarnessSandboxSession> | HarnessSandboxSession;
+
+  destroy?(input: SandboxDestroyInput): Promise<void> | void;
 }
 
 export abstract class HarnessSandboxSession {
@@ -37,7 +51,7 @@ export abstract class HarnessSandboxSession {
 
   abstract exec(input: SandboxExecInput): Promise<SandboxExecResult>;
 
-  close?(): Promise<void>;
+  close?(input?: SandboxCloseInput): Promise<void> | void;
 }
 
 export class NoopSandbox extends HarnessSandbox {
