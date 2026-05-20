@@ -62,3 +62,14 @@ The host still owns where those records go.
 Runtime failure logs use the same canonical error shape as events and status, but logs keep the internal view after redaction. Public surfaces such as stream events and `lastError` are sanitized by `errorPolicy`; log sinks receive `HarnessLogRecord.error` with `code`, `category`, `severity`, `recoverable`, `name`, `message`, and `stack` when available.
 
 Events are the session timeline. Logs are operational diagnostics. A model provider failure, for example, produces an `ErrorEvent`/`RunFailedEvent` for the timeline and `ModelCallFailedLog`/`RunFailedLog` for diagnostics.
+
+## Sandbox Logs
+
+Sandbox activity is logged as runtime diagnostics:
+
+- sandbox opened and closed;
+- command execution started;
+- command execution completed with exit code, signal, timeout flag, and duration;
+- command execution failed before a result could be returned.
+
+These records apply to every sandbox implementation, including `NoopSandbox`, `LocalSandbox`, and `DockerSandbox`. They are separate from tool timeline events: a `BashTool` call can produce `ToolStartEvent`/`ToolEndEvent` for the session timeline and sandbox logs for the host's operational view.

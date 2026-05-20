@@ -10,10 +10,11 @@ description: "Generated API reference for HarnessSandboxSession."
 
 # Abstract Class: HarnessSandboxSession
 
-Defined in: [packages/core/src/runtime/sandbox.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L34)
+Defined in: [packages/core/src/runtime/sandbox.ts:48](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L48)
 
 ## Extended by
 
+- [`DockerSandboxSession`](../../sandbox-docker/classes/DockerSandboxSession.md)
 - [`LocalSandboxSession`](../../sandbox-local/classes/LocalSandboxSession.md)
 - [`NoopSandboxSession`](NoopSandboxSession.md)
 
@@ -33,22 +34,28 @@ new HarnessSandboxSession(): HarnessSandboxSession;
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `abstract` | `string` | [packages/core/src/runtime/sandbox.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L35) |
-| <a id="property-workdir"></a> `workDir` | `abstract` | `string` | [packages/core/src/runtime/sandbox.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L36) |
+| <a id="property-id"></a> `id` | `abstract` | `string` | [packages/core/src/runtime/sandbox.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L49) |
+| <a id="property-workdir"></a> `workDir` | `abstract` | `string` | [packages/core/src/runtime/sandbox.ts:50](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L50) |
 
 ## Methods
 
 ### close()?
 
 ```ts
-optional close(): Promise<void>;
+optional close(input?): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L40)
+Defined in: [packages/core/src/runtime/sandbox.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L54)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input?` | [`SandboxCloseInput`](../interfaces/SandboxCloseInput.md) |
 
 #### Returns
 
-`Promise`\<`void`\>
+`void` \| `Promise`\<`void`\>
 
 ***
 
@@ -58,7 +65,7 @@ Defined in: [packages/core/src/runtime/sandbox.ts:40](https://github.com/Ducks-S
 abstract exec(input): Promise<SandboxExecResult>;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L38)
+Defined in: [packages/core/src/runtime/sandbox.ts:52](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L52)
 
 #### Parameters
 

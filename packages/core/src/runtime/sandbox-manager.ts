@@ -1,5 +1,5 @@
 import { summarizeValue } from "../logging/index.js";
-import type { HarnessSandbox, SandboxExecInput, SandboxExecResult } from "./sandbox.js";
+import type { HarnessSandbox, SandboxCloseInput, SandboxExecInput, SandboxExecResult } from "./sandbox.js";
 import { HarnessSandboxSession } from "./sandbox.js";
 
 export class SandboxManager {
@@ -52,11 +52,11 @@ export class SandboxManager {
     return this.session;
   }
 
-  async close(): Promise<void> {
+  async close(input: SandboxCloseInput = { reason: "close" }): Promise<void> {
     const sandbox = this.session;
     this.session = undefined;
     if (!sandbox) return;
-    await sandbox.close?.();
+    await sandbox.close?.(input);
     this.input.logClosed({ sandboxId: sandbox.id });
   }
 
@@ -94,8 +94,8 @@ export class SandboxManager {
         }
       }
 
-      async close(): Promise<void> {
-        await base.close?.();
+      async close(input?: SandboxCloseInput): Promise<void> {
+        await base.close?.(input);
       }
     }();
   }

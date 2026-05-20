@@ -40,6 +40,7 @@ import type {
   WaitForEventOptions,
   ToolApprovalHandle,
 } from "./types.js";
+import type { SandboxCloseInput } from "../runtime/sandbox.js";
 import type { HarnessSessionSummary } from "../runtime/storage.js";
 
 const defaultApprovalTimeoutMs = 5 * 60 * 1000;
@@ -329,13 +330,13 @@ export class HarnessSessionImpl implements HarnessSession {
     return this.events.waitForEvent(eventClass, options);
   }
 
-  async close(): Promise<void> {
+  async close(input: SandboxCloseInput = { reason: "close" }): Promise<void> {
     if (this.closed) return;
     this.closed = true;
     this.status.close();
     await this.cancelActiveRun("Session closed.");
     this.unsubscribeRunner();
-    await this.runner.close();
+    await this.runner.close(input);
     this.notifyStatus();
     this.events.clear();
     await this.logger.close();
@@ -401,7 +402,7 @@ export class HarnessSessionImpl implements HarnessSession {
     this.status.close();
     this.approvals.denyAll();
     this.unsubscribeRunner();
-    await this.runner.close();
+    await this.runner.close({ reason: "close" });
     this.notifyStatus();
     this.events.clear();
     await this.logger.close();

@@ -81,3 +81,7 @@ await store.close();
 ```
 
 `get(sessionId)` returns only an active in-memory session. Use `getOrCreate(sessionId)` to hydrate a persisted session. `close(sessionId)` unloads an active session, while `delete(sessionId)` removes persisted session data when the storage backend supports deletion.
+
+Sandbox implementations receive that lifecycle intent. `close(sessionId)` closes the sandbox with reason `"close"`. `delete(sessionId)` closes an active sandbox with reason `"delete"` or calls `destroy({ sessionId })` for an inactive persisted session when the sandbox supports destruction. While the same `HarnessSessionStoreImpl` is alive, it remembers the sandbox provider used for each session, so a session created with a sandbox override can be closed and later deleted through the same override.
+
+After a host restart, that override memory is gone. If a session was created with a sandbox override that is not persisted in host configuration, configure the correct sandbox before deleting it or reopen the session with the override first. The default fallback is the store-level `config.sandbox`.

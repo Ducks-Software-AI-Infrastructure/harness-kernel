@@ -15,6 +15,7 @@ const packageDirs = [
   "packages/logging-file",
   "packages/provider-ai-sdk",
   "packages/provider-openai",
+  "packages/sandbox-docker",
   "packages/sandbox-local",
   "packages/storage-file",
   "packages/storage-postgres",
@@ -43,6 +44,7 @@ const publicImports = [
   "@harness-kernel/logging-file",
   "@harness-kernel/provider-ai-sdk",
   "@harness-kernel/provider-openai",
+  "@harness-kernel/sandbox-docker",
   "@harness-kernel/sandbox-local",
   "@harness-kernel/storage-file",
   "@harness-kernel/storage-postgres",
@@ -95,10 +97,11 @@ try {
 
     assert.equal(typeof module0.createHarnessSessionStore, "function");
     assert.equal(typeof module17.JsonlFileLogSink, "function");
-    assert.equal(typeof module20.LocalSandbox, "function");
-    assert.equal(typeof module21.FileRunStorage, "function");
-    assert.equal(typeof module22.PostgresSessionStorage, "function");
-    assert.equal(typeof module23.BashTool, "function");
+    assert.equal(typeof module20.DockerSandbox, "function");
+    assert.equal(typeof module21.LocalSandbox, "function");
+    assert.equal(typeof module22.FileRunStorage, "function");
+    assert.equal(typeof module23.PostgresSessionStorage, "function");
+    assert.equal(typeof module24.BashTool, "function");
 
     class TestMode extends HarnessMode {
       prompt = "Answer with ok.";

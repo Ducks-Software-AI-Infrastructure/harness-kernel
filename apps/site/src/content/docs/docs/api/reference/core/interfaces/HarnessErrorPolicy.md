@@ -10,19 +10,19 @@ description: "Generated API reference for HarnessErrorPolicy."
 
 # Interface: HarnessErrorPolicy
 
-Defined in: packages/core/src/runtime/types/errors.ts:49
+Defined in: [packages/core/src/runtime/types/errors.ts:49](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L49)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-closesessiononfatal"></a> `closeSessionOnFatal?` | `boolean` | packages/core/src/runtime/types/errors.ts:52 |
-| <a id="property-contextfailure"></a> `contextFailure?` | `"fail"` \| `"warn-and-skip"` | packages/core/src/runtime/types/errors.ts:53 |
-| <a id="property-exposeinternalerrors"></a> `exposeInternalErrors?` | `boolean` | packages/core/src/runtime/types/errors.ts:50 |
-| <a id="property-includestackinstatus"></a> `includeStackInStatus?` | `boolean` | packages/core/src/runtime/types/errors.ts:51 |
-| <a id="property-retry"></a> `retry?` | `object` | packages/core/src/runtime/types/errors.ts:54 |
-| `retry.model?` | [`HarnessRetryPolicy`](HarnessRetryPolicy.md) | packages/core/src/runtime/types/errors.ts:55 |
-| `retry.storage?` | [`HarnessRetryPolicy`](HarnessRetryPolicy.md) | packages/core/src/runtime/types/errors.ts:56 |
+| <a id="property-closesessiononfatal"></a> `closeSessionOnFatal?` | `boolean` | [packages/core/src/runtime/types/errors.ts:52](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L52) |
+| <a id="property-contextfailure"></a> `contextFailure?` | `"fail"` \| `"warn-and-skip"` | [packages/core/src/runtime/types/errors.ts:53](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L53) |
+| <a id="property-exposeinternalerrors"></a> `exposeInternalErrors?` | `boolean` | [packages/core/src/runtime/types/errors.ts:50](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L50) |
+| <a id="property-includestackinstatus"></a> `includeStackInStatus?` | `boolean` | [packages/core/src/runtime/types/errors.ts:51](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L51) |
+| <a id="property-retry"></a> `retry?` | `object` | [packages/core/src/runtime/types/errors.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L54) |
+| `retry.model?` | [`HarnessRetryPolicy`](HarnessRetryPolicy.md) | [packages/core/src/runtime/types/errors.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L55) |
+| `retry.storage?` | [`HarnessRetryPolicy`](HarnessRetryPolicy.md) | [packages/core/src/runtime/types/errors.ts:56](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L56) |
 
 ## Methods
 
@@ -32,7 +32,7 @@ Defined in: packages/core/src/runtime/types/errors.ts:49
 optional classify(error, context): Partial<HarnessErrorShape> | undefined;
 ```
 
-Defined in: packages/core/src/runtime/types/errors.ts:58
+Defined in: [packages/core/src/runtime/types/errors.ts:58](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L58)
 
 #### Parameters
 

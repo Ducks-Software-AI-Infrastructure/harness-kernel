@@ -25,4 +25,4 @@ class CliMode extends HarnessMode {
 
 Exports include `BashTool`, `ReadFileTool`, `WriteFileTool`, `EditFileTool`, `GlobTool`, `GrepTool`, and factory helpers. Subpaths `@harness-kernel/tools-node/bash` and `@harness-kernel/tools-node/files` are public.
 
-These tools are mode-owned behavior. They need a runtime sandbox, such as `LocalSandbox`, to execute successfully.
+These tools are mode-owned behavior. They need a runtime sandbox, such as `LocalSandbox` or `DockerSandbox`, to execute successfully. The mode chooses the tools; the host chooses the sandbox implementation and operational policy.

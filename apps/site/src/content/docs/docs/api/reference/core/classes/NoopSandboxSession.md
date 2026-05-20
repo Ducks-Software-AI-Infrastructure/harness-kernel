@@ -10,7 +10,7 @@ description: "Generated API reference for NoopSandboxSession."
 
 # Class: NoopSandboxSession
 
-Defined in: [packages/core/src/runtime/sandbox.ts:52](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L52)
+Defined in: [packages/core/src/runtime/sandbox.ts:66](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L66)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: [packages/core/src/runtime/sandbox.ts:52](https://github.com/Ducks-S
 new NoopSandboxSession(workDir): NoopSandboxSession;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L55)
+Defined in: [packages/core/src/runtime/sandbox.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L69)
 
 #### Parameters
 
@@ -44,22 +44,28 @@ Defined in: [packages/core/src/runtime/sandbox.ts:55](https://github.com/Ducks-S
 
 | Property | Modifier | Type | Default value | Overrides | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `"noop"` | `"noop"` | [`HarnessSandboxSession`](HarnessSandboxSession.md).[`id`](HarnessSandboxSession.md#property-id) | - | [packages/core/src/runtime/sandbox.ts:53](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L53) |
-| <a id="property-workdir"></a> `workDir` | `readonly` | `string` | `undefined` | - | [`HarnessSandboxSession`](HarnessSandboxSession.md).[`workDir`](HarnessSandboxSession.md#property-workdir) | [packages/core/src/runtime/sandbox.ts:55](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L55) |
+| <a id="property-id"></a> `id` | `readonly` | `"noop"` | `"noop"` | [`HarnessSandboxSession`](HarnessSandboxSession.md).[`id`](HarnessSandboxSession.md#property-id) | - | [packages/core/src/runtime/sandbox.ts:67](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L67) |
+| <a id="property-workdir"></a> `workDir` | `readonly` | `string` | `undefined` | - | [`HarnessSandboxSession`](HarnessSandboxSession.md).[`workDir`](HarnessSandboxSession.md#property-workdir) | [packages/core/src/runtime/sandbox.ts:69](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L69) |
 
 ## Methods
 
 ### close()?
 
 ```ts
-optional close(): Promise<void>;
+optional close(input?): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L40)
+Defined in: [packages/core/src/runtime/sandbox.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L54)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input?` | [`SandboxCloseInput`](../interfaces/SandboxCloseInput.md) |
 
 #### Returns
 
-`Promise`\<`void`\>
+`void` \| `Promise`\<`void`\>
 
 #### Inherited from
 
@@ -73,7 +79,7 @@ Defined in: [packages/core/src/runtime/sandbox.ts:40](https://github.com/Ducks-S
 exec(input): Promise<SandboxExecResult>;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:59](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L59)
+Defined in: [packages/core/src/runtime/sandbox.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L73)
 
 #### Parameters
 

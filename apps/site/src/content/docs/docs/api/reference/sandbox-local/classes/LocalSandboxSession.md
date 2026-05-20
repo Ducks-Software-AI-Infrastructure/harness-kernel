@@ -56,14 +56,20 @@ Defined in: [packages/sandbox-local/src/index.ts:49](https://github.com/Ducks-So
 ### close()?
 
 ```ts
-optional close(): Promise<void>;
+optional close(input?): void | Promise<void>;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L40)
+Defined in: [packages/core/src/runtime/sandbox.ts:54](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L54)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input?` | [`SandboxCloseInput`](../../core/interfaces/SandboxCloseInput.md) |
 
 #### Returns
 
-`Promise`\<`void`\>
+`void` \| `Promise`\<`void`\>
 
 #### Inherited from
 

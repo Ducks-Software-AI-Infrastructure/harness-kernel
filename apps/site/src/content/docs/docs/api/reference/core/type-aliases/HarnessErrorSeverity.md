@@ -14,4 +14,4 @@ description: "Generated API reference for HarnessErrorSeverity."
 type HarnessErrorSeverity = "warn" | "error" | "fatal";
 ```
 
-Defined in: packages/core/src/runtime/types/errors.ts:13
+Defined in: [packages/core/src/runtime/types/errors.ts:13](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L13)

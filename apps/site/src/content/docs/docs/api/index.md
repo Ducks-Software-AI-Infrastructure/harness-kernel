@@ -12,7 +12,7 @@ Start with these groups:
 - [`@harness-kernel/core/agent`](./reference/core/agent/) and child subpaths for agent-space behavior contracts.
 - [`@harness-kernel/core/runner`](./reference/core/runner/) and child subpaths for runtime host contracts.
 - [`@harness-kernel/core/schema`](./reference/core/schema/) for official schema primitives.
-- Optional package roots for [OpenAI](./reference/provider-openai/), [AI SDK](./reference/provider-ai-sdk/), [file storage](./reference/storage-file/), [local sandbox](./reference/sandbox-local/), [Node tools](./reference/tools-node/), [file logging](./reference/logging-file/), and [create](./reference/create/).
+- Optional package roots for [OpenAI](./reference/provider-openai/), [AI SDK](./reference/provider-ai-sdk/), [file storage](./reference/storage-file/), [Docker sandbox](./reference/sandbox-docker/), [local sandbox](./reference/sandbox-local/), [Node tools](./reference/tools-node/), [file logging](./reference/logging-file/), and [create](./reference/create/).
 
 Generated pages include a notice at the top and should not be edited directly. Run:
 

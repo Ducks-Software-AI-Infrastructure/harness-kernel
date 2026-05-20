@@ -10,10 +10,11 @@ description: "Generated API reference for HarnessSandbox."
 
 # Abstract Class: HarnessSandbox
 
-Defined in: [packages/core/src/runtime/sandbox.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L27)
+Defined in: [packages/core/src/runtime/sandbox.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L39)
 
 ## Extended by
 
+- [`DockerSandbox`](../../sandbox-docker/classes/DockerSandbox.md)
 - [`LocalSandbox`](../../sandbox-local/classes/LocalSandbox.md)
 - [`NoopSandbox`](NoopSandbox.md)
 
@@ -33,10 +34,30 @@ new HarnessSandbox(): HarnessSandbox;
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `abstract` | `string` | [packages/core/src/runtime/sandbox.ts:28](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L28) |
-| <a id="property-label"></a> `label?` | `public` | `string` | [packages/core/src/runtime/sandbox.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L29) |
+| <a id="property-id"></a> `id` | `abstract` | `string` | [packages/core/src/runtime/sandbox.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L40) |
+| <a id="property-label"></a> `label?` | `public` | `string` | [packages/core/src/runtime/sandbox.ts:41](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L41) |
 
 ## Methods
+
+### destroy()?
+
+```ts
+optional destroy(input): void | Promise<void>;
+```
+
+Defined in: [packages/core/src/runtime/sandbox.ts:45](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L45)
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input` | [`SandboxDestroyInput`](../interfaces/SandboxDestroyInput.md) |
+
+#### Returns
+
+`void` \| `Promise`\<`void`\>
+
+***
 
 ### open()
 
@@ -46,7 +67,7 @@ abstract open(input):
 | Promise<HarnessSandboxSession>;
 ```
 
-Defined in: [packages/core/src/runtime/sandbox.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L31)
+Defined in: [packages/core/src/runtime/sandbox.ts:43](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/sandbox.ts#L43)
 
 #### Parameters
 

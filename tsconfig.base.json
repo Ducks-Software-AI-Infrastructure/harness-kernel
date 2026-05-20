@@ -20,6 +20,7 @@
       "@harness-kernel/core/schema": ["./packages/core/src/schema/index.ts"],
       "@harness-kernel/provider-ai-sdk": ["./packages/provider-ai-sdk/src/index.ts"],
       "@harness-kernel/provider-openai": ["./packages/provider-openai/src/index.ts"],
+      "@harness-kernel/sandbox-docker": ["./packages/sandbox-docker/src/index.ts"],
       "@harness-kernel/storage-file": ["./packages/storage-file/src/index.ts"],
       "@harness-kernel/storage-postgres": ["./packages/storage-postgres/src/index.ts"],
       "@harness-kernel/sandbox-local": ["./packages/sandbox-local/src/index.ts"],

@@ -17,7 +17,7 @@ function normalizeHarnessError(
    policy?): HarnessErrorShape;
 ```
 
-Defined in: packages/core/src/runtime/errors.ts:225
+Defined in: [packages/core/src/runtime/errors.ts:225](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/errors.ts#L225)
 
 ## Parameters
 

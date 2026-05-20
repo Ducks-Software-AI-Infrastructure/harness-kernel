@@ -14,7 +14,7 @@ description: "Generated API reference for SanitizeHarnessError."
 function sanitizeHarnessError(error, policy?): HarnessErrorShape;
 ```
 
-Defined in: packages/core/src/runtime/errors.ts:262
+Defined in: [packages/core/src/runtime/errors.ts:262](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/errors.ts#L262)
 
 ## Parameters
 

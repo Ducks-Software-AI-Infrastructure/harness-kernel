@@ -10,20 +10,20 @@ description: "Generated API reference for HarnessErrorShape."
 
 # Interface: HarnessErrorShape
 
-Defined in: packages/core/src/runtime/types/errors.ts:29
+Defined in: [packages/core/src/runtime/types/errors.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L29)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-category"></a> `category` | [`HarnessErrorCategory`](../type-aliases/HarnessErrorCategory.md) | packages/core/src/runtime/types/errors.ts:33 |
-| <a id="property-cause"></a> `cause?` | `unknown` | packages/core/src/runtime/types/errors.ts:39 |
-| <a id="property-code"></a> `code` | [`HarnessErrorCode`](../type-aliases/HarnessErrorCode.md) | packages/core/src/runtime/types/errors.ts:30 |
-| <a id="property-details"></a> `details?` | `unknown` | packages/core/src/runtime/types/errors.ts:40 |
-| <a id="property-message"></a> `message` | `string` | packages/core/src/runtime/types/errors.ts:31 |
-| <a id="property-name"></a> `name?` | `string` | packages/core/src/runtime/types/errors.ts:37 |
-| <a id="property-publicmessage"></a> `publicMessage?` | `string` | packages/core/src/runtime/types/errors.ts:32 |
-| <a id="property-recoverable"></a> `recoverable` | `boolean` | packages/core/src/runtime/types/errors.ts:35 |
-| <a id="property-severity"></a> `severity` | [`HarnessErrorSeverity`](../type-aliases/HarnessErrorSeverity.md) | packages/core/src/runtime/types/errors.ts:34 |
-| <a id="property-source"></a> `source?` | [`HarnessEventSource`](HarnessEventSource.md) | packages/core/src/runtime/types/errors.ts:36 |
-| <a id="property-stack"></a> `stack?` | `string` | packages/core/src/runtime/types/errors.ts:38 |
+| <a id="property-category"></a> `category` | [`HarnessErrorCategory`](../type-aliases/HarnessErrorCategory.md) | [packages/core/src/runtime/types/errors.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L33) |
+| <a id="property-cause"></a> `cause?` | `unknown` | [packages/core/src/runtime/types/errors.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L39) |
+| <a id="property-code"></a> `code` | [`HarnessErrorCode`](../type-aliases/HarnessErrorCode.md) | [packages/core/src/runtime/types/errors.ts:30](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L30) |
+| <a id="property-details"></a> `details?` | `unknown` | [packages/core/src/runtime/types/errors.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L40) |
+| <a id="property-message"></a> `message` | `string` | [packages/core/src/runtime/types/errors.ts:31](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L31) |
+| <a id="property-name"></a> `name?` | `string` | [packages/core/src/runtime/types/errors.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L37) |
+| <a id="property-publicmessage"></a> `publicMessage?` | `string` | [packages/core/src/runtime/types/errors.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L32) |
+| <a id="property-recoverable"></a> `recoverable` | `boolean` | [packages/core/src/runtime/types/errors.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L35) |
+| <a id="property-severity"></a> `severity` | [`HarnessErrorSeverity`](../type-aliases/HarnessErrorSeverity.md) | [packages/core/src/runtime/types/errors.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L34) |
+| <a id="property-source"></a> `source?` | [`HarnessEventSource`](HarnessEventSource.md) | [packages/core/src/runtime/types/errors.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L36) |
+| <a id="property-stack"></a> `stack?` | `string` | [packages/core/src/runtime/types/errors.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L38) |

@@ -2,9 +2,15 @@ import assert from "node:assert/strict";
 import {
   createHarnessSessionStore,
   defineAgent,
+  HarnessSandbox,
   HarnessMode,
   MemorySessionStorage,
+  type HarnessSandboxOpenInput,
+  type HarnessSandboxSession,
   type HarnessModelProvider,
+  type HarnessSession,
+  type SandboxCloseInput,
+  type SandboxDestroyInput,
 } from "../index.js";
 import { MemoryLogSink } from "../logging/index.js";
 
@@ -28,6 +34,42 @@ const provider: HarnessModelProvider = {
     return { content: `answer:${String(latest?.content ?? "")}` };
   },
 };
+
+function trackSession(store: unknown, sessionId: string, session: HarnessSession): void {
+  (store as { sessions: Map<string, HarnessSession> }).sessions.set(sessionId, session);
+}
+
+function fakeSession(sessionId: string, closeInputs: (SandboxCloseInput | undefined)[]): HarnessSession {
+  return {
+    id: sessionId,
+    async close(input?: SandboxCloseInput) {
+      closeInputs.push(input);
+    },
+  } as HarnessSession;
+}
+
+async function seedStoredSession(storage: MemorySessionStorage, sessionId: string): Promise<void> {
+  await storage.createSession({
+    sessionId,
+    agentKey: "session-store-test",
+    mode: "ChatMode",
+    createdAt: "2024-01-01T00:00:00.000Z",
+    lastActiveAt: "2024-01-01T00:00:00.000Z",
+  });
+}
+
+class DestroyTrackingSandbox extends HarnessSandbox {
+  readonly id = "destroy-tracking";
+  readonly destroyInputs: SandboxDestroyInput[] = [];
+
+  open(_input: HarnessSandboxOpenInput): HarnessSandboxSession {
+    throw new Error("DestroyTrackingSandbox should not open during this test.");
+  }
+
+  destroy(input: SandboxDestroyInput): void {
+    this.destroyInputs.push(input);
+  }
+}
 
 const storage = new MemorySessionStorage();
 const logs = new MemoryLogSink();
@@ -110,3 +152,68 @@ const completedLog = logs.records.find((record) => record.type === "RunCompleted
 assert.ok(completedLog?.fields?.metrics);
 
 await store.close();
+
+const closeReasonStorage = new MemorySessionStorage();
+await seedStoredSession(closeReasonStorage, "close-reason");
+const closeReasonStore = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [provider],
+  defaultModel: "fake/model",
+  storage: closeReasonStorage,
+});
+const closeInputs: (SandboxCloseInput | undefined)[] = [];
+trackSession(closeReasonStore, "close-reason", fakeSession("close-reason", closeInputs));
+assert.equal(await closeReasonStore.close("close-reason"), true);
+assert.deepEqual(closeInputs, [{ reason: "close" }]);
+await closeReasonStore.close();
+
+const deleteReasonStorage = new MemorySessionStorage();
+await seedStoredSession(deleteReasonStorage, "delete-reason");
+const deleteReasonStore = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [provider],
+  defaultModel: "fake/model",
+  storage: deleteReasonStorage,
+});
+const deleteInputs: (SandboxCloseInput | undefined)[] = [];
+trackSession(deleteReasonStore, "delete-reason", fakeSession("delete-reason", deleteInputs));
+assert.equal(await deleteReasonStore.delete("delete-reason"), true);
+assert.deepEqual(deleteInputs, [{ reason: "delete" }]);
+await deleteReasonStore.close();
+
+const destroyStorage = new MemorySessionStorage();
+await seedStoredSession(destroyStorage, "inactive-reason");
+const destroySandbox = new DestroyTrackingSandbox();
+const destroyStore = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [provider],
+  defaultModel: "fake/model",
+  storage: destroyStorage,
+  sandbox: destroySandbox,
+});
+assert.equal(await destroyStore.delete("inactive-reason"), true);
+assert.deepEqual(destroySandbox.destroyInputs, [{
+  sessionId: "inactive-reason",
+  agentKey: "session-store-test",
+}]);
+await destroyStore.close();
+
+const rememberedStorage = new MemorySessionStorage();
+const baseDestroySandbox = new DestroyTrackingSandbox();
+const overrideDestroySandbox = new DestroyTrackingSandbox();
+const rememberedStore = await createHarnessSessionStore({
+  agent: { definition: agent },
+  providers: [provider],
+  defaultModel: "fake/model",
+  storage: rememberedStorage,
+  sandbox: baseDestroySandbox,
+});
+await rememberedStore.getOrCreate("remembered-override", { sandbox: overrideDestroySandbox });
+assert.equal(await rememberedStore.close("remembered-override"), true);
+assert.equal(await rememberedStore.delete("remembered-override"), true);
+assert.deepEqual(overrideDestroySandbox.destroyInputs, [{
+  sessionId: "remembered-override",
+  agentKey: "session-store-test",
+}]);
+assert.deepEqual(baseDestroySandbox.destroyInputs, []);
+await rememberedStore.close();

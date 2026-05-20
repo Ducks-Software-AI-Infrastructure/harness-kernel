@@ -22,4 +22,4 @@ type HarnessErrorCategory =
   | "runtime";
 ```
 
-Defined in: packages/core/src/runtime/types/errors.ts:3
+Defined in: [packages/core/src/runtime/types/errors.ts:3](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/errors.ts#L3)

@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/provider-openai",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "description": "OpenAI model provider for Harness Kernel.",
   "license": "Apache-2.0",
@@ -41,8 +41,8 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.63",
-    "@harness-kernel/core": "0.3.0",
-    "@harness-kernel/provider-ai-sdk": "0.3.0"
+    "@harness-kernel/core": "0.4.0",
+    "@harness-kernel/provider-ai-sdk": "0.4.0"
   },
   "devDependencies": {
     "zod": "^4.4.3"
