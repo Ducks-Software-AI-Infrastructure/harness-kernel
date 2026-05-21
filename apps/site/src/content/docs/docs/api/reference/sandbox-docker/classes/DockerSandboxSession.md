@@ -10,7 +10,7 @@ description: "Generated API reference for DockerSandboxSession."
 
 # Class: DockerSandboxSession
 
-Defined in: packages/sandbox-docker/src/index.ts:207
+Defined in: [packages/sandbox-docker/src/index.ts:207](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L207)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: packages/sandbox-docker/src/index.ts:207
 new DockerSandboxSession(input): DockerSandboxSession;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:211
+Defined in: [packages/sandbox-docker/src/index.ts:211](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L211)
 
 #### Parameters
 
@@ -50,8 +50,8 @@ Defined in: packages/sandbox-docker/src/index.ts:211
 
 | Property | Modifier | Type | Overrides | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `string` | [`HarnessSandboxSession`](../../core/classes/HarnessSandboxSession.md).[`id`](../../core/classes/HarnessSandboxSession.md#property-id) | packages/sandbox-docker/src/index.ts:208 |
-| <a id="property-workdir"></a> `workDir` | `readonly` | `string` | [`HarnessSandboxSession`](../../core/classes/HarnessSandboxSession.md).[`workDir`](../../core/classes/HarnessSandboxSession.md#property-workdir) | packages/sandbox-docker/src/index.ts:209 |
+| <a id="property-id"></a> `id` | `readonly` | `string` | [`HarnessSandboxSession`](../../core/classes/HarnessSandboxSession.md).[`id`](../../core/classes/HarnessSandboxSession.md#property-id) | [packages/sandbox-docker/src/index.ts:208](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L208) |
+| <a id="property-workdir"></a> `workDir` | `readonly` | `string` | [`HarnessSandboxSession`](../../core/classes/HarnessSandboxSession.md).[`workDir`](../../core/classes/HarnessSandboxSession.md#property-workdir) | [packages/sandbox-docker/src/index.ts:209](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L209) |
 
 ## Methods
 
@@ -61,7 +61,7 @@ Defined in: packages/sandbox-docker/src/index.ts:211
 close(input?): Promise<void>;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:247
+Defined in: [packages/sandbox-docker/src/index.ts:247](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L247)
 
 #### Parameters
 
@@ -85,7 +85,7 @@ Defined in: packages/sandbox-docker/src/index.ts:247
 exec(input): Promise<SandboxExecResult>;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:224
+Defined in: [packages/sandbox-docker/src/index.ts:224](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L224)
 
 #### Parameters
 

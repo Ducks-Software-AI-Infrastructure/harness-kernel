@@ -10,12 +10,12 @@ description: "Generated API reference for DockerSandboxWorkspaceMount."
 
 # Interface: DockerSandboxWorkspaceMount
 
-Defined in: packages/sandbox-docker/src/index.ts:17
+Defined in: [packages/sandbox-docker/src/index.ts:17](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L17)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-envname"></a> `envName?` | `string` | packages/sandbox-docker/src/index.ts:20 |
-| <a id="property-hostpath"></a> `hostPath` | `string` | packages/sandbox-docker/src/index.ts:18 |
-| <a id="property-readonly"></a> `readOnly?` | `boolean` | packages/sandbox-docker/src/index.ts:19 |
+| <a id="property-envname"></a> `envName?` | `string` | [packages/sandbox-docker/src/index.ts:20](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L20) |
+| <a id="property-hostpath"></a> `hostPath` | `string` | [packages/sandbox-docker/src/index.ts:18](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L18) |
+| <a id="property-readonly"></a> `readOnly?` | `boolean` | [packages/sandbox-docker/src/index.ts:19](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L19) |

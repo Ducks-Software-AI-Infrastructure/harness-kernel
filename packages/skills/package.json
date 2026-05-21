@@ -1,0 +1,76 @@
+{
+  "name": "@harness-kernel/skills",
+  "version": "0.5.0",
+  "type": "module",
+  "description": "Package-only skill registry, prompts, gated tools, and audit events for Harness Kernel agents.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel.git"
+  },
+  "homepage": "https://ducks-software-ai-infrastructure.github.io/harness-kernel/docs/packages/skills/",
+  "bugs": {
+    "url": "https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "runtime",
+    "skills",
+    "harness-kernel"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./events": {
+      "types": "./dist/events.d.ts",
+      "import": "./dist/events.js"
+    },
+    "./logs": {
+      "types": "./dist/logs.d.ts",
+      "import": "./dist/logs.js"
+    },
+    "./provider": {
+      "types": "./dist/provider.d.ts",
+      "import": "./dist/provider.js"
+    },
+    "./registry": {
+      "types": "./dist/registry.d.ts",
+      "import": "./dist/registry.js"
+    },
+    "./skill": {
+      "types": "./dist/skill.d.ts",
+      "import": "./dist/skill.js"
+    },
+    "./state": {
+      "types": "./dist/state.d.ts",
+      "import": "./dist/state.js"
+    },
+    "./tools": {
+      "types": "./dist/tools.d.ts",
+      "import": "./dist/tools.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx src/skill.test.ts"
+  },
+  "dependencies": {
+    "@harness-kernel/core": "0.5.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

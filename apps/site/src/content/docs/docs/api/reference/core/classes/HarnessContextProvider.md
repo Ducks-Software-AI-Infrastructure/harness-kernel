@@ -12,6 +12,10 @@ description: "Generated API reference for HarnessContextProvider."
 
 Defined in: [packages/core/src/runtime/types/context.ts:118](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/runtime/types/context.ts#L118)
 
+## Extended by
+
+- [`SkillPromptProvider`](../../skills/provider/classes/SkillPromptProvider.md)
+
 ## Type Parameters
 
 | Type Parameter | Default type |

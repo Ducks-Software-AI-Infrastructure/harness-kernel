@@ -10,23 +10,23 @@ description: "Generated API reference for DockerSandboxOptions."
 
 # Interface: DockerSandboxOptions
 
-Defined in: packages/sandbox-docker/src/index.ts:23
+Defined in: [packages/sandbox-docker/src/index.ts:23](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L23)
 
 ## Properties
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="property-branch"></a> `branch?` | `string` | packages/sandbox-docker/src/index.ts:36 |
-| <a id="property-cpus"></a> `cpus?` | `number` | packages/sandbox-docker/src/index.ts:37 |
-| <a id="property-defaulttimeoutms"></a> `defaultTimeoutMs?` | `number` | packages/sandbox-docker/src/index.ts:40 |
-| <a id="property-env"></a> `env?` | `Record`\<`string`, `string`\> | packages/sandbox-docker/src/index.ts:39 |
-| <a id="property-extraworkspaces"></a> `extraWorkspaces?` | \| [`DockerSandboxWorkspaceMount`](DockerSandboxWorkspaceMount.md)[] \| ((`input`) => \| [`DockerSandboxWorkspaceMount`](DockerSandboxWorkspaceMount.md)[] \| `Promise`\<[`DockerSandboxWorkspaceMount`](DockerSandboxWorkspaceMount.md)[]\>) | packages/sandbox-docker/src/index.ts:29 |
-| <a id="property-kits"></a> `kits?` | `string`[] | packages/sandbox-docker/src/index.ts:35 |
-| <a id="property-memory"></a> `memory?` | `string` | packages/sandbox-docker/src/index.ts:38 |
-| <a id="property-nameprefix"></a> `namePrefix?` | `string` | packages/sandbox-docker/src/index.ts:33 |
-| <a id="property-persistence"></a> `persistence?` | [`DockerSandboxPersistence`](../type-aliases/DockerSandboxPersistence.md) | packages/sandbox-docker/src/index.ts:32 |
-| <a id="property-sbxpath"></a> `sbxPath?` | `string` | packages/sandbox-docker/src/index.ts:24 |
-| <a id="property-template"></a> `template?` | `string` | packages/sandbox-docker/src/index.ts:34 |
-| <a id="property-workspace"></a> `workspace?` | `object` | packages/sandbox-docker/src/index.ts:25 |
-| `workspace.hostPath?` | `string` | packages/sandbox-docker/src/index.ts:26 |
-| `workspace.readOnly?` | `boolean` | packages/sandbox-docker/src/index.ts:27 |
+| <a id="property-branch"></a> `branch?` | `string` | [packages/sandbox-docker/src/index.ts:36](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L36) |
+| <a id="property-cpus"></a> `cpus?` | `number` | [packages/sandbox-docker/src/index.ts:37](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L37) |
+| <a id="property-defaulttimeoutms"></a> `defaultTimeoutMs?` | `number` | [packages/sandbox-docker/src/index.ts:40](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L40) |
+| <a id="property-env"></a> `env?` | `Record`\<`string`, `string`\> | [packages/sandbox-docker/src/index.ts:39](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L39) |
+| <a id="property-extraworkspaces"></a> `extraWorkspaces?` | \| [`DockerSandboxWorkspaceMount`](DockerSandboxWorkspaceMount.md)[] \| ((`input`) => \| [`DockerSandboxWorkspaceMount`](DockerSandboxWorkspaceMount.md)[] \| `Promise`\<[`DockerSandboxWorkspaceMount`](DockerSandboxWorkspaceMount.md)[]\>) | [packages/sandbox-docker/src/index.ts:29](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L29) |
+| <a id="property-kits"></a> `kits?` | `string`[] | [packages/sandbox-docker/src/index.ts:35](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L35) |
+| <a id="property-memory"></a> `memory?` | `string` | [packages/sandbox-docker/src/index.ts:38](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L38) |
+| <a id="property-nameprefix"></a> `namePrefix?` | `string` | [packages/sandbox-docker/src/index.ts:33](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L33) |
+| <a id="property-persistence"></a> `persistence?` | [`DockerSandboxPersistence`](../type-aliases/DockerSandboxPersistence.md) | [packages/sandbox-docker/src/index.ts:32](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L32) |
+| <a id="property-sbxpath"></a> `sbxPath?` | `string` | [packages/sandbox-docker/src/index.ts:24](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L24) |
+| <a id="property-template"></a> `template?` | `string` | [packages/sandbox-docker/src/index.ts:34](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L34) |
+| <a id="property-workspace"></a> `workspace?` | `object` | [packages/sandbox-docker/src/index.ts:25](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L25) |
+| `workspace.hostPath?` | `string` | [packages/sandbox-docker/src/index.ts:26](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L26) |
+| `workspace.readOnly?` | `boolean` | [packages/sandbox-docker/src/index.ts:27](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L27) |

@@ -10,7 +10,7 @@ description: "Generated API reference for DockerSandbox."
 
 # Class: DockerSandbox
 
-Defined in: packages/sandbox-docker/src/index.ts:256
+Defined in: [packages/sandbox-docker/src/index.ts:256](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L256)
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: packages/sandbox-docker/src/index.ts:256
 new DockerSandbox(options?): DockerSandbox;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:264
+Defined in: [packages/sandbox-docker/src/index.ts:264](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L264)
 
 #### Parameters
 
@@ -44,8 +44,8 @@ Defined in: packages/sandbox-docker/src/index.ts:264
 
 | Property | Modifier | Type | Default value | Overrides | Defined in |
 | ------ | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-id"></a> `id` | `readonly` | `"docker"` | `"docker"` | [`HarnessSandbox`](../../core/classes/HarnessSandbox.md).[`id`](../../core/classes/HarnessSandbox.md#property-id) | packages/sandbox-docker/src/index.ts:257 |
-| <a id="property-label"></a> `label` | `public` | `string` | `"Docker"` | [`HarnessSandbox`](../../core/classes/HarnessSandbox.md).[`label`](../../core/classes/HarnessSandbox.md#property-label) | packages/sandbox-docker/src/index.ts:258 |
+| <a id="property-id"></a> `id` | `readonly` | `"docker"` | `"docker"` | [`HarnessSandbox`](../../core/classes/HarnessSandbox.md).[`id`](../../core/classes/HarnessSandbox.md#property-id) | [packages/sandbox-docker/src/index.ts:257](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L257) |
+| <a id="property-label"></a> `label` | `public` | `string` | `"Docker"` | [`HarnessSandbox`](../../core/classes/HarnessSandbox.md).[`label`](../../core/classes/HarnessSandbox.md#property-label) | [packages/sandbox-docker/src/index.ts:258](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L258) |
 
 ## Methods
 
@@ -55,7 +55,7 @@ Defined in: packages/sandbox-docker/src/index.ts:264
 destroy(input): Promise<void>;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:276
+Defined in: [packages/sandbox-docker/src/index.ts:276](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L276)
 
 #### Parameters
 
@@ -79,7 +79,7 @@ Defined in: packages/sandbox-docker/src/index.ts:276
 open(input): Promise<DockerSandboxSession>;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:272
+Defined in: [packages/sandbox-docker/src/index.ts:272](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L272)
 
 #### Parameters
 
@@ -103,7 +103,7 @@ Defined in: packages/sandbox-docker/src/index.ts:272
 sandboxName(sessionId): string;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:284
+Defined in: [packages/sandbox-docker/src/index.ts:284](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L284)
 
 #### Parameters
 

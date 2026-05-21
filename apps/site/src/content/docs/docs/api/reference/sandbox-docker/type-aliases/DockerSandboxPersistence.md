@@ -14,4 +14,4 @@ description: "Generated API reference for DockerSandboxPersistence."
 type DockerSandboxPersistence = "workspace" | "sandbox";
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:15
+Defined in: [packages/sandbox-docker/src/index.ts:15](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L15)

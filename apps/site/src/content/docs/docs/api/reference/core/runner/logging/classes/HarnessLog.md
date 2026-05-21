@@ -12,6 +12,13 @@ description: "Generated API reference for HarnessLog."
 
 Defined in: [packages/core/src/logging/types.ts:73](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/core/src/logging/types.ts#L73)
 
+## Extended by
+
+- [`SkillActivationRequestedLog`](../../../../skills/logs/classes/SkillActivationRequestedLog.md)
+- [`SkillActivatedLog`](../../../../skills/logs/classes/SkillActivatedLog.md)
+- [`SkillDeactivatedLog`](../../../../skills/logs/classes/SkillDeactivatedLog.md)
+- [`SkillRequiredLog`](../../../../skills/logs/classes/SkillRequiredLog.md)
+
 ## Type Parameters
 
 | Type Parameter | Default type |

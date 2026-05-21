@@ -17,6 +17,7 @@ const packageDirs = [
   "packages/provider-openai",
   "packages/sandbox-docker",
   "packages/sandbox-local",
+  "packages/skills",
   "packages/storage-file",
   "packages/storage-postgres",
   "packages/tools-node",
@@ -46,6 +47,7 @@ const publicImports = [
   "@harness-kernel/provider-openai",
   "@harness-kernel/sandbox-docker",
   "@harness-kernel/sandbox-local",
+  "@harness-kernel/skills",
   "@harness-kernel/storage-file",
   "@harness-kernel/storage-postgres",
   "@harness-kernel/tools-node",
@@ -94,14 +96,23 @@ try {
     import { createHarnessSessionStore } from "@harness-kernel/core/runner";
     import { MemorySessionStorage } from "@harness-kernel/core/runner/storage";
     import { NoopSandbox } from "@harness-kernel/core/runner/sandbox";
+    import { createSkillKit, defineSkill } from "@harness-kernel/skills";
 
     assert.equal(typeof module0.createHarnessSessionStore, "function");
     assert.equal(typeof module17.JsonlFileLogSink, "function");
     assert.equal(typeof module20.DockerSandbox, "function");
     assert.equal(typeof module21.LocalSandbox, "function");
-    assert.equal(typeof module22.FileRunStorage, "function");
-    assert.equal(typeof module23.PostgresSessionStorage, "function");
-    assert.equal(typeof module24.BashTool, "function");
+    assert.equal(typeof module23.FileRunStorage, "function");
+    assert.equal(typeof module24.PostgresSessionStorage, "function");
+    assert.equal(typeof module25.BashTool, "function");
+
+    const smokeSkill = defineSkill({
+      key: "consumer-skill",
+      description: "Consumer package smoke skill."
+    });
+    const smokeSkills = createSkillKit([smokeSkill]);
+    assert.equal(smokeSkills.registry.require("consumer-skill").key, "consumer-skill");
+    assert.equal(smokeSkills.tools.some((tool) => tool.name === "activate_skill"), true);
 
     class TestMode extends HarnessMode {
       prompt = "Answer with ok.";

@@ -1,6 +1,6 @@
 {
   "name": "@harness-kernel/sandbox-docker",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "type": "module",
   "description": "Docker Sandboxes sbx backend for Harness Kernel.",
   "license": "Apache-2.0",
@@ -42,7 +42,7 @@
     "test": "tsx src/sandbox-docker.test.ts"
   },
   "dependencies": {
-    "@harness-kernel/core": "0.4.0"
+    "@harness-kernel/core": "0.5.0"
   },
   "engines": {
     "node": ">=18"

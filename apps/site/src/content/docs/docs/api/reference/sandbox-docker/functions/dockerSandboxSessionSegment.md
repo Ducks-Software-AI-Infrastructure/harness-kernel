@@ -14,7 +14,7 @@ description: "Generated API reference for DockerSandboxSessionSegment."
 function dockerSandboxSessionSegment(sessionId): string;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:57
+Defined in: [packages/sandbox-docker/src/index.ts:57](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L57)
 
 ## Parameters
 

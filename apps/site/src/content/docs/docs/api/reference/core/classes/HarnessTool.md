@@ -14,6 +14,9 @@ Defined in: [packages/core/src/runtime/types/tools.ts:45](https://github.com/Duc
 
 ## Extended by
 
+- [`SkillActivationTool`](../../skills/tools/classes/SkillActivationTool.md)
+- [`SkillDeactivationTool`](../../skills/tools/classes/SkillDeactivationTool.md)
+- [`SkillListTool`](../../skills/tools/classes/SkillListTool.md)
 - [`BashTool`](../../tools-node/bash/classes/BashTool.md)
 - [`ReadFileTool`](../../tools-node/files/classes/ReadFileTool.md)
 - [`WriteFileTool`](../../tools-node/files/classes/WriteFileTool.md)

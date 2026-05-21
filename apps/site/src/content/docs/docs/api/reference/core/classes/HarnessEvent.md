@@ -14,6 +14,10 @@ Defined in: [packages/core/src/runtime/types/events.ts:31](https://github.com/Du
 
 ## Extended by
 
+- [`SkillActivationRequestedEvent`](../../skills/events/classes/SkillActivationRequestedEvent.md)
+- [`SkillActivatedEvent`](../../skills/events/classes/SkillActivatedEvent.md)
+- [`SkillDeactivatedEvent`](../../skills/events/classes/SkillDeactivatedEvent.md)
+- [`SkillRequiredEvent`](../../skills/events/classes/SkillRequiredEvent.md)
 - [`RunStartEvent`](RunStartEvent.md)
 - [`TurnStartEvent`](TurnStartEvent.md)
 - [`ContextReadyEvent`](ContextReadyEvent.md)

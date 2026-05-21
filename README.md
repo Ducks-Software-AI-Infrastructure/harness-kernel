@@ -298,6 +298,7 @@ export const agent = defineAgent({
 | [`@harness-kernel/sandbox-docker`](https://www.npmjs.com/package/@harness-kernel/sandbox-docker) | Docker Sandboxes `sbx` backend for isolated command execution. |
 | [`@harness-kernel/sandbox-local`](https://www.npmjs.com/package/@harness-kernel/sandbox-local) | Local shell sandbox implementation. |
 | [`@harness-kernel/tools-node`](https://www.npmjs.com/package/@harness-kernel/tools-node) | Node/local tools such as shell and file tools for modes. |
+| [`@harness-kernel/skills`](https://www.npmjs.com/package/@harness-kernel/skills) | Procedural skills with active prompts, control tools, soft-gated tools, events, and logs. |
 | [`@harness-kernel/logging-file`](https://www.npmjs.com/package/@harness-kernel/logging-file) | JSONL operational log sink. |
 | [`@harness-kernel/create`](https://www.npmjs.com/package/@harness-kernel/create) | Scaffold/devtool for new projects. Not a runtime dependency. |
 

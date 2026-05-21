@@ -14,7 +14,7 @@ description: "Generated API reference for CreateDockerSandbox."
 function createDockerSandbox(options?): DockerSandbox;
 ```
 
-Defined in: packages/sandbox-docker/src/index.ts:352
+Defined in: [packages/sandbox-docker/src/index.ts:352](https://github.com/Ducks-Software-AI-Infrastructure/harness-kernel/blob/main/packages/sandbox-docker/src/index.ts#L352)
 
 ## Parameters
 
